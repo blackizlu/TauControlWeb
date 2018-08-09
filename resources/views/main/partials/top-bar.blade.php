@@ -31,7 +31,7 @@
 <div class="menu navbar navbar-static-top header-logo-left-menu-right oxy-mega-menu navbar-sticky" id="masthead">
     <div class="container">
         <div class="navbar-header">
-            <button class="navbar-toggle collapsed" data-target=".main-navbar" data-toggle="collapse" type="button"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="corporate-index.html">
+            <button class="navbar-toggle collapsed" data-target=".main-navbar" data-toggle="collapse" type="button"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="{{route('main.home')}}">
                 <img src="/images/logo.png" alt="" style="width: 40%">
             </a> </div>
         <div class="nav-container">
