@@ -109,5 +109,7 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgbhUTAgy672rwO6YRcvSXrnCZqlogLJ0&callback=initMap"
             async defer></script>--}}
+    <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDG0c1QTdA7-2y-5b9SXYmKOMgClqtVVlU&ver=4.9.8'></script>
+    @yield('scripts')
 </body>
 </html>
