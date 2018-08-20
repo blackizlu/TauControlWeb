@@ -37,15 +37,15 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group form-icon-group"> <i class="fa fa-user"></i>
-                                            <input class="form-control" id="name" name="name" placeholder="Your name *" type="text" required=""> </div>
+                                            <input class="form-control" id="name" name="name" placeholder="Nombre *" type="text" required=""> </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group form-icon-group"> <i class="fa fa-envelope"></i>
-                                            <input class="form-control" id="email" name="email" placeholder="Your email *" type="email" required=""> </div>
+                                            <input class="form-control" id="email" name="email" placeholder="Correo Electronico *" type="email" required=""> </div>
                                     </div>
                                 </div>
                                 <div class="form-group form-icon-group"> <i class="fa fa-pencil"></i>
-                                    <textarea class="form-control" id="message" name="message" placeholder="Your message" rows="10" required=""></textarea>
+                                    <textarea class="form-control" id="message" name="message" placeholder="Escribe aqui tu mensaje" rows="10" required=""></textarea>
                                 </div>
                                 <div class="text-center">
                                     <input type="submit" value="Send email" class="btn btn-primary"> </div>
@@ -128,9 +128,9 @@
             map_style: '',
             map_scrollable: 'on',
             marker: 'show',
-            label: ['London Royal', 'Athens Bistro'],
+            label: ['Tau Control'],
             address: '',
-            latlng: ['25.664611, -100.369845'],
+            latlng: ['25.664049, -100.369845'],
             center_latlng: '25.664611, -100.369845',
             markerURL: '/images/marker.png',
             auto_center: false,
