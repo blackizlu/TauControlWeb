@@ -6,7 +6,8 @@
             <div class="row">
                 <header class="portfolio-header col-md-12 text-light">
                     <h1 class="text-left element-top-70 element-bottom-70 text-light big">{{ $title }}</h1>
-                    <nav class="portfolio-nav element-top-70">
+                {{-- Navegador entre items por si acaso. :v --}}
+                    {{--    <nav class="portfolio-nav element-top-70">
                         <ul>
                             <li>
                                 <a href="#">
@@ -27,7 +28,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </nav>
+                    </nav>--}}
                 </header>
             </div>
         </div>
@@ -102,6 +103,16 @@
                     <div class="col-text-1 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0.3s">
                         <p>{!! $result !!} <br></p>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider-wrapper">
+                    <div class="visible-xs element-height-70"></div>
+                    <div class="visible-sm element-height-70"></div>
+                    <div class="visible-md element-height-70"></div>
+                    <div class="visible-lg element-height-70"></div>
                 </div>
             </div>
         </div>

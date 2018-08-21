@@ -12,16 +12,16 @@
             <div class="sidebar-widget text-right small-screen-center widget_social">
                 <ul class="unstyled inline social-icons social-simple social-normal">
                     <li>
-                        <a data-iconcolor="#3b5998" href="corporate-index.html"> <i class="fa fa-facebook"></i> </a>
+                        <a data-iconcolor="#3b5998" href="/facebook"> <i class="fa fa-facebook"></i> </a>
                     </li>
                     <li>
-                        <a data-iconcolor="#00acee" href="corporate-index.html"> <i class="fa fa-twitter"></i> </a>
+                        <a data-iconcolor="#00acee" href="/twitter"> <i class="fa fa-twitter"></i> </a>
                     </li>
                     <li>
-                        <a data-iconcolor="#5FB0D5" href="corporate-index.html"> <i class="fa fa-linkedin"></i> </a>
+                        <a data-iconcolor="#5FB0D5" href="/LikedIn"> <i class="fa fa-linkedin"></i> </a>
                     </li>
                     <li>
-                        <a data-iconcolor="#E45135" href="corporate-index.html"> <i class="fa fa-google-plus"></i> </a>
+                        <a data-iconcolor="#E45135" href="/googleplus"> <i class="fa fa-google-plus"></i> </a>
                     </li>
                 </ul>
             </div>
@@ -31,7 +31,7 @@
 <div class="menu navbar navbar-static-top header-logo-left-menu-right oxy-mega-menu navbar-sticky" id="masthead">
     <div class="container">
         <div class="navbar-header">
-            <button class="navbar-toggle collapsed" data-target=".main-navbar" data-toggle="collapse" type="button"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="corporate-index.html">
+            <button class="navbar-toggle collapsed" data-target=".main-navbar" data-toggle="collapse" type="button"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="{{route('main.home')}}">
                 <img src="/images/logo.png" alt="" style="width: 40%">
             </a> </div>
         <div class="nav-container">

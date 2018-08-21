@@ -16,19 +16,6 @@
     <link rel="icon" href="/images/cropped-tau-control-logo-32x32.png" sizes="32x32" />
     <link rel="icon" href="/images/cropped-tau-control-logo-192x192.png" sizes="192x192" />
     <link rel="shortcut icon" href="assets/images/favicons/favicon.ico">
-    {{--<style>
-        /* Always set the map height explicitly to define the size of the div
-         * element that contains the map. */
-        #map {
-            height: 200px;
-        }
-        /* Optional: Makes the sample page fill the window. */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>--}}
 </head>
 <body class="pace-on pace-counter">
     <div class="pace-overlay"></div>
@@ -97,17 +84,7 @@
                 });
         });
     </script>
-    {{--<script>
-        var map;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -34.397, lng: 150.644},
-                zoom: 8
-            });
-        }
-    </script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgbhUTAgy672rwO6YRcvSXrnCZqlogLJ0&callback=initMap"
-            async defer></script>--}}
+    <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDG0c1QTdA7-2y-5b9SXYmKOMgClqtVVlU&ver=4.9.8'></script>
+    @yield('scripts')
 </body>
 </html>

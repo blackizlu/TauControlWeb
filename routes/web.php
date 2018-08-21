@@ -11,6 +11,14 @@
 |
 */
 
+Auth::routes();
+
+Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return view('dashboard.home');
+    })->name('dashboard.home');
+});
+
 Route::get('/', function () {
     return view('main.home');
 })->name('main.home');
