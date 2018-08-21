@@ -18,3 +18,4 @@ composer.lock
 /public/js/.DS_Store
 /resources/.DS_Store
 /resources/views/.DS_Store
+public/.DS_Store
