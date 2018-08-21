@@ -13,4 +13,8 @@ yarn-error.log
 .env
 composer.lock
 .DS_Store
-composer.lock
+/public/css/.DS_Store
+/public/css/dashboard/.DS_Store
+/public/js/.DS_Store
+/resources/.DS_Store
+/resources/views/.DS_Store
