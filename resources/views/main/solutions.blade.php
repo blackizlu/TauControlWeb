@@ -163,7 +163,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="text-center element-top-70 os-animation big" data-os-animation="fadeIn" data-os-animation-delay="0s">
-                        Algunos clientes.
+                        Nuestras marcas.
                     </h1>
                     <div class="divider-border divider-border-center element-top-10 element-bottom-10 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.1s" style="height:3px;">
                         <div class="divider-border-inner" style="width:60px;"> </div>
@@ -171,27 +171,95 @@
                     <p class="lead text-center center  element-bottom-70" data-os-animation="none" data-os-animation-delay="0s" >Integraciones dependiendo las necesidades de cada cliente.</p>
                     <div class="list-container row element-top-60 element-bottom-60 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s">
                         <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
-                                <img src="/images/logo_muguerza.png" width="150px" alt="Visualise"/>
+                                <img src="/images/cisco.png" width="80px" alt="Visualise"/>
                             </span>
                         </div>
                         <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
-                                <img src="/images/logo-chrysler.jpg" width="150px" alt="Visualise"/>
+                                <img src="/images/belkin.png" width="80px" alt="Visualise"/>
                             </span>
                         </div>
                         <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
-                                <img src="/images/logo-crocsa.jpg" width="150px" alt="Visualise"/>
+                                <img src="/images/buffalo.png" width="80px" alt="Visualise"/>
                             </span>
                         </div>
                         <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
-                                <img src="/images/logo-emerson.jpg" width="150px" alt="Visualise"/>
+                                <img src="/images/yealink.png" width="80px" alt="Visualise"/>
                             </span>
                         </div>
                         <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
-                                <img src="/images/logo-morrison.jpg" width="150px" alt="Visualise"/>
+                                <img src="/images/linksys.png" width="80px" alt="Visualise"/>
                             </span>
                         </div>
                         <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
-                                <img src="/images/logo-superiorindustries.jpg" width="150px" alt="Visualise"/>
+                                <img src="/images/digium.png" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-2 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/dlink.png" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/samsung.png" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/honeywell.png" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/bosch.png" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/secolarm.png" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/dsc.png" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/hikvision.png" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/acti.png" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/sony.png" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/axis.png" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/systemsensor.png" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/firelitealarms.jgg" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/zksoftware.png" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/pyxis.png" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/came.png" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/syscom.png" width="80px" alt="Visualise"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                                <img src="/images/rosslare.png" width="80px" alt="Visualise"/>
                             </span>
                         </div>
                     </div>
