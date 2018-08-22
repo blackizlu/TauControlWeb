@@ -60,7 +60,7 @@
             </div>
         </div>
     </section>
-    <section class="section">
+    {{--<section class="section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>--}}
     <section class="section">
         <div class="background-overlay grid-overlay-0" style="background-color: rgba(250,250,250,1);"></div>
         <div class="container">

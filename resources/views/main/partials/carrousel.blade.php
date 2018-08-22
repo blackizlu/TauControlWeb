@@ -16,7 +16,7 @@
                                 <!-- LAYER NR. 2 -->
 
                                 <div class="tp-caption corporateblackbig sfr tp-resizeme rs-parallaxlevel-0" data-x="640" data-y="50" data-speed="600" data-start="800" data-easing="Power3.easeInOut" data-splitin="chars" data-splitout="none"
-                                     data-elementdelay="0.1" data-endelementdelay="0.1" style="z-index: 7; max-width: auto; max-height: auto; white-space: nowrap;">Tecnologia a la medida,</div>
+                                     data-elementdelay="0.1" data-endelementdelay="0.1" style="z-index: 7; max-width: auto; max-height: auto; white-space: nowrap;">Tecnología a la medida,</div>
                                 <!-- LAYER NR. 7 -->
                                 <div class="tp-caption corporateblackbigstrong sfr tp-resizeme rs-parallaxlevel-0" data-x="700" data-y="100" data-speed="600" data-start="1400" data-easing="Power3.easeInOut" data-splitin="chars" data-splitout="none"
                                      data-elementdelay="0.1" data-endelementdelay="0.1" style="z-index: 8; max-width: auto; max-height: auto; white-space: nowrap;">Soluciones Inteligentes. </div>
@@ -27,9 +27,9 @@
                                     <br> tecnológica en el ramo inmobiliario, donde cada nuevo proyecto es
                                     <br> el único proyecto para nosotros. </div>
 
-                                <div class="tp-caption corporatebluebutton lfb tp-resizeme rs-parallaxlevel-0" data-x="800" data-y="350" data-speed="700" data-start="3500" data-easing="Power3.easeInOut" data-splitout="none" data-elementdelay="0.1"
-                                     data-endelementdelay="0.1" style="z-index: 10; max-width: auto; max-height: auto; white-space: nowrap;">
-                                    <a href="{{ route('main.solutions') }}">VER SOLUCIONES</a> </div>
+                                {{--<div class="tp-caption corporatebluebutton lfb tp-resizeme rs-parallaxlevel-0" data-x="800" data-y="350" data-speed="700" data-start="3500" data-easing="Power3.easeInOut" data-splitout="none" data-elementdelay="0.1"--}}
+                                     {{--data-endelementdelay="0.1" style="z-index: 10; max-width: auto; max-height: auto; white-space: nowrap;">--}}
+                                    {{--<a href="{{ route('main.solutions') }}">VER SOLUCIONES</a> </div>--}}
                             </li>
                         </ul>
                         <div class="tp-bannertimer"></div>

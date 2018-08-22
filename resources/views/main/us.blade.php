@@ -1,6 +1,6 @@
 @extends('main.layout')
 @section('content')
-    <section class="section">
+{{--    <section class="section">
         <div class="background-overlay" style="background-color: rgba(1,192,225,1);"></div>
         <div class="container">
             <div class="row">
@@ -9,7 +9,29 @@
             </div>
         </div>
     </section>
+    <section class="section">--}}
+<article>
     <section class="section">
+        <div class="background-media" style="background-image: url('/images/electricista.jpg'); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;" data-start="background-position: 50% -250px"
+             data-0-top-bottom="background-position: 50% 50px"></div>
+        <div class="background-overlay grid-overlay-0" style="background-color: rgba(1,192,225,0.8);"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 text-center"></div>
+                <div class="col-md-8 text-center">
+                    <h1 class="element-top-70 text-light os-animation normal default" data-os-animation="fadeIn" data-os-animation-delay="0s">
+                        Nosotros.
+                    </h1>
+                    <div class="divider-border divider-border-center element-top-10 element-bottom-10 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.1s" style="height:3px;">
+                        <div class="divider-border-inner" style="background:#ffffff; width:60px;"></div>
+                    </div>
+                    <p class="lead text-center center  text-light  element-bottom-70" data-os-animation="none" data-os-animation-delay="0s"> Somos una empresa dedicada al diseño, suministro, instalación, configuración
+                        <br /> e integración tecnológica en el ramo inmobiliario, con sistemas robustos y la capacidad técnica para desarrollar proyectos a la medida de las necesidades de nuestros clientes.</p>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </section>
         <div class="background-overlay" style="background-color: rgba(215,225,227,0);"></div>
         <div class="container">
             <div class="row">
@@ -17,10 +39,10 @@
                     <div class="row">
                         <div class="col-md-6">
                             <ul class="features-list element-top-80">
-                                <li class="element-bottom-20">
-                                    <div class="features-list-icon box-animate" style="background-color: #0190BF;" data-animation="swing"> <i class="fa fa-graduation-cap" style="color: #ffffff;"></i> </div>
-                                    <h3>Fomentamos la Educación</h3>
-                                    <p>Para poder ofrecer los mejores productos y sobre todo la mejor calidad tenemos que estar en constante mejora a través de cursos, capacitaciones, diplomas y talleres.</p>
+                                <li class=" element-bottom-20" data-os-animation="none" data-os-animation-delay="0.4s" >
+                                    <div class="features-list-icon box-animate" style="background-color: #0190BF;" data-animation="swing" > <i class="fa fa-graduation-cap" style="color: #ffffff;"></i> </div>
+                                    <h3>Servicios de consultoría</h3>
+                                    <p>Proveemos servicios y soluciones personalizadas.</p>
                                 </li>
                                 <li class=" element-bottom-20" data-os-animation="none" data-os-animation-delay="0.4s">
                                     <div class="features-list-icon box-animate" style="background-color: #0190BF;" data-animation="swing"> <i class="fa fa-handshake-o" style="color: #ffffff;"></i> </div>
