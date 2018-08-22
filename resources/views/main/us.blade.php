@@ -39,29 +39,29 @@
                     <div class="row">
                         <div class="col-md-6">
                             <ul class="features-list element-top-80">
-                                <li class=" element-bottom-20" data-os-animation="none" data-os-animation-delay="0.4s" >
-                                    <div class="features-list-icon box-animate" style="background-color: #0190BF;" data-animation="swing" > <i class="fa fa-graduation-cap" style="color: #ffffff;"></i> </div>
-                                    <h3>Servicios de consultoría</h3>
-                                    <p>Proveemos servicios y soluciones personalizadas.</p>
+                                <li class=" element-bottom-20" data-os-animation="none" data-os-animation-delay="0.4s">
+                                    <div class="features-list-icon box-animate" style="background-color: #00c0e1;" data-animation="swing"> <i class="fa fa-pencil" style="color: #ffffff;"></i> </div>
+                                    <h3>Diseño, implementación y administración de proyectos.</h3>
+                                    <p>Diseñamos el proceso de trabajo de acuerdo a las necesidades de nuestros clientes, acompañandolos en cada etapa hasta la completa implementación. </p>
                                 </li>
                                 <li class=" element-bottom-20" data-os-animation="none" data-os-animation-delay="0.4s">
-                                    <div class="features-list-icon box-animate" style="background-color: #0190BF;" data-animation="swing"> <i class="fa fa-handshake-o" style="color: #ffffff;"></i> </div>
-                                    <h3>Nos exigimos La Excelencia</h3>
-                                    <p>Para poder garantizar nuestros productos y servicios tenemos que estar 100% seguros de que estamos haciendo las cosas perfectas. Nuestro éxito se basa en el menor mantenimiento posible.</p>
+                                    <div class="features-list-icon box-animate" style="background-color: #00c0e1;" data-animation="swing"> <i class="fa fa-handshake-o" style="color: #ffffff;"></i> </div>
+                                    <h3>Enfocados al cliente.</h3>
+                                    <p>Dirigidos al Cliente innovamos y operamos a través del desarrollo continuo que garantiza la calidad de nuestros proyectos. </p>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-md-6">
                             <ul class="features-list element-top-80">
-                                <li class=" element-bottom-20" data-os-animation="none" data-os-animation-delay="0.4s">
-                                    <div class="features-list-icon box-animate" style="background-color: #0190BF;" data-animation="swing"> <i class="fa fa-trophy" style="color: #ffffff;"></i> </div>
-                                    <h3>Honestidad y comunicación</h3>
-                                    <p>A través de comunicación efectiva, creamos lazos con nuestros clientes, entendemos lo que se puede y no se puede hacer en cada proyecto. Es indispensable para el éxito de cada cliente. </p>
+                                <li class=" element-bottom-20" data-os-animation="none" data-os-animation-delay="0.4s" >
+                                    <div class="features-list-icon box-animate" style="background-color: #00c0e1;" data-animation="swing" > <i class="fa fa-lightbulb-o" style="color: #ffffff;"></i> </div>
+                                    <h3>Apasionados por la innovación.</h3>
+                                    <p>Servicios y soluciones personalizadas basadas en las mejores practicas a nivel mundial, para hacer de tu inmueble un lugar más seguro y eficiente, creando, diseñando y habilitando soluciones de seguridad, protección y eficiencia, integradas por tecnologías de vanguardia.</p>
                                 </li>
                                 <li class=" element-bottom-20" data-os-animation="none" data-os-animation-delay="0.4s">
-                                    <div class="features-list-icon box-animate" style="background-color: #0190BF;" data-animation="swing"> <i class="fa fa-paint-brush" style="color: #ffffff;"></i> </div>
-                                    <h3>CREAMOS DIVERSIÓN</h3>
-                                    <p>Haz lo que te apasiona y nunca volverás a trabajar en tu vida... Siguiendo esta filosofía, cada oportunidad que nos da un cliente, es una oprotunidad para disfrutar nuestra pasión.</p>
+                                    <div class="features-list-icon box-animate" style="background-color: #00c0e1;" data-animation="swing"> <i class="fa  fa-gears (alias)" style="color: #ffffff;"></i> </div>
+                                    <h3>Armonia en lo que hacemos.</h3>
+                                    <p>Enlazamos todos los elementos de seguridad de tu inmueble haciendo que cada elemento trabaje en conjunto con un correcto funcionamiento.</p>
                                 </li>
                             </ul>
                         </div>
