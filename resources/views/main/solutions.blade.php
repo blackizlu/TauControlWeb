@@ -194,7 +194,7 @@
                                 <img src="/images/digium.png" width="80px" alt="Visualise"/>
                             </span>
                         </div>
-                        <div class="col-md-2 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
+                        <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
                                 <img src="/images/dlink.png" width="80px" alt="Visualise"/>
                             </span>
                         </div>
@@ -239,7 +239,7 @@
                             </span>
                         </div>
                         <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
-                                <img src="/images/firelitealarms.jgg" width="80px" alt="Visualise"/>
+                                <img src="/images/firelitealarms.jpg" width="80px" alt="Visualise"/>
                             </span>
                         </div>
                         <div class="col-md-4 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
