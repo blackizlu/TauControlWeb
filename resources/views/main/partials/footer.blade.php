@@ -4,7 +4,7 @@
             <div class="row element-top-40 element-bottom-40 footer-columns-4">
                 <div class="col-sm-3">
                     <div class="sidebar-widget widget_text" id="text-2">
-                        <h3 class="sidebar-header">About Us</h3>
+                        <h3 class="sidebar-header">Acerca de nosotros</h3>
                         <div class="textwidget">
                             <p>Nos apasiona la tecnología, nada nos gusta mas que soñar con nuestros clientes y trabajar con sudor, determinación y pasión. Cada proyecto es una nueva oportunidad para reinventarnos, cada proyecto nuevo, es NUESTRO PROYECTO! Si soñamos juntos soñamos el doble.</div>
                     </div>
