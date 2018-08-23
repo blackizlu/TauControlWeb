@@ -23,9 +23,11 @@
                                 <!-- LAYER NR. 8 -->
                                 <div class="tp-caption corporateblacknormal sfr tp-resizeme rs-parallaxlevel-0" data-x="585" data-y="220" data-speed="600" data-start="2500" data-easing="Power3.easeInOut" data-splitout="none" data-elementdelay="0.1"
                                      data-endelementdelay="0.1" style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap; line-height: 25px; font-size: 20px">
-                                    Tau control nace por una pasión a resolver los problemas de integración
-                                    <br> tecnológica en el ramo inmobiliario, donde cada nuevo proyecto es
-                                    <br> el único proyecto para nosotros. </div>
+                                    Tau Control nace por el deseo de resolver los problemas
+                                    <br>de integración tecnológica en el ramo inmobiliario, con soluciones
+                                    <br>integradas de seguridad electrónica y control, apasionados
+                                    <br>por la tecnología y calidad.</div>
+
 
                                 {{--<div class="tp-caption corporatebluebutton lfb tp-resizeme rs-parallaxlevel-0" data-x="800" data-y="350" data-speed="700" data-start="3500" data-easing="Power3.easeInOut" data-splitout="none" data-elementdelay="0.1"--}}
                                      {{--data-endelementdelay="0.1" style="z-index: 10; max-width: auto; max-height: auto; white-space: nowrap;">--}}
