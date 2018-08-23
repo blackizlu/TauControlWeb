@@ -91,7 +91,7 @@
                     <p class="lead text-center center element-bottom-40" data-os-animation="none" data-os-animation-delay="0s"> Cuando la pasión de nuestros clientes se combina con la nuestra, cosas increíbles son posibles.</p>
                     <div class="element-bottom-50 recent-simple-os-container row">
                         <div class="col-md-4" data-os-animation="none" data-os-animation-delay="0s">
-                            <article class="post-grid post-grid-overlay element-bottom-20 text-left" style="background-image: url(/images/fca.jpeg)">
+                            <article class="post-grid post-grid-overlay element-bottom-20 text-left" style="background-image: url(/images/fca.jpg)">
                                 <a href="{{ route('main.success.item', 'fiat-chrysler') }}">
                                     <div class="post-grid-content">
                                         <h3 class="post-grid-content-title">Fiat Chrysler.</h3>
