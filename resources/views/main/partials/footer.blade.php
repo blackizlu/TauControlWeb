@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="sidebar-widget widget_text">
-                        <h3 class="sidebar-header">Encuentranos</h3>
+                        <h3 class="sidebar-header">Nuestras Oficinas</h3>
                         <div class="textwidget"><img alt="headquarters" src="/images/mapamexico.png" style="width: 300px"></div>
                     </div>
                 </div>
