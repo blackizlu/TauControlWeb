@@ -91,11 +91,11 @@
                     <p class="lead text-center center element-bottom-40" data-os-animation="none" data-os-animation-delay="0s"> Cuando la pasión de nuestros clientes se combina con la nuestra, cosas increíbles son posibles.</p>
                     <div class="element-bottom-50 recent-simple-os-container row">
                         <div class="col-md-4" data-os-animation="none" data-os-animation-delay="0s">
-                            <article class="post-grid post-grid-overlay element-bottom-20 text-left" style="background-image: url(/images/fca.jpg)">
+                            <article class="post-grid post-grid-overlay element-bottom-20 text-left" style="background-image: url(/images/fiat.jpg)">
                                 <a href="{{ route('main.success.item', 'fiat-chrysler') }}">
                                     <div class="post-grid-content">
                                         <h3 class="post-grid-content-title">Fiat Chrysler.</h3>
-                                        <div class="post-grid-content-footer"> Julio 20, 2015.</div>
+                                        <div class="post-grid-content-footer"> Julio 20, 2017.</div>
                                     </div>
                                 </a>
                             </article>
@@ -105,7 +105,7 @@
                                 <a href="{{ route('main.success.item', 'corporativo-crocsa') }}">
                                     <div class="post-grid-content">
                                         <h3 class="post-grid-content-title">Los Comanches Monterrey.</h3>
-                                        <div class="post-grid-content-footer"> Mayo 18, 2015.</div>
+                                        <div class="post-grid-content-footer"> Mayo 18, 2017.</div>
                                     </div>
                                 </a>
                             </article>
@@ -115,7 +115,7 @@
                                 <a href="{{ route('main.success.item', 'departamento-torre-sofia') }}">
                                     <div class="post-grid-content">
                                         <h3 class="post-grid-content-title">Departamento Torre Sofía.</h3>
-                                        <div class="post-grid-content-footer"> Abril 18, 2015. </div>
+                                        <div class="post-grid-content-footer"> Abril 18, 2016. </div>
                                     </div>
                                 </a>
                             </article>
@@ -125,7 +125,7 @@
                                 <a href="{{ route('main.success.item', 'casa-particular') }}">
                                     <div class="post-grid-content">
                                         <h3 class="post-grid-content-title">Casa particular</h3>
-                                        <div class="post-grid-content-footer"> Julio 6, 2015. </div>
+                                        <div class="post-grid-content-footer"> Julio 6, 2016. </div>
                                     </div>
                                 </a>
                             </article>
@@ -135,7 +135,7 @@
                                 <a href="{{ route('main.success.item', 'christus-muguerza') }}">
                                     <div class="post-grid-content">
                                         <h3 class="post-grid-content-title">Christus Muguerza.</h3>
-                                        <div class="post-grid-content-footer"> Junio 2, 2015. </div>
+                                        <div class="post-grid-content-footer"> Junio 2, 2017. </div>
                                     </div>
                                 </a>
                             </article>
@@ -145,7 +145,7 @@
                                 <a href="{{ route ('main.success.item', 'superior-industries') }}">
                                     <div class="post-grid-content">
                                         <h3 class="post-grid-content-title">Superior Industries.</h3>
-                                        <div class="post-grid-content-footer"> Abril 13, 2015. </div>
+                                        <div class="post-grid-content-footer"> Abril 13, 2017. </div>
                                     </div>
                                 </a>
                             </article>

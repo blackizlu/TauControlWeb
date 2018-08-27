@@ -32,6 +32,7 @@
             </div>
         </div>
     </section>
+    <section class="section">
         <div class="background-overlay" style="background-color: rgba(215,225,227,0);"></div>
         <div class="container">
             <div class="row">
@@ -81,120 +82,131 @@
         </div>
     </section>
     <section class="section">
-        <div class="background-overlay" style="background-color: rgba(183,183,183,0.1);"></div>
-        <div class="container">
-            <div class="row">
-                <h1 class="text-center element-top-50 os-animation big" data-os-animation="fadeIn" data-os-animation-delay="0s">
-                    Nuestros procesos.
-                </h1>
-                <div class="divider-border divider-border-center element-top-10 element-bottom-10 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.1s" style="height:3px;">
-                    <div class="divider-border-inner" style="width:60px;"> </div>
+        <div class="background-media" data-0-top-bottom="background-position: 50% -80px" data-start="background-position: 50% 0px" style="background-image: url(/images/ingenieria.jpg); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;">
+        </div>
+        <div class="background-overlay" style="background-color: rgba(1,192,225,0.8);"></div>
+        <div class="container-fullwidth container-vertical-middle">
+            <div class="row vertical-middle">
+                <div class="col-md-6 text-center">
+                    <div class="figure element-top-20 element-bottom-20"> <span class="figure-image">
+                        </span> </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="col-text-1 element-top-50 element-bottom-20">
-                        <h3>COMUNICACIÓN.</h3>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="col-text-1 element-top-50 element-bottom-20">
-                        <h4>01</h4>
-                        <p>Para lograr captar las necesidades reales necesitamos entender, quién va a usar el desarrollo y de qué manera.</p>
-                    </div>
-                    <div class="col-text-1 element-top-30 element-bottom-20">
-                        <h4>03</h4>
-                        <p>En caso de que no se tengan ingenierías, siempre recomendamos hacerlas antes. De esta manera se resuelven y se evitan muchos problemas.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="col-text-1 element-top-50 element-bottom-50">
-                        <h4>02</h4>
-                        <p>Entendiendo el comportamiento del cliente final podemos entender las necesidades.</p>
-                    </div>
-                    <div class="col-text-1 element-top-40 element-bottom-50">
-                        <h4>04</h4>
-                        <p>Creemos que no hay tal cosa como sobrecomunicación.</p>
+                <div class="col-md-6" style="background:rgba(255, 255, 255, 0.8);">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8 text-left">
+                            <h2 class="element-top-100 element-bottom-20 os-animation big default" data-os-animation="fadeInRight" data-os-animation-delay="0.1s">Ingeniería</h2>
+                            <div class="divider-border divider-border-left element-top-20 element-bottom-20 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0.2s">
+                                <div class="divider-border-inner"></div>
+                            </div>
+                            <p class="lead text-left left element-top-20 element-bottom-100 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0.3s">Trabajamos con nuestros clientes para entender sus necesidades y expectativas para plantear soluciones únicas para el proyecto.</p>
+                        </div>
+                        <div class="col-md-2"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="col-text-1 element-top-50 element-bottom-20">
-                        <h3>ALCANCE.</h3>
+    </section>
+    <section class="section">
+        <div class="background-media" data-0-top-bottom="background-position: 50% -80px" data-start="background-position: 50% 0px" style="background-image: url(/images/presupuesto.jpg); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;">
+        </div>
+        <div class="background-overlay" style="background-color: rgba(1,192,225,0.8);"></div>
+        <div class="container-fullwidth container-vertical-middle">
+            <div class="row vertical-middle">
+                <div class="col-md-6" style="background:rgba(255, 255, 255, 0.8);">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8 text-left">
+                            <h2 class="element-top-100 element-bottom-20 os-animation big default" data-os-animation="fadeInLeft" data-os-animation-delay="0.1s">Presupuesto</h2>
+                            <div class="divider-border divider-border-left element-top-20 element-bottom-20 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.2s">
+                                <div class="divider-border-inner"></div>
+                            </div>
+                            <p class="lead text-left left element-top-20 element-bottom-100 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.3s">Creamos propuestas economicas de gran alcance, con el diseño de ingeniería en base a las necesidades actuales y futuras.</p>
+                        </div>
+                        <div class="col-md-2"></div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="col-text-1 element-top-50 element-bottom-20">
-                        <h4>01</h4>
-                        <p>Al entender las necesidades, viendo el alcance final del proyecto, cotizamos el proyecto a la medida del cliente.</p>
-                    </div>
+                <div class="col-md-6 text-center">
+                    <div class="figure element-top-20 element-bottom-20"> <span class="figure-image">
+                        </span> </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="col-text-1 element-top-50 element-bottom-50">
-                        <h4>02</h4>
-                        <p>Intentamos dar al cliente siempre al menos una solución alternativa.</p>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="background-media" data-0-top-bottom="background-position: 50% -80px" data-start="background-position: 50% 0px" style="background-image: url(/images/instalacion.jpg); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;">
+        </div>
+        <div class="background-overlay" style="background-color: rgba(1,192,225,0.8);"></div>
+        <div class="container-fullwidth container-vertical-middle">
+            <div class="row vertical-middle">
+                <div class="col-md-6 text-center">
+                    <div class="figure element-top-20 element-bottom-20"> <span class="figure-image">
+                        </span> </div>
+                </div>
+                <div class="col-md-6" style="background:rgba(255, 255, 255, 0.8);">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8 text-left">
+                            <h2 class="element-top-100 element-bottom-20 os-animation big default" data-os-animation="fadeInRight" data-os-animation-delay="0.1s">Instalación</h2>
+                            <div class="divider-border divider-border-left element-top-20 element-bottom-20 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0.2s">
+                                <div class="divider-border-inner"></div>
+                            </div>
+                            <p class="lead text-left left element-top-20 element-bottom-100 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0.3s">Instalación de equipos y accesorios contratados por empleados experimentados de la misma compañia y supervisión de obra para cerciorarnos que se cumpla con las expectativas. </p>
+                        </div>
+                        <div class="col-md-2"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="col-text-1 element-top-50 element-bottom-20">
-                        <h3>INTEGRACIÓN.</h3>
+    </section>
+    <section class="section">
+        <div class="background-media" data-0-top-bottom="background-position: 50% -80px" data-start="background-position: 50% 0px" style="background-image: url(/images/tecnicos.jpg); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;">
+        </div>
+        <div class="background-overlay" style="background-color: rgba(1,192,225,0.8);"></div>
+        <div class="container-fullwidth container-vertical-middle">
+            <div class="row vertical-middle">
+                <div class="col-md-6" style="background:rgba(255, 255, 255, 0.8);">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8 text-left">
+                            <h2 class="element-top-100 element-bottom-20 os-animation big default" data-os-animation="fadeInLeft" data-os-animation-delay="0.1s">Configuración</h2>
+                            <div class="divider-border divider-border-left element-top-20 element-bottom-20 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.2s">
+                                <div class="divider-border-inner"></div>
+                            </div>
+                            <p class="lead text-left left element-top-20 element-bottom-100 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.3s">Pruebas y ajustes a los sistemas, asi como entrega y capacitación a los usuarios finales. Soporte para cualquier modificacion, ajuste o atención a imprevistos segun las polizas y garantias de cada uno de nuestros clientes.</p>
+                        </div>
+                        <div class="col-md-2"></div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="col-text-1 element-top-50 element-bottom-20">
-                        <h4>01</h4>
-                        <p>Hacemos la mágia. Instalamos todo a especificaciones anteriores probando cada parte integral.</p>
-                    </div>
-                    <div class="col-text-1 element-top-30 element-bottom-20">
-                        <h4>03</h4>
-                        <p>Se hace la integración total de los sistemas en caso de ser requerido, programación y ejecución.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="col-text-1 element-top-50 element-bottom-50">
-                        <h4>02</h4>
-                        <p>Trabajamos de acuerdo a estimaciones previamente determinadas.</p>
-                    </div>
-                    <div class="col-text-1 element-top-40 element-bottom-50">
-                        <h4>04</h4>
-                        <p> Pruebas y entregas a satisfacción del cliente. </p>
-                    </div>
+                <div class="col-md-6 text-center">
+                    <div class="figure element-top-20 element-bottom-20"> <span class="figure-image">
+                        </span> </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="col-text-1 element-top-50 element-bottom-20">
-                        <h3>SATISFACCIÓN.</h3>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="col-text-1 element-top-50 element-bottom-20">
-                        <h4><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></h4>
-                        <p>Nuestra filosofia de satisfacción es que si no logramos que quieras volver a trabajar con nostros, fracasamos inclusive si todo funciona a la perfección.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="col-text-1 element-top-50 element-bottom-50">
-                        <h4><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></h4>
-                        <p>El 100% de nuestros clientes nos vuelven a buscar para trabajar con ellos.</p>
-                    </div>
-                </div>
-            </div>
+    </section>
+    <section class="section">
+        <div class="background-media" data-0-top-bottom="background-position: 50% -80px" data-start="background-position: 50% 0px" style="background-image: url(/images/entrega.jpg); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;">
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="divider-wrapper">
-                    <div class="visible-xs element-height-70"></div>
-                    <div class="visible-sm element-height-70"></div>
-                    <div class="visible-md element-height-70"></div>
-                    <div class="visible-lg element-height-70"></div>
+        <div class="background-overlay" style="background-color: rgba(1,192,225,0.8);"></div>
+        <div class="container-fullwidth container-vertical-middle">
+            <div class="row vertical-middle">
+                <div class="col-md-6 text-center">
+                    <div class="figure element-top-20 element-bottom-20"> <span class="figure-image">
+                        </span> </div>
+                </div>
+                <div class="col-md-6" style="background:rgba(255, 255, 255, 0.8);">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8 text-left">
+                            <h2 class="element-top-100 element-bottom-20 os-animation big default" data-os-animation="fadeInRight" data-os-animation-delay="0.1s">Entrega</h2>
+                            <div class="divider-border divider-border-left element-top-20 element-bottom-20 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0.2s">
+                                <div class="divider-border-inner"></div>
+                            </div>
+                            <p class="lead text-left left element-top-20 element-bottom-100 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0.3s">Cierre administrativo donde se revisa la propuesta original contra el material final instalado con los directivos de la empresa.</p>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
                 </div>
             </div>
         </div>

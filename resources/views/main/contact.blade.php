@@ -48,7 +48,7 @@
                                     <textarea class="form-control" id="message" name="message" placeholder="Escribe aqui tu mensaje" rows="10" required=""></textarea>
                                 </div>
                                 <div class="text-center">
-                                    <input type="submit" value="Send email" class="btn btn-primary"> </div>
+                                    <input type="submit" value="Enviar" class="btn btn-primary"> </div>
                                 <div class="messages text-center"></div>
                             </form>
                             <div class="divider-wrapper">

@@ -31,10 +31,19 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-3">
                     <div class="sidebar-widget widget_text">
                         <h3 class="sidebar-header">Nuestras oficinas</h3>
                         <div class="textwidget"><img alt="headquarters" src="/images/mapamexico.png" style="width: 300px"></div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="sidebar-widget widget_categories">
+                        <h3 class="sidebar-header">Encuentranos</h3>
+                        <ul>
+                            <li>Monterrey, Mérida y Chihuahua. </li>
+                            <li>Lunes a Viernes de 9 A.M. a 6 P.M.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -45,7 +54,7 @@
             <div class="row element-top-10 element-bottom-10 footer-columns-2">
                 <div class="col-sm-6">
                     <div class="sidebar-widget widget_text">
-                        <div class="textwidget"> Tau Control.  2015. </div>
+                        <div class="textwidget"> Tau Control.  2018. </div>
                     </div>
                 </div>
                 {{--<div class="col-sm-6">
