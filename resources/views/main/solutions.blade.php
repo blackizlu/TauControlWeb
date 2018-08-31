@@ -1,18 +1,24 @@
 @extends('main.layout')
 @section('content')
     <section class="section">
-        <div class="background-overlay" style="background-color: rgba(1,192,225,1);"></div>
+        <div class="background-media" style="background-image: url('/images/soluciones.jpg'); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;" data-start="background-position: 50% -250px"
+             data-0-top-bottom="background-position: 50% 50px"></div>
+        <div class="background-overlay grid-overlay-0" style="background-color: rgba(1,192,225,0.8);"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="text-left element-top-70 element-bottom-70 text-light big">Soluciones.</h1> </div>
+                    <h1 class="text-center element-top-70 element-bottom-70 text-light big">Soluciones</h1> <br></div>
+                <div class="divider-border divider-border-center element-top-130 element-bottom-10 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.1s" style="height:3px;">
+                    <div class="divider-border-inner" style="background:#ffffff; width:60px;"></div>
+                </div>
+            </div>
             </div>
         </div>
     </section>
     <section class="section">
         <div class="container">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-7">
                     <div class="figure element-top-60 element-bottom-20 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0s">
                         <a class="figure-image magnific" href="/images/cctv.jpg" target="_self"> <img alt="p11" src="/images/cctv.jpg"> </a>
                     </div>
@@ -20,7 +26,7 @@
                         <a class="figure-image magnific" href="assets/images/corporate/p12.jpg" target="_self"> <img alt="p12" src="assets/images/corporate/p12.jpg"> </a>
                     </div>--}}
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-5">
                     <h2 class="text-left element-top-60 os-animation normal regular" data-os-animation="fadeInRight" data-os-animation-delay="0.1s">CCTV.</h2>
                     <div class="divider-border divider-border-left element-top-10 element-bottom-10 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0.2s">
                         <div class="divider-border-inner"></div>
@@ -40,7 +46,7 @@
     <section class="section">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-5">
                     <h2 class="text-left element-top-60 os-animation normal regular" data-os-animation="fadeInLeft" data-os-animation-delay="0.1s">Voz y Datos.</h2>
                     <div class="divider-border divider-border-left element-top-10 element-bottom-10 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.2s">
                         <div class="divider-border-inner"></div>
@@ -54,7 +60,7 @@
                         <li>Calidad Completa</li>
                     </ul>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-7">
                     <div class="figure element-top-60 element-bottom-20 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0s">
                         <a class="figure-image magnific" href="/images/voice.jpg" target="_self"> <img alt="p11" src="/images/voice.jpg"> </a>
                     </div>
@@ -69,7 +75,7 @@
     <section class="section">
         <div class="container">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-7">
                     <div class="figure element-top-60 element-bottom-20 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0s">
                         <a class="figure-image magnific" href="/images/controlacceso.jpg" target="_self"> <img alt="p11" src="/images/controlacceso.jpg"> </a>
                     </div>
@@ -77,7 +83,7 @@
                         <a class="figure-image magnific" href="assets/images/corporate/p12.jpg" target="_self"> <img alt="p12" src="assets/images/corporate/p12.jpg"> </a>
                     </div>--}}
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-5">
                     <h2 class="text-left element-top-60 os-animation normal regular" data-os-animation="fadeInRight" data-os-animation-delay="0.1s">Control de Acceso.</h2>
                     <div class="divider-border divider-border-left element-top-10 element-bottom-10 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0.2s">
                         <div class="divider-border-inner"></div>
@@ -97,7 +103,7 @@
     <section class="section">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-5">
                     <h2 class="text-left element-top-60 os-animation normal regular" data-os-animation="fadeInLeft" data-os-animation-delay="0.1s">Seguridad.</h2>
                     <div class="divider-border divider-border-left element-top-10 element-bottom-10 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.2s">
                         <div class="divider-border-inner"></div>
@@ -106,12 +112,12 @@
                         <p><strong>Sistemas de detección y alarmas contra incendio. </strong></p>
                     </div>
                     <ul class="skills-list normal element-top-20 element-bottom-20 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.4s">
-                        <li>Tranqulidad</li>
+                        <li>Tranquilidad</li>
                         <li>Integridad</li>
                         <li>Confianza</li>
                     </ul>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-7">
                     <div class="figure element-top-60 element-bottom-20 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0s">
                         <a class="figure-image magnific" href="/images/seguridad.jpg" target="_self"> <img alt="p11" src="/images/seguridad.jpg"> </a>
                     </div>
@@ -126,7 +132,7 @@
     <section class="section">
         <div class="container">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-7">
                     <div class="figure element-top-60 element-bottom-20 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0s">
                         <a class="figure-image magnific" href="/images/multimedia.jpg" target="_self"> <img alt="p11" src="/images/multimedia.jpg"> </a>
                     </div>
@@ -134,7 +140,7 @@
                         <a class="figure-image magnific" href="assets/images/corporate/p12.jpg" target="_self"> <img alt="p12" src="assets/images/corporate/p12.jpg"> </a>
                     </div>--}}
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-5">
                     <h2 class="text-left element-top-60 os-animation normal regular" data-os-animation="fadeInRight" data-os-animation-delay="0.1s">Multimedia.</h2>
                     <div class="divider-border divider-border-left element-top-10 element-bottom-10 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0.2s">
                         <div class="divider-border-inner"></div>

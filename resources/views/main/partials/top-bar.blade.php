@@ -12,16 +12,10 @@
             <div class="sidebar-widget text-right small-screen-center widget_social">
                 <ul class="unstyled inline social-icons social-simple social-normal">
                     <li>
-                        <a data-iconcolor="#3b5998" href="/facebook"> <i class="fa fa-facebook"></i> </a>
+                        <a data-iconcolor="#3b5998" href="https://www.facebook.com/Tau-Control-525406687885383/" target="_blank"> <i class="fa fa-facebook"></i> </a>
                     </li>
                     <li>
-                        <a data-iconcolor="#00acee" href="/twitter"> <i class="fa fa-twitter"></i> </a>
-                    </li>
-                    <li>
-                        <a data-iconcolor="#5FB0D5" href="/LikedIn"> <i class="fa fa-linkedin"></i> </a>
-                    </li>
-                    <li>
-                        <a data-iconcolor="#E45135" href="/googleplus"> <i class="fa fa-google-plus"></i> </a>
+                        <a data-iconcolor="#E45135" href="https://www.instagram.com/taucontrol/" target="_blank"> <i class="fa fa-instagram"></i> </a>
                     </li>
                 </ul>
             </div>

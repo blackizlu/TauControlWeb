@@ -20,13 +20,13 @@
                 <div class="col-md-2 text-center"></div>
                 <div class="col-md-8 text-center">
                     <h1 class="element-top-70 text-light os-animation normal default" data-os-animation="fadeIn" data-os-animation-delay="0s">
-                        Nosotros.
+                        Nosotros
                     </h1>
                     <div class="divider-border divider-border-center element-top-10 element-bottom-10 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.1s" style="height:3px;">
                         <div class="divider-border-inner" style="background:#ffffff; width:60px;"></div>
                     </div>
-                    <p class="lead text-center center  text-light  element-bottom-70" data-os-animation="none" data-os-animation-delay="0s"> Somos una empresa dedicada al diseño, suministro, instalación, configuración
-                        <br /> e integración tecnológica en el ramo inmobiliario, con sistemas robustos y la capacidad técnica para desarrollar proyectos a la medida de las necesidades de nuestros clientes.</p>
+                    <p class="lead text-center center  text-light  element-bottom-70" data-os-animation="none" data-os-animation-delay="0s"> Somos una empresa dedicada al diseño, suministro, instalación e
+                        <br /> integración tecnológica en el ramo inmobiliario, con sistemas robustos y la capacidad técnica para desarrollar proyectos a la medida de las necesidades de nuestros clientes.</p>
                 </div>
                 <div class="col-md-2"></div>
             </div>
@@ -55,9 +55,9 @@
                         <div class="col-md-6">
                             <ul class="features-list element-top-80">
                                 <li class=" element-bottom-20" data-os-animation="none" data-os-animation-delay="0.4s" >
-                                    <div class="features-list-icon box-animate" style="background-color: #00c0e1;" data-animation="swing" > <i class="fa fa-lightbulb-o" style="color: #ffffff;"></i> </div>
-                                    <h3>Apasionados por la innovación.</h3>
-                                    <p>Servicios y soluciones personalizadas basadas en las mejores practicas a nivel mundial, para hacer de tu inmueble un lugar más seguro y eficiente, creando, diseñando y habilitando soluciones de seguridad, protección y eficiencia, integradas por tecnologías de vanguardia.</p>
+                                    <div class="features-list-icon box-animate" style="background-color: #00c0e1;" data-animation="swing" > <i class="fa fa-certificate " style="color: #ffffff;"></i> </div>
+                                    <h3>Certificación constante.</h3>
+                                    <p>Técnicos certificados para mantenernos a la vanguardia de las nuevas tecnologías cumpliendo con estandares de calidad.</p><br><br>
                                 </li>
                                 <li class=" element-bottom-20" data-os-animation="none" data-os-animation-delay="0.4s">
                                     <div class="features-list-icon box-animate" style="background-color: #00c0e1;" data-animation="swing"> <i class="fa  fa-gears (alias)" style="color: #ffffff;"></i> </div>
@@ -151,7 +151,7 @@
                             <div class="divider-border divider-border-left element-top-20 element-bottom-20 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0.2s">
                                 <div class="divider-border-inner"></div>
                             </div>
-                            <p class="lead text-left left element-top-20 element-bottom-100 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0.3s">Instalación de equipos y accesorios contratados por empleados experimentados de la misma compañia y supervisión de obra para cerciorarnos que se cumpla con las expectativas. </p>
+                            <p class="lead text-left left element-top-20 element-bottom-100 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0.3s">Instalación de canalización y equipos por técnicos certificados cumpliendo las expectativas de nuestros clientes.</p>
                         </div>
                         <div class="col-md-2"></div>
                     </div>
@@ -169,11 +169,11 @@
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="col-md-8 text-left">
-                            <h2 class="element-top-100 element-bottom-20 os-animation big default" data-os-animation="fadeInLeft" data-os-animation-delay="0.1s">Configuración</h2>
+                            <h2 class="element-top-100 element-bottom-20 os-animation big default" data-os-animation="fadeInLeft" data-os-animation-delay="0.1s">Implementación</h2>
                             <div class="divider-border divider-border-left element-top-20 element-bottom-20 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.2s">
                                 <div class="divider-border-inner"></div>
                             </div>
-                            <p class="lead text-left left element-top-20 element-bottom-100 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.3s">Pruebas y ajustes a los sistemas, asi como entrega y capacitación a los usuarios finales. Soporte para cualquier modificacion, ajuste o atención a imprevistos segun las polizas y garantias de cada uno de nuestros clientes.</p>
+                            <p class="lead text-left left element-top-20 element-bottom-100 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.3s">Configuración de los sistemas así como la entrega y capacitación a los usuarios finales. Soporte para cualquier modificacion, ajuste o atención a imprevistos segun las polizas y garantias de cada uno de nuestros clientes.</p>
                         </div>
                         <div class="col-md-2"></div>
                     </div>
@@ -203,7 +203,8 @@
                             <div class="divider-border divider-border-left element-top-20 element-bottom-20 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0.2s">
                                 <div class="divider-border-inner"></div>
                             </div>
-                            <p class="lead text-left left element-top-20 element-bottom-100 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0.3s">Cierre administrativo donde se revisa la propuesta original contra el material final instalado con los directivos de la empresa.</p>
+                            <p class="lead text-left left element-top-20 element-bottom-100 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="0.3s">Cierre administrativo y entrega formal al cliente.
+                            </p>
                         </div>
                         <div class="col-md-2"></div>
                     </div>

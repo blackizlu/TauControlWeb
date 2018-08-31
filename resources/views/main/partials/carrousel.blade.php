@@ -9,9 +9,9 @@
                             <li data-transition="fade" data-slotamount="5" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide">
                                 <!-- MAIN IMAGE -->
                                 <img src="/images/background.jpg" alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
-                                <div class="tp-caption lfb ltb rs-parallaxlevel-0" data-x="0" data-y="60" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                <div class="tp-caption lfb ltb rs-parallaxlevel-0" data-x="-80" data-y="20" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
                                      data-speed="800" data-start="1800" data-easing="Power3.easeInOut" data-elementdelay="0.1" data-endelementdelay="0.1" style="z-index: 2;">
-                                    <img src="/images/carrousel1.jpg" style="width: 70%" >
+                                    <img src="/images/carrousel1.jpeg" style="width: 50%" >
                                 </div>
                                 <!-- LAYER NR. 2 -->
 
@@ -23,10 +23,10 @@
                                 <!-- LAYER NR. 8 -->
                                 <div class="tp-caption corporateblacknormal sfr tp-resizeme rs-parallaxlevel-0" data-x="585" data-y="220" data-speed="600" data-start="2500" data-easing="Power3.easeInOut" data-splitout="none" data-elementdelay="0.1"
                                      data-endelementdelay="0.1" style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap; line-height: 25px; font-size: 20px">
-                                    Tau Control nace por el deseo de resolver los problemas
-                                    <br>de integración tecnológica en el ramo inmobiliario, con soluciones
-                                    <br>integradas de seguridad electrónica y control, apasionados
-                                    <br>por la tecnología y calidad.</div>
+                                    Especialistas en ofrecer diseño y soluciones de integración tecnológica,
+                                    <br>tomando en cuenta las necesidades de nuestros clientes, basandonos
+                                    <br> en nuestra pasión por la tecnología y calidad.</div>
+
 
 
                                 {{--<div class="tp-caption corporatebluebutton lfb tp-resizeme rs-parallaxlevel-0" data-x="800" data-y="350" data-speed="700" data-start="3500" data-easing="Power3.easeInOut" data-splitout="none" data-elementdelay="0.1"--}}
