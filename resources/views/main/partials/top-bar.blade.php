@@ -2,7 +2,7 @@
     <div class="container">
         <div class="top top-left">
             <div class="sidebar-widget text-left small-screen-center widget_text">
-                <div class="textwidget"> <i class="fa fa-envelope"></i>&nbsp; <a href="mailto:lambda@lambda-theme.com">info@taucontrol.com</a> </div>
+                <div class="textwidget"> <i class="fa fa-envelope"></i>&nbsp; <a href="mailto:info@taucontrol.com">info@taucontrol.com</a> </div>
             </div>
             <div class="sidebar-widget text-left small-screen-center widget_text">
                 <div class="textwidget"> <i class="fa fa-phone"></i> &nbsp; +52 81 2718 5557 </div>

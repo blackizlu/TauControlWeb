@@ -121,7 +121,7 @@
                             <div class="divider-border divider-border-left element-top-20 element-bottom-20 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.2s">
                                 <div class="divider-border-inner"></div>
                             </div>
-                            <p class="lead text-left left element-top-20 element-bottom-100 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.3s">Creamos propuestas economicas de gran alcance, con el diseño de ingeniería en base a las necesidades actuales y futuras.</p>
+                            <p class="lead text-left left element-top-20 element-bottom-100 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.3s">Creamos propuestas económicas de gran alcance, con el diseño de ingeniería en base a las necesidades actuales y futuras.</p>
                         </div>
                         <div class="col-md-2"></div>
                     </div>
@@ -173,7 +173,7 @@
                             <div class="divider-border divider-border-left element-top-20 element-bottom-20 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.2s">
                                 <div class="divider-border-inner"></div>
                             </div>
-                            <p class="lead text-left left element-top-20 element-bottom-100 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.3s">Configuración de los sistemas así como la entrega y capacitación a los usuarios finales. Soporte para cualquier modificacion, ajuste o atención a imprevistos segun las polizas y garantias de cada uno de nuestros clientes.</p>
+                            <p class="lead text-left left element-top-20 element-bottom-100 os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.3s">Configuración de los sistemas así como la entrega y capacitación a los usuarios finales. Soporte para cualquier modificación, ajuste o atención a imprevistos segun las pólizas y garantías de cada uno de nuestros clientes.</p>
                         </div>
                         <div class="col-md-2"></div>
                     </div>
