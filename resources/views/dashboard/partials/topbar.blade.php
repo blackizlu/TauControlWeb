@@ -1,6 +1,4 @@
-<div id="wrap">
-    <div id="top">
-        <!-- .navbar -->
+<!-- .navbar -->
         <nav class="navbar navbar-static-top">
             <div class="container-fluid m-0">
                 <a class="navbar-brand float-left" href="index.html">

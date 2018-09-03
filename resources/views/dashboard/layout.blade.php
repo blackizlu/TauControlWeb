@@ -19,8 +19,15 @@
     <link type="text/css" rel="stylesheet" href="/css/dashboard/new_dashboard.css"/>
     <link type="text/css" rel="stylesheet" href="#" id="skin_change"/>
 </head>
+<div id="wrap">
+    <div id="top">
 @include('dashboard.partials.topbar')
 @include('dashboard.partials.sidebar')
+        @yield('content')
+
+
+    </div>
+</div>
 
 <body class="body">
 <!-- /#wrap -->
