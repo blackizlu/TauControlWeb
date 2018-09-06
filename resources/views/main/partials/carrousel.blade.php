@@ -24,7 +24,7 @@
                                 <div class="tp-caption corporateblacknormal sfr tp-resizeme rs-parallaxlevel-0" data-x="585" data-y="220" data-speed="600" data-start="2500" data-easing="Power3.easeInOut" data-splitout="none" data-elementdelay="0.1"
                                      data-endelementdelay="0.1" style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap; line-height: 25px; font-size: 20px">
                                     Especialistas en ofrecer diseño y soluciones de integración tecnológica,
-                                    <br>tomando en cuenta las necesidades de nuestros clientes, basandonos
+                                    <br>tomando en cuenta las necesidades de nuestros clientes, basándonos
                                     <br> en nuestra pasión por la tecnología y calidad.</div>
 
 

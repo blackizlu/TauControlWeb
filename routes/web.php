@@ -45,7 +45,7 @@ Route::get('/success-stories/{name}', function ($name) {
             $solutions = "Instalación de sistema de detección de incendio y sistema de Voceo dentro de la planta";
             $products = "FAS: Honeywell <br>Sistema Voceo: Notifer y Wheelock";
             $result = "La planta cumplió las altas normas de seguridad del equipo de Bomberos y Protección Civil.";
-            $img = "FCA.jpeg";
+            $img = "fca.jpeg";
             $title = "Fiat Chrysler.";
 
             break;

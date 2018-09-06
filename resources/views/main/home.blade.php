@@ -13,29 +13,35 @@
                         <div class="divider-border-inner" style="width:60px;"> </div>
                     </div>
                     <div class="list-container row element-bottom-50 os-animation" data-os-animation="fadeInUp" data-os-animation-delay="0.1s">
-                        <div class="col-md-3 element-bottom-20 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay="0.1s"> <span class="service-simple-image">
-                                <img alt="Visualise" src="/images/cctv.png" style="width: 60%">
+                        <div class="col-md-2 col-md-offset-1 element-bottom-20 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay="0.1s"> <span class="service-simple-image">
+                                <img alt="Visualise" src="/images/cctv.png" style="width: 80%">
                             </span>
                             <h2>CCTV</h2>
                             <p>Sistemas de Circuito Cerrado (“Closed Circuit TV”), detección inteligente para control.</p>
                         </div>
-                        <div class="col-md-3 element-bottom-20 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay="0.2s"> <span class="service-simple-image">
-                                <img alt="Research" src="/images/voz-y-datos.png" style="width: 60%">
+                        <div class="col-md-2 element-bottom-20 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay="0.2s"> <span class="service-simple-image">
+                                <img alt="Research" src="/images/voz-y-datos.png" style="width: 80%">
                             </span>
                             <h2>Voz y Datos</h2>
                             <p>Redes, conmutadores y enlaces para la comunicación efectiva y entretenimiento.</p>
                         </div>
-                        <div class="col-md-3 element-bottom-20 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay="0.3s"> <span class="service-simple-image">
-                                <img alt="Develop" src="/images/control.png" style="width: 60%">
+                        <div class="col-md-2 element-bottom-20 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay="0.3s"> <span class="service-simple-image">
+                                <img alt="Develop" src="/images/control.png" style="width: 80%">
                             </span>
                             <h2>Control de Acceso</h2>
                             <p>Sistemas que dan seguridad y control para áreas restringidas y de peligro.</p>
                         </div>
-                        <div class="col-md-3 element-bottom-20 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay="0.3s"> <span class="service-simple-image">
-                                <img alt="Develop" src="/images/safety.png" style="width: 60%">
+                        <div class="col-md-2 element-bottom-20 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay="0.3s"> <span class="service-simple-image">
+                                <img alt="Develop" src="/images/safety.png" style="width: 80%">
                             </span>
                             <h2>Seguridad</h2>
-                            <p>Sistemas de Detección y Prevención de Accidentes reduciendo los riesgos .</p>
+                            <p>Sistemas de Detección y Prevención de Accidentes reduciendo los riesgos.</p>
+                        </div>
+                        <div class="col-md-2 element-bottom-20 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay="0.3s"> <span class="service-simple-image">
+                                <img alt="Develop" src="/images/gears.png" style="width: 80%">
+                            </span>
+                            <h2>Automatización</h2>
+                            <p>El control de tu inmueble en la palma de tu mano.</p>
                         </div>
                     </div>
                 </div>

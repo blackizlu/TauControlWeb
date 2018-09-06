@@ -317,7 +317,7 @@
                             </span>
                         </div>
                         <div class="col-md-2 element-bottom-20 text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s"> <span class="service-simple-image">
-                                <img src="/images/rti.png" width="80px" alt="Visualise"/>
+                                <img src="/images/RTI.png" width="80px" alt="Visualise"/>
                             </span>
                         </div>
                     </div>

@@ -73,13 +73,28 @@
                                 <div class="visible-xs element-height-70"></div>
                                 <div class="visible-sm element-height-70"></div>
                                 <div class="visible-md element-height-70"></div>
-                                <div class="visible-lg element-height-70"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center os-animation big" data-os-animation="fadeIn" data-os-animation-delay="0s">
+                        Procesos del proyecto</h1>
+                    <div class="divider-border divider-border-center element-top-10 element-bottom-10 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.1s" style="height:3px;">
+                        <div class="divider-border-inner" style="width:60px;"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="element-height-70"></div>
     </section>
     <section class="section">
         <div class="background-media" data-0-top-bottom="background-position: 50% -80px" data-start="background-position: 50% 0px" style="background-image: url(/images/ingenieria.jpg); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;">
