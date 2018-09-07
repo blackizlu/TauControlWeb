@@ -8,7 +8,7 @@
                 <div class="user-wrapper">
                     <a class="user-link" href="#">
                         <img class="media-object img-thumbnail user-img rounded-circle admin_img3" alt="User Picture"
-                             src="img/dashboard/admin.jpg">
+                             src="/images/dashboard/admin.jpg">
                         <p class="user-info menu_hide">Welcome Micheal</p>
                     </a>
                 </div>

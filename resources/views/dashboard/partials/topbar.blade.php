@@ -3,11 +3,11 @@
     <nav class="navbar navbar-static-top">
         <div class="container-fluid m-0">
             <a class="navbar-brand float-left" href="index.html">
-                <h4><img src="img/logo1.ico" class="admin_img" alt="logo"> ADMIRE ADMIN</h4>
+                <h4><img src="/images/dashboard/logo1.ico" class="admin_img" alt="logo"> ADMIRE ADMIN</h4>
             </a>
             <div class="menu">
                     <span class="toggle-left" id="menu-toggle">
-                        <i class="fa fa-bars"></i>
+                        <i class="fa fa-bars"></i>s
                     </span>
             </div>
             <div class="topnav dropdown-menu-right float-right">
@@ -27,7 +27,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/5.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/5.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data"><strong>hally</strong>
                                             sent you an image.
@@ -39,7 +39,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/8.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/8.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data"><strong>Meri</strong>
                                             invitation for party.
@@ -51,7 +51,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/7.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/7.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data">
                                             <strong>Remo</strong>
@@ -64,7 +64,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/6.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/6.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data">
                                             <strong>David</strong>
@@ -77,7 +77,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/5.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/5.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data"><strong>hally</strong>
                                             sent you an image.
@@ -89,7 +89,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/8.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/8.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data"><strong>Meri</strong>
                                             invitation for party.
@@ -101,7 +101,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/7.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/7.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data">
                                             <strong>Remo</strong>
@@ -114,7 +114,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/6.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/6.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data">
                                             <strong>David</strong>
@@ -143,7 +143,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/1.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/1.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data">
                                             <i class="fa fa-clock-o"></i>
@@ -158,7 +158,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/2.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/2.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data">
                                             <i class="fa fa-clock-o"></i>
@@ -173,7 +173,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/3.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/3.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data">
                                             <i class="fa fa-clock-o"></i>
@@ -188,7 +188,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/6.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/6.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data">
                                             <i class="fa fa-clock-o"></i>
@@ -203,7 +203,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/1.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/1.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data">
                                             <i class="fa fa-clock-o"></i>
@@ -218,7 +218,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/2.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/2.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data">
                                             <i class="fa fa-clock-o"></i>
@@ -233,7 +233,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/3.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/3.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data">
                                             <i class="fa fa-clock-o"></i>
@@ -248,7 +248,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/6.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/6.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data">
                                             <i class="fa fa-clock-o"></i>
@@ -263,7 +263,7 @@
                                 <div class="data">
                                     <div class="row">
                                         <div class="col-2">
-                                            <img src="img/mailbox_imgs/1.jpg" class="message-img avatar rounded-circle"
+                                            <img src="/images/dashboard/mailbox_imgs/1.jpg" class="message-img avatar rounded-circle"
                                                  alt="avatar1"></div>
                                         <div class="col-10 message-data">
                                             <i class="fa fa-clock-o"></i>
@@ -292,7 +292,7 @@
                 <div class="btn-group">
                     <div class="user-settings no-bg">
                         <button type="button" class="btn btn-default no-bg micheal_btn" data-toggle="dropdown">
-                            <img src="img/admin.jpg" class="admin_img2 img-thumbnail rounded-circle avatar-img"
+                            <img src="/images/dashboard/admin.jpg" class="admin_img2 img-thumbnail rounded-circle avatar-img"
                                  alt="avatar"> <strong>Micheal</strong>
                             <span class="fa fa-sort-down white_bg"></span>
                         </button>
