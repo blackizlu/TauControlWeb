@@ -116,3 +116,8 @@ Route::get('/success-stories', function () {
 Route::get('/contact', function () {
     return view('main.contact');
 })->name('main.contact');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

@@ -1,13 +1,13 @@
 <div id="top">
     <!-- .navbar -->
     <nav class="navbar navbar-static-top">
-        <div class="container-fluid m-0">
-            <a class="navbar-brand float-left" href="index.html">
-                <h4><img src="/images/dashboard/logo1.ico" class="admin_img" alt="logo"> ADMIRE ADMIN</h4>
+        <div class="container-fluid m-0" >
+            <a class="navbar-brand float-left" href="{{route('dashboard.home')}}">
+                <h4><img src="/images/cropped-tau-control-logo-192x192.png" class="admin_img"> Tau Control</h4>
             </a>
             <div class="menu">
                     <span class="toggle-left" id="menu-toggle">
-                        <i class="fa fa-bars"></i>s
+                        <i class="fa fa-bars"></i>
                     </span>
             </div>
             <div class="topnav dropdown-menu-right float-right">
@@ -293,25 +293,22 @@
                     <div class="user-settings no-bg">
                         <button type="button" class="btn btn-default no-bg micheal_btn" data-toggle="dropdown">
                             <img src="/images/dashboard/admin.jpg" class="admin_img2 img-thumbnail rounded-circle avatar-img"
-                                 alt="avatar"> <strong>Micheal</strong>
+                                 alt="avatar"> <strong>BlacKizlu</strong>
                             <span class="fa fa-sort-down white_bg"></span>
                         </button>
                         <div class="dropdown-menu admire_admin">
                             <a class="dropdown-item title" href="#">
-                                Admire Admin</a>
+                                Ajustes</a>
                             <a class="dropdown-item" href="edit_user.html"><i class="fa fa-cogs"></i>
-                                Account Settings</a>
+                                Configuración</a>
                             <a class="dropdown-item" href="#">
                                 <i class="fa fa-user"></i>
-                                User Status
-                            </a>
+
+                            Ajuste de usuario</a>
                             <a class="dropdown-item" href="mail_inbox.html"><i class="fa fa-envelope"></i>
                                 Inbox</a>
-
-                            <a class="dropdown-item" href="lockscreen.html"><i class="fa fa-lock"></i>
-                                Lock Screen</a>
-                            <a class="dropdown-item" href="login2.html"><i class="fa fa-sign-out"></i>
-                                Log Out</a>
+                            <a class="dropdown-item" href="{{route ('logout')}}"><i class="fa fa-sign-out"></i>
+                                Cerrar Sesión</a>
                         </div>
                     </div>
                 </div>
@@ -319,7 +316,7 @@
             </div>
             <div class="top_search_box float-right hidden-sm-down">
                 <form class="header_input_search float-right">
-                    <input type="text" placeholder="Search" name="search">
+                    <input type="text" placeholder="Buscar" name="search">
                     <button type="submit">
                         <span class="font-icon-search"></span>
                     </button>

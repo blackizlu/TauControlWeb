@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard-2 | Admire</title>
+    <title>Tau Control</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/logo1.ico"/>
@@ -11,6 +11,7 @@
     <!--global styles-->
     <link type="text/css" rel="stylesheet" href="/css/dashboard/components.css" />
     <link type="text/css" rel="stylesheet" href="/css/dashboard/custom.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- end of global styles-->
     <link type="text/css" rel="stylesheet" href="/css/dashboard/chartist.min.css" />
     <link type="text/css" rel="stylesheet" href="/css/dashboard/jquery.circliful.css">
