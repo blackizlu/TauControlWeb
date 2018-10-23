@@ -2,7 +2,7 @@
     <!-- .navbar -->
     <nav class="navbar navbar-static-top">
         <div class="container-fluid m-0" >
-            <a class="navbar-brand float-left" href="{{route('dashboard.home')}}">
+            <a class="navbar-brand float-left" href="{{route('dashboard.index')}}">
                 <h4><img src="/images/cropped-tau-control-logo-192x192.png" class="admin_img"> Tau Control</h4>
             </a>
             <div class="menu">
@@ -18,7 +18,7 @@
                 <div class="btn-group">
                     <div class="notifications no-bg">
                         <a class="btn btn-default btn-sm messages" data-toggle="dropdown" id="messages_section"> <i
-                                    class="fa fa-envelope-o fa-1x"></i>
+                                    class="fa fa-envelope fa-1x"></i>
                             <span class="badge badge-pill badge-warning notifications_badge_top">8</span>
                         </a>
                         <div class="dropdown-menu drop_box_align" role="menu" id="messages_dropdown">
@@ -134,7 +134,7 @@
                 <div class="btn-group">
                     <div class="notifications messages no-bg">
                         <a class="btn btn-default btn-sm" data-toggle="dropdown" id="notifications_section"> <i
-                                    class="fa fa-bell-o"></i>
+                                    class="fa fa-bell"></i>
                             <span class="badge badge-pill badge-danger notifications_badge_top">9</span>
                         </a>
                         <div class="dropdown-menu drop_box_align" role="menu" id="notifications_dropdown">
@@ -283,13 +283,6 @@
                     </div>
                 </div>
                 <div class="btn-group">
-                    <div class="notifications request_section no-bg">
-                        <a class="btn btn-default btn-sm messages" id="request_btn"> <i
-                                    class="fa fa-sliders" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="btn-group">
                     <div class="user-settings no-bg">
                         <button type="button" class="btn btn-default no-bg micheal_btn" data-toggle="dropdown">
                             <img src="/images/dashboard/admin.jpg" class="admin_img2 img-thumbnail rounded-circle avatar-img"
@@ -307,8 +300,9 @@
                             Ajuste de usuario</a>
                             <a class="dropdown-item" href="mail_inbox.html"><i class="fa fa-envelope"></i>
                                 Inbox</a>
-                            <a class="dropdown-item" href="{{route ('logout')}}"><i class="fa fa-sign-out"></i>
+                            <a class="dropdown-item" href="{{ route ('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out-alt "></i>
                                 Cerrar Sesión</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                         </div>
                     </div>
                 </div>

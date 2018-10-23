@@ -16,15 +16,15 @@ class CreateProfileTable extends Migration
         Schema::create('profile', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('name')->default('');
-            $table->string(('last_name'));
-            $table->date('birthdate');
+            $table->string('name');
+            $table->string('last_name');
             $table->string('phone_number');
-            $table->string('color');
+            $table->text('image')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
+
 
     /**
      * Reverse the migrations.

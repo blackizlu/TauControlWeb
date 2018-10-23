@@ -24,9 +24,8 @@ class AdminSeeder extends Seeder
             'user_id' => $id,
             'name' => 'Luis',
             'last_name' => 'Martinez Castellanos',
-            'birthdate' => '1995-12-20',
             'phone_number' => '(961) 225-3275',
-            'color' => '',
+            'image' => 'img.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);

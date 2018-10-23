@@ -140,7 +140,7 @@ function loadjscssfile(filename, filetype) {
     }
 }
 
-// End of skins js
+// End of skins js// -------Se me antoja un pancito de MUERTO con su chocomilito bien frio - Luis 11/Sept/2018------
 //    ======================================core js=======================================
 (function (window) {
     var
@@ -301,7 +301,7 @@ function loadjscssfile(filename, filetype) {
         cursor: "pointer",
         color: "#ddd"
     }).html(" <i class='fa fa-fw fa-cog skin-icon'></i>").addClass("no-print");
-    $body.append(demo);
+    // $body.append(demo);
     $(".no-print").on("mouseenter mouseleave", function(){
         $(".skin-icon").toggleClass("fa-spin");
         return false;
