@@ -39,7 +39,7 @@
                     <li class="">
                         <a href="{{route('dashboard.cotizaciones.categories')}}">
                             <i class="fa fa-angle-right"></i>
-                            &nbsp;Lista de categorias
+                            &nbsp;Categorias
                         </a>
                     </li>
                 </ul>
