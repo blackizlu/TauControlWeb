@@ -7,20 +7,20 @@
                     <div class="col-lg-6 col-md-4 col-sm-4">
                         <h4 class="nav_top_align">
                             <i class="fa fa-th"></i>
-                            Data Tables
+                            Administrador de cotizaciones
                         </h4>
                     </div>
                     <div class="col-lg-6 col-md-8 col-sm-8">
                         <ol class="breadcrumb float-right nav_breadcrumb_top_align">
                             <li class="breadcrumb-item">
                                 <a href="index1.html">
-                                    <i class="fa fa-home" data-pack="default" data-tags=""></i> Dashboard
+                                    <i class="fa fa-home" data-pack="default" data-tags=""></i> Inicio
                                 </a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="#">Tables</a>
+                                <a href="#">Administrador</a>
                             </li>
-                            <li class="breadcrumb-item active">Data Tables</li>
+                            <li class="breadcrumb-item active">Categorías</li>
                         </ol>
                     </div>
                 </div>
@@ -32,16 +32,15 @@
                     <div class="col-12 data_tables">
                         <div class="card m-t-35">
                             <div class="card-header bg-white">
-                                <i class="fa fa-table"></i> Show/Hide Columns
+                                <i class="fa fa-table"></i>Lista de categorías
                             </div>
                             <div class="card-block m-t-35">
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         <div class="float-md-right text-center">
                                             <div class="btn-group show-hide">
-                                                <a class="btn btn-primary" href="#" data-toggle="dropdown">
-                                                    Columns
-                                                    <i class="fa fa-angle-down"></i>
+                                                <a class="btn btn-primary btn-md adv_cust_mod_btn" data-toggle="modal"
+                                                   data-href="#categoria" href="#categoria">Nueva categoría &nbsp;<i class="fa fa-plus-circle"></i>
                                                 </a>
                                                 <div id="sample_4_column_toggler" class="dropdown-menu dropdown-checkboxes dropdown_checkbox_margin_left float-right">
                                                     <label>
@@ -213,5 +212,3 @@
     </script>
 @endsection
 
-{{--<a class="btn btn-primary btn-md adv_cust_mod_btn" data-toggle="modal"--}}
-   {{--data-href="#categoria" href="#categoria">Nueva categoría &nbsp;<i class="fa fa-plus-circle"></i></a>--}}

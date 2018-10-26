@@ -111,12 +111,10 @@
             </div>
         </div>
     </div>
-<!-- /#wrap -->
 <!-- global scripts-->
 <script type="text/javascript" src="/js/dashboard/components.js"></script>
 <script type="text/javascript" src="/js/dashboard/custom.js"></script>
 <!--end of global scripts-->
-<!--  plugin scripts -->
 {{--<script type="text/javascript" src="/js/dashboard/countUp.min.js"></script>--}}
 <script type="text/javascript" src="/js/dashboard/jquery.flip.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/jquery.sparkline.js"></script>
@@ -220,22 +218,26 @@
 <script type="text/javascript" src="/js/dashboard/modals.js"></script>
 
 <!-- plugin scripts lista de categorias y subcategorias -->
+<script type="text/javascript" src="/js/dashboard/datatable.js"></script>
+<script type="text/javascript" src="/js/dashboard/dataTables.tableTools.js"></script>
+<script type="text/javascript" src="/js/dashboard/dataTables.colReorder.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/dataTables.rowReorder.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/dataTables.scroller.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/select2.js"></script>
 <script type="text/javascript" src="/js/dashboard/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/dataTables.tableTools.js"></script>
 <script type="text/javascript" src="/js/dashboard/dataTables.colReorder.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/dataTables.buttons.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/dataTables.tableTools.js"></script>
 <script type="text/javascript" src="/js/dashboard/dataTables.responsive.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/dataTables.rowReorder.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/buttons.colVis.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/buttons.html5.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/buttons.bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/buttons.print.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/dataTables.scroller.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/datatable.js"></script>
-<!-- end of plugin scripts -->
+<script type="text/javascript" src="/js/dashboard/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/buttons.bootstrap.min.js"></script>
+
+
+    <!-- end of plugin scripts -->
 @yield('scripts')
 </body>
 </html>
