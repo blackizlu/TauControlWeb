@@ -11,7 +11,7 @@ class ProjectsController extends Controller
     public function index()
     {
         $projects = Project::all(); /*Variable users muestra los usuarios en lista*/
-        return view('dashboard.projects.generate', compact('projects'));
+        return view('dashboard.projects.index', compact('projects'));
     }
     public function add()
     {

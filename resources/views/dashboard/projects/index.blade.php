@@ -43,7 +43,7 @@
                     @endif
                     <div class="table-toolbar">
                         <div class="btn-group">
-                            <a href="{{route ('dashboard.projects .add')}}" id="editable_table_new" class=" btn btn-default">
+                            <a href="{{route ('dashboard.projects.add')}}" id="editable_table_new" class=" btn btn-default">
                                 Nuevo proyecto  <i class="fa fa-plus"></i>
                             </a>
                         </div>
@@ -68,7 +68,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($clients as $client)
+                                {{--@foreach($clients as $client)
                                     <tr role="row" class="even">
                                         <td class="sorting_1">{{ $client->client_name }}</td>
                                         <td>{{ $client->type }}</td>
@@ -87,7 +87,7 @@
                                                 <i class="fa fa-trash text-danger"></i></a>
                                         </td>
                                     </tr>
-                                @endforeach
+                                @endforeach--}}
                             </table>
                         </div>
                     </div>
