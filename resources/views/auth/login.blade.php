@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Inicio de Sesión</div>
+                <div class="card-header">Iniciar Sesión</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}" aria-label="login">
@@ -56,10 +56,6 @@
                                 <button type="submit" class="btn btn-primary">
                                     Iniciar sesión
                                 </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Olvide mi contraseña
-                                </a>
                             </div>
                         </div>
                     </form>

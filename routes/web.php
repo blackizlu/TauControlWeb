@@ -13,25 +13,83 @@
 
 Auth::routes();
 
-Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(function () {
+Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(function (){
     Route::get('/', function () {
-        return view('dashboard.home');
-    })->name('dashboard.home');
+        return view('dashboard.index');
+    })->name('dashboard.index');
+
+    Route::get('/invoice/{id}/print', 'Dashboard\PricesController@pdf');
+
+    Route::group(['prefix' => 'users'], function() {
+        Route::get('/', 'Dashboard\UsersController@index')->name('dashboard.users.index');
+        Route::get('/add', 'Dashboard\UsersController@add')->name('dashboard.users.add');
+        Route::get('/{id}/edit', 'Dashboard\UsersController@edit')->name('dashboard.users.edit');
+        Route::post('/', 'Dashboard\UsersController@store')->name('dashboard.users.store');
+        Route::put('/{id}/update', 'Dashboard\UsersController@update')->name('dashboard.users.update');
+        Route::delete('/{id}/delete', 'Dashboard\UsersController@delete')->name('dashboard.users.delete');
+    });
+
+    Route::group(['prefix' =>'clients'], function (){
+        Route::get('/', 'Dashboard\ClientsController@index')->name('dashboard.clients.index');
+        Route::get('/add', 'Dashboard\ClientsController@add')->name('dashboard.clients.add');
+        Route::get('/{id}/view', 'Dashboard\ClientsController@view')->name('dashboard.clients.view');
+        Route::get('/{id}/edit', 'Dashboard\ClientsController@edit')->name('dashboard.clients.edit');
+        Route::post('/', 'Dashboard\ClientsController@store')->name('dashboard.clients.store');
+        Route::put('/{id}/update', 'Dashboard\ClientsController@update')->name('dashboard.clients.update');
+        Route::delete('/{id}/delete', 'Dashboard\ClientsController@delete')->name('dashboard.clients.delete');
+
+    });
+
+    Route::group(['prefix' =>'contacts'], function (){
+        Route::get('/', 'Dashboard\ContactsController@index')->name('dashboard.contacts.index');
+        Route::get('/add', 'Dashboard\ContactsController@add')->name('dashboard.contacts.add');
+        Route::get('/{id}/edit', 'Dashboard\ContactsController@edit')->name('dashboard.contacts.edit');
+        Route::post('/', 'Dashboard\ContactsController@store')->name('dashboard.contacts.store');
+        Route::put('/{id}/update', 'Dashboard\ContactsController@update')->name('dashboard.contacts.update');
+        Route::delete('/{id}/delete', 'Dashboard\ContactsController@delete')->name('dashboard.contacts.delete');
+    });
+
+    Route::group(['prefix' =>'projects'], function (){
+        Route::get('/', 'Dashboard\ProjectsController@index')->name('dashboard.projects.index');
+        Route::get('/add', 'Dashboard\ProjectsController@add')->name('dashboard.projects.add');
+        Route::get('/{id}/view', 'Dashboard\ProjectsController@view')->name('dashboard.projects.view');
+        Route::get('/{id}/edit', 'Dashboard\ProjectsController@edit')->name('dashboard.projects.edit');
+        Route::post('/', 'Dashboard\ProjectsController@store')->name('dashboard.projects.store');
+        Route::put('/{id}/update', 'Dashboard\ProjectsController@update')->name('dashboard.projects.update');
+        Route::delete('/{id}/delete', 'Dashboard\ProjectsController@delete')->name('dashboard.projects.delete');
+    });
+
+    Route::group(['prefix' =>'prices'], function (){
+        Route::get('/', 'Dashboard\PricesController@index')->name('dashboard.prices.index');
+        Route::get('/add', 'Dashboard\PricesController@add')->name('dashboard.prices.add');
+        Route::get('/{id}/view', 'Dashboard\PricesController@view')->name('dashboard.prices.view');
+        Route::get('/{id}/edit', 'Dashboard\PricesController@edit')->name('dashboard.prices.edit');
+        Route::post('/', 'Dashboard\PricesController@store')->name('dashboard.prices.store');
+        Route::put('/{id}/update', 'Dashboard\PricesController@update')->name('dashboard.prices.update');
+        Route::delete('/{id}/delete', 'Dashboard\PricesController@delete')->name('dashboard.prices.delete');
+    });
+
+    Route::group(['prefix' =>'cotizaciones'], function (){
+        Route::get('/', 'Dashboard\CotizacionesController@index')->name('dashboard.cotizaciones.generate');
+        Route::get('/categories', 'Dashboard\CotizacionesController@view')->name('dashboard.cotizaciones.categories');
+        Route::post('/', 'Dashboard\CotizacionesController@store')->name('dashboard.cotizaciones.store');
+    });
+
 });
 
 Route::get('/', function () {
     return view('main.home');
 })->name('main.home');
 
-Route::get('/us', function () {
+Route::get('/nosotros', function () {
     return view('main.us');
 })->name('main.us');
 
-Route::get('/solutions', function () {
+Route::get('/soluciones', function () {
     return view('main.solutions');
 })->name('main.solutions');
 
-Route::get('/success-stories/{name}', function ($name) {
+Route::get('/casos-de-exito/{name}', function ($name) {
     $objectives = "";
     $solutions = "";
     $products = "";
@@ -109,15 +167,12 @@ Route::get('/success-stories/{name}', function ($name) {
 
 })->name('main.success.item');
 
-Route::get('/success-stories', function () {
+Route::get('/casos-de-exito', function () {
     return view('main.success');
 })->name('main.success');
 
-Route::get('/contact', function () {
+Route::get('/contacto', function () {
     return view('main.contact');
 })->name('main.contact');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
