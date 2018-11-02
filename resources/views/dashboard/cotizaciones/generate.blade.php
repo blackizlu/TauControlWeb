@@ -141,6 +141,13 @@
                                         <tr style="background-color: white" class="main">
                                             <td><input type="text" class="form-control" placeholder="" name="quantity"></td>
                                             <td><input type="text" class="form-control" placeholder="" name="category"></td>
+                                            <td>
+                                                {{--<select name="category_id" id="">
+                                                    @foreach($categories as $category)
+                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    @endforeach
+                                                </select>--}}
+                                            </td>
                                             <td><input type="text" class="form-control" placeholder="" name="sub_category"></td>
                                             <td><input type="text" class="form-control" placeholder="" name="unity"></td>
                                             <td>
@@ -251,3 +258,57 @@
 
     </script>
 @endsection
+
+{{--LISTA AGREGABLE DE CATEGORIAS
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header bg-white">
+            Multi-list
+        </div>
+        <div class="card-block">
+            <div class="col-lg-6">
+                <div class="card-block m-t-25">
+                    <div id="filter">
+                        <div class="block__list">
+                            <div class="editable_section">
+                                <div class="row">
+                                    <div class="col-12 px-0">
+                                        <ul id="editable" class="list-unstyled">
+                                            <li>text number one<i class="fa fa-close"></i></li>
+                                            <li>text number two<i class="fa fa-close"></i></li>
+                                            <li>text number three<i class="fa fa-close"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel">New List</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="float-right" aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="#" method="post" class="form" id="myform">
+                                    <div class="form-group is-empty label-floating">
+                                        <label class="control-label" for="list-name">Name:</label>
+                                        <input type="text" class="form-control" id="list-name" required>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-warning" id="modal_close_btn" data-dismiss="modal">Close</button>
+                                <input type="submit" class="btn btn-primary" id="save" value="Save">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>--}}

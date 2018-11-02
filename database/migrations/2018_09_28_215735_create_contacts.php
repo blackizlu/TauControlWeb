@@ -26,6 +26,17 @@ class CreateContacts extends Migration
 
             });
         }
+        Schema::create('contacts', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('client_id')->unsigned();
+            $table->string('contact_name');
+            $table->string('phone_number');
+            $table->string('workstation')->nullable();
+            $table->string('email')->nullable();
+            $table->timestamps();
+            $table->foreign('client_id')->references('id')->on('clients');
+
+        });
     }
 
 

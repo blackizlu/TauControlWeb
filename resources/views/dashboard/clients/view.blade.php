@@ -6,8 +6,7 @@
                 <div class="row no-gutters">
                     <div class="col-lg-6">
                         <h4 class="nav_top_align skin_txt">
-                            <i class="fa fa-user"></i>
-                            {{ $client->client_name }}
+                            <i class="fa fa-user"></i>&nbsp;{{ $client->client_name }}
                         </h4>
                     </div>
                     <div class="col-lg-6">
@@ -79,25 +78,25 @@
                                                     <td>Nombre</td>
                                                     <td class="inline_edit">
                                                         <span class="editable"
-                                                              data-title="Edit User Name">Micheal</span>
+                                                              data-title="Edit User Name">{{ $client->client_name }}</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Tipo</td>
                                                     <td>
-                                                        <span class="editable" data-title="Edit E-mail">gankunding@hotmail.com</span>
+                                                        <span class="editable" data-title="Edit E-mail">{{ $client->type }}</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Telefono de oficina</td>
                                                     <td>
-                                                        <span class="editable" data-title="Edit Phone Number">(999)999-9999</span>
+                                                        <span class="editable" data-title="Edit Phone Number">{{ $client->office_number }}</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Página web</td>
                                                     <td>
-                                                        <span class="editable" data-title="Edit Address">Australia</span>
+                                                        <span class="editable" data-title="Edit Address">{{ $client->web_page }}</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -190,7 +189,7 @@
                                                 Cita.
                                             </h5>
                                             <p>
-                                                <strong>Se completo la cita con el arquitecto Miguel Herrea</strong>
+                                                <strong>Se completo la cita con el arquitecto Miguel Herrera</strong>
                                             </p>
                                             <i>Hace 3 minutos</i>
                                         </li>
