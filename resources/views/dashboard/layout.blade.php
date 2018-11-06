@@ -31,7 +31,6 @@
     <!--End of plugin styles-->
     <!--Estilos Radio Button chekbox-->
     <link type="text/css" rel="stylesheet" href="/css/dashboard/bootstrap-switch.min.css"/>
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/switchery.min.css"/>
     <link type="text/css" rel="stylesheet" href="/css/dashboard/radiobox.min.css"/>
     <link type="text/css" rel="stylesheet" href="/css/dashboard/checkbox.min.css"/>
     <!--End of plugin styles-->
@@ -170,22 +169,28 @@
 <!-- Estilos para vista cotizaciones/buttons/tooltips mensajitos-->
 <link type="text/css" rel="stylesheet" href="/css/dashboard/tooltipster.bundle.min.css">
 <link type="text/css" rel="stylesheet" href="/css/dashboard/tipso.min.css">
-{{--<!-- Estilos para vista vista de las listas de categorias y sub categorias cotizaciones-->
-<link type="text/css" rel="stylesheet" href="/css/dashboard/component.css"/>
-<link type="text/css" rel="stylesheet" href="/css/dashboard/bootstrap-tagsinput.css"/>
-<link rel="stylesheet" type="text/css" href="/css/dashboard/animate.min.css" />
-<link type="text/css" rel="stylesheet" href="/css/dashboard/portlet.css"/>
-<link type="text/css" rel="stylesheet" href="/css/dashboard/advanced_components.css"/>
-<!-- end of plugin styles -->
-<!-- Datatables Desplegables-->
-<link type="text/css" rel="stylesheet" href="/css/dashboard/select2.min.css" />
-<link type="text/css" rel="stylesheet" href="/css/dashboard/scroller.bootstrap.min.css" />
-<link type="text/css" rel="stylesheet" href="/css/dashboard/colReorder.bootstrap.min.css" />
-<link type="text/css" rel="stylesheet" href="/css/dashboard/dataTables.bootstrap.min.css" />
-<link type="text/css" rel="stylesheet" href="/css/dashboard/dataTables.bootstrap.css" />
-<link type="text/css" rel="stylesheet" href="/css/dashboard/responsive.dataTables.min.css" />
-<link type="text/css" rel="stylesheet" href="/css/dashboard/tables.css" />
-<!-- end of plugin styles -->--}}
+    <!-- Estilos para vista cotizaciones/lista de categorias-->
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/toastr.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/c3.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/new_dashboard.css"/>
+
+
+    {{--<!-- Estilos para vista vista de las listas de categorias y sub categorias cotizaciones-->
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/component.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/bootstrap-tagsinput.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/dashboard/animate.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/portlet.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/advanced_components.css"/>
+    <!-- end of plugin styles -->
+    <!-- Datatables Desplegables-->
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/select2.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/scroller.bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/colReorder.bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/dataTables.bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/dataTables.bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/responsive.dataTables.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/tables.css" />
+    <!-- end of plugin styles -->--}}
 
 </head>
 
@@ -296,7 +301,6 @@
     <script type="text/javascript" src="/js/dashboard/Sortable.min.js"></script>
     <script type="text/javascript" src="/js/dashboard/sortable.js"></script>
     <!-- plugin scripts botones -->
-    <script type="text/javascript" src="/js/dashboard/raphael-min.js"></script>
     <script type="text/javascript" src="/js/dashboard/scrollto.js"></script>
     <script type="text/javascript" src="/js/dashboard/buttons.js"></script>
     <!-- fin de plugin scripts-->
@@ -345,7 +349,6 @@
 {{--Scripts para hacer agregable la tabla de articulos--}}
 
 <script type="text/javascript" src="/js/dashboard/Sortable.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/jquery.slimscroll.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/sortable.js"></script>
 <!-- plugin scripts botones -->
 <script type="text/javascript" src="/js/dashboard/raphael-min.js"></script>
@@ -359,23 +362,44 @@
 <script type="text/javascript" src="/js/dashboard/modals.js"></script>
 
 <!-- plugin scripts lista de categorias y subcategorias -->
- {{--   <script type="text/javascript" src="/js/dashboard/datatable.js"></script>
-    <script type="text/javascript" src="/js/dashboard/dataTables.tableTools.js"></script>
-    <script type="text/javascript" src="/js/dashboard/dataTables.colReorder.min.js"></script>
-    <script type="text/javascript" src="/js/dashboard/dataTables.rowReorder.min.js"></script>
-    <script type="text/javascript" src="/js/dashboard/dataTables.scroller.min.js"></script>
-    <script type="text/javascript" src="/js/dashboard/select2.js"></script>
-    <script type="text/javascript" src="/js/dashboard/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="/js/dashboard/dataTables.tableTools.js"></script>
-    <script type="text/javascript" src="/js/dashboard/dataTables.colReorder.min.js"></script>
-    <script type="text/javascript" src="/js/dashboard/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" src="/js/dashboard/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="/js/dashboard/dataTables.responsive.min.js"></script>
-    <script type="text/javascript" src="/js/dashboard/buttons.colVis.min.js"></script>
-    <script type="text/javascript" src="/js/dashboard/buttons.html5.min.js"></script>
-    <script type="text/javascript" src="/js/dashboard/buttons.print.min.js"></script>
-    <script type="text/javascript" src="/js/dashboard/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/dashboard/buttons.bootstrap.min.js"></script>--}}
+<script type="text/javascript" src="/js/dashboard/d3.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/c3.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/toastr.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/jquery.flot.stack.js"></script>
+<script type="text/javascript" src="/js/dashboard/jquery.flot.time.js"></script>
+<script type="text/javascript" src="/js/dashboard/jquery.flot.spline.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/jquery.flot.categories.js"></script>
+<script type="text/javascript" src="/js/dashboard/jquery.flot.pie.js"></script>
+<script type="text/javascript" src="/js/dashboard/jquery.flot.tooltip.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/newsTicker.js"></script>
+<script type="text/javascript" src="/js/dashboard/countUp.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+    {{--   <script type="text/javascript" src="/js/dashboard/datatable.js"></script>
+       <script type="text/javascript" src="/js/dashboard/dataTables.tableTools.js"></script>
+       <script type="text/javascript" src="/js/dashboard/dataTables.colReorder.min.js"></script>
+       <script type="text/javascript" src="/js/dashboard/dataTables.rowReorder.min.js"></script>
+       <script type="text/javascript" src="/js/dashboard/dataTables.scroller.min.js"></script>
+       <script type="text/javascript" src="/js/dashboard/select2.js"></script>
+       <script type="text/javascript" src="/js/dashboard/jquery.dataTables.min.js"></script>
+       <script type="text/javascript" src="/js/dashboard/dataTables.tableTools.js"></script>
+       <script type="text/javascript" src="/js/dashboard/dataTables.colReorder.min.js"></script>
+       <script type="text/javascript" src="/js/dashboard/dataTables.buttons.min.js"></script>
+       <script type="text/javascript" src="/js/dashboard/jquery.dataTables.min.js"></script>
+       <script type="text/javascript" src="/js/dashboard/dataTables.responsive.min.js"></script>
+       <script type="text/javascript" src="/js/dashboard/buttons.colVis.min.js"></script>
+       <script type="text/javascript" src="/js/dashboard/buttons.html5.min.js"></script>
+       <script type="text/javascript" src="/js/dashboard/buttons.print.min.js"></script>
+       <script type="text/javascript" src="/js/dashboard/dataTables.bootstrap.min.js"></script>
+       <script type="text/javascript" src="/js/dashboard/buttons.bootstrap.min.js"></script>--}}
 
 
     <!-- end of plugin scripts -->

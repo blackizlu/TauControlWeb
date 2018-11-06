@@ -123,36 +123,25 @@
                                                 {{--<textarea id="text4" class="form-control" placeholder="Escribe la Sub-categoría" rows="1" ></textarea>--}}
                                             {{--</td>--}}
                                         {{--</tr>--}}
+
                                         <thead>
-                                            <tr class="table-bordered">
-                                                <th>Cantidad</th>
-                                                <th>Categoria</th>
-                                                <th>Sub-categoria</th>
-                                                <th>Unidad</th>
-                                                <th>Descripción</th>
-                                                <th>Marca</th>
-                                                <th>Modelo</th>
-                                                <th>Precio Unitario</th>
-                                                <th>Importe</th>
-                                                <th><i class="fa fa-cog"></i></th>
-                                            </tr>
+
+                                        <tr class="table-bordered">
+                                            <th>Cantidad</th>
+                                            <th>Unidad</th>
+                                            <th>Descripción</th>
+                                            <th>Marca</th>
+                                            <th>Modelo</th>
+                                            <th>Precio Unitario</th>
+                                            <th>Importe</th>
+                                            <th><i class="fa fa-cog"></i></th>
+                                        </tr>
                                         </thead>
                                         <tbody>
                                         <tr style="background-color: white" class="main">
                                             <td><input type="text" class="form-control" placeholder="" name="quantity"></td>
-                                            <td><input type="text" class="form-control" placeholder="" name="category"></td>
-                                            <td>
-                                                {{--<select name="category_id" id="">
-                                                    @foreach($categories as $category)
-                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                                    @endforeach
-                                                </select>--}}
-                                            </td>
-                                            <td><input type="text" class="form-control" placeholder="" name="sub_category"></td>
                                             <td><input type="text" class="form-control" placeholder="" name="unity"></td>
-                                            <td>
-                                                <textarea id="autosize" class="form-control" cols="50" rows="1" name="description"></textarea>
-                                            </td>
+                                            <td><textarea id="autosize" class="form-control" cols="50" rows="1" name="description"></textarea></td>
                                             <td><input type="text" class="form-control" placeholder="" name="brand"></td>
                                             <td><input type="text" class="form-control" placeholder="" name="model"></td>
                                             <td><input type="text" class="form-control" placeholder="" name="unit_price"></td>
@@ -218,8 +207,6 @@
             console.log(data);
             var newLine = '<tr>' +
                 '<td><input type="hidden" name="item[' + tds + '][quantity]" value="' + data.quantity + '" />' + data.quantity + '</td>' +
-                '<td><input type="hidden" name="item[' + tds + '][category]" value="' + data.category + '" />' + data.category + '</td>' +
-                '<td><input type="hidden" name="item[' + tds + '][sub_category]" value="' + data.sub_category + '" />' + data.sub_category + '</td>' +
                 '<td><input type="hidden" name="item[' + tds + '][unity]" value="' + data.unity + '" />' + data.unity + '</td>' +
                 '<td><input type="hidden" name="item[' + tds + '][description]" value="' + data.description + '" />' + data.description + '</td>' +
                 '<td><input type="hidden" name="item[' + tds + '][brand]" value="' + data.brand + '" />' + data.brand + '</td>' +
@@ -234,8 +221,6 @@
         function getDataTable() {
             var response = {};
             response.quantity = $('.main input[name="quantity"]').val();
-            response.category = $('.main input[name="category"]').val();
-            response.sub_category = $('.main input[name="sub_category"]').val();
             response.unity = $('.main input[name="unity"]').val();
             response.description = $('.main textarea[name="description"]').val();
             response.brand = $('.main input[name="brand"]').val();
