@@ -1132,7 +1132,7 @@ body.error .logo h1 {
 
 .card_nav_hover > a:hover {
   padding-bottom: 10px;
-  border-bottom: 4px solid #4fb7fe; }
+  border-bottom: 4px solid #; }
 
 .card_nav_body_padding {
   padding: 15px; }

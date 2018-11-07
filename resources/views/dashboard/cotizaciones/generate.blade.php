@@ -105,27 +105,19 @@
                                 <i class="fa fa-list-ol"></i> Artículos
                             </div>
                             <div class="card-block p-t-25">
-                                <div class="">
-                                    <div class="pull-sm-right">
-                                        <div class="tools pull-sm-right"></div>
-                                    </div>
-                                </div>
                                 <form action="{{ route('dashboard.cotizaciones.store') }}" method="post">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <table class="table table-striped table-hover" id="tableProducts">
-                                        {{--<tr>--}}
-                                            {{--<th>Categoria</th>--}}
-                                            {{--<td colspan="30%">--}}
-                                                {{--<textarea id="text4" class="form-control" placeholder="Escribe la Categoría" rows="1"></textarea>--}}
-                                            {{--</td>--}}
-                                            {{--<th>Sub-categoria</th>--}}
-                                            {{--<td colspan="30%">--}}
-                                                {{--<textarea id="text4" class="form-control" placeholder="Escribe la Sub-categoría" rows="1" ></textarea>--}}
-                                            {{--</td>--}}
-                                        {{--</tr>--}}
-
+                                            <div class="col-lg-8">
+                                                <h5>Selecciona una categoría:</h5><br>
+                                                <select class="form-control chzn-select">
+                                                    <option disabled selected>Selecciona una categoría</option>
+                                                    @foreach($categories as $category)
+                                                        <option value="">{{ $category->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                    <table class="table table-striped table-hover m-t-15" id="tableProducts">
                                         <thead>
-
                                         <tr class="table-bordered">
                                             <th>Cantidad</th>
                                             <th>Unidad</th>
@@ -134,6 +126,7 @@
                                             <th>Modelo</th>
                                             <th>Precio Unitario</th>
                                             <th>Importe</th>
+                                            <th>Imagen del producto</th>
                                             <th><i class="fa fa-cog"></i></th>
                                         </tr>
                                         </thead>
@@ -146,6 +139,11 @@
                                             <td><input type="text" class="form-control" placeholder="" name="model"></td>
                                             <td><input type="text" class="form-control" placeholder="" name="unit_price"></td>
                                             <td><input type="text" class="form-control" placeholder="" name="total"></td>
+                                            <td>
+                                                <div class="button_file">
+                                                    <input id="input-4" name="input4" type="file" multiple class="file-loading d-block">
+                                                </div>
+                                            </td>
                                             <td>
                                                 <button onclick="addRow(); return false;" type="button" class="btn btn-primary button-rounded fa fa-check-circle" data-toggle="tooltip" title="Añadir"></button>
                                             </td>
@@ -213,6 +211,7 @@
                 '<td><input type="hidden" name="item[' + tds + '][model]" value="' + data.model + '" />' + data.model + '</td>' +
                 '<td><input type="hidden" name="item[' + tds + '][unit_price]" value="' + data.unit_price + '" />' + data.unit_price + '</td>' +
                 '<td><input type="hidden" name="item[' + tds + '][total]" value="' + data.total + '" />' + data.total + '</td>' +
+                '<td><input type="hidden" name="item[' + tds + '][input4]" value="' + data.input4 + '" />' + data.input4 + '</td>' +
                 '<td><input type="button" class="btn btn-danger button-rounded " value="x" style="margin-top: -3px;" onclick="deleteRow(this.parentNode.parentNode.rowIndex, ' + data.total + ')" /></td></tr>';
             $('#tableProducts tbody').append(newLine);
             tds++;
@@ -227,6 +226,8 @@
             response.model = $('.main input[name="model"]').val();
             response.unit_price = $('.main input[name="unit_price"]').val();
             response.total = $('.main input[name="total"]').val();
+            response.input4 = $('.main input[name="input4"]').val();
+
             return response;
         }
 
@@ -243,57 +244,3 @@
 
     </script>
 @endsection
-
-{{--LISTA AGREGABLE DE CATEGORIAS
-<div class="col-lg-12">
-    <div class="card">
-        <div class="card-header bg-white">
-            Multi-list
-        </div>
-        <div class="card-block">
-            <div class="col-lg-6">
-                <div class="card-block m-t-25">
-                    <div id="filter">
-                        <div class="block__list">
-                            <div class="editable_section">
-                                <div class="row">
-                                    <div class="col-12 px-0">
-                                        <ul id="editable" class="list-unstyled">
-                                            <li>text number one<i class="fa fa-close"></i></li>
-                                            <li>text number two<i class="fa fa-close"></i></li>
-                                            <li>text number three<i class="fa fa-close"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- modal -->
-                <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog modal-sm" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">New List</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="float-right" aria-hidden="true">&times;</span></button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="#" method="post" class="form" id="myform">
-                                    <div class="form-group is-empty label-floating">
-                                        <label class="control-label" for="list-name">Name:</label>
-                                        <input type="text" class="form-control" id="list-name" required>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-warning" id="modal_close_btn" data-dismiss="modal">Close</button>
-                                <input type="submit" class="btn btn-primary" id="save" value="Save">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>--}}

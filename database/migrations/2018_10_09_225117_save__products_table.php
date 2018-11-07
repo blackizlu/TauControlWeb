@@ -25,6 +25,7 @@ class SaveProductsTable extends Migration
                 $table->string('description');
                 $table->string('brand');
                 $table->string('model');
+                $table->text('image')->nullable();
                 $table->string('unit_price');
                 $table->string('unit_total');
                 $table->string('sub_total');
@@ -32,14 +33,13 @@ class SaveProductsTable extends Migration
                 $table->string('total');
                 $table->string('notes');
 
-
-
                 $table->timestamps();
                 $table->foreign('client_id')->references('id')->on('clients');
                 $table->foreign('project_id')->references('id')->on('projects');
 
 
             });
+        }
     }
 
     /**
@@ -49,6 +49,7 @@ class SaveProductsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('products');
+
     }
 }
