@@ -79,9 +79,15 @@
                         </a>
                     </li>
                     <li class="">
-                        <a href="{{route('dashboard.cotizaciones.generate')}}">
+                        <a href="{{route('dashboard.cotizaciones.index')}}">
                             <i class="fa fa-angle-right"></i>
                             &nbsp;Cotizaciones
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{route('dashboard.cotizaciones.generate')}}">
+                            <i class="fa fa-angle-right"></i>
+                            &nbsp;Generar Cotización
                         </a>
                     </li>
                 </ul>

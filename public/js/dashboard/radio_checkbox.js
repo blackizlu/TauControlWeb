@@ -13,7 +13,7 @@ $(document).ready(function(){
     });
 
     // Switchery
-    new Switchery(document.querySelector('.sm_toggle'), { size: 'small', color: '#4fb7fe', jackColor: '#fff' });
+    new Switchery(document.querySelector('.sm_toggle'), { size: 'small', color: '#00cc99', jackColor: '#fff' });
     new Switchery(document.querySelector('.sm_toggle_checked'), { size: 'small', color: '#EF6F6C', jackColor: '#fff' });
     new Switchery(document.querySelector('.sm_disable'), { size: 'small', disabled: true });
 

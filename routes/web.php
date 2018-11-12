@@ -70,9 +70,11 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
     });
 
     Route::group(['prefix' =>'cotizaciones'], function (){
-        Route::get('/', 'Dashboard\CotizacionesController@index')->name('dashboard.cotizaciones.generate');
+        Route::get('/', 'Dashboard\CotizacionesController@index')->name('dashboard.cotizaciones.index');
+        Route::get('/add', 'Dashboard\CotizacionesController@add')->name('dashboard.cotizaciones.generate');
         Route::post('/', 'Dashboard\CotizacionesController@store')->name('dashboard.cotizaciones.store');
         Route::get('/categories', 'Dashboard\CategoryController@view')->name('dashboard.cotizaciones.categories');
+
 
 
     });

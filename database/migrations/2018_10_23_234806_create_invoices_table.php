@@ -16,14 +16,12 @@ class CreateInvoicesTable extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('project_id')->unsigned();
+            $table->integer('products')->unsigned();
+            $table->enum('currency',['USD','MXN']);
             $table->boolean('sold');
-            $table->dateTime('request_invoice');
-            $table->dateTime('creation_invoice');
-            $table->dateTime('sell_date')->nullable();
-            $table->string('tax');
-            $table->string('total');
-            $table->string('notes');
+            $table->dateTime('sell_date');
             $table->foreign('project_id')->references('id')->on('projects');
+            $table->foreign('products')->references('id')->on('products');
             $table->timestamps();
         });
     }

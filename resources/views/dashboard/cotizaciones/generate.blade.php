@@ -26,35 +26,25 @@
                 </div>
             </div>
         </header>
-        <div class="outer" style="margin-top: -25px !important;">
+
+        <div class="outer">
             <div class="inner bg-light lter bg-container">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-12 data_tables">
                         <div class="card m-t-35">
                             <div class="card-header bg-white"><i class="fa fa-file-alt"></i>
-                                Datos generales
+                                Proyecto
                             </div>
-                            <div class="card-block seclect_form">
+                            <div class="card-block seclect_form" style="padding: 1rem">
                                 <form class="form-horizontal">
                                     <div class="row">
                                         <div class="col-lg-4 input_field_sections">
-                                            <h5>Cliente*</h5>
-                                            <select class="form-control chzn-select" tabindex="2">
-                                                <option disabled selected>Buscar cliente</option>
-                                                @foreach($clients as $client)
-                                                <option value="">{{ $client->client_name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-4 input_field_sections">
-                                            <h5>Proyecto*</h5>
+                                            <h5>Selecciona el proyecto*</h5>
                                             <select class="form-control chzn-select" tabindex="2">
                                                 <option disabled selected>Buscar proyecto</option>
-                                                <option value="United States">United States</option>
-                                                <option value="United Kingdom">United Kingdom</option>
-                                                <option value="Afghanistan">Afghanistan</option>
-                                                <option value="Albania">Albania</option>
-                                                <option value="Algeria">Algeria</option>
+                                                {{--@foreach($clients as $client)
+                                                    <option value="{{ $client->id }}">{{ $client->client_name }}</option>
+                                                @endforeach--}}
                                             </select>
                                         </div>
                                         <div class="col-lg-4 input_field_sections">
@@ -66,41 +56,11 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 input_field_sections">
-                                            <h5>Fecha de creación</h5>
-                                            <form>
-                                                <div class="input-group input-append date" id="dp3" data-date-format="dd-mm-yyyy">
-                                                    <input class="form-control" type="text" placeholder="dd-mm-aaaa">
-                                                    <span class="input-group-addon add-on">
-                                                        <i class="fa fa-calendar"></i>
-                                                    </span>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="col-lg-4 input_field_sections">
-                                            <h5>Fecha de vencimiento</h5>
-                                            <form>
-                                                <div class="input-group input-append  date" id="dpYears"  data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                                                    <input class="form-control" type="text" placeholder="dd-mm-aaaa">
-                                                    <span class="input-group-addon add-on">
-                                                        <i class="fa fa-calendar"></i>
-                                                    </span>
-                                                </div>
-                                            </form>
-                                        </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="outer">
-            <div class="inner bg-light lter bg-container">
-                <div class="row">
-                    <div class="col-12 data_tables">
-                        <div class="card">
+                        <div class="card m-t-15">
                             <div class="card-header bg-white">
                                 <i class="fa fa-list-ol"></i> Artículos
                             </div>

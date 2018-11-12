@@ -66,7 +66,7 @@
                                     <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Acciones</th>
 
                                 </tr>
-                                </thead>
+                                {{--</thead>EN EL MONTO DE PROYECTO SE DEBERA MOSTRAR EL MONTO DE LA ULTIMA COTIZACION GENERADA PARA DICHO PROYECTO. UN PROYECTO PUEDE TENER MULTIPLES COTIZACIONES.--}}
                                 <tbody>
                                 {{--@foreach($clients as $client)
                                     <tr role="row" class="even">

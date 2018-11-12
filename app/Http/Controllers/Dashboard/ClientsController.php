@@ -57,7 +57,7 @@ class ClientsController extends Controller
         $message = 'Cliente creado con éxito';
         Session::flash('message', $message);
 
-        return redirect()->route('dashboard.clients.index');
+        return redirect()->back();
     }
 
     public function edit($id){

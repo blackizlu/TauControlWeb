@@ -27,18 +27,6 @@ class Clients extends Migration /* Crea clientes :)*/
                 $table->foreign('user_id')->references('id')->on('users');
             });
         }
-        Schema::create('clients', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->boolean('is_business');
-            $table->string('office_number')->nullable();
-            $table->string('client_name');
-            $table->enum('type', ['Arquitecto','Constructora','Desarrolladora','Cliente_Final','Gerencia_obra']);
-            $table->string('web_page')->nullable();
-            $table->string('notes')->nullable();
-            $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-        });
     }
 
     /**

@@ -13,6 +13,12 @@ class CotizacionesController extends Controller
 
         $clients =Client::all();
         $categories =Category::all();
+        return view('dashboard.cotizaciones.index', compact('clients', 'categories'));
+    }
+    public function add(){
+
+        $clients =Client::all();
+        $categories =Category::all();
         return view('dashboard.cotizaciones.generate', compact('clients', 'categories'));
     }
 
