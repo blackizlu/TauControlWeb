@@ -17,13 +17,13 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->integer('client_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->string('project_name');
+            $table->string('name');
             $table->enum('phase', ['Cotizado','Ganado','Lead','Negociacion','Pricing','Rechazado']);
             $table->dateTime('estimated_date');
             $table->string('comments')->nullable();
             $table->timestamps();
             $table->foreign('client_id')->references('id')->on('clients');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users'); 
         });
     }
 

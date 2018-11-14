@@ -59,30 +59,16 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::delete('/{id}/delete', 'Dashboard\ProjectsController@delete')->name('dashboard.projects.delete');
     });
 
-    Route::group(['prefix' =>'prices'], function (){
-        Route::get('/', 'Dashboard\PricesController@index')->name('dashboard.prices.index');
-        Route::get('/add', 'Dashboard\PricesController@add')->name('dashboard.prices.add');
-        Route::get('/{id}/view', 'Dashboard\PricesController@view')->name('dashboard.prices.view');
-        Route::get('/{id}/edit', 'Dashboard\PricesController@edit')->name('dashboard.prices.edit');
-        Route::post('/', 'Dashboard\PricesController@store')->name('dashboard.prices.store');
-        Route::put('/{id}/update', 'Dashboard\PricesController@update')->name('dashboard.prices.update');
-        Route::delete('/{id}/delete', 'Dashboard\PricesController@delete')->name('dashboard.prices.delete');
-    });
-
     Route::group(['prefix' =>'cotizaciones'], function (){
         Route::get('/', 'Dashboard\CotizacionesController@index')->name('dashboard.cotizaciones.index');
         Route::get('/add', 'Dashboard\CotizacionesController@add')->name('dashboard.cotizaciones.generate');
         Route::post('/', 'Dashboard\CotizacionesController@store')->name('dashboard.cotizaciones.store');
         Route::get('/categories', 'Dashboard\CategoryController@view')->name('dashboard.cotizaciones.categories');
 
-
-
     });
     Route::group(['prefix' =>'categories'], function (){
         Route::post('/', 'Dashboard\CategoryController@store')->name('dashboard.categories.store');
         Route::put('/{id}/update', 'Dashboard\CategoryController@update')->name('dashboard.categories.update');
-
-
     });
 
 });

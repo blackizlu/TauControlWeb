@@ -31,7 +31,7 @@ class ProjectsController extends Controller
         $data = request()->all();
 
         $this->validate($request, [
-            'project_name' => 'required',
+            'name' => 'required',
             'phase' => 'required',
             'estimated_date' => 'required',
             'user_id' => 'required',
@@ -39,13 +39,13 @@ class ProjectsController extends Controller
 
         ]);
 
-        $project = new Project ($data);
-        $project->save();
+        $projects = new Project ($data);
+        $projects->save();
 
-        $message = 'Proyecto creado con éxito';
-        Session::flash('message', $message);
+        /*$message = 'Proyecto creado con éxito';
+        Session::flash('message', $message);*/
 
-        return redirect()->back();
+        return view('dashboard.projects.index', compact('projects','clients'));
     }
 
     public function view($id)

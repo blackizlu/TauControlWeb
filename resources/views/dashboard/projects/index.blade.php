@@ -68,26 +68,27 @@
                                 </tr>
                                 {{--</thead>EN EL MONTO DE PROYECTO SE DEBERA MOSTRAR EL MONTO DE LA ULTIMA COTIZACION GENERADA PARA DICHO PROYECTO. UN PROYECTO PUEDE TENER MULTIPLES COTIZACIONES.--}}
                                 <tbody>
-                                {{--@foreach($clients as $client)
+                                @foreach($projects as $project)
                                     <tr role="row" class="even">
-                                        <td class="sorting_1">{{ $client->client_name }}</td>
-                                        <td>{{ $client->type }}</td>
-                                        <td>{{ $client->office_number }}</td>
-                                        <td>{{ $client->web_page }}</td>
-                                        <td>{{ $client->notes }}</td>
-                                        <td>{{ $client->profile->name }}</td>
+                                        <td class="sorting_1">{{ $project->name }}</td>
+                                        <td>{{ $project->client->client_name }}</td>
+                                        <td>{{ $project->phase }}</td>
+                                        <td>{{ $project->estimated_date }}</td>
+                                        <td>USD</td>
+                                        <td>$182,032.50</td>
+                                        <td>{{ $project->user->profile->name }}</td>
                                         <td>
-                                            <a href="{{route ('dashboard.projects.view', $client->id)}}" data-toggle="tooltip" data-placement="top" title="View User">
+                                            <a href="{{route ('dashboard.projects.view', $project->id)}}" data-toggle="tooltip" data-placement="top" title="View User">
                                                 <i class="fa fa-eye text-success"></i></a>
                                             &nbsp; &nbsp;
-                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="{{route ('dashboard.projects.edit',$client->id)}}">
+                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="{{route ('dashboard.projects.edit',$project->id)}}">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>
                                             &nbsp; &nbsp;
-                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="{{ $client->id }}">
+                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="{{ $project->id }}">
                                                 <i class="fa fa-trash text-danger"></i></a>
                                         </td>
                                     </tr>
-                                @endforeach--}}
+                                @endforeach
                             </table>
                         </div>
                     </div>

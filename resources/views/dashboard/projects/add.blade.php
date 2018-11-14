@@ -35,18 +35,16 @@
                         Nuevo proyecto
                         </div>
                         <div class="card-block seclect_form">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action="{{ route('dashboard.projects.store') }}" method="post" enctype="multipart/form-data">
+                                {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-lg-4 input_field_sections">
                                         <h5>Nombre del proyecto*</h5>
-                                        <form>
-                                            <input type="text" class="form-control focused_input"
-                                                   placeholder="Nombre del proyecto"/>
-                                        </form>
+                                            <input type="text" class="form-control focused_input" placeholder="Nombre del proyecto" name="name" id="name"/>
                                     </div>
                                     <div class="col-lg-4 input_field_sections">
                                         <h5>Cliente*</h5>
-                                        <select class="form-control chzn-select" tabindex="2">
+                                        <select class="form-control chzn-select" tabindex="2" name="client_id" id="client_id">
                                             <option disabled selected>Buscar cliente</option>
                                             @foreach($clients as $client)
                                                 <option value="{{ $client->id }}">{{ $client->client_name }}</option>
@@ -58,7 +56,7 @@
                                     </div>
                                     <div class="col-lg-4 input_field_sections">
                                         <h5>Etapa*</h5>
-                                        <select class="form-control hide_search" tabindex="2">
+                                        <select class="form-control hide_search" tabindex="2" name="phase" id="phase">
                                             <option disabled selected>Seleccionar etapa</option>
                                             <option value=" ">Cotizado</option>
                                             <option value=" ">Ganado</option>
@@ -70,7 +68,7 @@
                                     <div class="col-lg-4 input_field_sections">
                                         <h5>Responsable del proyecto*</h5>
                                         <div class="form-group">
-                                            <select class="form-control hide_search" tabindex="7" name="user_id">
+                                            <select class="form-control hide_search" tabindex="7" name="user_id" id="user_id">
                                                 <option selected disabled>Seleccionar responsable</option>
                                                 @foreach($users as $user)
                                                     <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
@@ -80,19 +78,20 @@
                                     </div>
                                     <div class="col-lg-4 input_field_sections">
                                         <h5>Fecha estimada de cierre*</h5>
-                                        <form>
                                             <div class="input-group input-append date" id="dp3" data-date-format="dd-mm-yyyy">
-                                                <input class="form-control" type="text" placeholder="dd-mm-aaaa">
+                                                <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="estimated_date" id="estimated_date">
                                                 <span class="input-group-addon add-on">
                                                         <i class="fa fa-calendar"></i>
                                                     </span>
                                             </div>
-                                        </form>
                                     </div>
                                     <div class="col-lg-6 input_field_sections">
                                         <h5>Comentarios</h5>
-                                        <textarea id="autosize" class="form-control" cols="50" rows="6"></textarea>
+                                        <textarea id="autosize" class="form-control" cols="50" rows="6" name="comments" ></textarea>
                                     </div>
+                                </div>
+                                <div class="col-lg-4 input_field_sections">
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
                                 </div>
                             </form>
                         </div>

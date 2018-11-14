@@ -27,7 +27,7 @@ class CreateProductsTable extends Migration
             $table->string('sub_total');
             $table->timestamps();
             $table->foreign('invoice_id')->references('id')->on('invoices');
-            $table->foreign('category_id')->references('id')->on('category');
+            $table->foreign('category_id')->references('id')->on('categories');
 
 
         });
