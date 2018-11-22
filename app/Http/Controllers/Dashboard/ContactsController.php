@@ -39,7 +39,6 @@ class ContactsController extends Controller
 
         $message = 'Contacto creado con éxito';
         Session::flash('message', $message);
-z
         return redirect()->route('dashboard.contacts.index');
     }
 

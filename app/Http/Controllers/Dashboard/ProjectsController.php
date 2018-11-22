@@ -5,21 +5,25 @@ namespace App\Http\Controllers\dashboard;
 use App\Client;
 use App\Project;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class ProjectsController extends Controller
 {
     public function index()
     {
         $projects = Project::all(); /*Variable users muestra los usuarios en lista*/
+
         $clients = Client::all();
 
         return view('dashboard.projects.index', compact('projects','clients'));
     }
     public function add()
     {
-        $projects = Project::all(); /*Variable users muestra los usuarios en lista*/
+        $projects = Project::orderBy('estimated_date')->get();
         $users =    User::all();
         $clients =  Client::all();
 
@@ -39,13 +43,13 @@ class ProjectsController extends Controller
 
         ]);
 
-        $projects = new Project ($data);
-        $projects->save();
+        $project = new Project ($data);
+        $project->save();
 
-        /*$message = 'Proyecto creado con éxito';
-        Session::flash('message', $message);*/
+        $message = 'Proyecto creado con éxito';
+        Session::flash('message', $message);
 
-        return view('dashboard.projects.index', compact('projects','clients'));
+        return redirect()->route('dashboard.projects.index');
     }
 
     public function view($id)

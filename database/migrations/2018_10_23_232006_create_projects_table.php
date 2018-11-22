@@ -19,7 +19,7 @@ class CreateProjectsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('name');
             $table->enum('phase', ['Cotizado','Ganado','Lead','Negociacion','Pricing','Rechazado']);
-            $table->dateTime('estimated_date');
+            $table->date('estimated_date');
             $table->string('comments')->nullable();
             $table->timestamps();
             $table->foreign('client_id')->references('id')->on('clients');

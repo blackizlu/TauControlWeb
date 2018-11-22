@@ -19,4 +19,9 @@ class Project extends Model
         return $this->hasOne(Client::class, 'id','client_id');
     }
 
+    protected function DateTime(){
+        $timezone = new DateTimeZone('America/Mexico_City');
+        $date     = DateTime::createFromFormat('d/m/Y',$timezone);
+        Carbon::parse($date)->format('Y-m-d');
+    }
 }

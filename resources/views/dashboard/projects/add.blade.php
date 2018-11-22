@@ -18,7 +18,7 @@
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="#">Proyectos</a>
+                            <a href="">Proyectos</a>
                         </li>
                         <li class="active breadcrumb-item">Agregar proyecto</li>
                     </ol>
@@ -35,7 +35,7 @@
                         Nuevo proyecto
                         </div>
                         <div class="card-block seclect_form">
-                            <form class="form-horizontal" action="{{ route('dashboard.projects.store') }}" method="post" enctype="multipart/form-data">
+                            <form  action="{{ route('dashboard.projects.store') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-lg-4 input_field_sections">
@@ -58,11 +58,12 @@
                                         <h5>Etapa*</h5>
                                         <select class="form-control hide_search" tabindex="2" name="phase" id="phase">
                                             <option disabled selected>Seleccionar etapa</option>
-                                            <option value=" ">Cotizado</option>
-                                            <option value=" ">Ganado</option>
-                                            <option value=" ">Lead</option>
-                                            <option value=" ">Pricing</option>
-                                            <option value=" ">Rechazado</option>
+                                            <option value="Cotizado">Cotizado</option>
+                                            <option value="Ganado">Ganado</option>
+                                            <option value="Lead">Lead</option>
+                                            <option value="Negociacion">Negociación</option>
+                                            <option value="Pricing">Pricing</option>
+                                            <option value="Rechazado">Rechazado</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-4 input_field_sections">
@@ -78,7 +79,7 @@
                                     </div>
                                     <div class="col-lg-4 input_field_sections">
                                         <h5>Fecha estimada de cierre*</h5>
-                                            <div class="input-group input-append date" id="dp3" data-date-format="dd-mm-yyyy">
+                                            <div class="input-group input-append date" id="dpYears" data-date-format="yyyy-mm-dd">
                                                 <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="estimated_date" id="estimated_date">
                                                 <span class="input-group-addon add-on">
                                                         <i class="fa fa-calendar"></i>

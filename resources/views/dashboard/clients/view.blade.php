@@ -20,7 +20,7 @@
                             <li class="breadcrumb-item">
                                 <a href="#">Clientes</a>
                             </li>
-                            <li class="breadcrumb-item active">Ver cliente</li>
+                            <li class="breadcrumb-item active">{{ $client->client_name }}</li>
                         </ol>
                     </div>
                 </div>

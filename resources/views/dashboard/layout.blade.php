@@ -103,7 +103,6 @@
 <link type="text/css" rel="stylesheet" href="/css/dashboard/jasny-bootstrap.min.css"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/bootstrapValidator.min.css"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/select2.min.css" />
-<link type="text/css" rel="stylesheet" href="/css/dashboard/dataTables.bootstrap.min.css" />
 <!--Estilos Sweeet alert eliminar-->
 <link type="text/css" rel="stylesheet" href="/css/dashboard/pnotify.css"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/animate.min.css"/>
@@ -120,7 +119,6 @@
 <link type="text/css" rel="stylesheet" href="/css/dashboard/checkbox.min.css"/>
 <!--End of plugin styles-->
 <!--Page level styles-->
-<link type="text/css" rel="stylesheet" href="/css/dashboard/tables.css" />
 <link type="text/css" rel="stylesheet" href="/css/dashboard/p_notify.css"/>
 <link type="text/css" rel="stylesheet" href="#" id="skin_change"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/radio_checkbox.css" />
@@ -169,10 +167,17 @@
 <!-- Estilos para vista cotizaciones/buttons/tooltips mensajitos-->
 <link type="text/css" rel="stylesheet" href="/css/dashboard/tooltipster.bundle.min.css">
 <link type="text/css" rel="stylesheet" href="/css/dashboard/tipso.min.css">
-    <!-- Estilos para vista cotizaciones/lista de categorias-->
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/toastr.min.css"/>
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/c3.min.css"/>
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/new_dashboard.css"/>
+<!-- Estilos para vista cotizaciones/lista de categorias-->
+<link type="text/css" rel="stylesheet" href="/css/dashboard/toastr.min.css"/>
+<link type="text/css" rel="stylesheet" href="/css/dashboard/c3.min.css"/>
+<link type="text/css" rel="stylesheet" href="/css/dashboard/new_dashboard.css"/>
+<!-- Estilos para vista VER PROYECTO TABLA COTIZACIONES-->
+<link type="text/css" rel="stylesheet" href="/css/dashboard/scroller.bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/dashboard/select2.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/dashboard/colReorder.bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/dashboard/dataTables.bootstrap.css" />
+<link type="text/css" rel="stylesheet" href="/css/dashboard/responsive.dataTables.min.css" />
+
 
 
     {{--<!-- Estilos para vista vista de las listas de categorias y sub categorias cotizaciones-->
@@ -183,13 +188,7 @@
     <link type="text/css" rel="stylesheet" href="/css/dashboard/advanced_components.css"/>
     <!-- end of plugin styles -->
     <!-- Datatables Desplegables-->
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/select2.min.css" />
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/scroller.bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/colReorder.bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/dataTables.bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/dataTables.bootstrap.css" />
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/responsive.dataTables.min.css" />
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/tables.css" />
+
     <!-- end of plugin styles -->--}}
 
 </head>
@@ -361,7 +360,7 @@
 <script type="text/javascript" src="/js/dashboard/tooltips.js"></script>
 <script type="text/javascript" src="/js/dashboard/modals.js"></script>
 
-<!-- plugin scripts lista de categorias y subcategorias -->
+<!-- plugin scripts Proyectos/Cotizaciones -->
 <script type="text/javascript" src="/js/dashboard/d3.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/c3.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/toastr.min.js"></script>
@@ -373,33 +372,14 @@
 <script type="text/javascript" src="/js/dashboard/jquery.flot.tooltip.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/newsTicker.js"></script>
 <script type="text/javascript" src="/js/dashboard/countUp.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/dataTables.tableTools.js"></script>
+<script type="text/javascript" src="/js/dashboard/dataTables.colReorder.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/dataTables.rowReorder.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/dataTables.scroller.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/datatable.js"></script>
+<script type="text/javascript" src="/js/dashboard/advanced_tables.js"></script>
 
 
-
-
-
-
-
-
-
-
-    {{--   <script type="text/javascript" src="/js/dashboard/datatable.js"></script>
-       <script type="text/javascript" src="/js/dashboard/dataTables.tableTools.js"></script>
-       <script type="text/javascript" src="/js/dashboard/dataTables.colReorder.min.js"></script>
-       <script type="text/javascript" src="/js/dashboard/dataTables.rowReorder.min.js"></script>
-       <script type="text/javascript" src="/js/dashboard/dataTables.scroller.min.js"></script>
-       <script type="text/javascript" src="/js/dashboard/select2.js"></script>
-       <script type="text/javascript" src="/js/dashboard/jquery.dataTables.min.js"></script>
-       <script type="text/javascript" src="/js/dashboard/dataTables.tableTools.js"></script>
-       <script type="text/javascript" src="/js/dashboard/dataTables.colReorder.min.js"></script>
-       <script type="text/javascript" src="/js/dashboard/dataTables.buttons.min.js"></script>
-       <script type="text/javascript" src="/js/dashboard/jquery.dataTables.min.js"></script>
-       <script type="text/javascript" src="/js/dashboard/dataTables.responsive.min.js"></script>
-       <script type="text/javascript" src="/js/dashboard/buttons.colVis.min.js"></script>
-       <script type="text/javascript" src="/js/dashboard/buttons.html5.min.js"></script>
-       <script type="text/javascript" src="/js/dashboard/buttons.print.min.js"></script>
-       <script type="text/javascript" src="/js/dashboard/dataTables.bootstrap.min.js"></script>
-       <script type="text/javascript" src="/js/dashboard/buttons.bootstrap.min.js"></script>--}}
 
 
     <!-- end of plugin scripts -->

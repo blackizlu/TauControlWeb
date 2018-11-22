@@ -68,14 +68,14 @@
                                 </tr>
                                 {{--</thead>EN EL MONTO DE PROYECTO SE DEBERA MOSTRAR EL MONTO DE LA ULTIMA COTIZACION GENERADA PARA DICHO PROYECTO. UN PROYECTO PUEDE TENER MULTIPLES COTIZACIONES.--}}
                                 <tbody>
-                                @foreach($projects as $project)
+                                @foreach($projects->SortBy('estimated_date') as $project)
                                     <tr role="row" class="even">
                                         <td class="sorting_1">{{ $project->name }}</td>
                                         <td>{{ $project->client->client_name }}</td>
                                         <td>{{ $project->phase }}</td>
-                                        <td>{{ $project->estimated_date }}</td>
-                                        <td>USD</td>
-                                        <td>$182,032.50</td>
+                                        <td>{{\Carbon\Carbon::parse($project->estimated_date)->format('d/m/Y')}}</td>
+                                        <td></td>
+                                        <td></td>
                                         <td>{{ $project->user->profile->name }}</td>
                                         <td>
                                             <a href="{{route ('dashboard.projects.view', $project->id)}}" data-toggle="tooltip" data-placement="top" title="View User">
