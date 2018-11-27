@@ -113,12 +113,13 @@
                                                     <th>Monto</th>
                                                     <th>Moneda</th>
                                                 </tr>
+                                                @foreach($client->projects as $project)
                                                 <tr>
-                                                    <td>Proyecto1</td>
-                                                    <td>Cotizado</td>
+                                                    <td>{{$project->name}}</td>
+                                                    <td>{{$project->phase}}</td>
                                                     <td>$164,579.00</td>
                                                     <td>USD</td>
-                                                </tr>
+                                                </tr>@endforeach
                                             </table>
                                         </div>
                                         <div role="tabpanel" class="tab-pane fade" id="tab3">
@@ -126,10 +127,18 @@
                                                 <div class="row">
                                                     <div class="col-sm-9 col-xl-9">
                                                         <div class="details">
-                                                            <div class="name">
-                                                                <a href="#">El luis</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                <a>9612253275</a>
-                                                            </div>
+                                                            <table class="table" id="users">
+                                                                <tr role="row">
+                                                                    <th>Nombre</th>
+                                                                    <th>Teléfono</th>
+                                                                </tr>
+                                                                @foreach($client->contacts as $contact)
+                                                                    <tr>
+                                                                        <td>{{$contact->contact_name}}</td>
+                                                                        <td>{{$contact->phone_number}}</td>
+                                                                    </tr>
+                                                                @endforeach
+                                                            </table>
                                                         </div>
                                                     </div>
                                                 </div>

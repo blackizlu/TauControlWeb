@@ -1080,7 +1080,7 @@ div.dataTables_paginate ul.pagination {
 }
 
 #sample_5_wrapper .dataTables_scrollBody {
-    width: 101.4% !important;
+    width: 100% !important;
 }
 @media (max-width: 500px) {
     #sample_5_wrapper .dataTables_scrollBody {

@@ -53,7 +53,7 @@
                     </div>
                     <div>
                         <div>
-                            <table class="table  table-striped table-bordered table-hover dataTable no-footer" id="editable_table" role="grid">
+                            <table class="table table-striped table-bordered table-hover dataTable no-footer" id="example" role="grid">
                                 <thead>
                                     <tr role="row">
                                         <th class="sorting_asc wid-20" tabindex="0" rowspan="1" colspan="1">Nombre</th>

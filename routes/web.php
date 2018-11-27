@@ -70,6 +70,13 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::post('/', 'Dashboard\CategoryController@store')->name('dashboard.categories.store');
         Route::put('/{id}/update', 'Dashboard\CategoryController@update')->name('dashboard.categories.update');
     });
+    Route::group(['prefix' =>'activities'], function (){
+        Route::get('/', 'Dashboard\ActivitiesController@index')->name('dashboard.activities.index');
+        Route::get('/add', 'Dashboard\ActivitiesController@add')->name('dashboard.activities.add');
+        Route::get('/{id}/view', 'Dashboard\activitiesController@view')->name('dashboard.activities.view');
+        Route::post('/', 'Dashboard\ActivitiesController@store')->name('dashboard.activities.store');
+        Route::put('/{id}/update', 'Dashboard\ActivitiesController@update')->name('dashboard.activities.update');
+    });
 
 });
 

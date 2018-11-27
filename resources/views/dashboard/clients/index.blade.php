@@ -56,18 +56,25 @@
                             <table class="table  table-striped table-bordered table-hover dataTable no-footer" id="editable_table" role="grid">
                                 <thead>
                                 <tr role="row">
-                                    <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Acciones</th>
                                     <th class="sorting_asc wid-20" tabindex="0" rowspan="1" colspan="1">Nombre</th>
                                     <th class="sorting_asc wid-20" tabindex="0" rowspan="1" colspan="1">Tipo de contacto</th>
                                     <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Telefono de oficina</th>
                                     <th class="sorting wid-15" tabindex="0" rowspan="1" colspan="1">Página web</th>
                                     <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Notas</th>
                                     <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Responsable</th>
+                                    <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Acciones</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($clients as $client)
                                     <tr role="row" class="even">
+                                        <td class="sorting_1">{{ $client->client_name }}</td>
+                                        <td>{{ $client->type }}</td>
+                                        <td>{{ $client->office_number }}</td>
+                                        <td>{{ $client->web_page }}</td>
+                                        <td>{{ $client->notes }}</td>
+                                        <td>{{ $client->user->profile->name }}</td>
                                         <td>
                                             <a href="{{route ('dashboard.clients.view', $client->id)}}" data-toggle="tooltip" data-placement="top" title="View User">
                                                 <i class="fa fa-eye text-success"></i></a>
@@ -78,13 +85,6 @@
                                             <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="{{ $client->id }}">
                                                 <i class="fa fa-trash text-danger"></i></a>
                                         </td>
-                                        <td class="sorting_1">{{ $client->client_name }}</td>
-                                        <td>{{ $client->type }}</td>
-                                        <td>{{ $client->office_number }}</td>
-                                        <td>{{ $client->web_page }}</td>
-                                        <td>{{ $client->notes }}</td>
-                                        <td>{{ $client->user->profile->name }}</td>
-
                                     </tr>
                                 @endforeach
                             </table>

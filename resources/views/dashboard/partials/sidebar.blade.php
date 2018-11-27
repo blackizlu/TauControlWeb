@@ -92,6 +92,12 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a href="{{route('dashboard.activities.index')}}">
+                    <i class="fa fa-tasks"></i>
+                    <span class="link-title menu_hide">&nbsp;Actividades</span>
+                </a>
+            </li>
             <!-- /#Con sub menu -->
             {{--<li class="dropdown_menu">--}}
                 {{--<a href="javascript:;">--}}

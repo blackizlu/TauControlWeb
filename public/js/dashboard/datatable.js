@@ -139,6 +139,7 @@ var TableAdvanced = function() {
                 [5, 15, 20, "All"] // change per page values here
             ],
             "pageLength": 15 // set the initial value
+
         });
 
 
@@ -152,15 +153,32 @@ var TableAdvanced = function() {
         // /!* Fixed header extension: http://datatables.net/extensions/keytable/ *!/
         var oTable = table.dataTable({
             "dom": "<'row'<'col-md-5 col-12'l><'col-md-7 col-12'f>r><'table-responsive't><'row'<'col-md-5 col-12'i><'col-md-7 col-12'p>>",
-            "order": [
-                [0, 'asc']
-            ],
+            "scrollY": "205",
+            "paging": false,
+            "searching": false,
             "lengthMenu": [
-                [5, 15, 20, -1],
-                [5, 15, 20, "All"] // change per page values here
+                [3, 5, 10, -1],
+                [3, 5, 10, "Todos"] // change per page values here
             ],
-            "pageLength": 5 // set the initial value,
+            "pageLength": 3, // set the initial value,
+            oLanguage: {
+                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+                sInfoEmpty: "No hay registros a mostrar",
+                sInfoFiltered: "",
+                sZeroRecords: "Ningún registro para mostrar",
+                sSearch: "Buscar:",
+                oPaginate: {
+                    sFirst: "Primera Página",
+                    sLast: "Última Página",
+                    sNext: "Siguiente",
+                    sPrevious: "Anterior"
+                },
+                sEmptyTable: "No se encontraron registros",
+                sLengthMenu: "Mostrar _MENU_ Registros"
+
+            }
         });
+
         var oTableColReorder = new $.fn.dataTable.ColReorder(oTable);
         var tableWrapper = $('#sample_6_wrapper'); // datatable creates the table wrapper by adding with id {your_table_jd}_wrapper
         tableWrapper.find('.dataTables_length select').select2(); // initialize select2 dropdown

@@ -99,34 +99,35 @@
     </form>
 
         <!--- responsive model EDITAR -->
-        <div class="modal fade in display_none" id="edit" tabindex="-1" role="dialog" aria-hidden="false">
-            <div class="modal-dialog modal-md">
-                <div class="modal-content">
-                    <div class="modal-header bg-primary">
-                        <h4 class="modal-title text-white">Editar Categoría</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <form action="{{ route('dashboard.categories.update', $category->id) }}" method="post" enctype="multipart/form-data">
-                                    {{ csrf_field() }}
-                                    <p>
-                                        <input id="name" name="name" type="text" placeholder="Categoría" class="form-control"  value="{{$category->name}}">
-                                    </p>
-
-                            </div>
-
+        <form action="{{ route('dashboard.categories.update', $category->id) }}" method="post" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            <div class="modal fade in display_none" id="edit" tabindex="-1" role="dialog" aria-hidden="false">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary">
+                            <h4 class="modal-title text-white">Editar Categoría</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                        <p>
+                                            <input id="name" name="name" type="text" placeholder="Categoría" class="form-control"  value="{{$category->name}}">
+                                        </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
+
 
 
 @endsection

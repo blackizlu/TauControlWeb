@@ -42,9 +42,9 @@
                                             <h5>Selecciona el proyecto*</h5>
                                             <select class="form-control chzn-select" tabindex="2">
                                                 <option disabled selected>Buscar proyecto</option>
-                                                {{--@foreach($clients as $client)
-                                                    <option value="{{ $client->id }}">{{ $client->client_name }}</option>
-                                                @endforeach--}}
+                                                @foreach($projects as $project)
+                                                    <option value="{{ $project->id }}">{{ $project->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="col-lg-4 input_field_sections">

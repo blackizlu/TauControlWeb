@@ -129,7 +129,7 @@ Licensed under the MIT license.
 	// @param {number} width New width of the canvas, in pixels.
 	// @param {number} width New height of the canvas, in pixels.
 
-	Canvas.prototype.resize = function(width, height) {
+/*	Canvas.prototype.resize = function(width, height) {
 
 		if (width <= 0 || height <= 0) {
 			throw new Error("Invalid dimensions for plot, width = " + width + ", height = " + height);
@@ -170,7 +170,7 @@ Licensed under the MIT license.
 		// appear at the same size; the extra pixels will just make them crisper.
 
 		context.scale(pixelRatio, pixelRatio);
-	};
+	};*/
 
 	// Clears the entire canvas area, not including any overlaid HTML text
 

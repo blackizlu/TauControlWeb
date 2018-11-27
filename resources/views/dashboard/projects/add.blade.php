@@ -82,7 +82,7 @@
                                             <div class="input-group input-append date" id="dpYears" data-date-format="yyyy-mm-dd">
                                                 <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="estimated_date" id="estimated_date">
                                                 <span class="input-group-addon add-on">
-                                                        <i class="fa fa-calendar"></i>
+                                                        <i class="fa fa-calendar-alt"></i>
                                                     </span>
                                             </div>
                                     </div>
