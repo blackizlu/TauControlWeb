@@ -1,20 +1,5 @@
 <div id="left">
-    <div class="menu_scroll">
-        <div class="left_media">
-            <div class="media user-media">
-                <div class="user-media-toggleHover">
-                    <span class="fa fa-user"></span>
-                </div>
-                <div class="user-wrapper">
-                    <a class="user-link" href="#">
-                        <img class="media-object img-thumbnail user-img rounded-circle admin_img3" alt="User Picture"
-                             src="/images/dashboard/admin.jpg">
-                        <p class="user-info menu_hide">Welcome Micheal</p>
-                    </a>
-                </div>
-            </div>
-            <hr/>
-        </div>
+    <div class="menu_scroll m-t-40">
         <ul id="menu">
             <!-- /#Directo -->
             <li class="@if(Request::is('/')) {{ 'active' }} @endif">

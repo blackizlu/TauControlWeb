@@ -1,5 +1,4 @@
 <div id="top">
-    <!-- .navbar -->
     <nav class="navbar navbar-static-top">
         <div class="container-fluid m-0" >
             <a class="navbar-brand float-left" href="{{route('dashboard.index')}}">
@@ -286,7 +285,7 @@
                     <div class="user-settings no-bg">
                         <button type="button" class="btn btn-default no-bg micheal_btn" data-toggle="dropdown">
                             <img src="/images/dashboard/admin.jpg" class="admin_img2 img-thumbnail rounded-circle avatar-img"
-                                 alt="avatar"> <strong>BlacKizlu</strong>
+                                 alt="avatar"> <strong>Nombre del usuario</strong>
                             <span class="fa fa-sort-down white_bg"></span>
                         </button>
                         <div class="dropdown-menu admire_admin">
@@ -306,20 +305,7 @@
                         </div>
                     </div>
                 </div>
-
-            </div>
-            <div class="top_search_box float-right hidden-sm-down">
-                <form class="header_input_search float-right">
-                    <input type="text" placeholder="Buscar" name="search">
-                    <button type="submit">
-                        <span class="font-icon-search"></span>
-                    </button>
-                    <div class="overlay"></div>
-                </form>
             </div>
         </div>
-        <!-- /.container-fluid -->
     </nav>
-    <!-- /.navbar -->
-    <!-- /.head -->
 </div>

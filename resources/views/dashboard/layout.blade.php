@@ -106,7 +106,7 @@
 <!-- end of plugin styles -->
 <!-- Datatables Desplegables-->
 
-<!-- end of plugin styles -->
+    <!-- end of plugin styles -->
 
 </head>
 
@@ -249,7 +249,14 @@
 <script type="text/javascript" src="/js/dashboard/advanced_tables.js"></script>
 <script type="text/javascript" src="/js/dashboard/simple_datatables.js"></script>
 
-@yield('scripts')
+<!-- plugin scripts Calendario de actividades Dashboard -->
+
+<script type="text/javascript" src="/js/dashboard/calendar.js"></script>
+<script type="text/javascript" src="/js/dashboard/calendarcustom.js" ></script>
+
+
+
+    @yield('scripts')
 
     @yield('scripts')
 </body>

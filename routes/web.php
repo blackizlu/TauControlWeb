@@ -20,6 +20,7 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
 
     Route::get('/invoice/{id}/print', 'Dashboard\PricesController@pdf');
 
+    //MODULO USUARIOS
     Route::group(['prefix' => 'users'], function() {
         Route::get('/', 'Dashboard\UsersController@index')->name('dashboard.users.index');
         Route::get('/add', 'Dashboard\UsersController@add')->name('dashboard.users.add');
@@ -29,6 +30,7 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::delete('/{id}/delete', 'Dashboard\UsersController@delete')->name('dashboard.users.delete');
     });
 
+    //MODULO CLIENTES
     Route::group(['prefix' =>'clients'], function (){
         Route::get('/', 'Dashboard\ClientsController@index')->name('dashboard.clients.index');
         Route::get('/add', 'Dashboard\ClientsController@add')->name('dashboard.clients.add');
@@ -40,6 +42,7 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
 
     });
 
+    //MODULO CONTACTOS
     Route::group(['prefix' =>'contacts'], function (){
         Route::get('/', 'Dashboard\ContactsController@index')->name('dashboard.contacts.index');
         Route::get('/add', 'Dashboard\ContactsController@add')->name('dashboard.contacts.add');
@@ -49,6 +52,7 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::delete('/{id}/delete', 'Dashboard\ContactsController@delete')->name('dashboard.contacts.delete');
     });
 
+    //MODULO PROYECTOS
     Route::group(['prefix' =>'projects'], function (){
         Route::get('/', 'Dashboard\ProjectsController@index')->name('dashboard.projects.index');
         Route::get('/add', 'Dashboard\ProjectsController@add')->name('dashboard.projects.add');
@@ -59,6 +63,7 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::delete('/{id}/delete', 'Dashboard\ProjectsController@delete')->name('dashboard.projects.delete');
     });
 
+    //MODULO COTIZACIONES
     Route::group(['prefix' =>'cotizaciones'], function (){
         Route::get('/', 'Dashboard\CotizacionesController@index')->name('dashboard.cotizaciones.index');
         Route::get('/add', 'Dashboard\CotizacionesController@add')->name('dashboard.cotizaciones.generate');
@@ -66,14 +71,19 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::get('/categories', 'Dashboard\CategoryController@view')->name('dashboard.cotizaciones.categories');
 
     });
+
+    //MODULO CATEGORIAS
     Route::group(['prefix' =>'categories'], function (){
         Route::post('/', 'Dashboard\CategoryController@store')->name('dashboard.categories.store');
         Route::put('/{id}/update', 'Dashboard\CategoryController@update')->name('dashboard.categories.update');
     });
+
+    //MODULO ACTIVIDADES
     Route::group(['prefix' =>'activities'], function (){
         Route::get('/', 'Dashboard\ActivitiesController@index')->name('dashboard.activities.index');
         Route::get('/add', 'Dashboard\ActivitiesController@add')->name('dashboard.activities.add');
-        Route::get('/{id}/view', 'Dashboard\activitiesController@view')->name('dashboard.activities.view');
+        Route::get('/{id}/view', 'Dashboard\ActivitiesController@view')->name('dashboard.activities.view');
+        Route::get('/{id}/edit', 'Dashboard\ActivitiesController@edit')->name('dashboard.activities.edit');
         Route::post('/', 'Dashboard\ActivitiesController@store')->name('dashboard.activities.store');
         Route::put('/{id}/update', 'Dashboard\ActivitiesController@update')->name('dashboard.activities.update');
     });

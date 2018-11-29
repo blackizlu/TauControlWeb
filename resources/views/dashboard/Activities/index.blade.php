@@ -16,10 +16,7 @@
                                 Inicio
                             </a>
                         </li>
-                        <li class="breadcrumb-item">
-                            <a href="#">Actividades</a>
-                        </li>
-                        <li class="active breadcrumb-item">Index</li>
+                        <li class="active breadcrumb-item">Actividades</li>
                     </ol>
                 </div>
             </div>
@@ -31,7 +28,7 @@
                 <div class="card-header bg-white">
                     Lista de actividades
                 </div>
-                <div class="card-block m-t-35" id="user_body">
+                <div class="card-block" id="user_body">
                     @if(Session::has('message'))
                         <div class="row">
                             <div class="col-sm-12">
@@ -69,18 +66,19 @@
                                     <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Acciones</th>
                                 </tr>
                                 <tbody>
+                                @foreach($activities as $activity)
                                     <tr >
-                                        <td>WolvesProgramminSur</td>
-                                        <td>Sirius Alejandro Castellanos</td>
-                                        <td>Camino del Bosque</td>
-                                        <td>27/11/2019</td>
-                                        <td>11:30AM</td>
-                                        <td>Cita</td>
-                                        <td>No</td>
-                                        <td>Camino del Bosquenajsa sajsjsanas´aef </td>
-                                        <td>Christian Marcos</td>
+                                        <td>{{$activity->client->client_name}}</td>
+                                        <td>{{$activity->contact->contact_name}}</td>
+                                        <td>{{$activity->project->name}}</td>
+                                        <td>{{\Carbon\Carbon::parse($activity->deadline)->format('d/m/Y')}}</td>
+                                        <td>{{$activity->time}}</td>
+                                        <td>{{$activity->activity}}</td>
+                                        <td>{{$activity->done}}</td>
+                                        <td>{{$activity->comments}}</td>
+                                        <td>{{$activity->user->profile->name}} </td>
                                         <td>
-                                            <a href="   " data-toggle="tooltip" data-placement="top" title="View User">
+                                            <a data-toggle="modal"  data-placement="top" title="Ver actividad"data-href="#responsive" href="#responsive">
                                                 <i class="fa fa-eye text-success"></i></a>
                                             &nbsp; &nbsp;
                                             <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="  ">
@@ -90,69 +88,7 @@
                                                 <i class="fa fa-trash text-danger"></i></a>
                                         </td>
                                     </tr>
-                                    <tr >
-                                        <td>WolvesProgramminSur</td>
-                                        <td>Sirius Alejandro Castellanos</td>
-                                        <td>Camino del Bosque</td>
-                                        <td>27/11/2019</td>
-                                        <td>11:30AM</td>
-                                        <td>Cita</td>
-                                        <td>No</td>
-                                        <td>Camino del Bosquenajsa sajsjsanas´aef </td>
-                                        <td>Christian Marcos</td>
-                                        <td>
-                                            <a href="   " data-toggle="tooltip" data-placement="top" title="View User">
-                                                <i class="fa fa-eye text-success"></i></a>
-                                            &nbsp; &nbsp;
-                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="  ">
-                                                <i class="fa fa-pencil-alt text-warning"></i></a>
-                                            &nbsp; &nbsp;
-                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="  ">
-                                                <i class="fa fa-trash text-danger"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr >
-                                        <td>WolvesProgramminSur</td>
-                                        <td>Sirius Alejandro Castellanos</td>
-                                        <td>Camino del Bosque</td>
-                                        <td>27/11/2019</td>
-                                        <td>11:30AM</td>
-                                        <td>Cita</td>
-                                        <td>No</td>
-                                        <td>Camino del Bosquenajsa sajsjsanas´aef </td>
-                                        <td>Christian Marcos</td>
-                                        <td>
-                                            <a href="   " data-toggle="tooltip" data-placement="top" title="View User">
-                                                <i class="fa fa-eye text-success"></i></a>
-                                            &nbsp; &nbsp;
-                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="  ">
-                                                <i class="fa fa-pencil-alt text-warning"></i></a>
-                                            &nbsp; &nbsp;
-                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="  ">
-                                                <i class="fa fa-trash text-danger"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr >
-                                        <td>WolvesProgramminSur</td>
-                                        <td>Sirius Alejandro Castellanos</td>
-                                        <td>Camino del Bosque</td>
-                                        <td>27/11/2019</td>
-                                        <td>11:30AM</td>
-                                        <td>Cita</td>
-                                        <td>No</td>
-                                        <td>Camino del Bosquenajsa sajsjsanas´aef </td>
-                                        <td>Christian Marcos</td>
-                                        <td>
-                                            <a href="   " data-toggle="tooltip" data-placement="top" title="View User">
-                                                <i class="fa fa-eye text-success"></i></a>
-                                            &nbsp; &nbsp;
-                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="  ">
-                                                <i class="fa fa-pencil-alt text-warning"></i></a>
-                                            &nbsp; &nbsp;
-                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="  ">
-                                                <i class="fa fa-trash text-danger"></i></a>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -161,8 +97,8 @@
             </div>
         </div>
     </div>
-    <!--- responsive model AGREGAR CLIENTE-->
-    <form action="" method="post" enctype="multipart/form-data">
+    <!--- responsive model Nueva Actividad-->
+    <form action="{{route('dashboard.activities.store')}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="modal fade in display_none" id="responsive" tabindex="-1" role="dialog" aria-hidden="false">
             <div class="modal-dialog modal-lg">
@@ -183,11 +119,11 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-user-tie text-primary"></i>
                                                     </span>
-                                            <select class="form-control hide_search" tabindex="7" name="user_id">
+                                            <select class="form-control hide_search" tabindex="7" name="client_id">
                                                 <option selected disabled>Selecciona al Cliente</option>
-                                                {{--@foreach($users as $user)
-                                                    <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
-                                                @endforeach--}}
+                                                @foreach($clients as $client)
+                                                    <option value="{{ $client->id }}">{{ $client->client_name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -201,11 +137,11 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-user text-primary"></i>
                                                     </span>
-                                            <select class="form-control hide_search" tabindex="7" name="user_id">
+                                            <select class="form-control hide_search" tabindex="7" name="contact_id">
                                                 <option selected disabled>Selecciona al contacto</option>
-                                                {{--@foreach($users as $user)
-                                                    <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
-                                                @endforeach--}}
+                                                @foreach($contacts as $contact)
+                                                    <option value="{{ $contact->id }}">{{ $contact->contact_name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -219,11 +155,11 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-folder text-primary"></i>
                                                     </span>
-                                            <select class="form-control hide_search" tabindex="7" name="user_id">
+                                            <select class="form-control hide_search" tabindex="7" name="project_id">
                                                 <option selected disabled>Selecciona el proyecto</option>
-                                                {{--@foreach($users as $user)
-                                                    <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
-                                                @endforeach--}}
+                                                @foreach($projects as $project)
+                                                    <option value="{{ $project->id }}">{{ $project->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -238,8 +174,8 @@
                                                         <i class="fa fa-calendar-alt text-primary"></i>
                                                     </span>
                                             <div class="input-group input-append date" id="dpYears" data-date-format="yyyy-mm-dd">
-                                                <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="estimated_date" id="estimated_date">
-                                            <span class="input-group-addon add-on"><i class="fa fa-calendar-alt"></i></span>
+                                                <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="deadline" id="estimated_date">
+                                            <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
                                             </div>
                                         </div>
                                     </div>
@@ -250,17 +186,15 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-8">
                                         <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-clock-o text-primary"></i>
-                                                    </span>
-                                            <form >
-                                                <div class="input-group clockpicker2" data-align="top" data-placement="top" data-autoclose="true">
-                                                    <input type="text" class="form-control" value="12:00">
-                                                    <span class="input-group-addon add-on">
-                                                        <i class="fa fa-clock-o"></i>
-                                                    </span>
-                                                </div>
-                                            </form>
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-clock-o text-primary"></i>
+                                                </span>
+                                            <div class="input-group clockpicker2" data-align="top" data-placement="top" data-autoclose="true">
+                                                <input type="text" class="form-control" value="12:00" name="time">
+                                                <span class="input-group-addon add-on">
+                                                    <i class="fa fa-clock-o"></i>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -273,13 +207,13 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-clipboard-check text-primary"></i>
                                                     </span>
-                                            <select class="form-control hide_search" tabindex="7" name="type" id="name1">
+                                            <select class="form-control hide_search" tabindex="7" name="activity" id="name1">
                                                 <option selected disabled>Tipo de actividad</option>
-                                                <option value="Arquitecto">Cita</option>
-                                                <option value="Constructora">Envio de Correo</option>
-                                                <option value="Desarrolladora">Instalación Obra</option>
-                                                <option value="Cliente_final">Llamada</option>
-                                                <option value="Gerencia_obra">Visita a obra</option>
+                                                <option value="cita">Cita</option>
+                                                <option value="envio_correo">Envio de Correo</option>
+                                                <option value="instalacion_obra">Instalación Obra</option>
+                                                <option value="llamada">Llamada</option>
+                                                <option value="visita_obra">Visita a obra</option>
                                             </select>
                                         </div>
                                     </div>
@@ -291,7 +225,7 @@
                                     <div class="col-lg-6">
                                         <div class="checkbox">
                                             <label class="text-success">
-                                                <input type="checkbox" value="">
+                                                <input type="checkbox" data-on-text="SI" data-off-text="NO" value=" " name="completed">
                                                 <span class="cr"><i class="cr-icon fa fa-check"></i></span>
                                                 Realizada
                                             </label>
@@ -303,7 +237,7 @@
                                         <label for="type" class="col-form-label">Actividad*</label>
                                     </div>
                                     <div class="col-lg-6">
-                                        <textarea id="autosize" class="form-control" cols="50" rows="1" name="Actividad"></textarea>
+                                        <textarea id="autosize" class="form-control" cols="50" rows="1" name="comments"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -317,9 +251,9 @@
                                                     </span>
                                             <select class="form-control hide_search" tabindex="7" name="user_id">
                                                 <option selected disabled>Selecciona al responsable</option>
-                                                {{--@foreach($users as $user)
+                                                @foreach($users as $user)
                                                     <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
-                                                @endforeach--}}
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>

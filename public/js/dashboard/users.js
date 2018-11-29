@@ -25,7 +25,7 @@ $(document).ready(function() {
     });
     var tableWrapper = $("#editable_table_wrapper");
     tableWrapper.find(".dataTables_length select").select2({
-        showSearchInput: false //hide search box with special css class
+        showSearchInput: false//hide search box with special css class
     }); // initialize select2 dropdown
     $("#editable_table_wrapper .dt-buttons .btn").addClass('btn-secondary').removeClass('btn-default');
     $(".dataTables_wrapper").removeClass("form-inline");

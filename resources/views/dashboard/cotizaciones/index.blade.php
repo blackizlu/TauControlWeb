@@ -43,7 +43,6 @@
                     @endif
                     <div class="table-toolbar">
                         <div class="col-lg-4 input_field_sections">
-                            <a class="btn btn-primary btn-md adv_cust_mod_btn" data-toggle="modal" data-href="#responsive" href="#responsive ">Nueva solicitud(Esto va en actividades) </a>
                         </div>
                         <div class="btn-group float-right users_grid_tools">
                             <div class="tools"></div>
@@ -80,8 +79,8 @@
                                         <td></td>
                                         <td>                                            &nbsp; &nbsp;
 
-                                            <a href="" data-toggle="tooltip" data-placement="top" title="Generar cotizacion">
-                                                <i class="fa fa-plus text-success"></i></a>
+                                            <a href="" data-toggle="tooltip" data-placement="top" title="Ver Cotización">
+                                                <i class="fa fa-eye text-success"></i></a>
                                             &nbsp; &nbsp;
 
                                             &nbsp; &nbsp;
