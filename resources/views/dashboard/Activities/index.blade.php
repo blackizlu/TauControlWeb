@@ -74,7 +74,13 @@
                                         <td>{{\Carbon\Carbon::parse($activity->deadline)->format('d/m/Y')}}</td>
                                         <td>{{$activity->time}}</td>
                                         <td>{{$activity->activity}}</td>
-                                        <td>{{$activity->done}}</td>
+                                        <td>
+                                            <div class="checkbox" align="center">
+                                                <label class="text-success">
+                                                    <input type="checkbox" value="{{$activity->done}}">
+                                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                                </label>
+                                            </div></td>
                                         <td>{{$activity->comments}}</td>
                                         <td>{{$activity->user->profile->name}} </td>
                                         <td>
@@ -119,7 +125,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-user-tie text-primary"></i>
                                                     </span>
-                                            <select class="form-control hide_search" tabindex="7" name="client_id">
+                                            <select class="form-control" tabindex="7" name="client_id" id="client">
                                                 <option selected disabled>Selecciona al Cliente</option>
                                                 @foreach($clients as $client)
                                                     <option value="{{ $client->id }}">{{ $client->client_name }}</option>
@@ -137,11 +143,8 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-user text-primary"></i>
                                                     </span>
-                                            <select class="form-control hide_search" tabindex="7" name="contact_id">
+                                            <select class="form-control" tabindex="7" name="myContacts" id="myContacts">
                                                 <option selected disabled>Selecciona al contacto</option>
-                                                @foreach($contacts as $contact)
-                                                    <option value="{{ $contact->id }}">{{ $contact->contact_name }}</option>
-                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -155,11 +158,9 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-folder text-primary"></i>
                                                     </span>
-                                            <select class="form-control hide_search" tabindex="7" name="project_id">
+                                            <select class="form-control" tabindex="7" name="proyectos" id="proyectos">
                                                 <option selected disabled>Selecciona el proyecto</option>
-                                                @foreach($projects as $project)
-                                                    <option value="{{ $project->id }}">{{ $project->name }}</option>
-                                                @endforeach
+
                                             </select>
                                         </div>
                                     </div>
@@ -202,13 +203,13 @@
                                     <div class="col-lg-3 text-lg-right">
                                         <label for="type" class="col-form-label">Tipo de actividad*</label>
                                     </div>
-                                    <div class="col-xl-3 col-lg-8">
+                                    <div class="col-xl-6 col-lg-8">
                                         <div class="input-group">
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-clipboard-check text-primary"></i>
                                                     </span>
-                                            <select class="form-control hide_search" tabindex="7" name="activity" id="name1">
-                                                <option selected disabled>Tipo de actividad</option>
+                                            <select class="form-control" tabindex="7" name="activity" id="name1">
+                                                <option selected disabled>Selecciona una actividad</option>
                                                 <option value="cita">Cita</option>
                                                 <option value="envio_correo">Envio de Correo</option>
                                                 <option value="instalacion_obra">Instalación Obra</option>
@@ -249,7 +250,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-user-friends text-primary"></i>
                                                     </span>
-                                            <select class="form-control hide_search" tabindex="7" name="user_id">
+                                            <select class="form-control" tabindex="7" name="user_id">
                                                 <option selected disabled>Selecciona al responsable</option>
                                                 @foreach($users as $user)
                                                     <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
@@ -269,4 +270,25 @@
             </div>
         </div>
     </form>
+@endsection
+
+@section('scripts')
+    <script>
+        $("#client").change((function (event) {
+            var id = event.target.value;
+            var url = "{{ route('activities.getContacts', ':D') }}";
+            url = url.replace(':D', id);
+            $.get(url ,function (response) {
+                console.log(response);
+                $("#proyectos ").empty();
+                for(i=0; i<response.projects.length; i++){
+                    $("#proyectos").append("<option  value='"+response.projects[i].id+"'>"+response.projects[i].name+"</option>");
+                }
+                $("#myContacts ").empty();
+                for(i=0; i<response.contacts.length; i++){
+                    $("#myContacts").append("<option value='"+response.contacts[i].id+"'>"+response.contacts[i].contact_name+"</option>");
+                }
+            });
+        }));
+    </script>
 @endsection

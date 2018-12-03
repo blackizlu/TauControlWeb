@@ -80,4 +80,19 @@ class ActivitiesController extends Controller
         return redirect()->back();
 
     }
+        //PRUEBA PARA DYNAMIC DROPDOWNS-DEPENDENT SELECT BOX
+   public function getContacts(Request $request, $id){
+
+        if($request->ajax()){
+            $client = Client::findOrFail($id);
+
+            return response()->json([
+                "contacts" => $client->contacts,
+                "projects" => $client->projects
+
+            ]);
+        }
+
+   }
+
 }
