@@ -19,6 +19,7 @@ class ActivitiesController extends Controller
         $contacts = contact::all();
         $projects = Project::all();
         $users = User::all();
+
         return view('dashboard.activities.index', compact('clients', 'contacts','projects','users','activities'));
     }
 
@@ -41,7 +42,7 @@ class ActivitiesController extends Controller
         $activity->completed = $request->has('completed') ? 1:0;
         $activity->save();
 
-        return view('dashboard.activities.index');
+        return redirect()->route('dashboard.activities.index');
 
     }
 

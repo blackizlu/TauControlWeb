@@ -74,7 +74,7 @@
                                         <td>2018/11/07</td>
                                         <td>2018/11/09</td>
                                         <td>
-                                            No <input type="checkbox" class="js-switch sm_toggle" title="yes"> Si
+                                            No <input type="checkbox" class="js-switch sm_toggle" title="yes" checked>Si
                                         </td>
                                         <td></td>
                                         <td>                                            &nbsp; &nbsp;
