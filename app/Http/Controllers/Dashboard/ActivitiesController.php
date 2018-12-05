@@ -58,10 +58,11 @@ class ActivitiesController extends Controller
 
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $activity = Activities::findOrFail($id);
+        $activity = Activities::findOrFail($request->activity_id);
         $activity->fill($request->all());
+        dd($activity);
         $activity->update();
 
 
@@ -71,16 +72,15 @@ class ActivitiesController extends Controller
         return redirect()->back();
     }
 
-    public function delete($id){
-        $activity = Activities::findOrFail($id);
+    public function destroy(Request $request){
+
+        $activity = Activities::findOrFail($request->activity_id);
         $activity->delete();
-
-        $message = 'Actividad eliminada con éxito';
-        Session::flash('message', $message);
-
-        return redirect()->back();
+        return view('dashboard.activities.index', compact('clients', 'contacts','projects','users','activity'));
 
     }
+
+
         //PRUEBA PARA DYNAMIC DROPDOWNS-DEPENDENT SELECT BOX
    public function getContacts(Request $request, $id){
 

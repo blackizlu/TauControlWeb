@@ -29,7 +29,7 @@ class Activities extends Model
         return $this->hasOne(User::class, 'id', 'user_id');
     }
 
-    public function getCompletedAttribute()//Accessor Getter
+    public function getCompletedAttribute()//Accessor/Getter
     {
         return $this->attributes['completed'] == '1' ? true : false;
     }

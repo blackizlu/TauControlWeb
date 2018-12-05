@@ -87,11 +87,12 @@
                                             <a data-toggle="modal"  data-placement="top" title="Ver actividad" data-href="#responsive" href="#responsive">
                                                 <i class="fa fa-eye text-success"></i></a>
                                             &nbsp; &nbsp;
-                                            <a data-toggle="modal" data-mytitle="{{$activity->client->client_name}}" data-mycontact="{{$activity->contact->contact_name}}" data-myproject="{{$activity->project->name}}"  data-mydate="{{$activity->deadline}}" data-mytime="{{$activity->time}}" data-myactivity="{{$activity->activity}}" data-mydone="{{$activity->completed}}" data-mycomments="{{$activity->comments}}" data-myuser="{{$activity->user->profile->name}}" data-placement="top" title="Editar actividad" data-href="#edit" href="#edit" type="hidden">
+                                            <a data-toggle="modal"  data-actid="{{$activity->id}}" data-mytitle="{{$activity->client->client_name}}" data-mycontact="{{$activity->contact->contact_name}}" data-myproject="{{$activity->project->name}}"  data-mydate="{{$activity->deadline}}" data-mytime="{{$activity->time}}" data-myactivity="{{$activity->activity}}" data-mydone="{{$activity->completed}}" data-mycomments="{{$activity->comments}}" data-myuser="{{$activity->user->profile->name}}" data-placement="top" title="Editar actividad" data-href="#edit" href="#edit" type="hidden">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>
                                             &nbsp; &nbsp;
-                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="  ">
+                                            <a data-toggle="modal" data-actid="{{$activity->id}}" data-placement="top" title="Eliminar actividad" data-href="#delete" href="#delete" type="hidden">
                                                 <i class="fa fa-trash text-danger"></i></a>
+
                                         </td>
                                     </tr>
                                     @endforeach
@@ -105,7 +106,8 @@
     </div>
 
         <!--- responsive model Nueva Actividad-->
-
+    <form action="{{route('dashboard.activities.store')}}" method="post" enctype="multipart/form-data">
+        {{ csrf_field() }}
     <div class="modal fade in display_none" id="responsive" tabindex="-1" role="dialog" aria-hidden="false">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -113,8 +115,7 @@
                     <h4 class="modal-title text-white">Nueva Actividad</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
-                <form action="{{route('dashboard.activities.store')}}" method="post" enctype="multipart/form-data">
-                    {{ csrf_field() }}
+
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12">
@@ -225,67 +226,93 @@
                                     <div class="col-lg-3 text-lg-right">
                                         <label for="type" class="col-form-label">Actividad*</label>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="checkbox">
-                                            <label class="text-success">
-                                                <input type="checkbox" data-on-text="SI" data-off-text="NO" value="" name="completed">
-                                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
-                                                Realizada
-                                            </label>
+                                        <div class="col-lg-6">
+                                            <div class="checkbox">
+                                                <label class="text-success">
+                                                    <input type="checkbox" data-on-text="SI" data-off-text="NO" value="" name="completed">
+                                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                                    Realizada
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-lg-3 text-lg-right">
-                                        <label for="type" class="col-form-label">Comentarios*</label>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3 text-lg-right">
+                                            <label for="type" class="col-form-label">Comentarios*</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <textarea id="autosize" class="form-control" cols="50" rows="4" name="comments"></textarea>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <textarea id="autosize" class="form-control" cols="50" rows="1" name="comments"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-lg-3 text-lg-right">
-                                        <label for="type" class="col-form-label">Responsable*</label>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-8">
-                                        <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-user-friends text-primary"></i>
-                                                    </span>
-                                            <select class="form-control" tabindex="7" name="user_id">
-                                                <option selected disabled>Selecciona al responsable</option>
-                                                @foreach($users as $user)
-                                                    <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
-                                                @endforeach
-                                            </select>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3 text-lg-right">
+                                            <label for="type" class="col-form-label">Responsable*</label>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-8">
+                                            <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user-friends text-primary"></i>
+                                                        </span>
+                                                <select class="form-control" tabindex="7" name="user_id">
+                                                    <option selected disabled>Selecciona al responsable</option>
+                                                    @foreach($users as $user)
+                                                        <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Crear Actividad</button>
-                    </div>
-                </form>
+                        <div class="modal-footer">
+                            <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Crear Actividad</button>
+                        </div>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 
 
-     <!--- responsive model Editar Actividad-->
 
-    <div class="modal fade in display_none" id="edit" tabindex="-1" role="dialog" aria-hidden="false">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header bg-primary">
-                    <h4 class="modal-title text-white">Editar Actividad</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <!--- responsive model Eliminar Actividad-->
+
+        <div class="modal fade in display_none" id="delete" tabindex="-1" role="dialog" aria-hidden="false">
+            <div class="modal-dialog modal-sd">
+                <div class="modal-content">
+                    <div class="modal-header bg-danger">
+                        <h4 class="modal-title text-white">Eliminar Actividad</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <form action="{{route('dashboard.activities.delete')}}" method="post" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                            <div class="modal-body">
+                                <input type="hidden" name="activity_id" id="act_id" value="">
+                                <p class="text-center m-t-15"><strong>¿Estas seguro que deseas eliminar esta actividad?</strong></p>
+                            </div>
+                        <div class="modal-footer">
+                            <button type="button" data-dismiss="modal" class="btn btn-secondary">No, cancelar</button>
+                            <button type="submit" class="btn btn-danger">Si, eliminar</button>
+                        </div>
+                    </form>
                 </div>
-                <form action="{{route('dashboard.activities.update', $activity->id)}}" method="post" enctype="multipart/form-data">
-                    {{ csrf_field() }}
+            </div>
+        </div>
+
+    <!--- responsive model Editar Actividad-->
+
+        <div class="modal fade in display_none" id="edit" tabindex="-1" role="dialog" aria-hidden="false">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h4 class="modal-title text-white">Editar Actividad</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <form action="{{route('dashboard.activities.update')}}" method="post" enctype="multipart/form-data">
+                        {{ csrf_field() }}
                     <div class="modal-body">
+                        <input type="hidden" name="activity_id" id="act_id" value="">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group row m-t-15">
@@ -294,9 +321,9 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-8">
                                         <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-user-tie text-primary"></i>
-                                                    </span>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user-tie text-primary"></i>
+                                                        </span>
                                             <select class="form-control" tabindex="7" name="client_id" id="client">
                                                 <option selected disabled>Selecciona al Cliente</option>
                                                 @foreach($clients as $client)
@@ -312,9 +339,9 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-8">
                                         <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-user text-primary"></i>
-                                                    </span>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user text-primary"></i>
+                                                        </span>
                                             <select class="form-control" tabindex="7" name="contact_id" id="myContacts">
                                                 <option selected disabled>Selecciona al contacto</option>
                                             </select>
@@ -327,9 +354,9 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-8">
                                         <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-folder text-primary"></i>
-                                                    </span>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-folder text-primary"></i>
+                                                        </span>
                                             <select class="form-control" tabindex="7" name="project_id" id="proyectos">
                                                 <option selected disabled>Selecciona el proyecto</option>
 
@@ -343,9 +370,9 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-8">
                                         <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-calendar-alt text-primary"></i>
-                                                    </span>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-calendar-alt text-primary"></i>
+                                                        </span>
                                             <div class="input-group input-append date" id="dpYears" data-date-format="yyyy-mm-dd">
                                                 <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="deadline" id="deadline" value="{{ $activity->deadline}}">
                                                 <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
@@ -359,14 +386,14 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-8">
                                         <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="fa fa-clock-o text-primary"></i>
-                                                </span>
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-clock-o text-primary"></i>
+                                                    </span>
                                             <div class="input-group clockpicker2" data-align="top" data-placement="top" data-autoclose="true">
                                                 <input type="text" class="form-control" value="{{ $activity->time }}" name="time" id="time">
                                                 <span class="input-group-addon add-on">
-                                                    <i class="fa fa-clock-o"></i>
-                                                </span>
+                                                        <i class="fa fa-clock-o"></i>
+                                                    </span>
                                             </div>
                                         </div>
                                     </div>
@@ -377,9 +404,9 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-8">
                                         <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-clipboard-check text-primary"></i>
-                                                    </span>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-clipboard-check text-primary"></i>
+                                                        </span>
                                             <select class="form-control" tabindex="7" name="activity" id="name1" value="{{ $activity->activity}}">
                                                 <option selected disabled>Selecciona una actividad</option>
                                                 <option value="cita" @if($activity->activity == 'cita'){{ 'selected' }}@endif>Cita</option>
@@ -419,9 +446,9 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-8">
                                         <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-user-friends text-primary"></i>
-                                                    </span>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user-friends text-primary"></i>
+                                                        </span>
                                             <select class="form-control" tabindex="7" name="user_id" id="user">
                                                 <option selected disabled>Selecciona al responsable</option>
                                                 @foreach($users as $user)
@@ -438,10 +465,12 @@
                         <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
                         <button type="submit" class="btn btn-primary">Guardar cambios</button>
                     </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+
+
 @endsection
 
 @section('scripts')
@@ -466,7 +495,8 @@
 
         $('#edit').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget) // Button that triggered the modal
-                var title = button.data('mytitle')
+                var activity_id = button.data('actid')
+                var client = button.data('mytitle')
                 var contact = button.data('mycontact')
                 var project = button.data('myproject')
                 var date = button.data('mydate')
@@ -478,7 +508,8 @@
                 // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
                 // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
                 var modal = $(this)
-                    modal.find('.modal-body #client').val(title);
+                    modal.find('.modal-body #act_id').val(activity_id);
+                    modal.find('.modal-body #client').val(client);
                     modal.find('.modal-body #myContacts').val(contact);
                     modal.find('.modal-body #myProjects').val(project);
                     modal.find('.modal-body #deadline').val(date);
@@ -490,7 +521,14 @@
 
 
 
-            console.log(title,contact,project,date,time,activity,done,comments,responsable);
+            console.log(client,contact,project,date,time,activity,done,comments,responsable,activity_id);
+        });
+
+        $('#delete').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var activity_id = button.data('actid')
+            var modal = $(this)
+            modal.find('.modal-body #act_id').val(activity_id);
         });
     </script>
 @endsection
