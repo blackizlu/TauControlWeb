@@ -4,7 +4,7 @@ $(document).ready(function() {
     table.DataTable({
         dom: "<'text-right'B><f>lr<'table-responsive't><'row'<'col-md-5 col-12'i><'col-md-7 col-12'p>>",
         buttons: [
-            'copy', 'csv', 'print'
+            {extend: 'copy', text: 'Copiar' }, 'csv', {extend: 'print', text: 'Imprimir' }
         ],
         oLanguage: {
             sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",

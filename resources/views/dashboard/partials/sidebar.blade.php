@@ -83,34 +83,23 @@
                     <span class="link-title menu_hide">&nbsp;Actividades</span>
                 </a>
             </li>
-            <!-- /#Con sub menu -->
-            {{--<li class="dropdown_menu">--}}
-                {{--<a href="javascript:;">--}}
-                    {{--<i class="fa fa-user"></i>--}}
-                    {{--<span class="link-title menu_hide">&nbsp; Usuarios</span>--}}
-                    {{--<span class="fa arrow menu_hide"></span>--}}
-                {{--</a>--}}
-                {{--<ul>--}}
-                    {{--<li>--}}
-                        {{--<a href="{{route('dashboard.adduser')}}">--}}
-                            {{--<i class="fa fa-angle-right"></i>--}}
-                            {{--&nbsp; Agregar usuario--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                    {{--<li>--}}
-                        {{--<a href="cards.html">--}}
-                            {{--<i class="fa fa-angle-right"></i>--}}
-                            {{--<span class="link-title">&nbsp;Lista de usuarios</span>--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                    {{--<li>--}}
-                        {{--<a href="transitions.html">--}}
-                            {{--<i class="fa fa-angle-right"></i>--}}
-                            {{--&nbsp; Usuarios eliminados--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                {{--</ul>--}}
-            {{--</li>        <!-- /#Con Submenu y sub submenu -->--}}
+            <li>
+                <a href="{{route('dashboard.bitacora.index')}}">
+                    <i class="fa fa-clipboard"></i>
+                    <span class="link-title menu_hide">&nbsp;Bitacora</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('dashboard.reportes.index')}}">
+                    <i class="fa fa-print"></i>
+                    <span class="link-title menu_hide">&nbsp;Reportes</span>
+                </a>
+            </li>
+
+
+
+            <!-- /#Con Submenu y sub submenu -->
+{{--
             <li class="dropdown_menu">
                 <a href="javascript:;">
                     <i class="fa fa-sitemap"></i>
@@ -255,6 +244,7 @@
                     </li>
                 </ul>
             </li>
+--}}
         </ul>
         <!-- /#menu -->
     </div>

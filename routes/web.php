@@ -93,6 +93,13 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
 
     });
 
+    Route::group(['prefix' =>'bitacora'], function (){
+        Route::get('/', 'Dashboard\BitacoraController@index')->name('dashboard.bitacora.index');
+    });
+    Route::group(['prefix' =>'reportes'], function (){
+        Route::get('/', 'Dashboard\ReportesController@index')->name('dashboard.reportes.index');
+    });
+
 });
 
 Route::get('/', function () {

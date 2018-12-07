@@ -28,7 +28,7 @@
                 <div class="card-header bg-white">
                     Lista de clientes
                 </div>
-                <div class="card-block m-t-35" id="user_body">
+                <div class="card-block" id="user_body">
                     @if(Session::has('message'))
                         <div class="row">
                             <div class="col-sm-12">
