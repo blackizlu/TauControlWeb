@@ -61,86 +61,144 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                     </div>
                 </header>
                 <div class="outer">
-                    <div class="inner bg-container">
-                        <div class="card col-6">
-                            <div class="card-header bg-white">
-                                Todos los proyectos
-                            </div>
-                            <div class="card-block m-t-35" id="user_body">
-                                <div class="table-toolbar">
-                                    <div class="btn-group">
-
+                    <div class="inner bg-light lter bg-container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card ">
+                                    <div class="card-header bg-white">
+                                        Todos los proyectos
                                     </div>
-                                    <div class="btn-group float-right users_grid_tools">
-                                        <div class="tools"></div>
+                                    <div class="card-block m-t-35" id="user_body">
+                                        <div class="table-toolbar">
+                                            <div class="btn-group">
+
+                                            </div>
+                                            <div class="btn-group float-right users_grid_tools">
+                                                <div class="tools"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <table class="table table-striped table-bordered table-hover dataTable no-footer" id="editable_table" role="grid">
+                                                    <thead>
+                                                    <tr role="row">
+                                                        <th >Proyectos</th>
+                                                        <th >Etapa</th>
+                                                        <th >Monto MXN</th>
+                                                        <th >Monto USD</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr role="row" class="even">
+                                                        <td>65</td>
+                                                        <td>Cotizado</td>
+                                                        <td>$1,094,872.10</td>
+                                                        <td>$2,337,960.92</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>46</td>
+                                                        <td>Ganado</td>
+                                                        <td>$ 5,712,602.03</td>
+                                                        <td>$524,840.31</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>207</td>
+                                                        <td>Lead</td>
+                                                        <td>$ 0.00</td>
+                                                        <td>$ 0.00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>16</td>
+                                                        <td>Negociación</td>
+                                                        <td>$ 999,000.00</td>
+                                                        <td>$497,702.53</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>44</td>
+                                                        <td>Pricing</td>
+                                                        <td>$ 0.00</td>
+                                                        <td>$912,680.26</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>126</td>
+                                                        <td>Rechazado</td>
+                                                        <td>$ 35,421,585.63</td>
+                                                        <td>$7,328,810.88</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div>
-                                    <div>
-                                        <table class="table table-striped table-bordered table-hover dataTable no-footer" id="editable_table" role="grid">
-                                            <thead>
-                                            <tr role="row">
-                                                <th >Proyectos</th>
-                                                <th >Etapa</th>
-                                                <th >Monto MXN</th>
-                                                <th >Monto USD</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr role="row" class="even">
-                                                    <td>65</td>
-                                                    <td>Cotizado</td>
-                                                    <td>$1,094,872.10</td>
-                                                    <td>$2,337,960.92</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>46</td>
-                                                    <td>Ganado</td>
-                                                    <td>$ 5,712,602.03</td>
-                                                    <td>$524,840.31</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>207</td>
-                                                    <td>Lead</td>
-                                                    <td>$ 0.00</td>
-                                                    <td>$ 0.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>16</td>
-                                                    <td>Negociación</td>
-                                                    <td>$ 999,000.00</td>
-                                                    <td>$497,702.53</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>44</td>
-                                                    <td>Pricing</td>
-                                                    <td>$ 0.00</td>
-                                                    <td>$912,680.26</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>126</td>
-                                                    <td>Rechazado</td>
-                                                    <td>$ 35,421,585.63</td>
-                                                    <td>$7,328,810.88</td>
-                                                </tr>
-                                        </table>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header bg-white">
+                                        Proyectos por usuario
+                                    </div>
+                                    <div class="card-block m-t-35" id="user_body">
+                                        <div class="table-toolbar">
+                                            <div class="btn-group">
+
+                                            </div>
+                                            <div class="btn-group float-right users_grid_tools">
+                                                <div class="tools"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <table class="table table-striped table-bordered table-hover dataTable no-footer" id="" role="grid">
+                                                    <thead>
+                                                    <tr>
+                                                        <th >Etapa</th>
+                                                        <th>Proyectos</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Cotizado</td>
+                                                        <td>15</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ganado</td>
+                                                        <td>6</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Lead</td>
+                                                        <td>44</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Negociación</td>
+                                                        <td>10</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Princing</td>
+                                                        <td>20</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Rechazado</td>
+                                                        <td>12</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="inner bg-container" >
-                            <div class="card m-t-15">
-                                <div class="card-header bg-white">
-                                    Comparativa responsables
-                                </div>
-                                <div class="card-block m-t-35">
-                                        <canvas id="canvas"></canvas>
-                                </div>
+                        <div class="card m-t-15">
+                            <div class="card-header bg-white">
+                                Comparativa responsables
                             </div>
+                            <div class="card-block m-t-35">
+                                <button class="btn btn-primary" id="savechart">Descargar Gráfica &nbsp;<i class="fa fa-save"></i></button>
+                                    <canvas id="canvas"></canvas>
+                            </div>
+                        </div>
                     </div>
-                    <!-- /.inner -->
-
                 </div>
             </div>
         </div>
@@ -170,10 +228,24 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
 <script type="text/javascript" src="/js/dashboard/buttons.bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/buttons.print.min.js"></script>
 <!-- end of plugin scripts -->
+<!-- Exportar Graficas Charts.js a imagen -->
+<script type="text/javascript" src="/js/dashboard/FileSaver.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/canvas-toBlob.js"></script>
+<script type="text/javascript" src="/js/dashboard/FileSaver.js"></script>
+<script type="text/javascript" src="/js/dashboard/Blob.js"></script>
 
 <!--Page level scripts-->
 
 <script>//Script comparativa responsables.
+    $("#savechart").click(function () {
+        var canvas = document.getElementById("canvas");
+        canvas.toBlob(function(blob) {
+            console.log(blob);
+            saveAs(blob, "grafica1.png");
+        });
+
+    });
+
     var barChartData = {
         labels: ['Christian', 'Luis', 'Giovanny', 'Giovanny', 'Giovanny', 'Giovanny', 'Giovanny', 'Giovanny'],
         datasets: [{
@@ -261,6 +333,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                 {extend: 'copy', text: 'Copiar' }, 'csv', {extend: 'print', text: 'Imprimir' }
             ],
 
+            ordering: false,
             bPaginate: false,
             bInfo: false,
             searching: false,
@@ -287,7 +360,41 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
         }); // initialize select2 dropdown
         $("#editable_table_wrapper .dt-buttons .btn").addClass('btn-secondary').removeClass('btn-default');
     });
+    'use strict';
+    $(document).ready(function() {
+        var table = $('#editable_table2');
+        table.DataTable({
+            dom: "<'text-left'B><f>lr<'table-responsive't><'row'<'col-md-5 col-12'i><'col-md-7 col-12'p>>",
+            buttons: [
+                {extend: 'copy', text: 'Copiar' }, 'csv', {extend: 'print', text: 'Imprimir' }
+            ],
 
+            bPaginate: false,
+            bInfo: false,
+            searching: false,
+            oLanguage: {
+                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+                sInfoEmpty: "No hay registros a mostrar",
+                sInfoFiltered: "",
+                sZeroRecords: "Ningún registro para mostrar",
+                sSearch: "Buscar:",
+                oPaginate: {
+                    sFirst: "Primera Página",
+                    sLast: "Última Página",
+                    sNext: "Siguiente",
+                    sPrevious: "Anterior"
+                },
+                sEmptyTable: "No se encontraron registros",
+                sLengthMenu: "Mostrar _MENU_ Registros",
+
+            }
+        });
+        var tableWrapper = $("#editable_table_wrapper");
+        tableWrapper.find(".dataTables_length select").select2({
+            showSearchInput: false//hide search box with special css class
+        }); // initialize select2 dropdown
+        $("#editable_table_wrapper .dt-buttons .btn").addClass('btn-secondary').removeClass('btn-default');
+    });
 
 </script>
 
