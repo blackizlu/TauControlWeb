@@ -27,7 +27,7 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::get('/{id}/edit', 'Dashboard\UsersController@edit')->name('dashboard.users.edit');
         Route::post('/', 'Dashboard\UsersController@store')->name('dashboard.users.store');
         Route::put('/{id}/update', 'Dashboard\UsersController@update')->name('dashboard.users.update');
-        Route::delete('/{id}/delete', 'Dashboard\UsersController@delete')->name('dashboard.users.delete');
+        Route::delete('/{id}/delete', 'Dashboard\UsersController@destroy')->name('dashboard.users.delete');
     });
 
     //MODULO CLIENTES
@@ -38,7 +38,7 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::get('/{id}/edit', 'Dashboard\ClientsController@edit')->name('dashboard.clients.edit');
         Route::post('/', 'Dashboard\ClientsController@store')->name('dashboard.clients.store');
         Route::put('/{id}/update', 'Dashboard\ClientsController@update')->name('dashboard.clients.update');
-        Route::delete('/{id}/delete', 'Dashboard\ClientsController@delete')->name('dashboard.clients.delete');
+        Route::delete('/{id}/delete', 'Dashboard\ClientsController@destroy')->name('dashboard.clients.delete');
 
     });
 
@@ -49,7 +49,7 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::get('/{id}/edit', 'Dashboard\ContactsController@edit')->name('dashboard.contacts.edit');
         Route::post('/', 'Dashboard\ContactsController@store')->name('dashboard.contacts.store');
         Route::put('/{id}/update', 'Dashboard\ContactsController@update')->name('dashboard.contacts.update');
-        Route::delete('/{id}/delete', 'Dashboard\ContactsController@delete')->name('dashboard.contacts.delete');
+        Route::delete('/{id}/delete', 'Dashboard\ContactsController@destroy')->name('dashboard.contacts.delete');
     });
 
     //MODULO PROYECTOS
@@ -60,7 +60,7 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::get('/{id}/edit', 'Dashboard\ProjectsController@edit')->name('dashboard.projects.edit');
         Route::post('/', 'Dashboard\ProjectsController@store')->name('dashboard.projects.store');
         Route::put('/{id}/update', 'Dashboard\ProjectsController@update')->name('dashboard.projects.update');
-        Route::delete('/{id}/delete', 'Dashboard\ProjectsController@delete')->name('dashboard.projects.delete');
+        Route::delete('/{id}/delete', 'Dashboard\ProjectsController@destroy')->name('dashboard.projects.delete');
     });
 
     //MODULO COTIZACIONES
@@ -69,6 +69,8 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::get('/add', 'Dashboard\CotizacionesController@add')->name('dashboard.cotizaciones.generate');
         Route::post('/', 'Dashboard\CotizacionesController@store')->name('dashboard.cotizaciones.store');
         Route::get('/categories', 'Dashboard\CategoryController@view')->name('dashboard.cotizaciones.categories');
+        Route::delete('/{id}/delete', 'Dashboard\CotizacionesController@destroy')->name('dashboard.cotizaciones.delete');
+
 
     });
 
@@ -76,6 +78,8 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
     Route::group(['prefix' =>'categories'], function (){
         Route::post('/', 'Dashboard\CategoryController@store')->name('dashboard.categories.store');
         Route::put('/{id}/update', 'Dashboard\CategoryController@update')->name('dashboard.categories.update');
+        Route::delete('/delete/{id}', 'Dashboard\CategoryController@destroy')->name('dashboard.categories.delete');
+
     });
 
     //MODULO ACTIVIDADES
@@ -85,7 +89,7 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::get('/{id}/view', 'Dashboard\ActivitiesController@view')->name('dashboard.activities.view');
         Route::get('/{id}/edit', 'Dashboard\ActivitiesController@edit')->name('dashboard.activities.edit');
         Route::post('/', 'Dashboard\ActivitiesController@store')->name('dashboard.activities.store');
-        Route::put('/','Dashboard\ActivitiesController@update')->name('dashboard.activities.update');
+        Route::put('/{id}/update','Dashboard\ActivitiesController@update')->name('dashboard.activities.update');
         Route::delete('/deleted', 'Dashboard\ActivitiesController@destroy')->name('dashboard.activities.delete');
 
 

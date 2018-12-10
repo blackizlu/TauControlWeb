@@ -75,7 +75,6 @@
                                                     <i class="fa fa-users text-primary"></i>
                                                 </span>
                                                 <select class="form-control hide_search" tabindex="7" name="type" value="{{ $client->type }}">
-                                                    <option selected disabled>Selecciona el tipo de contacto</option>
                                                     <option value="Arquitecto" @if($client->type == 'Arquitecto'){{ 'selected' }}@endif>Arquitecto</option>
                                                     <option value="Constructora" @if($client->type == 'Constructora'){{ 'selected' }}@endif>Constructora</option>
                                                     <option value="Desarrolladora" @if($client->type == 'Desarrolladora'){{ 'selected' }}@endif>Desarrolladora</option>
@@ -134,7 +133,6 @@
                                                     <i class="fa fa-user-friends text-primary"></i>
                                                 </span>
                                                 <select class="form-control hide_search" tabindex="7" name="user_id">
-                                                    <option selected disabled>Selecciona al responsable</option>
                                                     @foreach($users as $user)
                                                         <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
                                                     @endforeach

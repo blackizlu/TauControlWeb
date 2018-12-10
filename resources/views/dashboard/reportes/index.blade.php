@@ -137,17 +137,23 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                         Proyectos por usuario
                                     </div>
                                     <div class="card-block m-t-35" id="user_body">
-                                        <div class="table-toolbar">
+                                        <div class="table-toolbar" style="margin-top: -35px;">
                                             <div class="btn-group">
 
                                             </div>
-                                            <div class="btn-group float-right users_grid_tools">
-                                                <div class="tools"></div>
+                                            <div class="input-group col-6">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-search text-primary"></i>
+                                                        </span>
+                                                <select class="form-control" tabindex="7" name="user_id">
+                                                    <option selected disabled>Buscar por usuario</option>
+                                                        <option value="">Usuario</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div>
                                             <div>
-                                                <table class="table table-striped table-bordered table-hover dataTable no-footer" id="" role="grid">
+                                                <table class="table table-striped table-bordered table-hover dataTable no-footer" id="editabletable2" role="grid">
                                                     <thead>
                                                     <tr>
                                                         <th >Etapa</th>
@@ -362,13 +368,11 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
     });
     'use strict';
     $(document).ready(function() {
-        var table = $('#editable_table2');
+        var table = $('#editabletable2');
         table.DataTable({
-            dom: "<'text-left'B><f>lr<'table-responsive't><'row'<'col-md-5 col-12'i><'col-md-7 col-12'p>>",
-            buttons: [
-                {extend: 'copy', text: 'Copiar' }, 'csv', {extend: 'print', text: 'Imprimir' }
-            ],
-
+            dom:"<'text-left'B><f>lr<'table-responsive't><'row'<'col-md-5 col-12'i><'col-md-7 col-12'p>>",
+            buttons: false,
+            ordering: false,
             bPaginate: false,
             bInfo: false,
             searching: false,
@@ -394,6 +398,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
             showSearchInput: false//hide search box with special css class
         }); // initialize select2 dropdown
         $("#editable_table_wrapper .dt-buttons .btn").addClass('btn-secondary').removeClass('btn-default');
+
     });
 
 </script>

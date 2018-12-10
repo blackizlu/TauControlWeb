@@ -135,8 +135,8 @@
 {{--<script type="text/javascript" src="/js/dashboard/countUp.min.js"></script>--}}
 <script type="text/javascript" src="/js/dashboard/jquery.flip.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/jquery.sparkline.js"></script>
-<script type="text/javascript" src="/js/dashboard/chartist.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/chartist-tooltip.js"></script>
+{{--<script type="text/javascript" src="/js/dashboard/chartist.min.js"></script>                Comentado para evitar errores en consola
+<script type="text/javascript" src="/js/dashboard/chartist-tooltip.js"></script>                Comentado para evitar errores en consola.--}}
 <script type="text/javascript" src="/js/dashboard/swiper.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/jquery.circliful.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/jquery.flot.js" ></script>
@@ -216,7 +216,8 @@
 <script type="text/javascript" src="/js/dashboard/form.js"></script>
 <script type="text/javascript" src="/js/dashboard/datetime_piker.js"></script>
 
-<script type="text/javascript" src="/js/dashboard/index.js"></script>
+{{--
+<script type="text/javascript" src="/js/dashboard/index.js"></script>           Comentado para evitar errores en consola--}}
 
 {{--Scripts para hacer agregable la tabla de articulos--}}
 

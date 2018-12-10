@@ -310,6 +310,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <form action="{{route('dashboard.activities.update')}}" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="_method" value="PUT">
                         {{ csrf_field() }}
                     <div class="modal-body">
                         <input type="hidden" name="activity_id" id="act_id" value="">

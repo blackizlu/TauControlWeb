@@ -34,4 +34,15 @@ class CategoryController extends Controller
 
         return redirect()->back();
     }
+
+    public function destroy($id){
+        $categories = Category::findOrFail($id);
+        $categories->delete();
+
+        $message = 'Cliente eliminado con éxito';
+        Session::flash('message', $message);
+
+        return view('dashboard.cotizaciones.categories', compact('categories'));
+
+    }
 }

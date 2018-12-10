@@ -5,8 +5,8 @@
             <div class="row no-gutters">
                 <div class="col-lg-6 col-sm-4">
                     <h4 class="nav_top_align">
-                        <i class="fa fa-user-tie"></i>
-                        Proyectos
+                        <i class="fa fa-file-invoice-dollar"></i>
+                        Cotizaciones
                     </h4>
                 </div>
                 <div class="col-lg-6 col-sm-8 col-12">
@@ -16,7 +16,7 @@
                                 <i class="fa fa-home" data-pack="default" data-tags=""></i> Inicio
                             </a>
                         </li>
-                        <li class="active breadcrumb-item">Proyectos</li>
+                        <li class="active breadcrumb-item">Cotizaciones</li>
                     </ol>
                 </div>
             </div>
@@ -74,7 +74,12 @@
                                         <td>2018/11/07</td>
                                         <td>2018/11/09</td>
                                         <td>
-                                            No <input type="checkbox" class="js-switch sm_toggle" title="yes" checked>Si
+                                            <div class="checkbox" align="center">
+                                                <label class="text-success">
+                                                    <input type="checkbox" title="yes" {{--@if($activity->completed == true) checked @endif disabled--}}>
+                                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                                </label>
+                                            </div>
                                         </td>
                                         <td></td>
                                         <td>                                            &nbsp; &nbsp;
@@ -82,7 +87,8 @@
                                             <a href="" data-toggle="tooltip" data-placement="top" title="Ver Cotización">
                                                 <i class="fa fa-eye text-success"></i></a>
                                             &nbsp; &nbsp;
-
+                                            <a class="edit" data-toggle="modal" data-href="#editar" data-placement="top" title="Editar" href="#editar">
+                                                <i class="fa fa-pencil-alt text-warning"></i></a>
                                             &nbsp; &nbsp;
                                             <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Eliminar" href="#" data-id="">
                                                 <i class="fa fa-trash text-danger"></i></a>
@@ -124,70 +130,6 @@
                     <div class="modal-footer">
                         <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
                         <button type="submit" class="btn btn-success">Guardar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-    <!--- MODAL PARA SOLICITUD DE COTIZACION-->
-
-    <form action="" method="post" enctype="multipart/form-data">
-        <div class="modal fade in display_none" id="responsive" tabindex="-1" role="dialog" aria-hidden="false">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header bg-primary">
-                        <h4 class="modal-title text-white">Solicitud de cotización</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="card m-t-35">
-                                    <div class="card-header bg-white"><i class="fa fa-file-alt"></i>
-                                        Datos generales
-                                    </div>
-                                    <div class="card-block seclect_form">
-                                        <form class="form-horizontal">
-                                            <div class="row">
-                                                <div class="col-lg-4 input_field_sections">
-                                                    <h5>Cliente*</h5>
-                                                    <select class="form-control chzn-select" tabindex="2">
-                                                        <option disabled selected>Buscar cliente</option>
-                                                        @foreach($clients as $client)
-                                                            <option value="">{{ $client->client_name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div class="col-lg-4 input_field_sections">
-                                                    <h5>Proyecto*</h5>
-                                                    <select class="form-control chzn-select" tabindex="2">
-                                                        <option disabled selected>Buscar proyecto</option>
-                                                        <option value="United States">United States</option>
-                                                        <option value="United Kingdom">United Kingdom</option>
-                                                        <option value="Afghanistan">Afghanistan</option>
-                                                        <option value="Albania">Albania</option>
-                                                        <option value="Algeria">Algeria</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-lg-4 input_field_sections">
-                                                    <h5>Moneda</h5>
-                                                    <div class="form-group">
-                                                        <select class="form-control">
-                                                            <option>USD</option>
-                                                            <option>MXN</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Guardar</button>
                     </div>
                 </div>
             </div>

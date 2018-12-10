@@ -52,8 +52,7 @@
                                         <td>{{$category->name}}</td>
                                         <td><a class="edit" data-toggle="modal" data-href="#edit" data-placement="top" title="Editar" href="#edit">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>
-                                            &nbsp; &nbsp;
-                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Desactivar" href="#" data-id="">
+                                    &nbsp; &nbsp;     <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Desactivar" href="{{route('dashboard.categories.delete', $category->id)}}" data-id="">
                                                 <i class="fa fa-trash text-danger"></i></a>
                                         </td>
                                     </tr>
@@ -100,6 +99,7 @@
 
         <!--- responsive model EDITAR -->
         <form action="{{ route('dashboard.categories.update', $category->id) }}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="_method" value="PUT">
             {{ csrf_field() }}
             <div class="modal fade in display_none" id="edit" tabindex="-1" role="dialog" aria-hidden="false">
                 <div class="modal-dialog modal-md">

@@ -49,7 +49,7 @@ class ProjectsController extends Controller
         $message = 'Proyecto creado con éxito';
         Session::flash('message', $message);
 
-        return redirect()->route('dashboard.projects.index');
+        return view('dashboard.projects.index', compact('projects','clients'));
     }
 
     public function view($id)
@@ -57,5 +57,28 @@ class ProjectsController extends Controller
         $project = Project::findOrFail($id);
 
         return view('dashboard.projects.view', compact('project'));
+    }
+    public function edit($id){
+
+        $projects = Project::findOrFail($id);
+        $clients = Client::all();
+        $users =    User::all();
+
+        return view('dashboard.projects.edit', compact('projects','clients','users'));
+
+
+    }
+
+    public function update(Request $request, $id)
+    {
+        $projects = Project::findOrFail($id);
+        $projects->fill($request->all());
+        $projects->update();
+
+
+        $message = 'Contacto actualizado con éxito';
+        Session::flash('message', $message);
+
+        return redirect()->route('dashboard.projects.index');
     }
 }

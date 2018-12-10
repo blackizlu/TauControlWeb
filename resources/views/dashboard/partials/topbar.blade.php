@@ -15,122 +15,6 @@
                     <i class="fa fa-search text-primary"></i>
                 </div>
                 <div class="btn-group">
-                    <div class="notifications no-bg">
-                        <a class="btn btn-default btn-sm messages" data-toggle="dropdown" id="messages_section"> <i
-                                    class="fa fa-envelope fa-1x"></i>
-                            <span class="badge badge-pill badge-warning notifications_badge_top">8</span>
-                        </a>
-                        <div class="dropdown-menu drop_box_align" role="menu" id="messages_dropdown">
-                            <div class="popover-title">You have 8 Messages</div>
-                            <div id="messages">
-                                <div class="data">
-                                    <div class="row">
-                                        <div class="col-2">
-                                            <img src="/images/dashboard/mailbox_imgs/5.jpg" class="message-img avatar rounded-circle"
-                                                 alt="avatar1"></div>
-                                        <div class="col-10 message-data"><strong>hally</strong>
-                                            sent you an image.
-                                            <br>
-                                            <small>add to timeline</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="data">
-                                    <div class="row">
-                                        <div class="col-2">
-                                            <img src="/images/dashboard/mailbox_imgs/8.jpg" class="message-img avatar rounded-circle"
-                                                 alt="avatar1"></div>
-                                        <div class="col-10 message-data"><strong>Meri</strong>
-                                            invitation for party.
-                                            <br>
-                                            <small>add to timeline</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="data">
-                                    <div class="row">
-                                        <div class="col-2">
-                                            <img src="/images/dashboard/mailbox_imgs/7.jpg" class="message-img avatar rounded-circle"
-                                                 alt="avatar1"></div>
-                                        <div class="col-10 message-data">
-                                            <strong>Remo</strong>
-                                            meeting details .
-                                            <br>
-                                            <small>add to timeline</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="data">
-                                    <div class="row">
-                                        <div class="col-2">
-                                            <img src="/images/dashboard/mailbox_imgs/6.jpg" class="message-img avatar rounded-circle"
-                                                 alt="avatar1"></div>
-                                        <div class="col-10 message-data">
-                                            <strong>David</strong>
-                                            upcoming events list.
-                                            <br>
-                                            <small>add to timeline</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="data">
-                                    <div class="row">
-                                        <div class="col-2">
-                                            <img src="/images/dashboard/mailbox_imgs/5.jpg" class="message-img avatar rounded-circle"
-                                                 alt="avatar1"></div>
-                                        <div class="col-10 message-data"><strong>hally</strong>
-                                            sent you an image.
-                                            <br>
-                                            <small>add to timeline</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="data">
-                                    <div class="row">
-                                        <div class="col-2">
-                                            <img src="/images/dashboard/mailbox_imgs/8.jpg" class="message-img avatar rounded-circle"
-                                                 alt="avatar1"></div>
-                                        <div class="col-10 message-data"><strong>Meri</strong>
-                                            invitation for party.
-                                            <br>
-                                            <small>add to timeline</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="data">
-                                    <div class="row">
-                                        <div class="col-2">
-                                            <img src="/images/dashboard/mailbox_imgs/7.jpg" class="message-img avatar rounded-circle"
-                                                 alt="avatar1"></div>
-                                        <div class="col-10 message-data">
-                                            <strong>Remo</strong>
-                                            meeting details .
-                                            <br>
-                                            <small>add to timeline</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="data">
-                                    <div class="row">
-                                        <div class="col-2">
-                                            <img src="/images/dashboard/mailbox_imgs/6.jpg" class="message-img avatar rounded-circle"
-                                                 alt="avatar1"></div>
-                                        <div class="col-10 message-data">
-                                            <strong>David</strong>
-                                            upcoming events list.
-                                            <br>
-                                            <small>add to timeline</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="popover-footer">
-                                <a href="mail_inbox.html" class="text-white">Inbox</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="btn-group">
                     <div class="notifications messages no-bg">
                         <a class="btn btn-default btn-sm" data-toggle="dropdown" id="notifications_section"> <i
                                     class="fa fa-bell"></i>
@@ -291,14 +175,6 @@
                         <div class="dropdown-menu admire_admin">
                             <a class="dropdown-item title" href="#">
                                 Ajustes</a>
-                            <a class="dropdown-item" href="edit_user.html"><i class="fa fa-cogs"></i>
-                                Configuración</a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fa fa-user"></i>
-
-                            Ajuste de usuario</a>
-                            <a class="dropdown-item" href="mail_inbox.html"><i class="fa fa-envelope"></i>
-                                Inbox</a>
                             <a class="dropdown-item" href="{{ route ('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out-alt "></i>
                                 Cerrar Sesión</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>

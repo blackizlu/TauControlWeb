@@ -81,14 +81,14 @@ class ClientsController extends Controller
         return redirect()->back();
     }
 
-    public function delete($id){
+    public function destroy($id){
         $client = Client::findOrFail($id);
         $client->delete();
 
         $message = 'Cliente eliminado con éxito';
         Session::flash('message', $message);
 
-        return redirect()->back();
+        return view('dashboard.clients.view', compact('client'));
 
     }
 }
