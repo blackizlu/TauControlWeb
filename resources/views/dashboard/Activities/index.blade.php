@@ -269,6 +269,7 @@
                             <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
                             <button type="submit" class="btn btn-primary">Crear Actividad</button>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -286,6 +287,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <form action="{{route('dashboard.activities.delete')}}" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="_method" value="PUT">
                         {{ csrf_field() }}
                             <div class="modal-body">
                                 <input type="hidden" name="activity_id" id="act_id" value="">
@@ -309,7 +311,7 @@
                         <h4 class="modal-title text-white">Editar Actividad</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
-                    <form action="{{route('dashboard.activities.update')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('dashboard.activities.update', $activity->id)}}" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="_method" value="PUT">
                         {{ csrf_field() }}
                     <div class="modal-body">
@@ -470,6 +472,8 @@
                 </div>
             </div>
         </div>
+
+
 
 
 @endsection

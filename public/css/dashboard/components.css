@@ -4283,6 +4283,12 @@ a.bg-danger:focus, a.bg-danger:hover {
 a.bg-inverse:focus, a.bg-inverse:hover {
   background-color: #0f0f0f !important; }
 
+.bg-muted {
+  background-color: #A7E7F2 !important; }
+
+.bg-lead {
+  background-color: #3E4E59 !important; }
+
 .border-0 {
   border: 0 !important; }
 
@@ -6316,6 +6322,8 @@ a.text-danger:focus, a.text-danger:hover {
 
 a.text-gray-dark:focus, a.text-gray-dark:hover {
   color: #0f0f0f !important; }
+.text-muted {
+  color: #A7E7F2 !important; }
 
 .text-hide {
   font: 0/0 a;

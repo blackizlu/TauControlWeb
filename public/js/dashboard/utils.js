@@ -6,7 +6,7 @@ window.chartColors = {
     primaryfocus: 'rgb(28,162,254)',
     success: 'rgb(0,204,153)',
     successfocus: 'rgb(0,153,115)',
-    info: 'rgb(52,125,255)',
+    info: 'rgb(167,231,242)',
     infofocus: 'rgb(1,92,255)',
     warning: 'rgb(255,153,51)',
     warningfocus: 'rgb(255,128,0)',
@@ -49,7 +49,8 @@ window.chartColors = {
         '#ea423e',
         '#282828',
         '#0f0f0f',
-        '#424242'
+        '#424242',
+        '#A7E7F2'
     ];
 
     var Samples = global.Samples || (global.Samples = {});

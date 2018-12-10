@@ -21,8 +21,12 @@
 <!-- Chartist Graficas styles -->
 <!--Page level styles-->
 <link type="text/css" rel="stylesheet" href="/css/dashboard/tables.css" />
-
 <!-- end of plugin styles -->
+<!--Widgets styles-->
+<link type="text/css" rel="stylesheet" href="/css/dashboard/swiper.min.css"/>
+<link type="text/css" rel="stylesheet" href="/css/dashboard/ihover.min.css"/>
+<!-- Widgets styles -->
+<link rel="stylesheet" type="text/css" href="/css/dashboard/widgets.css">
 <style>
 canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: none;  }
 </style>
@@ -61,7 +65,102 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                     </div>
                 </header>
                 <div class="outer">
-                    <div class="inner bg-light lter bg-container">
+                    <div class="inner bg-container">
+                        <div class="row sales_section">
+                            <div class="col-xl-4 col-sm-6 col-12">
+                                <div class="card p-d-15">
+                                    <div class="sales_icons">
+                                        <span class="bg-success"></span>
+                                        <i class="fa fa-dollar"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="sales_orders text-right m-t-5">Ganados</h5>  {{--Widget3.js para modificar los valores a mostrar--}}
+                                        <h1 class="sales_number m-t-15 text-right" id="ganados"></h1>
+                                        <p class="sales_text">Monto en MXN: $593,381.20
+                                            {{--<span class="pull-right"><i class="fa fa-dollar text-mint font_18 m-r-5"></i>25.25%</span>--}}</p>
+                                        <p class="sales_text">Monto en USD: $361,413.65
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-sm-6 col-12 ">
+                                <div class="card p-d-15">
+                                    <div class="sales_icons">
+                                        <span class="bg-primary"></span>
+                                        <i class="fa fa-file-invoice-dollar"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="sales_orders text-right m-t-5">Cotizados</h5>
+                                        <h1 class="sales_number m-t-15 text-right" id="cotizados"></h1>
+                                        <p class="sales_text">Monto en MXN: $989,900.38</p>
+                                        <p class="sales_text">Monto en USD: $380,043.34</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-sm-6 col-12 ">
+                                <div class="card p-d-15">
+                                    <div class="sales_icons">
+                                        <span class="bg-warning"></span>
+                                        <i class="fa fa-handshake-o"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="sales_orders text-right m-t-5">Negociación</h5>
+                                        <h1 class="sales_number m-t-15 text-right" id="negociados"></h1>
+                                        <p class="sales_text">Monto en MXN: $0.00</p>
+                                        <p class="sales_text">Monto en USD: $274,976.03</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="inner bg-container m-t-15">
+                        <div class="row sales_section">
+                            <div class="col-xl-4 col-sm-6 col-12 ">
+                                <div class="card p-d-15">
+                                    <div class="sales_icons">
+                                        <span class="bg-lead"></span>
+                                        <i class="fa fa-bullseye"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="sales_orders text-right m-t-5">Lead</h5>
+                                        <h1 class="sales_number m-t-15 text-right" id="lead"></h1>
+                                        <p class="sales_text">Monto en MXN: $0.00</p>
+                                        <p class="sales_text">Monto en USD: $0.00</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-sm-6 col-12 ">
+                                <div class="card p-d-15">
+                                    <div class="sales_icons">
+                                        <span class="bg-muted"></span>
+                                        <i class="fa fa-calculator"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="sales_orders text-right m-t-5">Pricing</h5>
+                                        <h1 class="sales_number m-t-15 text-right" id="pricing"></h1>
+                                        <p class="sales_text">Monto en MXN: $0.00</p>
+                                        <p class="sales_text">Monto en USD: $$912,680.26</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-sm-6 col-12 ">
+                                <div class="card p-d-15">
+                                    <div class="sales_icons">
+                                        <span class="bg-danger"></span>
+                                        <i class="fa fa-times-circle"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="sales_orders text-right m-t-5">Rechazados</h5>
+                                        <h1 class="sales_number m-t-15 text-right"><span id="rechazados"></span></h1>
+                                        <p class="sales_text">Monto en MXN: $14,163,496.63</p>
+                                        <p class="sales_text">Monto en USD: $3,078,177.80</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner bg-light lter bg-container m-t-15">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="card ">
@@ -82,46 +181,46 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                                 <table class="table table-striped table-bordered table-hover dataTable no-footer" id="editable_table" role="grid">
                                                     <thead>
                                                     <tr role="row">
-                                                        <th >Proyectos</th>
                                                         <th >Etapa</th>
+                                                        <th >Proyecto</th>
                                                         <th >Monto MXN</th>
                                                         <th >Monto USD</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     <tr role="row" class="even">
+                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-file-invoice-dollar text-primary"></i></a>&nbsp;Cotizado</td>
                                                         <td>65</td>
-                                                        <td>Cotizado</td>
                                                         <td>$1,094,872.10</td>
                                                         <td>$2,337,960.92</td>
                                                     </tr>
                                                     <tr>
+                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-dollar text-success"></i></a>&nbsp;Ganado</td>
                                                         <td>46</td>
-                                                        <td>Ganado</td>
                                                         <td>$ 5,712,602.03</td>
                                                         <td>$524,840.31</td>
                                                     </tr>
                                                     <tr>
+                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-bullseye"></i></a>&nbsp;Lead</td>
                                                         <td>207</td>
-                                                        <td>Lead</td>
                                                         <td>$ 0.00</td>
                                                         <td>$ 0.00</td>
                                                     </tr>
                                                     <tr>
+                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-handshake-o text-warning"></i></a>&nbsp;Negociación</td>
                                                         <td>16</td>
-                                                        <td>Negociación</td>
                                                         <td>$ 999,000.00</td>
                                                         <td>$497,702.53</td>
                                                     </tr>
                                                     <tr>
+                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-calculator text-muted"></i></a>&nbsp;Pricing</td>
                                                         <td>44</td>
-                                                        <td>Pricing</td>
                                                         <td>$ 0.00</td>
                                                         <td>$912,680.26</td>
                                                     </tr>
                                                     <tr>
+                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-times-circle text-danger"></i></a>&nbsp;Rechazado</td>
                                                         <td>126</td>
-                                                        <td>Rechazado</td>
                                                         <td>$ 35,421,585.63</td>
                                                         <td>$7,328,810.88</td>
                                                     </tr>
@@ -162,27 +261,27 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                                     </thead>
                                                     <tbody>
                                                     <tr>
-                                                        <td>Cotizado</td>
+                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-file-invoice-dollar text-primary"></i></a>&nbsp;Cotizado</td>
                                                         <td>15</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Ganado</td>
+                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-dollar text-success"></i></a>&nbsp;Ganado</td>
                                                         <td>6</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Lead</td>
+                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-bullseye"></i></a>&nbsp;Lead</td>
                                                         <td>44</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Negociación</td>
+                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-handshake-o text-warning"></i></a>&nbsp;Negociación</td>
                                                         <td>10</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Princing</td>
+                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-calculator text-muted"></i></a>&nbsp;Princing</td>
                                                         <td>20</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Rechazado</td>
+                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-times-circle text-danger"></i></a>&nbsp;Rechazado</td>
                                                         <td>12</td>
                                                     </tr>
                                                     </tbody>
@@ -239,8 +338,11 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
 <script type="text/javascript" src="/js/dashboard/canvas-toBlob.js"></script>
 <script type="text/javascript" src="/js/dashboard/FileSaver.js"></script>
 <script type="text/javascript" src="/js/dashboard/Blob.js"></script>
-
 <!--Page level scripts-->
+<!-- Widgets scripts -->
+<script type="text/javascript" src="/js/dashboard/countUp.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/swiper.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/widgetReporte.js"></script>
 
 <script>//Script comparativa responsables.
     $("#savechart").click(function () {
@@ -253,13 +355,13 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
     });
 
     var barChartData = {
-        labels: ['Christian', 'Luis', 'Giovanny', 'Giovanny', 'Giovanny', 'Giovanny', 'Giovanny', 'Giovanny'],
+        labels: ['Christian', 'Luis', 'Giovanny', 'Sara', 'Sam', 'Samantha', 'Jorge', 'Carolina'],
         datasets: [{
             label: 'Negociacion',
             backgroundColor: window.chartColors.warning,
             data: [
 
-                8,10,80,13,4,26,9,28//negociacion
+                8,10,10,13,4,26,9,28//negociacion
 
             ]
         }, {
@@ -267,7 +369,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
             backgroundColor: window.chartColors.info,
             data: [
 
-                12,20,32,33,7,0,12,34//pricing
+                12,20,20,33,7,0,12,34//pricing
 
             ]
         }, {
@@ -275,7 +377,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
             backgroundColor: window.chartColors.success,
             data: [
 
-                9,6,60,15,2,70,14,34//ganado
+                9,6,30,15,2,70,14,34//ganado
 
             ]
         },{
@@ -283,7 +385,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
             backgroundColor: window.chartColors.primary,
             data: [
 
-                9,15,50,44,4,6,22,12//cotizado
+                9,15,40,44,4,6,22,12//cotizado
 
             ]
         },{
@@ -291,7 +393,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
             backgroundColor: window.chartColors.danger,
             data: [
 
-                15,12,89,24,0,0,13,15//rechazado
+                15,12,50,24,0,0,13,15//rechazado
 
             ]
         },{
@@ -299,7 +401,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
             backgroundColor: window.chartColors.muted,
             data: [
 
-                6,44,70,62,4,5,6,37//lead
+                6,44,60,62,4,5,6,37//lead
 
             ]
         }]

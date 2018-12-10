@@ -46,6 +46,7 @@
 <script type="text/javascript" src="/js/dashboard/moment.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/fullcalendar.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/calendarcustom.js" ></script>
+<script type="text/javascript" src='/js/dashboard/calendarES.js'></script>
 <!-- end of plugin scripts -->
 <script type="text/javascript" src="/js/dashboard/calendar.js"></script>
 <!-- Widgets scripts -->

@@ -29,50 +29,43 @@ $(document).ready(function() {
         m = date.getMonth(),
         y = date.getFullYear();
     $('#calendar').fullCalendar({
-        displayEventTime: false,
+        displayEventTime: true,
         header: {
             left: 'prev,next today',
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
         },
-        buttonText: {
-            prev: "",
-            next: "",
-            today: 'today',
-            month: 'M',
-            week: 'W',
-            day: 'D'
-        },
+
         //Random events
         events: [{
-            title: 'Team Out',
-            start: new Date(y, m, 2),
+            title: 'Instalacion de obra',
+            start: new Date(y, m, 14),
             backgroundColor: "#ff9933"
         }, {
-            title: 'Client Meeting',
-            start: new Date(y, m, d - 2),
+            title: 'Cita con cliente',
+            start: new Date(y, m, 12),
             end: new Date(y, m, d - 5),
             backgroundColor: "#ff6666"
         }, {
-            title: 'Repeating Event',
-            start: new Date(y, m, 6),
+            title: 'Visita a obra',
+            start: new Date(y, m, 16),
             backgroundColor: "#347dff"
         }, {
-            title: 'Birthday Party',
-            start: new Date(y, m, 12),
+            title: 'Llamada',
+            start: new Date(y, m, 11),
             backgroundColor: "#00cc99"
         }, {
-            title: 'Product Seminar',
+            title: 'Envio de correo',
             start: new Date(y, m, 16),
             backgroundColor: "#4fb7fe"
         }, {
-            title: 'Anniversary Celebrations',
-            start: new Date(y, m, 26),
-            backgroundColor: "#ff6666"
+            title: 'Actividad no realizada',
+            start: new Date(y, m, 8),
+            backgroundColor: "#737373"
         }, {
-            title: 'Client Meeting',
-            start: new Date(y, m, 10),
-            backgroundColor: "#00cc99"
+            title: 'Actividad no realizada',
+            start: new Date(y, m, 7),
+            backgroundColor: "#737373"
         }],
         eventClick: function(calEvent, jsEvent, view) {
             evt_obj=calEvent;
