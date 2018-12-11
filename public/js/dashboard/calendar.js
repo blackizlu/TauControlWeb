@@ -87,7 +87,7 @@ $(document).ready(function() {
                 setTimeout(setpopover,100);
             });
         },
-        editable: true,
+        editable: false,
         droppable: true,
         drop: function(date, allDay) {
 

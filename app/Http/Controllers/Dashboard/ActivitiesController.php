@@ -62,12 +62,7 @@ class ActivitiesController extends Controller
     {
         $activity = Activities::findOrFail($request->activity_id);
         $activity->fill($request->all());
-        dd($activity);
         $activity->update();
-
-
-        $message = 'Actividad actualizada con éxito';
-        Session::flash('message', $message);
 
         return redirect()->back();
     }
