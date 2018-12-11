@@ -23,8 +23,12 @@
     <link type="text/css" rel="stylesheet" href="/css/dashboard/responsive.dataTables.min.css" />
 
     <link type="text/css" rel="stylesheet" href="/css/dashboard/tables.css" />
-
-    <!-- end of plugin styles -->
+    <!--Radio Checkbox styles-->
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/bootstrap-switch.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/switchery.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/radiobox.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/checkbox.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/radio_checkbox.css" />
 
 </head>
 
@@ -60,8 +64,11 @@
 {{--<script type="text/javascript" src="/js/dashboard/buttons.bootstrap.min.js"></script>--}}
 {{--<script type="text/javascript" src="/js/dashboard/buttons.print.min.js"></script>--}}
 <script type="text/javascript" src="/js/dashboard/dataTables.scroller.min.js"></script>
-<!-- end of plugin scripts -->
-<!--Page level scripts-->
+<!-- Radio Checkbox scripts-->
+<script type="text/javascript" src="/js/dashboard/bootstrap-switch.min.js"></script>
+<script type="text/javascript" src="/js/dashboard/switchery.min.js"></script>
+
+<script type="text/javascript" src="/js/dashboard/radio_checkbox.js"></script>
 <script type="text/javascript" src="/js/dashboard/datatable.js"></script>
 <!-- end of global scripts-->
 

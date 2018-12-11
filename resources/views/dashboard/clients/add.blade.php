@@ -5,7 +5,7 @@
             <div class="main-bar">
                 <div class="row no-gutters">
                     <div class="col-lg-6">
-                        <h4 class="nav_top_align skin_txt">
+                        <h4 class="nav_top_align skin_txt"></h4>
                             <i class="fa fa-user-tie"></i>
                             Nuevo cliente
                     </div>
@@ -30,8 +30,11 @@
             <div class="inner bg-container">
                 <div class="card">
 
-                    <div class="card-block m-t-35">
-                        <div>
+                    <div class="card-block">
+                        <div class="btn-group">
+                            <a href="{{route ('dashboard.clients.index')}}" id="editable_table_new" class=" btn btn-default"><i class="fa fa-arrow-left"></i>&nbsp;Regresar</a>
+                        </div>
+                        <div class="m-t-10">
                             <h4 style="color: #000000 !important;" >Información del cliente</h4>
                         </div>
                         @if (count($errors) > 0)
@@ -98,7 +101,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-phone text-primary"></i>
                                                 </span>
-                                                <input type="text" placeholder=" " id="phone_number" name="office_number" value="{{ old('office_number') }}" class="form-control">
+                                                <input type="text" placeholder=" " id="office_number" name="office_number" value="{{ old('office_number') }}" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -173,19 +176,6 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-3 text-lg-right">
-                                            <label for="cpwd" class="col-form-label">Notas</label>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-8">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="fa fa-sticky-note text-primary"></i>
-                                                </span>
-                                                <input type="text" name="notes" placeholder=" " id="notes" value="{{ old('notes') }}" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-lg-3 text-lg-right">
                                             <label for="type" class="col-form-label">Responsable*</label>
                                         </div>
                                         <div class="col-xl-6 col-lg-8">
@@ -193,15 +183,29 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-user-friends text-primary"></i>
                                                 </span>
-                                                <select class="form-control hide_search" tabindex="7" name="user_id">
+                                                <select class="form-control chzn-select" tabindex="2" name="user_id">
                                                     <option selected disabled>Selecciona al responsable</option>
                                                     @foreach($users as $user)
-                                                    <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
+                                                        <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3 text-lg-right">
+                                            <label for="cpwd" class="col-form-label">Notas</label>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-sticky-note text-primary"></i>
+                                                </span>
+                                                <textarea name="notes" id="autosize" cols="30" rows="1" value="{{ old('notes') }}" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     {{--          <div class="form-group gender_message row">
                                                   <div class="col-lg-3 text-lg-right">
                                                       <label class="col-form-label">Genero *</label>
@@ -223,7 +227,7 @@
                                                       </div>
                                                   </div>
                                               </div>--}}
-                                    <div class="form-group row">
+                                    <div class="form-group row ">
                                         <div class="col-lg-9 push-lg-3">
                                             <button class="btn btn-primary" type="submit">
                                                 <i class="fa fa-user"></i>

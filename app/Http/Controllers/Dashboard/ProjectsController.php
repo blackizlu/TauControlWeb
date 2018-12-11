@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\dashboard;
 
+use App\Activities;
 use App\Client;
 use App\Project;
 use App\User;
@@ -49,14 +50,15 @@ class ProjectsController extends Controller
         $message = 'Proyecto creado con éxito';
         Session::flash('message', $message);
 
-        return view('dashboard.projects.index', compact('projects','clients'));
+        return redirect()->route('dashboard.projects.index');
     }
 
     public function view($id)
     {
         $project = Project::findOrFail($id);
+        $activities = Activities::all();
 
-        return view('dashboard.projects.view', compact('project'));
+        return view('dashboard.projects.view', compact('project','activities'));
     }
     public function edit($id){
 

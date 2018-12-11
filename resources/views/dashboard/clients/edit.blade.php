@@ -31,9 +31,12 @@
             <div class="inner bg-container">
                 <div class="card">
 
-                    <div class="card-block m-t-35">
-                        <div>
-                            <h4>Información del cliente</h4>
+                    <div class="card-block">
+                        <div class="btn-group">
+                            <a href="{{route ('dashboard.clients.index')}}" id="editable_table_new" class=" btn btn-default"><i class="fa fa-arrow-left"></i>&nbsp;Regresar</a>
+                        </div>
+                        <div class="m-t-10">
+                            <h4 style="color: #000000 !important;" >Información del cliente</h4>
                         </div>
                         @if(Session::has('message'))
                             <div class="row">
@@ -84,7 +87,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row m-t-25">
+                                    <div class="form-group row ">
                                         <div class="col-lg-3 text-lg-right">
                                             <label for="u-name" class="col-form-label">Telefono de oficina*</label>
                                         </div>
@@ -93,7 +96,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-user text-primary"></i>
                                                 </span>
-                                                <input type="text" name="office_number" value="{{ $client->office_phone }}" id="u-name" class="form-control">
+                                                <input type="text" name="office_number" value="{{ $client->office_number }}" id="office_number" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -112,19 +115,6 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-3 text-lg-right">
-                                            <label for="email" class="col-form-label">Notas*</label>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-8">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="fa fa-envelope text-primary"></i>
-                                                </span>
-                                                <input type="text" placeholder=" " id="notes" name="notes" value="{{ $client->notes }}" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-lg-3 text-lg-right">
                                             <label for="type" class="col-form-label">Responsable*</label>
                                         </div>
                                         <div class="col-xl-6 col-lg-8">
@@ -132,7 +122,8 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-user-friends text-primary"></i>
                                                 </span>
-                                                <select class="form-control hide_search" tabindex="7" name="user_id">
+                                                <select class="form-control chzn-select" tabindex="2" name="user_id" id="user_id" value="{{$client->user_id}}">
+                                                    <option value="{{$client->user_id}}" selected>{{$client->user->profile->name}}</option>
                                                     @foreach($users as $user)
                                                         <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
                                                     @endforeach
@@ -140,6 +131,20 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3 text-lg-right">
+                                            <label for="email" class="col-form-label">Notas*</label>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-envelope text-primary"></i>
+                                                </span>
+                                                <textarea class="form-control" name="notes" id="autosize" cols="30" rows="1" value="{{ $client->notes }}">{{ $client->notes }}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     {{--          <div class="form-group gender_message row">
                                                   <div class="col-lg-3 text-lg-right">
                                                       <label class="col-form-label">Genero *</label>
@@ -161,18 +166,14 @@
                                                       </div>
                                                   </div>
                                               </div>--}}
-                                    <div class="form-group row">
+                                    <div class="form-group row m-t-35">
                                         <div class="col-lg-9 push-lg-3">
                                             <button class="btn btn-primary" type="submit">
                                                 <i class="fa fa-user"></i>
                                                 Actualizar
                                             </button>
-                                            <button class="btn btn-warning" type="reset" id="clear">
-                                                <i class="fa fa-refresh"></i>
-                                                Reiniciar
-                                            </button>
                                         </div>
-                                    </div>
+                                    </div><br><br><br><br><br>
                                 </div>
                             </div>
                         </form>

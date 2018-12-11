@@ -67,7 +67,7 @@ class UsersController extends Controller
         $message = 'Usuario actualizado con éxito';
         Session::flash('message', $message);
 
-        return redirect()->back();
+        return redirect()->route('dashboard.users.index');
     }
 
     public function delete($id){
@@ -80,7 +80,7 @@ class UsersController extends Controller
         $message = 'Usuario eliminado con éxito';
         Session::flash('message', $message);
 
-        return redirect()->back();
+        return redirect()->route('dashboard.users.index');
 
     }
 }

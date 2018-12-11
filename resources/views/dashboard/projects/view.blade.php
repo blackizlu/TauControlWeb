@@ -104,9 +104,51 @@
                                 </ul>
                                 <div id="clothing-nav-content" class="tab-content m-t-10">
                                     <div role="tabpanel" class="tab-pane fade show active" id="user">
+                                        <table class="table  table-striped table-bordered table-hover dataTable no-footer" id="editable_table" role="grid">
+                                            <thead>
+                                            <tr role="row">
+                                                <th class="sorting_asc_disabled sorting_desc_disabled wid-20" tabindex="0" rowspan="1" colspan="1">Actividad</th>
+                                                <th class="sorting_asc_disabled sorting_desc_disabled wid-20" tabindex="0" rowspan="1" colspan="1">Tipo de actividad</th>
+                                                <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Contacto</th>
+                                                <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Fecha</th>
+                                                <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Hora</th>
+                                                <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Realizada</th>
+                                                <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Responsable</th>
+{{--
+                                                <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Acciones</th>
+--}}
+                                            </tr>
+                                            <tbody>
+                                            @foreach($activities as $activity)
+                                                <tr >
+                                                    <td>{{$activity->comments}}</td>
+                                                    <td>{{$activity->activity}}</td>
+                                                    <td>{{$activity->contact->contact_name}}</td>
+                                                    <td>{{\Carbon\Carbon::parse($activity->deadline)->format('d/m/Y')}}</td>
+                                                    <td>{{$activity->time}}</td>
+                                                    <td>
+                                                        <div class="checkbox" align="center">
+                                                            <label class="text-success">
+                                                                <input type="checkbox" @if($activity->completed == true) checked @endif disabled>
+                                                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                                            </label>
+                                                        </div></td>
+                                                    <td>{{$activity->user->profile->name}} </td>
+                                                    {{--<td>
+                                                        <a data-toggle="modal"  data-placement="top" title="Ver actividad" data-href="#responsive" href="#responsive">
+                                                            <i class="fa fa-eye text-success"></i></a>
+                                                        &nbsp; &nbsp;
+                                                        <a data-toggle="modal"  data-actid="{{$activity->id}}" data-mytitle="{{$activity->client->client_name}}" data-mycontact="{{$activity->contact->contact_name}}" data-myproject="{{$activity->project->name}}"  data-mydate="{{$activity->deadline}}" data-mytime="{{$activity->time}}" data-myactivity="{{$activity->activity}}" data-mydone="{{$activity->completed}}" data-mycomments="{{$activity->comments}}" data-myuser="{{$activity->user->profile->name}}" data-placement="top" title="Editar actividad" data-href="#edit" href="#edit" type="hidden">
+                                                            <i class="fa fa-pencil-alt text-warning"></i></a>
+                                                        &nbsp; &nbsp;
+                                                        <a data-toggle="modal" data-actid="{{$activity->id}}" data-placement="top" title="Eliminar actividad" data-href="#delete" href="#delete" type="hidden">
+                                                            <i class="fa fa-trash text-danger"></i></a>
 
-                                        Actividades
-
+                                                    </td>--}}
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade " id="tab2">
                                         <div>

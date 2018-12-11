@@ -1,4 +1,4 @@
-@extends('dashboard.layout')
+@extends('dashboard.layout_adduser')
 @section('content')
     <div id="content" class="bg-container">
         <header class="head">
@@ -31,9 +31,12 @@
             <div class="inner bg-container">
                 <div class="card">
 
-                    <div class="card-block m-t-35">
-                        <div>
-                            <h4>Información Personal</h4>
+                    <div class="card-block">
+                        <div class="btn-group">
+                            <a href="{{route ('dashboard.users.index')}}" id="editable_table_new" class=" btn btn-default"><i class="fa fa-arrow-left"></i>&nbsp;Regresar</a>
+                        </div>
+                        <div class="m-t-10">
+                            <h4 style="color: #000000 !important;">Información Personal</h4>
                         </div>
                         @if(Session::has('message'))
                             <div class="row">
@@ -59,13 +62,13 @@
                                         <div class="col-lg-6 text-center text-lg-left">
                                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                                 <div class="fileinput-new img-thumbnail text-center">
-                                                    <img src="{{ asset('/storage/' . $user->profile->image) }}" data-src="{{ asset('/storage/' . $user->profile->image) }}"  alt="not found"></div>
+                                                    <img src="#" data-src="holder.js/100%x100%"  alt="not found"></div>
                                                 <div class="fileinput-preview fileinput-exists img-thumbnail"></div>
                                                 <div class="m-t-20 text-center">
                                                     <span class="btn btn-primary btn-file">
                                                         <span class="fileinput-new">Seleccionar imagen</span>
                                                         <span class="fileinput-exists">Cambiar</span>
-                                                        <input type="file" name="image" value="">
+                                                        <input type="file" name="image">
                                                     </span>
                                                     <a href="#" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">Eliminar</a>
                                                 </div>
@@ -193,10 +196,6 @@
                                             <button class="btn btn-primary" type="submit">
                                                 <i class="fa fa-user"></i>
                                                 Actualizar
-                                            </button>
-                                            <button class="btn btn-warning" type="reset" id="clear">
-                                                <i class="fa fa-refresh"></i>
-                                                Reiniciar
                                             </button>
                                         </div>
                                     </div>

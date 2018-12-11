@@ -71,7 +71,7 @@ class ActivitiesController extends Controller
 
         $activity = Activities::findOrFail($request->activity_id);
         $activity->delete();
-        return view('dashboard.activities.index', compact('clients', 'contacts','projects','users','activity'));
+        return redirect()->route('dashboard.activities.index');
 
     }
 

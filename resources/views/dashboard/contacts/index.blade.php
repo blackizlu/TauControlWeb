@@ -73,13 +73,11 @@
                                         <td>{{ $contact->phone_number }}</td>
                                         <td>{{ $contact->email }}</td>
                                         <td>
-                                             <a href="view_user.html" data-toggle="tooltip" data-placement="top" title="View User">
-                                                 <i class="fa fa-eye text-success"></i></a>
                                             &nbsp; &nbsp;
-                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="{{route ('dashboard.contacts.edit',$contact->id)}}">
+                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.contacts.edit',$contact->id)}}">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>
                                             &nbsp; &nbsp;
-                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="{{ $contact->id }}">
+                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Eliminar" href="#" data-id="{{ $contact->id }}">
                                                 <i class="fa fa-trash text-danger"></i></a>
                                         </td>
                                     </tr>

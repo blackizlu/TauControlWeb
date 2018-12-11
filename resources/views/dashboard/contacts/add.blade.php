@@ -29,8 +29,11 @@
         <div class="outer">
             <div class="inner bg-container">
                 <div class="card">
-                    <div class="card-block m-t-35">
-                        <div>
+                    <div class="card-block">
+                        <div class="btn-group">
+                            <a href="{{route ('dashboard.contacts.index')}}" id="editable_table_new" class=" btn btn-default"><i class="fa fa-arrow-left"></i>&nbsp;Regresar</a>
+                        </div>
+                        <div class="m-t-10">
                             <h4 style="color: #000000 !important;">Información del contacto</h4>
                         </div>
                         @if (count($errors) > 0)
@@ -49,7 +52,7 @@
                         @endif
                         <form class="form-horizontal login_validator" id="tryitForm" action="{{ route('dashboard.contacts.store') }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
-                            <div class="row">
+                            <div class="row m-t-35">
                                 <div class="col-12">
                                     <div class="form-group row m-t-25">
                                         <div class="col-lg-3 text-lg-right">
@@ -112,7 +115,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-user-friends text-primary"></i>
                                                 </span>
-                                                <select class="form-control hide_search" tabindex="7" name="client_id">
+                                                <select class="form-control chzn-select" tabindex="2" name="client_id">
                                                     <option selected disabled>Selecciona la empresa a la que pertenece</option>
                                                     @foreach($clients as $client)
                                                         <option value="{{ $client->id }}">{{ $client->client_name }}</option>
@@ -142,18 +145,14 @@
                                                       </div>
                                                   </div>
                                               </div>--}}
-                                    <div class="form-group row">
+                                    <div class="form-group row m-t-35">
                                         <div class="col-lg-9 push-lg-3">
                                             <button class="btn btn-primary" type="submit">
                                                 <i class="fa fa-user"></i>
                                                 Agregar contacto
                                             </button>
-                                            <button class="btn btn-warning" type="reset" id="clear">
-                                                <i class="fa fa-refresh"></i>
-                                                Reiniciar
-                                            </button>
                                         </div>
-                                    </div>
+                                    </div><br><br><br><br><br><br>
                                 </div>
                             </div>
                         </form>

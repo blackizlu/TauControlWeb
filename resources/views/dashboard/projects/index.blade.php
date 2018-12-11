@@ -78,13 +78,13 @@
                                         <td></td>
                                         <td>{{ $project->user->profile->name }}</td>
                                         <td>
-                                            <a href="{{route ('dashboard.projects.view', $project->id)}}" data-toggle="tooltip" data-placement="top" title="View User">
+                                            <a href="{{route ('dashboard.projects.view', $project->id)}}" data-toggle="tooltip" data-placement="top" title="Ver proyecto">
                                                 <i class="fa fa-eye text-success"></i></a>
                                             &nbsp; &nbsp;
-                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="{{route ('dashboard.projects.edit',$project->id)}}">
+                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.projects.edit',$project->id)}}">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>
                                             &nbsp; &nbsp;
-                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="{{ $project->id }}">
+                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Eliminar" href="#" data-id="{{ $project->id }}">
                                                 <i class="fa fa-trash text-danger"></i></a>
                                         </td>
                                     </tr>

@@ -42,7 +42,7 @@ class CategoryController extends Controller
         $message = 'Cliente eliminado con éxito';
         Session::flash('message', $message);
 
-        return view('dashboard.cotizaciones.categories', compact('categories'));
+        return redirect()->route('dashboard.cotizaciones.categories');
 
     }
 }

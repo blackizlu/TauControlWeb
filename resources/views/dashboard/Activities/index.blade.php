@@ -84,8 +84,6 @@
                                         <td>{{$activity->comments}}</td>
                                         <td>{{$activity->user->profile->name}} </td>
                                         <td>
-                                            <a data-toggle="modal"  data-placement="top" title="Ver actividad" data-href="#responsive" href="#responsive">
-                                                <i class="fa fa-eye text-success"></i></a>
                                             &nbsp; &nbsp;
                                             <a data-toggle="modal"  data-actid="{{$activity->id}}" data-mytitle="{{$activity->client->client_name}}" data-mycontact="{{$activity->contact->contact_name}}" data-myproject="{{$activity->project->name}}"  data-mydate="{{$activity->deadline}}" data-mytime="{{$activity->time}}" data-myactivity="{{$activity->activity}}" data-mydone="{{$activity->completed}}" data-mycomments="{{$activity->comments}}" data-myuser="{{$activity->user->profile->name}}" data-placement="top" title="Editar actividad" data-href="#edit" href="#edit" type="hidden">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>
@@ -275,10 +273,7 @@
         </div>
     </form>
 
-
-
     <!--- responsive model Eliminar Actividad-->
-
         <div class="modal fade in display_none" id="delete" tabindex="-1" role="dialog" aria-hidden="false">
             <div class="modal-dialog modal-sd">
                 <div class="modal-content">
@@ -303,7 +298,6 @@
         </div>
 
     <!--- responsive model Editar Actividad-->
-
         <div class="modal fade in display_none" id="edit" tabindex="-1" role="dialog" aria-hidden="false">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -328,7 +322,6 @@
                                                             <i class="fa fa-user-tie text-primary"></i>
                                                         </span>
                                             <select class="form-control" tabindex="7" name="client_id" id="client">
-                                                <option selected disabled>Selecciona al Cliente</option>
                                                 @foreach($clients as $client)
                                                     <option value="{{ $client->id }}">{{ $client->client_name }}</option>
                                                 @endforeach
@@ -346,7 +339,7 @@
                                                             <i class="fa fa-user text-primary"></i>
                                                         </span>
                                             <select class="form-control" tabindex="7" name="contact_id" id="myContacts">
-                                                <option selected disabled>Selecciona al contacto</option>
+
                                             </select>
                                         </div>
                                     </div>
@@ -361,7 +354,6 @@
                                                             <i class="fa fa-folder text-primary"></i>
                                                         </span>
                                             <select class="form-control" tabindex="7" name="project_id" id="proyectos">
-                                                <option selected disabled>Selecciona el proyecto</option>
 
                                             </select>
                                         </div>
@@ -377,7 +369,7 @@
                                                             <i class="fa fa-calendar-alt text-primary"></i>
                                                         </span>
                                             <div class="input-group input-append date" id="dpYears" data-date-format="yyyy-mm-dd">
-                                                <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="deadline" id="deadline" value="{{ $activity->deadline}}">
+                                                <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="deadline" id="deadline">
                                                 <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
                                             </div>
                                         </div>
@@ -393,7 +385,7 @@
                                                         <i class="fa fa-clock-o text-primary"></i>
                                                     </span>
                                             <div class="input-group clockpicker2" data-align="top" data-placement="top" data-autoclose="true">
-                                                <input type="text" class="form-control" value="{{ $activity->time }}" name="time" id="time">
+                                                <input type="text" class="form-control" name="time" id="time">
                                                 <span class="input-group-addon add-on">
                                                         <i class="fa fa-clock-o"></i>
                                                     </span>
@@ -410,13 +402,12 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-clipboard-check text-primary"></i>
                                                         </span>
-                                            <select class="form-control" tabindex="7" name="activity" id="name1" value="{{ $activity->activity}}">
-                                                <option selected disabled>Selecciona una actividad</option>
-                                                <option value="cita" @if($activity->activity == 'cita'){{ 'selected' }}@endif>Cita</option>
-                                                <option value="envio_correo" @if($activity->activity == 'envio_correo'){{ 'selected' }}@endif>Envio de Correo</option>
-                                                <option value="instalacion_obra" @if($activity->activity == 'instalacion_obra'){{ 'selected' }}@endif>Instalación Obra</option>
-                                                <option value="llamada" @if($activity->activity == 'llamada'){{ 'selected' }}@endif>Llamada</option>
-                                                <option value="visita_obra" @if($activity->activity == 'visita_obra'){{ 'selected' }}@endif>Visita a obra</option>
+                                            <select class="form-control" tabindex="7" name="activity" id="activity">
+                                                <option value="cita">Cita</option>
+                                                <option value="envio_correo">Envio de Correo</option>
+                                                <option value="instalacion_obra">Instalación Obra</option>
+                                                <option value="llamada">Llamada</option>
+                                                <option value="visita_obra">Visita a obra</option>
                                             </select>
                                         </div>
                                     </div>
@@ -428,7 +419,7 @@
                                     <div class="col-lg-6">
                                         <div class="checkbox">
                                             <label class="text-success">
-                                                <input type="checkbox" data-on-text="SI" data-off-text="NO" name="completed" id="completed" value="completed"@if($activity->completed == '1') checked @endif >
+                                                <input type="checkbox" data-on-text="SI" data-off-text="NO" name="completed" id="completed" value="completed">
                                                 <span class="cr"><i class="cr-icon fa fa-check"></i></span>
                                                 Realizada
                                             </label>
@@ -440,7 +431,7 @@
                                         <label for="type" class="col-form-label">Comentarios*</label>
                                     </div>
                                     <div class="col-lg-6">
-                                        <textarea id="comments"  class="form-control" cols="50" rows="1" name="comments">{{$activity->comments}}</textarea>
+                                        <textarea id="comments"  class="form-control" cols="50" rows="1" name="comments" id="comments"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -452,8 +443,8 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-user-friends text-primary"></i>
                                                         </span>
-                                            <select class="form-control" tabindex="7" name="user_id" id="user">
-                                                <option selected disabled>Selecciona al responsable</option>
+                                            <select class="form-control" tabindex="7" name="user_id" id="user" value="#user">
+                                                <option selected value="#user"></option>
                                                 @foreach($users as $user)
                                                     <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
                                                 @endforeach
@@ -472,10 +463,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
 @endsection
 
 @section('scripts')
@@ -509,20 +496,20 @@
                 var activity = button.data('myactivity')
                 var done = button.data('mydone')
                 var comments = button.data('mycomments')
-                var responsable = button.data('myuser')// Extract info from data-* attributes
-                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-                var modal = $(this)
-                    modal.find('.modal-body #act_id').val(activity_id);
-                    modal.find('.modal-body #client').val(client);
-                    modal.find('.modal-body #myContacts').val(contact);
-                    modal.find('.modal-body #myProjects').val(project);
-                    modal.find('.modal-body #deadline').val(date);
-                    modal.find('.modal-body #time').val(time);
-                    modal.find('.modal-body #activity').val(activity);
-                    modal.find('.modal-body #completed').val(done);
-                    modal.find('.modal-body #comments').val(comments);
-                    modal.find('.modal-body #user').val(responsable);
+                var responsable = button.data('myuser') // Extract info from data-* attributes
+                var modal = $(this)                     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                                                        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+
+                modal.find('.modal-body #act_id').val(activity_id);
+                modal.find('.modal-body #client').val(client);
+                modal.find('.modal-body #myContacts').val(contact);
+                modal.find('.modal-body #proyectos').val(project);
+                modal.find('.modal-body #deadline').val(date);
+                modal.find('.modal-body #time').val(time);
+                modal.find('.modal-body #activity').val(activity);
+                modal.find('.modal-body #completed').val(done);
+                modal.find('.modal-body #comments').val(comments);
+                modal.find('.modal-body #user').val(responsable);
 
 
 

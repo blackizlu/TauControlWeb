@@ -1,4 +1,4 @@
-@extends('dashboard.layout')
+@extends('dashboard.layout_adduser')
 @section('content')
     <div id="content" class="bg-container">
         <header class="head">
@@ -30,8 +30,11 @@
         <div class="outer">
             <div class="inner bg-container">
                 <div class="card">
-                    <div class="card-block m-t-35">
-                        <div>
+                    <div class="card-block ">
+                        <div class="btn-group">
+                            <a href="{{route ('dashboard.users.index')}}" id="editable_table_new" class=" btn btn-default"><i class="fa fa-arrow-left"></i>&nbsp;Regresar</a>
+                        </div>
+                        <div class="m-t-10">
                             <h4 style="color: #000000 !important;">Información Personal</h4>
                         </div>
                         @if (count($errors) > 0)

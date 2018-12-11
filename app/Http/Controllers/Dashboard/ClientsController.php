@@ -57,7 +57,7 @@ class ClientsController extends Controller
         $message = 'Cliente creado con éxito';
         Session::flash('message', $message);
 
-        return redirect()->back();
+        return redirect()->route('dashboard.clients.index');
     }
 
     public function edit($id){
@@ -78,7 +78,7 @@ class ClientsController extends Controller
         $message = 'Cliente actualizado con éxito';
         Session::flash('message', $message);
 
-        return redirect()->back();
+        return redirect()->route('dashboard.clients.index');
     }
 
     public function destroy($id){
@@ -88,7 +88,7 @@ class ClientsController extends Controller
         $message = 'Cliente eliminado con éxito';
         Session::flash('message', $message);
 
-        return view('dashboard.clients.view', compact('client'));
+        return redirect()->route('dashboard.clients.index');
 
     }
 }

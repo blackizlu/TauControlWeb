@@ -45,8 +45,8 @@ class ContactsController extends Controller
     public function edit($id){
 
         $contact = Contact::findOrFail($id);
-        $client = Client::all();
-        return view('dashboard.contacts.edit', compact('client', 'contact'));
+        $clients = Client::all();
+        return view('dashboard.contacts.edit', compact('clients', 'contact'));
 
 
     }
@@ -60,7 +60,7 @@ class ContactsController extends Controller
         $message = 'Contacto actualizado con éxito';
         Session::flash('message', $message);
 
-        return redirect()->back();
+        return redirect()->route('dashboard.contacts.index');
     }
 
     public function delete($id){
@@ -70,7 +70,7 @@ class ContactsController extends Controller
         $message = 'Contacto eliminado con éxito';
         Session::flash('message', $message);
 
-        return redirect()->back();
+        return redirect()->route('dashboard.contacts.index');
 
     }
 }
