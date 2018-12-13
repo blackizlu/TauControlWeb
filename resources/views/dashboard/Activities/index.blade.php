@@ -168,14 +168,14 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-3 text-lg-right">
-                                        <label for="type" class="col-form-label">Fecha*</label>
+                                        <label for="type" class="col-form-label">Fecha de inicio*</label>
                                     </div>
                                     <div class="col-xl-6 col-lg-8">
                                         <div class="input-group">
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-calendar-alt text-primary"></i>
                                                     </span>
-                                            <div class="input-group input-append date" id="dpYears" data-date-format="yyyy-mm-dd">
+                                            <div class="input-group input-append date" id="dp3" data-date-format="yyyy-mm-dd">
                                                 <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="start" id="start">
                                             <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
                                             </div>
@@ -184,7 +184,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-3 text-lg-right">
-                                        <label for="type" class="col-form-label">Fecha*</label>
+                                        <label for="type" class="col-form-label">Fecha de finalización*</label>
                                     </div>
                                     <div class="col-xl-6 col-lg-8">
                                         <div class="input-group">
@@ -243,7 +243,7 @@
                                         <div class="col-lg-6">
                                             <div class="checkbox">
                                                 <label class="text-success">
-                                                    <input type="checkbox" data-on-text="SI" data-off-text="NO" value="" name="completed">
+                                                    <input type="checkbox" data-on-text="SI" data-off-text="NO" value="NO" name="completed">
                                                     <span class="cr"><i class="cr-icon fa fa-check"></i></span>
                                                     Realizada
                                                 </label>
@@ -337,7 +337,7 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-user-tie text-primary"></i>
                                                         </span>
-                                            <select class="form-control" tabindex="7" name="client_id" id="client">
+                                            <select class="form-control" tabindex="7" name="client_id" id="client" value="client">
                                                 @foreach($clients as $client)
                                                     <option value="{{ $client->id }}">{{ $client->client_name }}</option>
                                                 @endforeach
@@ -377,13 +377,13 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-3 text-lg-right">
-                                        <label for="type" class="col-form-label">Fecha*</label>
+                                        <label for="type" class="col-form-label">Fecha de inicio*</label>
                                     </div>
                                     <div class="col-xl-6 col-lg-8">
                                         <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-calendar-alt text-primary"></i>
-                                                        </span>
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-calendar-alt text-primary"></i>
+                                                    </span>
                                             <div class="input-group input-append date" id="dpYears" data-date-format="yyyy-mm-dd">
                                                 <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="start" id="start">
                                                 <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
@@ -393,14 +393,14 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-3 text-lg-right">
-                                        <label for="type" class="col-form-label">Fecha*</label>
+                                        <label for="type" class="col-form-label">Fecha de finalización*</label>
                                     </div>
                                     <div class="col-xl-6 col-lg-8">
                                         <div class="input-group">
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-calendar-alt text-primary"></i>
                                                     </span>
-                                            <div class="input-group input-append date" id="dpYears" data-date-format="yyyy-mm-dd">
+                                            <div class="input-group input-append date" id="dp3" data-date-format="yyyy-mm-dd">
                                                 <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="end" id="end">
                                                 <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
                                             </div>

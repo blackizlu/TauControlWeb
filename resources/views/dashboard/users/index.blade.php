@@ -1,4 +1,4 @@
-@extends('dashboard.layout')
+@extends('dashboard.layout_users_index')
 @section('content')
     <header class="head">
         <div class="main-bar">
@@ -28,67 +28,42 @@
                 <div class="card-header bg-white">
                     Lista de usuarios
                 </div>
-                <div class="card-block m-t-35" id="user_body">
-                    @if(Session::has('message'))
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="alert alert-success alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert"
-                                        aria-hidden="true">×
-                                </button>
-                                {!! Session::get('message') !!}
-                            </div>
-                        </div>
-                    </div>
-                    @endif
-                    <div class="table-toolbar">
-                        <div class="btn-group">
-                            <a href="{{route ('dashboard.users.add')}}" id="editable_table_new" class=" btn btn-default">
-                                Nuevo usuario  <i class="fa fa-plus"></i>
-                            </a>
-                        </div>
-                        <div class="btn-group float-right users_grid_tools">
-                            <div class="tools"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <table class="table table-striped table-bordered table-hover dataTable no-footer" id="example" role="grid">
+                <div class="card-block">
+                    <div class="m-t-35">
+                        <button id="del_button" class="btn btn-danger"> Desactivar usuario seleccionado </button>
+                        <div class="m-t-25">
+                            <table id="example_demo" class="table table-hover table-bordered">
                                 <thead>
-                                    <tr role="row">
-                                        <th class="sorting_asc wid-20" tabindex="0" rowspan="1" colspan="1">Nombre</th>
-                                        <th class="sorting_asc wid-20" tabindex="0" rowspan="1" colspan="1">Apellidos</th>
-                                        <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Correo</th>
-                                        <th class="sorting wid-15" tabindex="0" rowspan="1" colspan="1">Teléfono</th>
-                                        <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Acciones</th>
-                                    </tr>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Apellidos</th>
+                                    <th>Correo</th>
+                                    <th>Teléfono</th>
+                                    <th>Acciones</th>
+                                </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($users as $user)
-                                    <tr role="row" class="even">
-                                        <td class="sorting_1">{{ $user->profile->name }}</td>
+                                    <tr>
+                                        <td>{{ $user->profile->name }}</td>
                                         <td>{{ $user->profile->last_name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->profile->phone_number }}</td>
                                         <td>
-                                           {{-- <a href="view_user.html" data-toggle="tooltip" data-placement="top" title="View User">
-                                                <i class="fa fa-eye text-success"></i></a>--}}
                                             &nbsp; &nbsp;
                                             <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.users.edit',$user->id)}}">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>
                                             &nbsp; &nbsp;
-                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Eliminar" href="{{route('dashboard.users.delete', $user->id)}}" >
-                                                <i class="fa fa-trash text-danger"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
+                                </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /.inner -->
     </div>
 @endsection
 @section('scripts')
@@ -131,3 +106,4 @@
         });
     </script>
 @endsection
+
