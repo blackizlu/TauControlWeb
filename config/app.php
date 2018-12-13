@@ -160,6 +160,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+
         Barryvdh\DomPDF\ServiceProvider::class,
 
     ],

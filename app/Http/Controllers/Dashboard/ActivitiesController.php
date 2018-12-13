@@ -33,7 +33,8 @@ class ActivitiesController extends Controller
             'contact_id' => 'required',
             'project_id' => 'required',
             'user_id' => 'required',
-            'deadline' => 'required',
+            'start' => 'required',
+            'end' => 'required',
             'time' => 'required',
             'activity' => 'required'
         ]);
@@ -90,5 +91,6 @@ class ActivitiesController extends Controller
         }
 
    }
+
 
 }

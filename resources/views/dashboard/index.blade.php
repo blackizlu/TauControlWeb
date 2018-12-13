@@ -108,7 +108,7 @@
                     </div>
                 </div>
             </div>
-
+            <!--- Calendario-->
             <div class="inner bg-light lter bg-container cal_btn_hov m-t-25">
                 <div class="row">
                     <div class="col-lg-9 media_max_991">
@@ -118,6 +118,7 @@
                             </div>
                         </div>
                     </div>
+                    <!--- Leyendas-->
                     <div class="col-lg-3">
                         <div class="card">
                             <div class="card-header">
@@ -181,6 +182,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 
 {{--<br /> <br />

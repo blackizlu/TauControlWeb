@@ -70,17 +70,8 @@ class UsersController extends Controller
         return redirect()->route('dashboard.users.index');
     }
 
-    public function delete($id){
-        $user = User::findOrFail($id);
-        $user->delete();
-
-        $profile = Profile::findOrFail($user->profile->id);
-        $profile->delete();
-
-        $message = 'Usuario eliminado con éxito';
-        Session::flash('message', $message);
-
-        return redirect()->route('dashboard.users.index');
+    public function destroy($id){
+        dd("Eliminando". $id);
 
     }
 }

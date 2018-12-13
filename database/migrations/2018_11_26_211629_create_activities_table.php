@@ -19,8 +19,9 @@ class CreateActivitiesTable extends Migration
             $table->integer('user_id')->unsigned();     //responsable
             $table->integer('contact_id')->unsigned();
             $table->integer('project_id')->unsigned()->nullable();  //No necesariamente tiene que haber proyecto para la actividad
-            $table->date('deadline');       //fecha para realizar y completar la actividad
-            $table->time('time');           //hora de la actividad
+            $table->date('start');
+            $table->date('end');  //fecha para realizar y completar la actividad
+            $table->time('time');           //fecha para final para completar la actividad
             $table->enum('activity',['cita','envio_correo','instalacion_obra','llamada', 'visita_obra']);
             $table->boolean('completed');   //Boolean completado si o no
             $table->string('comments')->nullable();     //comentarios de la actividad

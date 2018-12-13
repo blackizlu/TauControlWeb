@@ -74,10 +74,10 @@
                                            {{-- <a href="view_user.html" data-toggle="tooltip" data-placement="top" title="View User">
                                                 <i class="fa fa-eye text-success"></i></a>--}}
                                             &nbsp; &nbsp;
-                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="{{route ('dashboard.users.edit',$user->id)}}">
+                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.users.edit',$user->id)}}">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>
                                             &nbsp; &nbsp;
-                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="{{ $user->id }}">
+                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Eliminar" href="{{route('dashboard.users.delete', $user->id)}}" >
                                                 <i class="fa fa-trash text-danger"></i></a>
                                         </td>
                                     </tr>
@@ -103,16 +103,15 @@
         </script>
     @endif
     <script>
-        $('.confirm').click(function (e) {
-            console.log('click');
+        $('.delete').on('click', function (e) {
             e.preventDefault();
-            var id = $(this).data('id');
+            var url = $(this).attr('href');
             new PNotify({
                 title: 'Eliminar',
                 text: '¿Desea eliminar el registro?',
                 icon: 'fa fa-question-circle',
                 hide: false,
-                type: 'success',
+                type: 'warning',
                 confirm: {
                     confirm: true
                 },
@@ -124,12 +123,11 @@
                     history: false
                 }
             }).get().on('pnotify.confirm', function () {
-                swal(id).done();
+                swal('' + url).done();
             }).on('pnotify.cancel', function () {
                 swal('Oh ok. Chicken, I see.').done();
 
             });
-            return false;
         });
     </script>
 @endsection

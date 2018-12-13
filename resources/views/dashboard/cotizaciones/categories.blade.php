@@ -53,6 +53,8 @@
                                         <td><a class="edit" data-toggle="modal" data-href="#edit" data-placement="top" title="Editar" href="#edit">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>
                                     &nbsp; &nbsp;     <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Desactivar" href="{{route('dashboard.categories.delete', $category->id)}}" data-id="">
+                                                <input type="hidden" name="_method" value="POST">
+
                                                 <i class="fa fa-trash text-danger"></i></a>
                                         </td>
                                     </tr>

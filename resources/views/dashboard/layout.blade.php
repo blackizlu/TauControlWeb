@@ -264,7 +264,5 @@
 
 
     @yield('scripts')
-
-    @yield('scripts')
 </body>
 </html>

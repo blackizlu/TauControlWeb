@@ -66,7 +66,7 @@ $(document).ready(function() {
             title: 'Actividad no realizada',
             start: new Date(y, m, 7),
             backgroundColor: "#737373"
-        }],
+        },],
         eventClick: function(calEvent, jsEvent, view) {
             evt_obj=calEvent;
             $("#event_title").val(evt_obj.title);

@@ -85,7 +85,7 @@
                                         <td>{{$activity->user->profile->name}} </td>
                                         <td>
                                             &nbsp; &nbsp;
-                                            <a data-toggle="modal"  data-actid="{{$activity->id}}" data-mytitle="{{$activity->client->client_name}}" data-mycontact="{{$activity->contact->contact_name}}" data-myproject="{{$activity->project->name}}"  data-mydate="{{$activity->deadline}}" data-mytime="{{$activity->time}}" data-myactivity="{{$activity->activity}}" data-mydone="{{$activity->completed}}" data-mycomments="{{$activity->comments}}" data-myuser="{{$activity->user->profile->name}}" data-placement="top" title="Editar actividad" data-href="#edit" href="#edit" type="hidden">
+                                            <a data-toggle="modal"  data-actid="{{$activity->id}}" data-mytitle="{{$activity->client->client_name}}" data-mycontact="{{$activity->contact->contact_name}}" data-myproject="{{$activity->project->name}}"  data-mydate="{{$activity->start}}" data-mydate2="{{$activity->end}}" data-mytime="{{$activity->time}}" data-myactivity="{{$activity->activity}}" data-mydone="{{$activity->completed}}" data-mycomments="{{$activity->comments}}" data-myuser="{{$activity->user->profile->name}}" data-placement="top" title="Editar actividad" data-href="#edit" href="#edit" type="hidden">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>
                                             &nbsp; &nbsp;
                                             <a data-toggle="modal" data-actid="{{$activity->id}}" data-placement="top" title="Eliminar actividad" data-href="#delete" href="#delete" type="hidden">
@@ -176,8 +176,24 @@
                                                         <i class="fa fa-calendar-alt text-primary"></i>
                                                     </span>
                                             <div class="input-group input-append date" id="dpYears" data-date-format="yyyy-mm-dd">
-                                                <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="deadline" id="deadline">
+                                                <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="start" id="start">
                                             <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-3 text-lg-right">
+                                        <label for="type" class="col-form-label">Fecha*</label>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-8">
+                                        <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-calendar-alt text-primary"></i>
+                                                    </span>
+                                            <div class="input-group input-append date" id="dpYears" data-date-format="yyyy-mm-dd">
+                                                <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="end" id="end">
+                                                <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
                                             </div>
                                         </div>
                                     </div>
@@ -281,7 +297,7 @@
                         <h4 class="modal-title text-white">Eliminar Actividad</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
-                    <form action="{{route('dashboard.activities.delete')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('dashboard.activities.delete', $activity->id)}}" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="_method" value="PUT">
                         {{ csrf_field() }}
                             <div class="modal-body">
@@ -369,7 +385,23 @@
                                                             <i class="fa fa-calendar-alt text-primary"></i>
                                                         </span>
                                             <div class="input-group input-append date" id="dpYears" data-date-format="yyyy-mm-dd">
-                                                <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="deadline" id="deadline">
+                                                <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="start" id="start">
+                                                <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-3 text-lg-right">
+                                        <label for="type" class="col-form-label">Fecha*</label>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-8">
+                                        <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-calendar-alt text-primary"></i>
+                                                    </span>
+                                            <div class="input-group input-append date" id="dpYears" data-date-format="yyyy-mm-dd">
+                                                <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="end" id="end">
                                                 <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
                                             </div>
                                         </div>
@@ -492,6 +524,7 @@
                 var contact = button.data('mycontact')
                 var project = button.data('myproject')
                 var date = button.data('mydate')
+                var date2 = button.data('mydate2')
                 var time = button.data('mytime')
                 var activity = button.data('myactivity')
                 var done = button.data('mydone')
@@ -504,7 +537,8 @@
                 modal.find('.modal-body #client').val(client);
                 modal.find('.modal-body #myContacts').val(contact);
                 modal.find('.modal-body #proyectos').val(project);
-                modal.find('.modal-body #deadline').val(date);
+                modal.find('.modal-body #start').val(date);
+                modal.find('.modal-body #end').val(date2);
                 modal.find('.modal-body #time').val(time);
                 modal.find('.modal-body #activity').val(activity);
                 modal.find('.modal-body #completed').val(done);
@@ -513,7 +547,7 @@
 
 
 
-            console.log(client,contact,project,date,time,activity,done,comments,responsable,activity_id);
+            console.log(client,contact,project,date,date2,time,activity,done,comments,responsable,activity_id);
         });
 
         $('#delete').on('show.bs.modal', function (event) {

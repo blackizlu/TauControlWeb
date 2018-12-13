@@ -14,11 +14,9 @@
 Auth::routes();
 
 Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(function (){
-    Route::get('/', function () {
-        return view('dashboard.index');
-    })->name('dashboard.index');
+    Route::get('/', 'Dashboard\DashboardController@index')->name('dashboard.index');
 
-    Route::get('/invoice/{id}/print', 'Dashboard\PricesController@pdf');
+
 
     //MODULO USUARIOS
     Route::group(['prefix' => 'users'], function() {
@@ -73,6 +71,9 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
 
 
     });
+    //MODULO COTIZACIONES/ PDF
+    Route::get('/invoice/{id}/print', 'Dashboard\PricesController@pdf');
+
 
     //MODULO CATEGORIAS
     Route::group(['prefix' =>'categories'], function (){
