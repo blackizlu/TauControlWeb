@@ -77,10 +77,6 @@
 
         /* initialize the calendar */
         //Date for the calendar events (dummy data)
-        var date = new Date();
-        var d = date.getDate(),
-            m = date.getMonth(),
-            y = date.getFullYear();
         $('#calendar').fullCalendar({
             displayEventTime: true,
             header: {
@@ -90,11 +86,17 @@
             },
 
             // eventos en calendario
-            events: [{
-            title: 'Instalacion de obra',
-            start: new Date(y, m, 14),
-            backgroundColor: "#ff9933"
-        }],
+            events: [@foreach($activities as $event)
+            {
+            title: '{{$event->comments}}',
+            start: '{{$event->start}}',
+            end:'{{$event->end}}',
+            cliente:'{{$event->client_name}}',
+            contacto:'{{$event->contact->contact_name}}',
+            proyecto:'{{$event->project->name}}',
+            hora:'{{$event->time}}',
+            backgroundColor: '{{$event->color}}'
+            },@endforeach],
 
             eventClick: function(calEvent, jsEvent, view) {
                 evt_obj=calEvent;
@@ -194,7 +196,7 @@
             return false;
         });
         $(".modal-dialog [data-dismiss='modal']").on('click', function() {
-            $("#new-event").replaceWith('<input type="text" id="new-event" class="form-control" placeholder="Event">');
+            $("#new-event").replaceWith('<input type="text" id="new-event" class="form-control" placeholder="Event" >');
         });
 
         function setpopover() {

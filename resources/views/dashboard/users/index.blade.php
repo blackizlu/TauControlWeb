@@ -30,7 +30,12 @@
                 </div>
                 <div class="card-block">
                     <div class="m-t-35">
-                        <button id="del_button" class="btn btn-danger"> Desactivar usuario seleccionado </button>
+                        <div class="btn-group">
+                            <a href="{{route ('dashboard.users.add')}}" id="editable_table_new" class=" btn btn-default">
+                                Nuevo Usuario  <i class="fa fa-plus"></i>
+                            </a>
+                        </div><br>
+                        <button id="del_button" class="btn btn-danger m-t-15" data-toggle="tooltip" data-placement="right" title="Selecciona un usuario de la tabla para desactivarlo" > Desactivar usuario seleccionado </button>
                         <div class="m-t-25">
                             <table id="example_demo" class="table table-hover table-bordered">
                                 <thead>
@@ -50,10 +55,8 @@
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->profile->phone_number }}</td>
                                         <td>
-                                            &nbsp; &nbsp;
-                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.users.edit',$user->id)}}">
+                                            <a class="edit" id="edit_button" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.users.edit',$user->id)}}">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>
-                                            &nbsp; &nbsp;
                                         </td>
                                     </tr>
                                 @endforeach

@@ -49,7 +49,54 @@
 <script type="text/javascript" src="/js/dashboard/dataTables.bootstrap.min.js"></script>
 <!-- end plugin scripts -->
 <!--Page level scripts-->
-<script type="text/javascript" src="/js/dashboard/advanced_tables.js"></script>
+<script>
+    'use strict';
+    $(document).ready(function(){
+        // Scroll - horizontal and Vertical Scroll Table
+        $('#example').DataTable( {
+            "scrollY": 200,
+            "scrollX": true,
+        });
+        //End of Scroll - horizontal and Vertical Scroll Table
+
+        // advanced Table
+
+        var table = $('#example_demo').DataTable({
+            "dom": "<'row'<'col-md-5 col-sm-12'l><'col-md-7 col-sm-12'f>r><'table-responsive't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
+            "paging": true,
+            "searching": true,
+            oLanguage: {
+                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+                sInfoEmpty: "No hay registros a mostrar",
+                sInfoFiltered: "",
+                sZeroRecords: "Ningún registro para mostrar",
+                sSearch: "Buscar:",
+                oPaginate: {
+                    sFirst: "Primera Página",
+                    sLast: "Última Página",
+                    sNext: "Siguiente",
+                    sPrevious: "Anterior"
+                },
+                sEmptyTable: "No se encontraron registros",
+                sLengthMenu: "Mostrar _MENU_ Registros"
+
+            }
+        });
+        var $example_demo= $('#example_demo tbody');
+
+        $example_demo.on( 'click', 'tr', function () {
+            $(this).toggleClass('selected');
+            $('#del_button').on('click', function () {
+                table.row('#example_demo tbody .selected').remove().draw( false );
+                return false;
+            } );
+            return false;
+        } );
+
+        // End of advanced Table
+        $(".dataTables_wrapper").removeClass("form-inline");
+    });
+</script>
 
 
 </body>

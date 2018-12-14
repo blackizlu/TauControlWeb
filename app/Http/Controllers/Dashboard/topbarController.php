@@ -2,20 +2,16 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Activities;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 
-class DashboardController extends Controller
+class topbarController extends Controller
 {
-
     public function index()
     {
 //        $events = [];
         $users = User::all();
-        $activities = Activities::all();
 //        if($data->count()) {
 //            foreach ($data as $key => $value) {
 //                $events[] = Calendar::event(
@@ -33,6 +29,6 @@ class DashboardController extends Controller
 //            }
 //        }
 //        $calendar = Calendar::addEvents($events);
-        return view('dashboard.index', compact('activities', 'users'));
+        return view('dashboard.partials.topbar', compact('users'));
     }
 }

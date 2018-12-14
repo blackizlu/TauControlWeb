@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Activities extends Model
 {
     protected $table = 'activities';
     protected $fillable = ['start','end', 'time', 'activity', 'completed', 'comments', 'client_id', 'contact_id', 'project_id', 'user_id'];
+    protected $append = ['color'];
 
     public function client()
     {
@@ -34,4 +36,45 @@ class Activities extends Model
         return $this->attributes['completed'] == '1' ? true : false;
     }
 
+    public function getColorAttribute()
+    {
+        $color = "";
+           switch($this->attributes['activity']){
+
+               case('cita'):
+                   $color = '#ff6666';
+                   break;
+
+               case('envio_correo'):
+                   $color = '#4fb7fe';
+                   break;
+
+               case('instalacion_obra'):
+                   $color = '#ff9933';
+                   break;
+
+               case('llamada'):
+                   $color = '#00cc99';
+                   break;
+
+               case('visita_obra'):
+                   $color = '#347dff';
+                   break;
+
+               default:
+                   $color = '#737373';
+                   break;
+
+           }
+        return $color;
+    }
+
 }
+
+//
+//@if($event->activity == 'cita'){{'#ff6666'}}@endif
+//                    @if($event->activity == 'envio_correo'){{'#4fb7fe'}}@endif
+//                    @if($event->activity == 'instalacion_obra'){{'#ff9933'}}@endif
+//                    @if($event->activity == 'llamada'){{'#00cc99'}}@endif
+//                    @if($event->activity == 'visita_obra'){{'#347dff'}}@endif
+//                    @if($event->activity == 'envio_correo'){{'#4fb7fe'}}@else {{'#737373'}}@endif
