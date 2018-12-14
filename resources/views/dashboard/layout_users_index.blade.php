@@ -84,13 +84,10 @@
         });
         var $example_demo= $('#example_demo tbody');
 
-        $example_demo.on( 'click', 'tr', function () {
-            $(this).toggleClass('selected');
-            $('#del_button').on('click', function () {
-                table.row('#example_demo tbody .selected').remove().draw( false );
-                return false;
-            } );
-            return false;
+        $example_demo.on( 'click', '#delete', function () {
+
+
+            $(this).closest('tr').remove();
         } );
 
         // End of advanced Table

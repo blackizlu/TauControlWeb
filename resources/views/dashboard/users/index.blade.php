@@ -35,7 +35,6 @@
                                 Nuevo Usuario  <i class="fa fa-plus"></i>
                             </a>
                         </div><br>
-                        <button id="del_button" class="btn btn-danger m-t-15" data-toggle="tooltip" data-placement="right" title="Selecciona un usuario de la tabla para desactivarlo" > Desactivar usuario seleccionado </button>
                         <div class="m-t-25">
                             <table id="example_demo" class="table table-hover table-bordered">
                                 <thead>
@@ -56,7 +55,9 @@
                                         <td>{{ $user->profile->phone_number }}</td>
                                         <td>
                                             <a class="edit" id="edit_button" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.users.edit',$user->id)}}">
-                                                <i class="fa fa-pencil-alt text-warning"></i></a>
+                                                <i class="fa fa-pencil-alt text-warning"></i></a>&nbsp;&nbsp;&nbsp;
+                                            <a class="delete"  data-toggle="tooltip" data-placement="top" title="Eliminar" id="delete">
+                                                <i class="fa fa-trash text-danger"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -68,6 +69,8 @@
             </div>
         </div>
     </div>
+
+
 @endsection
 @section('scripts')
     @if(Session::has('message'))
@@ -81,7 +84,7 @@
         </script>
     @endif
     <script>
-        $('.delete').on('click', function (e) {
+        $('#delete').on('click', function (e) {
             e.preventDefault();
             var url = $(this).attr('href');
             new PNotify({
