@@ -74,15 +74,19 @@
                                         <td>{{ $client->office_number }}</td>
                                         <td>{{ $client->web_page }}</td>
                                         <td>{{ $client->notes }}</td>
-                                        <td>{{ $client->user->profile->name }}</td>
+                                        <td>{{ $client->user->profile->full_name }}
+                                            @if($client->user->deleted_at != null)
+                                                <span style="color: red; font-size: 10px;">(Eliminado)</span>
+                                            @endif
+                                        </td>
                                         <td>
-                                            <a href="{{route ('dashboard.clients.view', $client->id)}}" data-toggle="tooltip" data-placement="top" title="View User">
+                                            <a href="{{route ('dashboard.clients.view', $client->id)}}" data-toggle="tooltip" data-placement="top" title="Ver Cliente">
                                                 <i class="fa fa-eye text-success"></i></a>
                                             &nbsp; &nbsp;
-                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="{{route ('dashboard.clients.edit',$client->id)}}">
+                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.clients.edit',$client->id)}}">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>
                                             &nbsp; &nbsp;
-                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="{{ $client->id }}">
+                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Eliminar" href="#" data-id="{{ $client->id }}">
                                                 <i class="fa fa-trash text-danger"></i></a>
                                         </td>
                                     </tr>

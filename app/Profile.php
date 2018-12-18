@@ -22,4 +22,14 @@ class Profile extends Model
             $this->attributes['image'] = 'users/' . $imageName;
         }
     }
+
+    public function getImageAttribute()
+    {
+        return $this->attributes['image'] != null ? 'storage/' . $this->attributes['image'] : 'images/default.png';
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->attributes['name'] . ' ' . $this->attributes['last_name'];
+    }
 }

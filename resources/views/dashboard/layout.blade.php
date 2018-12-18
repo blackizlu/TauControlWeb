@@ -153,9 +153,7 @@
 <script type="text/javascript" src="/js/dashboard/buttons.print.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/jasny-bootstrap.js"></script>
 <script type="text/javascript" src="/js/dashboard/holder.js"></script>
-<script type="text/javascript" src="/js/dashboard/fileinput.min.js"></script>
-
-    <!--Fin Scripts para usuarios-->
+<!--Fin Scripts para usuarios-->
 <!--Scripts para Eliminar Sweet Alert-->
 <script type="text/javascript" src="/js/dashboard/pnotify.js"></script>
 <script type="text/javascript" src="/js/dashboard/pnotify.animate.js"></script>
@@ -262,6 +260,8 @@
 <script type="text/javascript" src="/js/dashboard/calendar.js"></script>
 <script type="text/javascript" src="/js/dashboard/calendarcustom.js" ></script>
 
+
+    @yield('scripts')
 
     @yield('scripts')
 </body>

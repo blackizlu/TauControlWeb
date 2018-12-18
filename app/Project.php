@@ -11,7 +11,7 @@ class Project extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class, 'id', 'user_id');
+        return $this->hasOne(User::class, 'id', 'user_id')->withTrashed();
     }
 
     public function client()
@@ -24,4 +24,10 @@ class Project extends Model
         $date     = DateTime::createFromFormat('d/m/Y',$timezone);
         Carbon::parse($date)->format('Y-m-d');
     }
+
+    public function activities()
+    {
+        return $this->hasMany(Activities::class, 'project_id', 'id');
+    }
+
 }
