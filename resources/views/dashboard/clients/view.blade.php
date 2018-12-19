@@ -35,8 +35,8 @@
 
                             <div class="form-group">
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
-                                    <div class="rounded-circle img-fluid fileinput-new thumb_zoom zoom admin_img_width "> {{--AQUI SE PONDRA LA FOTO DEL RESPONSABLE--}}
-                                        <img  src="{{ asset($client->user->profile->image) }}" alt="FOTO DEL RESPONSABLE" class="admin_img_width"></div>
+                                    <div class="fileinput-new thumb_zoom zoom admin_img_width"> {{--AQUI SE PONDRA LA FOTO DEL RESPONSABLE--}}
+                                        <img src="{{ asset($client->user->profile->image) }}" alt="FOTO DEL RESPONSABLE" class="admin_img_width"></div>
                                     <div class="fileinput-preview fileinput-exists thumb_zoom zoom admin_img_width"></div>
                                     <div class="btn_file_position">
                                     </div>
@@ -162,7 +162,7 @@
                         <div class="bg-primary"></div>
                         <div class="list-group" style="overflow-y: scroll; height: 400px;">
                             @foreach($client->activities as $event)
-                            <a class="list-group-item calendar-list">
+                            <a href="#" class="list-group-item calendar-list">
                                 <li>
                                     <strong>{{$event->project->name}}:</strong>&nbsp;{{$event->activity}}&nbsp;con&nbsp;{{$event->contact->contact_name}}
                                 </li>
@@ -194,6 +194,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 29dad83... Cambios al 50% 2
 =======
@@ -216,6 +217,8 @@
 >>>>>>> parent of 29dad83... Cambios al 50% 2
 =======
 >>>>>>> parent of 2efa6e9... Cambios
+=======
+>>>>>>> parent of 3bfe4c7... Cambios. Dashboard 50% terminado
                                     <h5>
                                         {{$activity->activity}}
                                     </h5>

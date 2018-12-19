@@ -88,7 +88,6 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::get('/add', 'Dashboard\ActivitiesController@add')->name('dashboard.activities.add');
         Route::get('/{id}/view', 'Dashboard\ActivitiesController@view')->name('dashboard.activities.view');
         Route::get('/{id}/edit', 'Dashboard\ActivitiesController@edit')->name('dashboard.activities.edit');
-        Route::get('/{id}/get', 'Dashboard\ActivitiesController@getActivity')->name('dashboard.activities.get');
         Route::post('/', 'Dashboard\ActivitiesController@store')->name('dashboard.activities.store');
         Route::put('/{id}/update','Dashboard\ActivitiesController@update')->name('dashboard.activities.update');
         Route::delete('/deleted', 'Dashboard\ActivitiesController@destroy')->name('dashboard.activities.delete');

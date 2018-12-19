@@ -72,7 +72,7 @@
                                         <td>{{$activity->contact->contact_name}}</td>
                                         <td>{{$activity->project->name}}</td>
                                         <td>{{\Carbon\Carbon::parse($activity->deadline)->format('d/m/Y')}}</td>
-                                        <td>{{\Carbon\Carbon::parse($activity->time)->format('h:i A')}}</td>
+                                        <td>{{$activity->time}}</td>
                                         <td>{{$activity->activity}}</td>
                                         <td>
                                             <div class="checkbox" align="center">
