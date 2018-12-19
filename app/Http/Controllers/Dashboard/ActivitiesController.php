@@ -90,17 +90,7 @@ class ActivitiesController extends Controller
             ]);
         }
 
-        return null;
-
    }
 
-    public function getActivity($id)
-    {
-        $activity = Activities::findOrFail($id);
-        return response()->json([
-            "success" => true,
-            "activity" => $activity
-        ]);
-    }
 
 }

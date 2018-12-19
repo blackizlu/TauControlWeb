@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -32,9 +31,7 @@ class Activities extends Model
         return $this->hasOne(User::class, 'id', 'user_id');
     }
 
-//mutadores :E
-
-    public function getCompletedAttribute()
+    public function getCompletedAttribute()//Accessor/Getter
     {
         return $this->attributes['completed'] == '1' ? true : false;
     }
@@ -72,6 +69,7 @@ class Activities extends Model
         return $color;
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function getActivityNameAttribute()
     {
@@ -155,6 +153,9 @@ class Activities extends Model
     }
 =======
 >>>>>>> parent of 8f5e304... Varios cambios
+=======
+
+>>>>>>> parent of 3bfe4c7... Cambios. Dashboard 50% terminado
 }
 
 //
