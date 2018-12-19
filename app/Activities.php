@@ -69,6 +69,8 @@ class Activities extends Model
         return $color;
     }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
     public function getActivityNameAttribute()
     {
         $actividad = "";
@@ -149,10 +151,17 @@ class Activities extends Model
     {
         return Carbon::parse($start)->format('d/m/Y') . ' ' . $this->attributes['time'];
     }
+=======
+>>>>>>> parent of 8f5e304... Varios cambios
+=======
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
 >>>>>>> parent of 29dad83... Cambios al 50% 2
+=======
+>>>>>>> parent of 3bfe4c7... Cambios. Dashboard 50% terminado
+>>>>>>> parent of 279c8fe... commit
 }
 
