@@ -69,6 +69,76 @@ class Activities extends Model
         return $color;
     }
 
+    public function getActivityNameAttribute()
+    {
+        $actividad = "";
+        switch($this->attributes['activity']){
+
+            case('cita'):
+                $actividad = 'Cita';
+                break;
+
+            case('envio_correo'):
+                $actividad = 'Enviar correo';
+                break;
+
+            case('instalacion_obra'):
+                $actividad = 'Instalación de obra';
+                break;
+
+            case('llamada'):
+                $actividad = 'Llamada';
+                break;
+
+            case('visita_obra'):
+                $actividad = 'Visita a obra';
+                break;
+
+            default:
+                $actividad = ' ';
+                break;
+
+        }
+        return $actividad;
+    }
+
+    public function getImageAttribute()
+    {
+        $image = "";
+        switch($this->attributes['activity']){
+
+            case('cita'):
+                $image = 'cita.png';
+                break;
+
+            case('envio_correo'):
+                $image = 'enviarmail.png';
+                break;
+
+            case('instalacion_obra'):
+                $image = 'visitaobra.png';
+                break;
+
+            case('llamada'):
+                $image = 'llamada.png';
+                break;
+
+            case('visita_obra'):
+                $image = 'visita';
+                break;
+
+            default:
+                $image = '#737373';
+                break;
+
+        }
+        return $image;
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->attributes['name'] . ' ' . $this->attributes['last_name'];
+    }
 
     public function getHoraAttribute()//Para que aparezca la hora en el evento del calendario
     {
@@ -80,6 +150,9 @@ class Activities extends Model
         return Carbon::parse($start)->format('d/m/Y') . ' ' . $this->attributes['time'];
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 29dad83... Cambios al 50% 2
 }
 

@@ -198,7 +198,10 @@
                             <h5>Comentarios:</h5>
                             <textarea type="text"id="comentario"rows="3" value="read only" readonly class="form-control"></textarea>
                         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 29dad83... Cambios al 50% 2
                     <div class="input-group">
                         <input type="text" id="event_title" class="form-control" placeholder="Event">
                     </div>
