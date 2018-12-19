@@ -76,8 +76,11 @@
                                         <td>{{\Carbon\Carbon::parse($project->estimated_date)->format('d/m/Y')}}</td>
                                         <td></td>
                                         <td></td>
-                                        <td>{{ $project->user->profile->name }}</td>
-                                        <td>
+                                        <td>{{ $project->user->profile->full_name }}
+                                            @if($project->user->deleted_at != null)
+                                                <span style="color: red; font-size: 10px;">(Eliminado)</span>
+                                            @endif
+                                        </td>                                        <td>
                                             <a href="{{route ('dashboard.projects.view', $project->id)}}" data-toggle="tooltip" data-placement="top" title="Ver proyecto">
                                                 <i class="fa fa-eye text-success"></i></a>
                                             &nbsp; &nbsp;

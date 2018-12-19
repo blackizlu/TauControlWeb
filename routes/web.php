@@ -16,6 +16,7 @@ Auth::routes();
 Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(function (){
     Route::get('/', 'Dashboard\DashboardController@index')->name('dashboard.index');
 
+
     //MODULO USUARIOS
     Route::group(['prefix' => 'users'], function() {
         Route::get('/', 'Dashboard\UsersController@index')->name('dashboard.users.index');

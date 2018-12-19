@@ -16,12 +16,17 @@ class Client extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class, 'id', 'user_id');
+        return $this->hasOne(User::class, 'id', 'user_id')->withTrashed();
     }
 
     public function projects()
     {
         return $this->hasMany(Project::class, 'client_id', 'id');
+    }
+
+    public function activities()
+    {
+        return $this->hasMany(Activities::class, 'client_id', 'id');
     }
 
 }

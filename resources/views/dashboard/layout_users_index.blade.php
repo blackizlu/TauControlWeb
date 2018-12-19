@@ -17,11 +17,16 @@
     <link type="text/css" rel="stylesheet" href="/css/dashboard/select2.min.css"/>
     <link type="text/css" rel="stylesheet" href="/css/dashboard/dataTables.bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="/css/dashboard/dataTables.bootstrap.css"/>
-
-    <!-- end of plugin styles -->
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/pnotify.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/animate.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/pnotify.buttons.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/pnotify.history.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/pnotify.mobile.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/sweetalert2.min.css"/>
+    <!--End of Plugin styles-->
     <!--Page level styles-->
     <link type="text/css" rel="stylesheet" href="/css/dashboard/tables.css"/>
-
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/p_notify.css"/>
 
 </head>
 
@@ -48,6 +53,18 @@
 <script type="text/javascript" src="/js/dashboard/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/dataTables.bootstrap.min.js"></script>
 <!-- end plugin scripts -->
+
+<script type="text/javascript" src="/js/dashboard/pnotify.js"></script>
+<script type="text/javascript" src="/js/dashboard/pnotify.animate.js"></script>
+<script type="text/javascript" src="/js/dashboard/pnotify.buttons.js"></script>
+<script type="text/javascript" src="/js/dashboard/pnotify.confirm.js"></script>
+<script type="text/javascript" src="/js/dashboard/pnotify.nonblock.js"></script>
+<script type="text/javascript" src="/js/dashboard/pnotify.mobile.js"></script>
+<script type="text/javascript" src="/js/dashboard/pnotify.desktop.js"></script>
+<script type="text/javascript" src="/js/dashboard/pnotify.history.js"></script>
+<script type="text/javascript" src="/js/dashboard/pnotify.callbacks.js"></script>
+<script type="text/javascript" src="/js/dashboard/sweetalert2.min.js"></script>
+<!--End of plugin scripts-->
 <!--Page level scripts-->
 <script>
     'use strict';
@@ -85,8 +102,6 @@
         var $example_demo= $('#example_demo tbody');
 
         $example_demo.on( 'click', '#delete', function () {
-
-
             $(this).closest('tr').remove();
         } );
 
@@ -94,7 +109,6 @@
         $(".dataTables_wrapper").removeClass("form-inline");
     });
 </script>
-
 
 </body>
 

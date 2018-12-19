@@ -29,7 +29,7 @@ class Activities extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class, 'id', 'user_id');
+        return $this->hasOne(User::class, 'id', 'user_id')->withTrashed();;
     }
 
 //mutadores :E
@@ -72,7 +72,6 @@ class Activities extends Model
         return $color;
     }
 
-<<<<<<< HEAD
     public function getActivityNameAttribute()
     {
         $actividad = "";
@@ -153,6 +152,7 @@ class Activities extends Model
     {
         return Carbon::parse($start)->format('d/m/Y') . ' ' . $this->attributes['time'];
     }
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 8f5e304... Varios cambios
 <<<<<<< HEAD
@@ -168,5 +168,7 @@ class Activities extends Model
 >>>>>>> parent of 279c8fe... commit
 =======
 >>>>>>> parent of 2efa6e9... Cambios
+=======
+>>>>>>> parent of 25eebe8... Cambios Eliminar descompuesto
 }
 
