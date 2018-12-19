@@ -24,7 +24,6 @@
     <!-- Widgets styles -->
     <link rel="stylesheet" type="text/css" href="/css/dashboard/widgets.css">
 
-
 </head>
 
 <body class="body">
@@ -88,35 +87,43 @@
             // eventos en calendario
             events: [@foreach($activities as $event)
             {
-            title: '{{$event->comments}}',
-            start: '{{$event->start}}',
-            end:'{{$event->end}}',
-            cliente:'{{$event->client_name}}',
-            contacto:'{{$event->contact->contact_name}}',
-            proyecto:'{{$event->project->name}}',
-            hora:'{{$event->time}}',
+            id: '{{$event->id}}',
+            title: '{{$event->Activity_Name}}',
+            start: '{{$event->Hora}}',
+            end:'{{\Carbon\Carbon::parse($event->end)->format('m/d/Y')}}',
+            comentario: '{{$event->comments}}',
+            cliente: '{{$event->client->client_name}}',
+            contacto: '{{$event->contact->contact_name}}',
+            hora: '{{\Carbon\Carbon::parse($event->time)->format('G:i')}}',
+            hora2:'{{$event->Date}}',
             backgroundColor: '{{$event->color}}'
             },@endforeach],
 
-            eventClick: function(calEvent, jsEvent, view) {
-                evt_obj=calEvent;
-                $("#event_title").val(evt_obj.title);
-                currColor=evt_obj.backgroundColor;
+            eventClick: function(evento, jsEvent, view) {
+                console.log(evento);
+                $("#event_title").val(evento.title);
+                $("#start").val(evento.start);
+                $("#comentario").val(evento.comentario);
+                $("#cliente").val(evento.cliente);
+                $("#contacto").val(evento.contacto);
+                $("#hora").val(evento.hora2);
+
+                /*currColor=evt_obj.backgroundColor;
                 colorChooser.css({
                     "background-color": evt_obj.backgroundColor,
                     "border-color": evt_obj.backgroundColor
-                }).html('type <span class="caret"></span>');
+                }).html('type <span class="caret"></span>');*/
                 $('#evt_modal').modal('show').on("shown.bs.modal",function(){
-                    $("#event_title").focus();
+
                 }).on("hidden.bs.modal",function () {
                     evt_obj="";
                 });
-                $(".text_save").on("click",function () {
-                    evt_obj.title=$("#event_title").val();
+                /*$(".text_save").on("click",function () {
+                    evt_obj.comentario=$("#event_title").val();
                     evt_obj.backgroundColor=currColor;
                     $('#calendar').fullCalendar('updateEvent', evt_obj);
                     setTimeout(setpopover,100);
-                });
+                });*/
             },
             editable: false,
             droppable: true,
