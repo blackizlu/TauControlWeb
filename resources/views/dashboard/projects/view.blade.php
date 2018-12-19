@@ -119,13 +119,13 @@
 --}}
                                             </tr>
                                             <tbody>
-                                            @foreach($project->activities as $activity)
+                                            @foreach($activities as $activity)
                                                 <tr >
                                                     <td>{{$activity->comments}}</td>
                                                     <td>{{$activity->activity}}</td>
                                                     <td>{{$activity->contact->contact_name}}</td>
                                                     <td>{{\Carbon\Carbon::parse($activity->deadline)->format('d/m/Y')}}</td>
-                                                    <td>{{\Carbon\Carbon::parse($activity->time)->format('h:i A')}}</td>
+                                                    <td>{{$activity->time}}</td>
                                                     <td>
                                                         <div class="checkbox" align="center">
                                                             <label class="text-success">

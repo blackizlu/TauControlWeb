@@ -169,7 +169,7 @@
                         </div>
                         <div class="col-lg-12 input_field_sections">
                             <h5>Comentarios:</h5>
-                            <input type="text"id="comentario" value="read only" readonly class="form-control">
+                            <textarea type="text"id="comentario"rows="3" value="read only" readonly class="form-control"></textarea>
                         </div>
                     </div>
                 </div>

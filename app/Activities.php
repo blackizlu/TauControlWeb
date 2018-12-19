@@ -29,7 +29,7 @@ class Activities extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class, 'id', 'user_id')->withTrashed();;
+        return $this->hasOne(User::class, 'id', 'user_id');
     }
 
 //mutadores :E
@@ -72,6 +72,7 @@ class Activities extends Model
         return $color;
     }
 
+<<<<<<< HEAD
     public function getActivityNameAttribute()
     {
         $actividad = "";
@@ -152,6 +153,8 @@ class Activities extends Model
     {
         return Carbon::parse($start)->format('d/m/Y'). ' '. $this->attributes['time'];
     }
+=======
+>>>>>>> parent of 8f5e304... Varios cambios
 }
 
 //

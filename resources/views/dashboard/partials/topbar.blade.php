@@ -169,7 +169,7 @@
                     <div class="user-settings no-bg">
                         <button type="button" class="btn btn-default no-bg micheal_btn" data-toggle="dropdown">
                             <img src="/images/dashboard/admin.jpg" class="admin_img2 img-thumbnail rounded-circle avatar-img"
-                                 alt="avatar"> <strong>{{ Auth::user()->profile->full_name }}</strong>
+                                 alt="avatar"> <strong>Nombre del usuario</strong>
                             <span class="fa fa-sort-down white_bg"></span>
                         </button>
                         <div class="dropdown-menu admire_admin">

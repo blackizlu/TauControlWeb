@@ -386,13 +386,13 @@ $(document).ready(function() {
     //End of  Attension seekers
 
     // Confirm Module Confirmation dialogs and prompts
-    $(".deleted").on("click", function () {
+    $(".notify_confirm_dialog").on("click", function () {
         new PNotify({
-            title: 'Eliminar',
-            text: '¿Desea eliminar el registro?',
+            title: 'Confirmation Needed',
+            text: 'Are you sure?',
             icon: 'fa fa-question-circle',
             hide: false,
-            type: 'error',
+            type: 'success',
             confirm: {
                 confirm: true
             },

@@ -1,4 +1,4 @@
-@extends('dashboard.layout')
+@extends('dashboard.layout_users_index')
 @section('content')
     <header class="head">
         <div class="main-bar">
@@ -12,7 +12,7 @@
                 <div class="col-lg-6 col-sm-8 col-12">
                     <ol class="breadcrumb float-right  nav_breadcrumb_top_align">
                         <li class="breadcrumb-item">
-                            <a href="{{route('dashboard.index')}}">
+                            <a href="index1.html">
                                 <i class="fa fa-home" data-pack="default" data-tags=""></i> Inicio
                             </a>
                         </li>
@@ -56,9 +56,8 @@
                                         <td>
                                             <a class="edit" id="edit_button" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.users.edit',$user->id)}}">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>&nbsp;&nbsp;&nbsp;
-                                            <a class="trash" type="button" data-toggle="tooltip" data-placement="top" href="{{ route('dashboard.users.delete', $user->id) }}" title="Eliminar">
+                                            <a class="delete"  data-toggle="tooltip" data-placement="top" title="Eliminar" id="delete">
                                                 <i class="fa fa-trash text-danger"></i></a>
-
                                         </td>
                                     </tr>
                                 @endforeach
@@ -85,33 +84,9 @@
         </script>
     @endif
     <script>
-        var table = $('#example_demo').DataTable({
-            "dom": "<'row'<'col-md-5 col-sm-12'l><'col-md-7 col-sm-12'f>r><'table-responsive't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
-            "paging": true,
-            "searching": true,
-            oLanguage: {
-                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
-                sInfoEmpty: "No hay registros a mostrar",
-                sInfoFiltered: "",
-                sZeroRecords: "Ningún registro para mostrar",
-                sSearch: "Buscar:",
-                oPaginate: {
-                    sFirst: "Primera Página",
-                    sLast: "Última Página",
-                    sNext: "Siguiente",
-                    sPrevious: "Anterior"
-                },
-                sEmptyTable: "No se encontraron registros",
-                sLengthMenu: "Mostrar _MENU_ Registros"
-
-            }
-        });
-
-        $('#example_demo').find('tbody').on( 'click', 'a.trash', function (e) {
+        $('#delete').on('click', function (e) {
             e.preventDefault();
             var url = $(this).attr('href');
-            var tr = $(this).parents('tr');
-            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             new PNotify({
                 title: 'Eliminar',
                 text: '¿Desea eliminar el registro?',
@@ -129,25 +104,12 @@
                     history: false
                 }
             }).get().on('pnotify.confirm', function () {
-                $.ajax({
-                    url: url,
-                    type: 'POST',
-                    data: { _token: CSRF_TOKEN, _method: 'delete' },
-                    dataType: 'JSON',
-                    success: function (data) {
-                        if(data.success) {
-                            table.row( tr )
-                                .remove()
-                                .draw();
-                        }
-                    }
-                });
+                swal('' + url).done();
             }).on('pnotify.cancel', function () {
                 swal('Oh ok. Chicken, I see.').done();
 
             });
-        } );
-
+        });
     </script>
 @endsection
 
