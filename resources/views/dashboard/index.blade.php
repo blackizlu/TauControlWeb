@@ -159,6 +159,7 @@
             </div>
         </div>
     </div>
+    </div>
 
     <!--- responsive model Ver Actividad-->
     <div class="modal fade" id="evt_modal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -172,7 +173,6 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
-<<<<<<< HEAD
                     <div class="row">
                         <div class="col-lg-6 input_field_sections">
                             <h5>Evento:</h5>
@@ -198,8 +198,7 @@
                             <h5>Comentarios:</h5>
                             <textarea type="text"id="comentario"rows="3" value="read only" readonly class="form-control"></textarea>
                         </div>
-=======
->>>>>>> parent of 3bfe4c7... Cambios. Dashboard 50% terminado
+
                     <div class="input-group">
                         <input type="text" id="event_title" class="form-control" placeholder="Event">
                     </div>
@@ -212,6 +211,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 @endsection

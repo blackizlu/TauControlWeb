@@ -254,10 +254,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     <span>
                                         <img src="/images/dashboard/{{$activity->image}}" alt="text_image"
                                              class="rounded-circle img-fluid recent_feeds_img"/>
                                     </span>
+=======
+>>>>>>> parent of 3bfe4c7... Cambios. Dashboard 50% terminado
 =======
 >>>>>>> parent of 3bfe4c7... Cambios. Dashboard 50% terminado
 =======

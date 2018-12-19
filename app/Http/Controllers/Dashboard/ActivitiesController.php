@@ -12,7 +12,8 @@ use App\Http\Controllers\Controller;
 
 class ActivitiesController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         $activities = Activities::all();
         $clients = Client::all();
@@ -20,11 +21,12 @@ class ActivitiesController extends Controller
         $projects = Project::all();
         $users = User::all();
 
-        return view('dashboard.activities.index', compact('clients', 'contacts','projects','users','activities'));
+        return view('dashboard.activities.index', compact('clients', 'contacts', 'projects', 'users', 'activities'));
     }
 
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         $data = request()->all();
 
@@ -40,21 +42,22 @@ class ActivitiesController extends Controller
         ]);
 
         $activity = new Activities($data);
-        $activity->completed = $request->has('completed') ? 1:0;
+        $activity->completed = $request->has('completed') ? 1 : 0;
         $activity->save();
 
         return redirect()->route('dashboard.activities.index');
 
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
 
         $activity = Activities::findOrFail($id);
         $users = User::all();
         $clients = Client::all();
         $contacts = contact::all();
         $projects = Project::all();
-        return view('dashboard.activities.index', compact('clients', 'contacts','projects','users','activity'));
+        return view('dashboard.activities.index', compact('clients', 'contacts', 'projects', 'users', 'activity'));
 
 
     }
@@ -68,7 +71,8 @@ class ActivitiesController extends Controller
         return redirect()->back();
     }
 
-    public function destroy(Request $request){
+    public function destroy(Request $request)
+    {
 
         $activity = Activities::findOrFail($request->activity_id);
         $activity->delete();
@@ -77,10 +81,11 @@ class ActivitiesController extends Controller
     }
 
 
-        //PRUEBA PARA DYNAMIC DROPDOWNS-DEPENDENT SELECT BOX
-   public function getContacts(Request $request, $id){
+    //PRUEBA PARA DYNAMIC DROPDOWNS-DEPENDENT SELECT BOX
+    public function getContacts(Request $request, $id)
+    {
 
-        if($request->ajax()){
+        if ($request->ajax()) {
             $client = Client::findOrFail($id);
 
             return response()->json([
@@ -89,8 +94,5 @@ class ActivitiesController extends Controller
 
             ]);
         }
-
-   }
-
-
+    }
 }
