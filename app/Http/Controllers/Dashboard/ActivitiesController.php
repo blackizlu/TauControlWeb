@@ -24,7 +24,6 @@ class ActivitiesController extends Controller
         return view('dashboard.activities.index', compact('clients', 'contacts', 'projects', 'users', 'activities'));
     }
 
-
     public function store(Request $request)
     {
 
@@ -58,7 +57,6 @@ class ActivitiesController extends Controller
         $contacts = contact::all();
         $projects = Project::all();
         return view('dashboard.activities.index', compact('clients', 'contacts', 'projects', 'users', 'activity'));
-
 
     }
 
@@ -94,13 +92,16 @@ class ActivitiesController extends Controller
 
             ]);
         }
-<<<<<<< HEAD
+
+        return null;
+    }
+
+    public function getActivity($id)
+    {
+        $activity = Activities::findOrFail($id);
+        return response()->json([
+            "success" => true,
+            "activity" => $activity
+        ]);
     }
 }
-=======
-
-   }
-
-
-}
->>>>>>> parent of 2efa6e9... Cambios

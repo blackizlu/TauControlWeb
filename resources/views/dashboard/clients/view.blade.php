@@ -187,38 +187,11 @@
                         <div class="feed">
                             <ul>@foreach($client->activities as $activity)
                                 <li>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 29dad83... Cambios al 50% 2
-=======
->>>>>>> parent of 2efa6e9... Cambios
-=======
->>>>>>> parent of 25eebe8... Cambios Eliminar descompuesto
+
                                     <span>
                                         <img src="/images/dashboard/{{$activity->image}}" alt="text_image"
                                              class="rounded-circle img-fluid recent_feeds_img"/>
                                     </span>
-<<<<<<< HEAD
-=======
->>>>>>> parent of 3bfe4c7... Cambios. Dashboard 50% terminado
-<<<<<<< HEAD
-=======
->>>>>>> parent of 3bfe4c7... Cambios. Dashboard 50% terminado
-=======
->>>>>>> parent of 3bfe4c7... Cambios. Dashboard 50% terminado
-=======
->>>>>>> parent of 29dad83... Cambios al 50% 2
-=======
->>>>>>> parent of 2efa6e9... Cambios
-=======
->>>>>>> parent of 3bfe4c7... Cambios. Dashboard 50% terminado
                                     <h5>
                                         {{$activity->activity}}
                                     </h5>
