@@ -29,6 +29,9 @@
     <div class="inner bg-container">
         <div class="card">
             <div class="card-block">
+                <div class="btn-group">
+                    <a href="{{route ('dashboard.clients.index')}}" id="editable_table_new" class=" btn btn-default"><i class="fa fa-arrow-left"></i>&nbsp;Regresar</a>
+                </div>
                 <div class="row">
                     <div class="col-lg-6 m-t-35">
                         <div class="text-center">
@@ -164,13 +167,14 @@
                             @foreach($client->activities as $event)
                             <a href="#" class="list-group-item calendar-list">
                                 <li>
-                                    <strong>{{$event->project->name}}:</strong>&nbsp;{{$event->activity}}&nbsp;con&nbsp;{{$event->contact->contact_name}}
+                                    <strong>Proyecto: </strong>&nbsp;{{$event->project->name}}
                                 </li>
-
+                                <li>
+                                    {{$event->Name_Activity}}&nbsp;con&nbsp;{{$event->contact->contact_name}}
+                                </li>
                                 <div class="badge badge-pill badge-primary float-right">{{\Carbon\Carbon::parse($event->start)->format('d/m/Y')}}&nbsp;{{\Carbon\Carbon::parse($event->time)->format('h:i')}}</div>
                                 {{$event->comments}}
                             </a>@endforeach
-
                         </div>
                     </div>
                 </div>
@@ -193,7 +197,7 @@
                                              class="rounded-circle img-fluid recent_feeds_img"/>
                                     </span>
                                     <h5>
-                                        {{$activity->activity}}
+                                        {{$activity->Name_Activity}}
                                     </h5>
                                     <p>
                                         <strong>{{$activity->comments}}</strong>

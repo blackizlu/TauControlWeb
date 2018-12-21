@@ -152,5 +152,38 @@ class Activities extends Model
     {
         return Carbon::parse($start)->format('d/m/Y'). ' '. $this->attributes['time'];
     }
+
+    public function getNameActivityAttribute()
+    {
+        $acti = "";
+        switch($this->attributes['activity']){
+
+            case('cita'):
+                $acti = 'Cita';
+                break;
+
+            case('envio_correo'):
+                $acti = 'Envío de correo';
+                break;
+
+            case('instalacion_obra'):
+                $acti = 'Instalación de obra';
+                break;
+
+            case('llamada'):
+                $acti = 'Llamada';
+                break;
+
+            case('visita_obra'):
+                $acti = 'Visita a obra';
+                break;
+
+            default:
+                $acti = ' ';
+                break;
+
+        }
+        return $acti;
+    }
 }
 

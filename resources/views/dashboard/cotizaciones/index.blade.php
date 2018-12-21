@@ -104,7 +104,8 @@
     </div>
 
     <!--- MODAL PARA COTIZACION VENDIDA-->
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="{{ route('dashboard.cotizaciones.store') }}" method="post" enctype="multipart/form-data">
+        {{ csrf_field() }}
         <div class="modal fade in display_none" id="yes" tabindex="-1" role="dialog" aria-hidden="false">
             <div class="modal-dialog modal-md">
                 <div class="modal-content">

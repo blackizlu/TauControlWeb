@@ -22,6 +22,10 @@ class DashboardController extends Controller
         $contacts = contact::all();
         $projects = Project::all();
 
-        return view('dashboard.index', compact('activities', 'users','clients','contacts','projects'));
+        $genera = $projects->groupBy('phase');
+        $genera->count();
+
+
+        return view('dashboard.index', compact('activities', 'users','clients','contacts','projects','genera'));
     }
 }

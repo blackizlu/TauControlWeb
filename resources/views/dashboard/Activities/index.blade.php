@@ -72,7 +72,8 @@
                                         <td>{{$activity->contact->contact_name}}</td>
                                         <td>{{$activity->project->name}}</td>
                                         <td>{{\Carbon\Carbon::parse($activity->deadline)->format('d/m/Y')}}</td>
-                                        <td>{{\Carbon\Carbon::parse($activity->time)->format('h:i A')}}</td>                                        <td>{{$activity->activity}}</td>
+                                        <td>{{\Carbon\Carbon::parse($activity->time)->format('h:i A')}}</td>
+                                        <td>{{$activity->Name_Activity}}</td>
                                         <td>
                                             <div class="checkbox" align="center">
                                                 <label class="text-success">
@@ -228,7 +229,7 @@
                                                 <option selected disabled>Selecciona una actividad</option>
                                                 <option value="cita">Cita</option>
                                                 <option value="envio_correo">Envio de Correo</option>
-                                                <option value="instalacion_obra">Instalación Obra</option>
+                                                <option value="instalacion_obra">Instalación de obra</option>
                                                 <option value="llamada">Llamada</option>
                                                 <option value="visita_obra">Visita a obra</option>
                                             </select>
@@ -336,7 +337,8 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-user-tie text-primary"></i>
                                                         </span>
-                                            <select class="form-control" tabindex="7" name="client_id" id="client" value="client">
+                                            <select class="form-control" tabindex="7" name="client_id" id="clientedit">
+                                                <option value="client" selected></option>
                                                 @foreach($clients as $client)
                                                     <option value="{{ $client->id }}">{{ $client->client_name }}</option>
                                                 @endforeach
@@ -353,8 +355,8 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-user text-primary"></i>
                                                         </span>
-                                            <select class="form-control" tabindex="7" name="contact_id" id="myContacts">
-
+                                            <select class="form-control" tabindex="7" name="contact_id" id="myContactsedit">
+                                                <option value="myContacts" selected></option>
                                             </select>
                                         </div>
                                     </div>
@@ -368,8 +370,8 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-folder text-primary"></i>
                                                         </span>
-                                            <select class="form-control" tabindex="7" name="project_id" id="proyectos">
-
+                                            <select class="form-control" tabindex="7" name="project_id" id="proyectosedit">
+                                                <option value="proyectos" selected></option>
                                             </select>
                                         </div>
                                     </div>
@@ -436,7 +438,7 @@
                                             <select class="form-control" tabindex="7" name="activity" id="activity">
                                                 <option value="cita">Cita</option>
                                                 <option value="envio_correo">Envio de Correo</option>
-                                                <option value="instalacion_obra">Instalación Obra</option>
+                                                <option value="instalacion_obra">Instalación de obra</option>
                                                 <option value="llamada">Llamada</option>
                                                 <option value="visita_obra">Visita a obra</option>
                                             </select>
@@ -474,8 +476,8 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-user-friends text-primary"></i>
                                                         </span>
-                                            <select class="form-control" tabindex="7" name="user_id" id="user" value="#user">
-                                                <option selected value="#user"></option>
+                                            <select class="form-control" tabindex="7" name="user_id" id="user">
+                                                <option selected="selected" id="user"></option>
                                                 @foreach($users as $user)
                                                     <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
                                                 @endforeach
@@ -517,20 +519,20 @@
         }));
 
         $('#edit').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget) // Button that triggered the modal
-                var activity_id = button.data('actid')
-                var client = button.data('mytitle')
-                var contact = button.data('mycontact')
-                var project = button.data('myproject')
-                var date = button.data('mydate')
-                var date2 = button.data('mydate2')
-                var time = button.data('mytime')
-                var activity = button.data('myactivity')
-                var done = button.data('mydone')
-                var comments = button.data('mycomments')
-                var responsable = button.data('myuser') // Extract info from data-* attributes
-                var modal = $(this)                     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-                                                        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                var button = $(event.relatedTarget);
+                var activity_id = button.data('actid');
+                var client = button.data('mytitle');
+                var contact = button.data('mycontact');
+                var project = button.data('myproject');
+                var date = button.data('mydate');
+                var date2 = button.data('mydate2');
+                var time = button.data('mytime');
+                var activity = button.data('myactivity');
+                var done = button.data('mydone');
+                var comments = button.data('mycomments');
+                var responsable = button.data('myuser');
+                var modal = $(this);
+
 
                 modal.find('.modal-body #act_id').val(activity_id);
                 modal.find('.modal-body #client').val(client);
@@ -545,14 +547,13 @@
                 modal.find('.modal-body #user').val(responsable);
 
 
-
-            console.log(client,contact,project,date,date2,time,activity,done,comments,responsable,activity_id);
+            console.log(activity_id,client,contact,project,date,date2,time,activity,done,comments,responsable);
         });
 
         $('#delete').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
-            var activity_id = button.data('actid')
-            var modal = $(this)
+            var button = $(event.relatedTarget);
+            var activity_id = button.data('actid');
+            var modal = $(this);
             modal.find('.modal-body #act_id').val(activity_id);
         });
     </script>

@@ -96,6 +96,7 @@ class ActivitiesController extends Controller
         return null;
     }
 
+
     public function getActivity($id)
     {
         $activity = Activities::findOrFail($id);

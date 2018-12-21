@@ -30,9 +30,8 @@
         <div class="outer">
             <div class="inner bg-container">
                 <div class="card">
-
                     <div class="card-block">
-                        <div class="btn-group">
+                        <div class="btn-group m-t-15">
                             <a href="{{route ('dashboard.users.index')}}" id="editable_table_new" class=" btn btn-default"><i class="fa fa-arrow-left"></i>&nbsp;Regresar</a>
                         </div>
                         <div class="m-t-10">
@@ -62,7 +61,7 @@
                                         <div class="col-lg-6 text-center text-lg-left">
                                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                                 <div class="fileinput-new img-thumbnail text-center">
-                                                    <img src="#" data-src="holder.js/100%x100%"  alt="not found"></div>
+                                                    <img src="{{ asset($user->profile->image) }}" alt="not found"></div>
                                                 <div class="fileinput-preview fileinput-exists img-thumbnail"></div>
                                                 <div class="m-t-20 text-center">
                                                     <span class="btn btn-primary btn-file">
@@ -70,7 +69,7 @@
                                                         <span class="fileinput-exists">Cambiar</span>
                                                         <input type="file" name="image">
                                                     </span>
-                                                    <a href="#" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">Eliminar</a>
+                                                    <a href="{{ asset($user->profile->image) }}" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">Eliminar</a>
                                                 </div>
                                             </div>
                                         </div>

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Project extends Model
 {
@@ -28,6 +29,11 @@ class Project extends Model
     public function activities()
     {
         return $this->hasMany(Activities::class, 'project_id', 'id');
+    }
+
+    public function scopeGanado($query)
+    {
+        return $query->where('Ganado', true);
     }
 
 }

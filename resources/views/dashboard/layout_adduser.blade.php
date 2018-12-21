@@ -12,6 +12,9 @@
     <link type="text/css" rel="stylesheet" href="/css/dashboard/components.css" />
     <link type="text/css" rel="stylesheet" href="/css/dashboard/custom.css" />
     <link type="text/css" rel="stylesheet" href="#" id="skin_change"/>
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/buttons.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/buttons.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/tables.css"/>
     <!-- end of global styles-->
 
     <!-- Calendario styles-->
@@ -35,6 +38,8 @@
 <script type="text/javascript" src="/js/dashboard/custom.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+<script type="text/javascript" src="/js/dashboard/buttons.js"></script>
+
 <!-- end of global scripts-->
 <!-- Calendar scripts -->
 <script type="text/javascript" src="/js/dashboard/jasny-bootstrap.js"></script>
