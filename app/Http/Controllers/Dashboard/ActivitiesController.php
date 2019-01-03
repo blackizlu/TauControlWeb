@@ -56,17 +56,20 @@ class ActivitiesController extends Controller
         $clients = Client::all();
         $contacts = contact::all();
         $projects = Project::all();
-        return view('dashboard.activities.index', compact('clients', 'contacts', 'projects', 'users', 'activity'));
+        return view('dashboard.activities.edit', compact('clients', 'contacts', 'projects', 'users', 'activity'));
 
     }
-
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         $activity = Activities::findOrFail($request->activity_id);
         $activity->fill($request->all());
         $activity->update();
 
-        return redirect()->back();
+
+        $message = 'Actividad actualizada con éxito';
+        Session::flash('message', $message);
+
+        return redirect()->route('dashboard.activities.index');
     }
 
     public function destroy(Request $request)

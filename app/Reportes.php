@@ -10,4 +10,6 @@ class Reportes extends Model
     {
         return $this->hasMany(Project::class, 'client_id', 'id');
     }
+
+
 }

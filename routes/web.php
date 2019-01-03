@@ -102,6 +102,8 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
     });
     Route::group(['prefix' =>'reportes'], function (){
         Route::get('/', 'Dashboard\ReportesController@index')->name('dashboard.reportes.index');
+        Route::get('/get/{id}', 'Dashboard\ReportesController@getProjects')->name('reportes.getProjects');
+
     });
 
 });

@@ -190,37 +190,37 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                                     <tbody>
                                                     <tr role="row" class="even">
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-file-invoice-dollar text-primary"></i></a>&nbsp;Cotizado</td>
-                                                        <td>65</td>
+                                                        <td>{{$Cotizado}}</td>
                                                         <td>$1,094,872.10</td>
                                                         <td>$2,337,960.92</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-dollar text-success"></i></a>&nbsp;Ganado</td>
-                                                        <td>46</td>
+                                                        <td>{{$Ganado}}</td>
                                                         <td>$ 5,712,602.03</td>
                                                         <td>$524,840.31</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-bullseye"></i></a>&nbsp;Lead</td>
-                                                        <td>207</td>
+                                                        <td>{{$Lead}}</td>
                                                         <td>$ 0.00</td>
                                                         <td>$ 0.00</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-handshake-o text-warning"></i></a>&nbsp;Negociación</td>
-                                                        <td>16</td>
+                                                        <td>{{$Negociacion}}</td>
                                                         <td>$ 999,000.00</td>
                                                         <td>$497,702.53</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-calculator text-muted"></i></a>&nbsp;Pricing</td>
-                                                        <td>44</td>
+                                                        <td>{{$Pricing}}</td>
                                                         <td>$ 0.00</td>
                                                         <td>$912,680.26</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-times-circle text-danger"></i></a>&nbsp;Rechazado</td>
-                                                        <td>126</td>
+                                                        <td>{{$Rechazado}}</td>
                                                         <td>$ 35,421,585.63</td>
                                                         <td>$7,328,810.88</td>
                                                     </tr>
@@ -244,9 +244,11 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-search text-primary"></i>
                                                         </span>
-                                                <select class="form-control" tabindex="7" name="user_id">
+                                                <select class="form-control" tabindex="7" name="user_id" id="user_id">
                                                     <option selected disabled>Buscar por usuario</option>
-                                                        <option value="">Usuario</option>
+                                                    @foreach($users as $user)
+                                                        <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -299,7 +301,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                 Comparativa responsables
                             </div>
                             <div class="card-block m-t-35">
-                                <button class="btn btn-primary" id="savechart">Descargar Gráfica &nbsp;<i class="fa fa-save"></i></button>
+                                <button class="btn btn-primary" id="downloadgrafica">Descargar Gráfica &nbsp;<i class="fa fa-save"></i></button>
                                     <canvas id="canvas"></canvas>
                             </div>
                         </div>
@@ -336,6 +338,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
 <!-- Exportar Graficas Charts.js a imagen -->
 <script type="text/javascript" src="/js/dashboard/FileSaver.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/canvas-toBlob.js"></script>
+<script type="text/javascript" src="/js/dashboard/canvas-to-blob.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/FileSaver.js"></script>
 <script type="text/javascript" src="/js/dashboard/Blob.js"></script>
 <!--Page level scripts-->
@@ -344,18 +347,42 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
 <script type="text/javascript" src="/js/dashboard/swiper.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/widgetReporte.js"></script>
 
-<script>//Script comparativa responsables.
-    $("#savechart").click(function () {
-        var canvas = document.getElementById("canvas");
-        canvas.toBlob(function(blob) {
-            console.log(blob);
-            saveAs(blob, "grafica1.png");
-        });
+<script>
+    'use strict';
+    $(document).ready(function () {
+        var options = {
+            useEasing: true,
+            useGrouping: true,
+            decimal: '.',
+            prefix: '',
+            suffix: ''
+        };
+        new CountUp("ganados", 0, '{{$Ganado}}', 0, 5.0, options).start();
+        new CountUp("cotizados", 0, '{{$Cotizado}}', 0, 5.0, options).start();
+        new CountUp("negociados", 0, '{{$Negociacion}}', 0, 5.0, options).start();
+        new CountUp("rechazados", 0, '{{$Rechazado}}', 0, 5.0, options).start();
+        new CountUp("lead", 0, '{{$Lead}}', 0, 5.0, options).start();
+        new CountUp("pricing", 0, '{{$Pricing}}', 0, 5.0, options).start();
 
+        var imgHeight=$(".left_align_img").height();
+        $(".left_image").css("height",imgHeight);
+    });
+</script>
+
+<script>//Script comparativa responsables.
+
+    // draw background
+    var backgroundColor = 'white';
+    Chart.plugins.register({
+        beforeDraw: function(c) {
+            var ctx = c.chart.ctx;
+            ctx.fillStyle = backgroundColor;
+            ctx.fillRect(0, 0, c.chart.width, c.chart.height);
+        }
     });
 
     var barChartData = {
-        labels: ['Christian', 'Luis', 'Giovanny', 'Sara', 'Sam', 'Samantha', 'Jorge', 'Carolina'],
+        labels: [@foreach($users as $user)'{{$user->profile->name}}', @endforeach],
         datasets: [{
             label: 'Negociacion',
             backgroundColor: window.chartColors.warning,
@@ -406,7 +433,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
             ]
         }]
 
-    };
+    };//datos para la grafica
     window.onload = function() {
         var ctx = document.getElementById('canvas').getContext('2d');
         window.myBar = new Chart(ctx, {
@@ -420,9 +447,10 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                 responsive: true,
                 scales: {
                     xAxes: [{
-                        stacked: true,
+                        stacked: false
                     }],
                     yAxes: [{
+                        stacked: false,
                         ticks: {
                             beginAtZero: true//para comenzar la numeracion en Y desde 0 y subira hasta el multiplo de 10 proximo al valor mas alto
                         }
@@ -431,6 +459,14 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
             }
         });
     };
+
+    $("#downloadgrafica").click(function() {
+        var canvas = document.getElementById("canvas");
+        canvas.toBlob(function(blob)
+        {
+            saveAs(blob, "grafica.png");
+        });
+    });
 
     'use strict';
     $(document).ready(function() {
@@ -495,6 +531,23 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
 
             }
         });
+        $("#user_id").change((function (event) {
+            var id = event.target.value;
+            var url = "{{ route('reportes.getProjects', ':D') }}";
+            url = url.replace(':D', id);
+            $.get(url ,function (response) {
+                console.log(response);
+                $("#proyectos ").empty();
+                for(i=0; i<response.projects.length; i++){
+                    $("#proyectos").append("<option  value='"+response.projects[i].id+"'>"+response.projects[i].name+"</option>");
+                }
+                $("#myContacts ").empty();
+                for(i=0; i<response.contacts.length; i++){
+                    $("#myContacts").append("<option value='"+response.contacts[i].id+"'>"+response.contacts[i].contact_name+"</option>");
+                }
+            });
+
+        }));
         var tableWrapper = $("#editable_table_wrapper");
         tableWrapper.find(".dataTables_length select").select2({
             showSearchInput: false//hide search box with special css class

@@ -1,0 +1,257 @@
+@extends('dashboard.layout')
+@section('content')
+    <header class="head">
+        <div class="main-bar">
+            <div class="row no-gutters">
+                <div class="col-sm-5 col-lg-6 skin_txt">
+                    <h4 class="nav_top_align">
+                        <i class="fa fa-file-invoice-dollar "></i>
+                        Editar actividad
+                    </h4>
+                </div>
+                <div class="col-sm-7 col-lg-6">
+                    <ol class="breadcrumb float-right nav_breadcrumb_top_align">
+                        <li class="breadcrumb-item">
+                            <a href="index1.html">
+                                <i class="fa fa-home" data-pack="default" data-tags=""></i>
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="">Actividades</a>
+                        </li>
+                        <li class="active breadcrumb-item">Editar actividad</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </header>
+    <form action="{{route('dashboard.activities.update', $activity->id)}}" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="_method" value="PUT">
+        {{ csrf_field() }}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group row m-t-15">
+                        <div class="col-lg-3 text-lg-right">
+                            <label for="type" class="col-form-label">Cliente*</label>
+                        </div>
+                        <div class="col-xl-6 col-lg-8">
+                            <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-user-tie text-primary"></i>
+                                        </span>
+                                <select class="form-control" tabindex="7" name="client_id" value="{{$activity->client->id}}">
+                                    <option selected value="{{$activity->client->id}}">{{$activity->client->client_name}}</option>
+                                    @foreach($clients as $client)
+                                        <option value="{{ $client->id }}">{{ $client->client_name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 text-lg-right">
+                            <label for="type" class="col-form-label">Contacto*</label>
+                        </div>
+                        <div class="col-xl-6 col-lg-8">
+                            <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-user text-primary"></i>
+                                        </span>
+                                <select class="form-control" tabindex="7" name="contact_id" value="{{$activity->client->contacts->id}}">
+                                    <option selected value="{{$activity->client->contacts->id}}">{{$activity->contacts->contact_name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 text-lg-right">
+                            <label for="type" class="col-form-label">Proyecto*</label>
+                        </div>
+                        <div class="col-xl-6 col-lg-8">
+                            <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-folder text-primary"></i>
+                                        </span>
+                                <select class="form-control" tabindex="7" name="project_id" id="proyectos">
+                                    <option selected disabled>Selecciona el proyecto</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 text-lg-right">
+                            <label for="type" class="col-form-label">Fecha de inicio*</label>
+                        </div>
+                        <div class="col-xl-6 col-lg-8">
+                            <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar-alt text-primary"></i>
+                                        </span>
+                                <div class="input-group input-append date" id="dp3" data-date-format="yyyy-mm-dd">
+                                    <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="start" id="start">
+                                    <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 text-lg-right">
+                            <label for="type" class="col-form-label">Fecha de finalización*</label>
+                        </div>
+                        <div class="col-xl-6 col-lg-8">
+                            <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar-alt text-primary"></i>
+                                        </span>
+                                <div class="input-group input-append date" id="dpYears" data-date-format="yyyy-mm-dd">
+                                    <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="end" id="end">
+                                    <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row" >
+                        <div class="col-lg-3 text-lg-right">
+                            <label for="type" class="col-form-label">Hora*</label>
+                        </div>
+                        <div class="col-xl-6 col-lg-8">
+                            <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-clock-o text-primary"></i>
+                                    </span>
+                                <div class="input-group clockpicker2" data-align="top" data-placement="top" data-autoclose="true">
+                                    <input type="text" class="form-control" value="12:00" name="time">
+                                    <span class="input-group-addon add-on">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 text-lg-right">
+                            <label for="type" class="col-form-label">Tipo de actividad*</label>
+                        </div>
+                        <div class="col-xl-6 col-lg-8">
+                            <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-clipboard-check text-primary"></i>
+                                        </span>
+                                <select class="form-control" tabindex="7" name="activity" id="name1">
+                                    <option selected disabled>Selecciona una actividad</option>
+                                    <option value="cita">Cita</option>
+                                    <option value="envio_correo">Envio de Correo</option>
+                                    <option value="instalacion_obra">Instalación de obra</option>
+                                    <option value="llamada">Llamada</option>
+                                    <option value="visita_obra">Visita a obra</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 text-lg-right">
+                            <label for="type" class="col-form-label">Actividad*</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="checkbox">
+                                <label class="text-success">
+                                    <input type="checkbox" data-on-text="SI" data-off-text="NO" value="NO" name="completed">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Realizada
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 text-lg-right">
+                            <label for="type" class="col-form-label">Comentarios*</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <textarea id="autosize" class="form-control" cols="50" rows="4" name="comments"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 text-lg-right">
+                            <label for="type" class="col-form-label">Responsable*</label>
+                        </div>
+                        <div class="col-xl-6 col-lg-8">
+                            <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-user-friends text-primary"></i>
+                                            </span>
+                                <select class="form-control" tabindex="7" name="user_id">
+                                    <option selected disabled>Selecciona al responsable</option>
+                                    @foreach($users as $user)
+                                        <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+@endsection
+@section('scripts')
+    <script>
+        $("#client").change((function (event) {
+            var id = event.target.value;
+            var url = "{{ route('activities.getContacts', ':D') }}";
+            url = url.replace(':D', id);
+            $.get(url ,function (response) {
+                console.log(response);
+                $("#proyectos ").empty();
+                for(i=0; i<response.projects.length; i++){
+                    $("#proyectos").append("<option  value='"+response.projects[i].id+"'>"+response.projects[i].name+"</option>");
+                }
+                $("#myContacts ").empty();
+                for(i=0; i<response.contacts.length; i++){
+                    $("#myContacts").append("<option value='"+response.contacts[i].id+"'>"+response.contacts[i].contact_name+"</option>");
+                }
+            });
+
+        }));
+
+        $('#edit').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var activity_id = button.data('actid');
+            var client = button.data('mytitle');
+            var contact = button.data('mycontact');
+            var project = button.data('myproject');
+            var date = button.data('mydate');
+            var date2 = button.data('mydate2');
+            var time = button.data('mytime');
+            var activity = button.data('myactivity');
+            var done = button.data('mydone');
+            var comments = button.data('mycomments');
+            var responsable = button.data('myuser');
+            var modal = $(this);
+
+
+            modal.find('.modal-body #act_id').val(activity_id);
+            modal.find('.modal-body #client').val(client);
+            modal.find('.modal-body #myContacts').val(contact);
+            modal.find('.modal-body #proyectos').val(project);
+            modal.find('.modal-body #start').val(date);
+            modal.find('.modal-body #end').val(date2);
+            modal.find('.modal-body #time').val(time);
+            modal.find('.modal-body #activity').val(activity);
+            modal.find('.modal-body #completed').val(done);
+            modal.find('.modal-body #comments').val(comments);
+            modal.find('.modal-body #user').val(responsable);
+
+
+            console.log(activity_id,client,contact,project,date,date2,time,activity,done,comments,responsable);
+        });
+
+        $('#delete').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var activity_id = button.data('actid');
+            var modal = $(this);
+            modal.find('.modal-body #act_id').val(activity_id);
+        });
+    </script>
+@endsection

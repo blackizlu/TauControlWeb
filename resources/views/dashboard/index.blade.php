@@ -126,36 +126,12 @@
                     <div class="col-lg-3">
                         <div class="card">
                             <div class="card-header">
-                                Leyendas
-                                <div class="float-right">
-                                    <a href="#" class="btn btn-link btn-xs" data-toggle="modal" data-target="#actividad">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-block m-t-35">
-                                <div id='external-events'>
-                                    <div class='external-event bg-primary'>Envio de correo</div>
-                                    <div class='external-event bg-danger'>Cita</div>
-                                    <div class='external-event bg-warning'>Instalación de obra</div>
-                                    <div class='external-event bg-success'>Llamada</div>
-                                    <div class='external-event bg-info'>Visita a obra</div>
-                                    <div class='external-event' style="background-color: #737373; color: white;">No completado</div>
-
-                                    {{--<p class="well no-border no-radius">
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id='drop-remove'>
-                                            <span class="custom-control-indicator"></span>
-                                            <span class="custom-control-description">remove after drop</span>
-                                        </label>
-                                    </p>--}}
-                                </div>
-                            </div>
-                            <div class="card-footer">
                                 <a href="{{route('dashboard.activities.index')}}" class="btn btn-success btn-block">Crear actividad</a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>

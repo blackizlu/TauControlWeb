@@ -56,7 +56,7 @@
                                         <td>
                                             <a class="edit" id="edit_button" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.users.edit',$user->id)}}">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>&nbsp;&nbsp;&nbsp;
-                                            <a class="trash" type="button" data-toggle="tooltip" data-placement="top" href="{{ route('dashboard.users.delete', $user->id) }}" title="Eliminar">
+                                            <a class="trash"  type="button" data-toggle="tooltip" data-placement="top" href="{{ route('dashboard.users.delete', $user->id) }}" title="Eliminar">
                                                 <i class="fa fa-trash text-danger"></i></a>
 
                                         </td>
@@ -70,9 +70,8 @@
             </div>
         </div>
     </div>
-
-
 @endsection
+
 @section('scripts')
     @if(Session::has('message'))
         <script>
@@ -85,28 +84,6 @@
         </script>
     @endif
     <script>
-        var table = $('#example_demo').DataTable({
-            "dom": "<'row'<'col-md-5 col-sm-12'l><'col-md-7 col-sm-12'f>r><'table-responsive't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
-            "paging": true,
-            "searching": true,
-            oLanguage: {
-                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
-                sInfoEmpty: "No hay registros a mostrar",
-                sInfoFiltered: "",
-                sZeroRecords: "Ningún registro para mostrar",
-                sSearch: "Buscar:",
-                oPaginate: {
-                    sFirst: "Primera Página",
-                    sLast: "Última Página",
-                    sNext: "Siguiente",
-                    sPrevious: "Anterior"
-                },
-                sEmptyTable: "No se encontraron registros",
-                sLengthMenu: "Mostrar _MENU_ Registros"
-
-            }
-        });
-
         $('#example_demo').find('tbody').on( 'click', 'a.trash', function (e) {
             e.preventDefault();
             var url = $(this).attr('href');
@@ -117,7 +94,7 @@
                 text: '¿Desea eliminar el registro?',
                 icon: 'fa fa-question-circle',
                 hide: false,
-                type: 'warning',
+                type: 'error',
                 confirm: {
                     confirm: true
                 },
@@ -143,8 +120,7 @@
                     }
                 });
             }).on('pnotify.cancel', function () {
-                swal('Oh ok. Chicken, I see.').done();
-
+                close;
             });
         } );
 
