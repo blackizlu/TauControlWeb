@@ -85,12 +85,11 @@
                                         <td>{{$activity->user->profile->name}} </td>
                                         <td>
                                             &nbsp; &nbsp;
-                                            <a data-toggle="modal"  data-actid="{{$activity->id}}" data-mytitle="{{$activity->client->client_name}}" data-mycontact="{{$activity->contact->contact_name}}" data-myproject="{{$activity->project->name}}"  data-mydate="{{$activity->start}}" data-mydate2="{{$activity->end}}" data-mytime="{{$activity->time}}" data-myactivity="{{$activity->activity}}" data-mydone="{{$activity->completed}}" data-mycomments="{{$activity->comments}}" data-myuser="{{$activity->user->profile->name}}" data-placement="top" title="Editar actividad" data-href="#edit" href="#edit" type="hidden">
+                                            <a class="edit" id="edit_button" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.activities.edit',$activity->id)}}">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>
                                             &nbsp; &nbsp;
-                                            <a data-toggle="modal" data-actid="{{$activity->id}}" data-placement="top" title="Eliminar actividad" data-href="#delete" href="#delete" type="hidden">
+                                            <a class="trash"  type="button" data-toggle="tooltip" data-placement="top" href="{{ route('dashboard.activities.delete', $activity->id) }}" title="Eliminar">
                                                 <i class="fa fa-trash text-danger"></i></a>
-
                                         </td>
                                     </tr>
                                     @endforeach
@@ -288,30 +287,6 @@
             </div>
         </div>
     </form>
-
-    <!--- responsive model Eliminar Actividad-->
-        <div class="modal fade in display_none" id="delete" tabindex="-1" role="dialog" aria-hidden="false">
-            <div class="modal-dialog modal-sd">
-                <div class="modal-content">
-                    <div class="modal-header bg-danger">
-                        <h4 class="modal-title text-white">Eliminar Actividad</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    </div>
-                    <form action="{{route('dashboard.activities.delete', $activity->id)}}" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="_method" value="PUT">
-                        {{ csrf_field() }}
-                            <div class="modal-body">
-                                <input type="hidden" name="activity_id" id="act_id" value="">
-                                <p class="text-center m-t-15"><strong>¿Estas seguro que deseas eliminar esta actividad?</strong></p>
-                            </div>
-                        <div class="modal-footer">
-                            <button type="button" data-dismiss="modal" class="btn btn-secondary">No, cancelar</button>
-                            <button type="submit" class="btn btn-danger">Si, eliminar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
 
     <!--- responsive model Editar Actividad-->
         <div class="modal fade in display_none" id="edit" tabindex="-1" role="dialog" aria-hidden="false">

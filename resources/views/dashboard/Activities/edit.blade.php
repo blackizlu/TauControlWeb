@@ -58,8 +58,11 @@
                                         <span class="input-group-addon">
                                             <i class="fa fa-user text-primary"></i>
                                         </span>
-                                <select class="form-control" tabindex="7" name="contact_id" value="{{$activity->client->contacts->id}}">
-                                    <option selected value="{{$activity->client->contacts->id}}">{{$activity->contacts->contact_name}}</option>
+                                <select class="form-control" tabindex="7" name="contact_id" value="{{$activity->contact->id}}">
+                                    <option selected value="{{$activity->contact->id}}">{{$activity->contact->contact_name}}</option>
+                                    @foreach($contacts as $contact)
+                                        <option value="{{ $contact->id }}">{{ $contact->contact_name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -73,9 +76,11 @@
                                         <span class="input-group-addon">
                                             <i class="fa fa-folder text-primary"></i>
                                         </span>
-                                <select class="form-control" tabindex="7" name="project_id" id="proyectos">
-                                    <option selected disabled>Selecciona el proyecto</option>
-
+                                <select class="form-control" tabindex="7" name="project_id" value="{{$activity->project->id}}">
+                                    <option selected value="{{$activity->project->id}}">{{$activity->project->name}}</option>
+                                    @foreach($projects as $project)
+                                        <option value="{{ $project->id}}">{{ $project->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -90,7 +95,7 @@
                                             <i class="fa fa-calendar-alt text-primary"></i>
                                         </span>
                                 <div class="input-group input-append date" id="dp3" data-date-format="yyyy-mm-dd">
-                                    <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="start" id="start">
+                                    <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="start" id="start" value="{{$activity->start}}">
                                     <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
                                 </div>
                             </div>
@@ -106,7 +111,7 @@
                                             <i class="fa fa-calendar-alt text-primary"></i>
                                         </span>
                                 <div class="input-group input-append date" id="dpYears" data-date-format="yyyy-mm-dd">
-                                    <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="end" id="end">
+                                    <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="end" id="end" value="{{$activity->end}}">
                                     <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
                                 </div>
                             </div>
@@ -122,7 +127,7 @@
                                         <i class="fa fa-clock-o text-primary"></i>
                                     </span>
                                 <div class="input-group clockpicker2" data-align="top" data-placement="top" data-autoclose="true">
-                                    <input type="text" class="form-control" value="12:00" name="time">
+                                    <input type="text" class="form-control" value="{{$activity->time}}" name="time">
                                     <span class="input-group-addon add-on">
                                         <i class="fa fa-clock-o"></i>
                                     </span>
@@ -139,13 +144,14 @@
                                         <span class="input-group-addon">
                                             <i class="fa fa-clipboard-check text-primary"></i>
                                         </span>
-                                <select class="form-control" tabindex="7" name="activity" id="name1">
+                                <select class="form-control" tabindex="7" name="activity" id="name1" value="{{ $activity->activity}}">
                                     <option selected disabled>Selecciona una actividad</option>
-                                    <option value="cita">Cita</option>
-                                    <option value="envio_correo">Envio de Correo</option>
-                                    <option value="instalacion_obra">Instalación de obra</option>
-                                    <option value="llamada">Llamada</option>
-                                    <option value="visita_obra">Visita a obra</option>
+                                    <option value="cita"@if($activity->activity == 'cita'){{ 'selected' }}@endif>Cita</option>
+                                    <option value="envio_correo"@if($activity->activity == 'envio_correo'){{ 'selected' }}@endif>Envio de Correo</option>
+                                    <option value="instalacion_obra"@if($activity->activity == 'instalacion_obra'){{ 'selected' }}@endif>Instalación de obra</option>
+                                    <option value="llamada"@if($activity->activity == 'llamada'){{ 'selected' }}@endif>Llamada</option>
+                                    <option value="visita_obra"@if($activity->activity == 'visita_obra'){{ 'selected' }}@endif>Visita a obra</option>
+
                                 </select>
                             </div>
                         </div>
@@ -157,7 +163,7 @@
                         <div class="col-lg-6">
                             <div class="checkbox">
                                 <label class="text-success">
-                                    <input type="checkbox" data-on-text="SI" data-off-text="NO" value="NO" name="completed">
+                                    <input type="checkbox" data-on-text="SI" data-off-text="NO" value="{{$activity->completed}}" name="completed" id="completed">
                                     <span class="cr"><i class="cr-icon fa fa-check"></i></span>
                                     Realizada
                                 </label>
@@ -169,7 +175,7 @@
                             <label for="type" class="col-form-label">Comentarios*</label>
                         </div>
                         <div class="col-lg-6">
-                            <textarea id="autosize" class="form-control" cols="50" rows="4" name="comments"></textarea>
+                            <textarea id="autosize" class="form-control" cols="50" rows="4" name="comments">{{$activity->comments}}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -181,77 +187,24 @@
                                             <span class="input-group-addon">
                                                 <i class="fa fa-user-friends text-primary"></i>
                                             </span>
-                                <select class="form-control" tabindex="7" name="user_id">
-                                    <option selected disabled>Selecciona al responsable</option>
+                                <select class="form-control" tabindex="7" name="user_id" value="{{$activity->user->id}}">
+                                    <option selected value="{{$activity->user->id}}">{{$activity->user->profile->name}}</option>
                                     @foreach($users as $user)
-                                        <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
+                                        <option value="{{ $user->id}}">{{ $user->profile->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-9 push-lg-3">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fa fa-user"></i>
+                        Actualizar
+                    </button>
+                </div>
             </div>
         </div>
     </form>
 @endsection
-@section('scripts')
-    <script>
-        $("#client").change((function (event) {
-            var id = event.target.value;
-            var url = "{{ route('activities.getContacts', ':D') }}";
-            url = url.replace(':D', id);
-            $.get(url ,function (response) {
-                console.log(response);
-                $("#proyectos ").empty();
-                for(i=0; i<response.projects.length; i++){
-                    $("#proyectos").append("<option  value='"+response.projects[i].id+"'>"+response.projects[i].name+"</option>");
-                }
-                $("#myContacts ").empty();
-                for(i=0; i<response.contacts.length; i++){
-                    $("#myContacts").append("<option value='"+response.contacts[i].id+"'>"+response.contacts[i].contact_name+"</option>");
-                }
-            });
 
-        }));
-
-        $('#edit').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var activity_id = button.data('actid');
-            var client = button.data('mytitle');
-            var contact = button.data('mycontact');
-            var project = button.data('myproject');
-            var date = button.data('mydate');
-            var date2 = button.data('mydate2');
-            var time = button.data('mytime');
-            var activity = button.data('myactivity');
-            var done = button.data('mydone');
-            var comments = button.data('mycomments');
-            var responsable = button.data('myuser');
-            var modal = $(this);
-
-
-            modal.find('.modal-body #act_id').val(activity_id);
-            modal.find('.modal-body #client').val(client);
-            modal.find('.modal-body #myContacts').val(contact);
-            modal.find('.modal-body #proyectos').val(project);
-            modal.find('.modal-body #start').val(date);
-            modal.find('.modal-body #end').val(date2);
-            modal.find('.modal-body #time').val(time);
-            modal.find('.modal-body #activity').val(activity);
-            modal.find('.modal-body #completed').val(done);
-            modal.find('.modal-body #comments').val(comments);
-            modal.find('.modal-body #user').val(responsable);
-
-
-            console.log(activity_id,client,contact,project,date,date2,time,activity,done,comments,responsable);
-        });
-
-        $('#delete').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var activity_id = button.data('actid');
-            var modal = $(this);
-            modal.find('.modal-body #act_id').val(activity_id);
-        });
-    </script>
-@endsection

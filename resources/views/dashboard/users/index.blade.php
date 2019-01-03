@@ -84,7 +84,10 @@
         </script>
     @endif
     <script>
-        $('#example_demo').find('tbody').on( 'click', 'a.trash', function (e) {
+
+        var table = $('#example_demo').DataTable();
+
+        $('#example_demo tbody').on( 'click', 'a.trash', function (e) {
             e.preventDefault();
             var url = $(this).attr('href');
             var tr = $(this).parents('tr');
@@ -106,6 +109,7 @@
                     history: false
                 }
             }).get().on('pnotify.confirm', function () {
+                console.log(CSRF_TOKEN);
                 $.ajax({
                     url: url,
                     type: 'POST',
@@ -119,8 +123,6 @@
                         }
                     }
                 });
-            }).on('pnotify.cancel', function () {
-                close;
             });
         } );
 

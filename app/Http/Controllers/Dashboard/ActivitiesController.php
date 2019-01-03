@@ -59,15 +59,14 @@ class ActivitiesController extends Controller
         return view('dashboard.activities.edit', compact('clients', 'contacts', 'projects', 'users', 'activity'));
 
     }
+
     public function update(Request $request, $id)
     {
-        $activity = Activities::findOrFail($request->activity_id);
+        $activity = Activities::findOrFail($id);
         $activity->fill($request->all());
+        $activity->completed = $request->has('completed') ? 1 : 0;
         $activity->update();
 
-
-        $message = 'Actividad actualizada con éxito';
-        Session::flash('message', $message);
 
         return redirect()->route('dashboard.activities.index');
     }
@@ -80,7 +79,6 @@ class ActivitiesController extends Controller
         return redirect()->route('dashboard.activities.index');
 
     }
-
 
     //PRUEBA PARA DYNAMIC DROPDOWNS-DEPENDENT SELECT BOX
     public function getContacts(Request $request, $id)
@@ -98,7 +96,6 @@ class ActivitiesController extends Controller
 
         return null;
     }
-
 
     public function getActivity($id)
     {
