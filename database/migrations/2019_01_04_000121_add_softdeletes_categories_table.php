@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSoftdeletesClientsTable extends Migration
+class AddSoftdeletesCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class AddSoftdeletesClientsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('categories', function (Blueprint $table) {
+            $table->softDeletes();
+        });
     }
 
     /**
@@ -23,6 +25,8 @@ class AddSoftdeletesClientsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('categories', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 }

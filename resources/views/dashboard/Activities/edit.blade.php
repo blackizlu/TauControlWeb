@@ -163,7 +163,7 @@
                         <div class="col-lg-6">
                             <div class="checkbox">
                                 <label class="text-success">
-                                    <input type="checkbox" data-on-text="SI" data-off-text="NO" value="{{$activity->completed}}" name="completed" id="completed">
+                                    <input type="checkbox" data-on-text="SI" data-off-text="NO"@if($activity->completed == '1'){{ 'checked' }}@endif name="completed" id="completed">
                                     <span class="cr"><i class="cr-icon fa fa-check"></i></span>
                                     Realizada
                                 </label>

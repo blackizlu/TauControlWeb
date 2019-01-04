@@ -96,7 +96,7 @@
                 contacto: '{{$event->contact->contact_name}}',
                 hora: '{{\Carbon\Carbon::parse($event->time)->format('G:i')}}',
                 hora2:'{{$event->Date}}',
-            backgroundColor: '{{$event->color}}'
+            backgroundColor: '@if($event->completed == '1'){{'#737373'}} @else{{$event->color}}@endif'
             },@endforeach],
 
             eventClick: function(evento, jsEvent, view) {

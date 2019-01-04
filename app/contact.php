@@ -8,11 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class contact extends Model
 {
-    protected $table = 'contacts';
     protected $fillable = ['contact_name', 'client_id', 'workstation', 'phone_number', 'email',];
 
     public function client()
     {
-        return $this->hasOne(Client::class, 'id', 'client_id');
+        return $this->hasOne(Client::class, 'id', 'client_id')->withTrashed();
     }
+
+    use SoftDeletes;
+
+    protected $table = 'contacts';
 }

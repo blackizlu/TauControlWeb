@@ -24,7 +24,7 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::get('/{id}/edit', 'Dashboard\UsersController@edit')->name('dashboard.users.edit');
         Route::post('/', 'Dashboard\UsersController@store')->name('dashboard.users.store');
         Route::put('/{id}/update', 'Dashboard\UsersController@update')->name('dashboard.users.update');
-        Route::delete('/{id}/delete', 'Dashboard\UsersController@destroy')->name('dashboard.users.delete');
+        Route::delete('/{id}/delete', 'Dashboard\UsersController@destroy')->name('dashboard.users.delete');//Listo
     });
 
     //MODULO CLIENTES
@@ -35,7 +35,7 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::get('/{id}/edit', 'Dashboard\ClientsController@edit')->name('dashboard.clients.edit');
         Route::post('/', 'Dashboard\ClientsController@store')->name('dashboard.clients.store');
         Route::put('/{id}/update', 'Dashboard\ClientsController@update')->name('dashboard.clients.update');
-        Route::delete('/{id}/delete', 'Dashboard\ClientsController@destroy')->name('dashboard.clients.delete');
+        Route::delete('/{id}/delete', 'Dashboard\ClientsController@destroy')->name('dashboard.clients.delete');//Listo
 
     });
 
@@ -46,7 +46,7 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::get('/{id}/edit', 'Dashboard\ContactsController@edit')->name('dashboard.contacts.edit');
         Route::post('/', 'Dashboard\ContactsController@store')->name('dashboard.contacts.store');
         Route::put('/{id}/update', 'Dashboard\ContactsController@update')->name('dashboard.contacts.update');
-        Route::delete('/{id}/delete', 'Dashboard\ContactsController@destroy')->name('dashboard.contacts.delete');
+        Route::delete('/{id}/delete', 'Dashboard\ContactsController@destroy')->name('dashboard.contacts.delete');//Listo
     });
 
     //MODULO PROYECTOS
@@ -57,7 +57,7 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::get('/{id}/edit', 'Dashboard\ProjectsController@edit')->name('dashboard.projects.edit');
         Route::post('/', 'Dashboard\ProjectsController@store')->name('dashboard.projects.store');
         Route::put('/{id}/update', 'Dashboard\ProjectsController@update')->name('dashboard.projects.update');
-        Route::delete('/{id}/delete', 'Dashboard\ProjectsController@destroy')->name('dashboard.projects.delete');
+        Route::delete('/{id}/delete', 'Dashboard\ProjectsController@destroy')->name('dashboard.projects.delete');//Listo
     });
 
     //MODULO COTIZACIONES
@@ -78,7 +78,7 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
     Route::group(['prefix' =>'categories'], function (){
         Route::post('/', 'Dashboard\CategoryController@store')->name('dashboard.categories.store');
         Route::put('/{id}/update', 'Dashboard\CategoryController@update')->name('dashboard.categories.update');
-        Route::delete('/delete/{id}', 'Dashboard\CategoryController@destroy')->name('dashboard.categories.delete');
+        Route::delete('/{id}/delete', 'Dashboard\CategoryController@destroy')->name('dashboard.categories.delete');//Listo
 
     });
 

@@ -39,10 +39,8 @@ class CategoryController extends Controller
         $categories = Category::findOrFail($id);
         $categories->delete();
 
-        $message = 'Categoria eliminada con éxito';
-        Session::flash('message', $message);
-
-        return redirect()->route('dashboard.cotizaciones.categories');
-
+        return response()->json([
+            'success' => true
+        ]);
     }
 }

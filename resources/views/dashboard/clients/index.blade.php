@@ -12,7 +12,7 @@
                 <div class="col-lg-6 col-sm-8 col-12">
                     <ol class="breadcrumb float-right  nav_breadcrumb_top_align">
                         <li class="breadcrumb-item">
-                            <a href="index1.html">
+                            <a href="{{route('dashboard.index')}}">
                                 <i class="fa fa-home" data-pack="default" data-tags=""></i> Inicio
                             </a>
                         </li>
@@ -28,7 +28,7 @@
                 <div class="card-header bg-white">
                     Lista de clientes
                 </div>
-                <div class="card-block" id="user_body">
+                <div class="card-block">
                     @if(Session::has('message'))
                         <div class="row">
                             <div class="col-sm-12">
@@ -41,35 +41,28 @@
                             </div>
                         </div>
                     @endif
-                    <div class="table-toolbar">
                         <div class="btn-group">
                             <a href="{{route ('dashboard.clients.add')}}" id="editable_table_new" class=" btn btn-default">
-                                Nuevo cliente  <i class="fa fa-plus"></i>
+                                Nuevo Cliente  <i class="fa fa-plus"></i>
                             </a>
-                        </div>
-                        <div class="btn-group float-right users_grid_tools">
-                            <div class="tools"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <table class="table  table-striped table-bordered table-hover dataTable no-footer" id="editable_table" role="grid">
+                        </div><br>
+                        <div class="m-t-25">
+                            <table id="example_demo " class="table table-hover table-striped table-bordered">
                                 <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc wid-20" tabindex="0" rowspan="1" colspan="1">Nombre</th>
-                                    <th class="sorting_asc wid-20" tabindex="0" rowspan="1" colspan="1">Tipo de contacto</th>
-                                    <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Telefono de oficina</th>
-                                    <th class="sorting wid-15" tabindex="0" rowspan="1" colspan="1">Página web</th>
-                                    <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Notas</th>
-                                    <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Responsable</th>
-                                    <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Acciones</th>
-
+                                <tr >
+                                    <th>Nombre</th>
+                                    <th>Tipo de contacto</th>
+                                    <th>Telefono de oficina</th>
+                                    <th>Página web</th>
+                                    <th>Notas</th>
+                                    <th>Responsable</th>
+                                    <th>Acciones</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($clients as $client)
-                                    <tr role="row" class="even">
-                                        <td class="sorting_1">{{ $client->client_name }}</td>
+                                    <tr>
+                                        <td>{{ $client->client_name }}</td>
                                         <td>{{ $client->type }}</td>
                                         <td>{{ $client->office_number }}</td>
                                         <td>{{ $client->web_page }}</td>
@@ -86,8 +79,9 @@
                                             <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.clients.edit',$client->id)}}">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>
                                             &nbsp; &nbsp;
-                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Eliminar" href="#" data-id="{{ $client->id }}">
+                                            <a class="trash"  type="button" data-toggle="tooltip" data-placement="top" href="{{ route('dashboard.clients.delete', $client->id) }}" title="Eliminar">
                                                 <i class="fa fa-trash text-danger"></i></a>
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -97,20 +91,51 @@
                 </div>
             </div>
         </div>
-        <!-- /.inner -->
-    </div>
 @endsection
 
 @section('scripts')
+    @if(Session::has('message'))
+        <script>
+            iziToast.show({
+                title: 'Success',
+                message: '{!! Session::get('message') !!}',
+                color:'#cc2900',
+                position: 'bottomCenter'
+            });
+        </script>
+    @endif
     <script>
-        $(".confirm").on("click", function () {
-            var id = $(this).data('id');
+
+        var table = $('#example_demo').DataTable({
+            oLanguage: {
+                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+                sInfoEmpty: "No hay registros a mostrar",
+                sInfoFiltered: "",
+                sZeroRecords: "Ningún registro para mostrar",
+                sSearch: "Buscar:",
+                oPaginate: {
+                    sFirst: "Primera Página",
+                    sLast: "Última Página",
+                    sNext: "Siguiente",
+                    sPrevious: "Anterior"
+                },
+                sEmptyTable: "No se encontraron registros",
+                sLengthMenu: "Mostrar _MENU_ Registros"
+
+            }
+        });
+
+        $('#example_demo tbody').on( 'click', 'a.trash', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var tr = $(this).parents('tr');
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             new PNotify({
                 title: 'Eliminar',
                 text: '¿Desea eliminar el registro?',
                 icon: 'fa fa-question-circle',
                 hide: false,
-                type: 'success',
+                type: 'error',
                 confirm: {
                     confirm: true
                 },
@@ -122,12 +147,22 @@
                     history: false
                 }
             }).get().on('pnotify.confirm', function () {
-                swal(id).done();
-            }).on('pnotify.cancel', function () {
-                swal('Oh ok. Chicken, I see.').done();
-
+                console.log(CSRF_TOKEN);
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: { _token: CSRF_TOKEN, _method: 'delete' },
+                    dataType: 'JSON',
+                    success: function (data) {
+                        if(data.success) {
+                            table.row( tr )
+                                .remove()
+                                .draw();
+                        }
+                    }
+                });
             });
-            return false;
-        });
+        } );
+
     </script>
 @endsection

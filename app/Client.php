@@ -3,10 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Client extends Model
 {
-    protected $table = 'clients';
     protected $fillable = ['client_name', 'type', 'office_number', 'web_page', 'notes', 'user_id'];
 
     public function contacts()
@@ -29,4 +29,7 @@ class Client extends Model
         return $this->hasMany(Activities::class, 'client_id', 'id');
     }
 
+    use SoftDeletes;
+
+    protected $table = 'clients';
 }

@@ -29,14 +29,13 @@
                     Lista de usuarios
                 </div>
                 <div class="card-block">
-                    <div class="m-t-35">
                         <div class="btn-group">
                             <a href="{{route ('dashboard.users.add')}}" id="editable_table_new" class=" btn btn-default">
                                 Nuevo Usuario  <i class="fa fa-plus"></i>
                             </a>
                         </div><br>
                         <div class="m-t-25">
-                            <table id="example_demo" class="table table-hover table-bordered">
+                            <table id="example_demo" class="table table-hover table-striped table-bordered">
                                 <thead>
                                 <tr>
                                     <th>Nombre</th>
@@ -85,7 +84,24 @@
     @endif
     <script>
 
-        var table = $('#example_demo').DataTable();
+        var table = $('#example_demo').DataTable({
+            oLanguage: {
+                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+                sInfoEmpty: "No hay registros a mostrar",
+                sInfoFiltered: "",
+                sZeroRecords: "Ningún registro para mostrar",
+                sSearch: "Buscar:",
+                oPaginate: {
+                    sFirst: "Primera Página",
+                    sLast: "Última Página",
+                    sNext: "Siguiente",
+                    sPrevious: "Anterior"
+                },
+                sEmptyTable: "No se encontraron registros",
+                sLengthMenu: "Mostrar _MENU_ Registros"
+
+            }
+        });
 
         $('#example_demo tbody').on( 'click', 'a.trash', function (e) {
             e.preventDefault();

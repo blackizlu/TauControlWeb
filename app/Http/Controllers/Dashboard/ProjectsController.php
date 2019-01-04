@@ -85,5 +85,14 @@ class ProjectsController extends Controller
         return redirect()->route('dashboard.projects.index');
     }
 
+    public function destroy($id){
+        $projects = Project::findOrFail($id);
+        $projects->delete();
+
+        return response()->json([
+            'success' => true
+        ]);
+    }
+
 
 }

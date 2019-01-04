@@ -63,14 +63,12 @@ class ContactsController extends Controller
         return redirect()->route('dashboard.contacts.index');
     }
 
-    public function delete($id){
+    public function destroy($id){
         $contact = Contact::findOrFail($id);
         $contact->delete();
 
-        $message = 'Contacto eliminado con éxito';
-        Session::flash('message', $message);
-
-        return redirect()->route('dashboard.contacts.index');
-
+        return response()->json([
+            'success' => true
+        ]);
     }
 }

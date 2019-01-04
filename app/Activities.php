@@ -14,12 +14,12 @@ class Activities extends Model
 
     public function client()
     {
-        return $this->hasOne(Client::class, 'id', 'client_id');
+        return $this->hasOne(Client::class, 'id', 'client_id')->withTrashed();
     }
 
     public function contact()
     {
-        return $this->hasOne(contact::class, 'id', 'contact_id');
+        return $this->hasOne(contact::class, 'id', 'contact_id')->withTrashed();
     }
 
     public function project()

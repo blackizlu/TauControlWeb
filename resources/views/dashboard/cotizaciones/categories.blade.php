@@ -38,7 +38,7 @@
                                 <div>
                                     <a class="btn btn-primary btn-md adv_cust_mod_btn" data-toggle="modal" data-href="#responsive" href="#responsive">Nueva Categoría</a>
                                 </div>
-                                <table class="table m-t-15">
+                                <table class="table m-t-15" id="example_demo">
                                     <thead>
                                     <tr>
                                         <th>Nombre</th>
@@ -52,9 +52,7 @@
                                         <td>{{$category->name}}</td>
                                         <td><a class="edit" data-toggle="modal" data-href="#edit" data-placement="top" title="Editar" href="#edit">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>
-                                    &nbsp; &nbsp;     <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Desactivar" href="{{route('dashboard.categories.delete', $category->id)}}" data-id="">
-                                                <input type="hidden" name="_method" value="POST">
-
+                                    &nbsp; &nbsp;     <a class="trash"  type="button" data-toggle="tooltip" data-placement="top" href="{{ route('dashboard.categories.delete', $category->id) }}" title="Eliminar">
                                                 <i class="fa fa-trash text-danger"></i></a>
                                         </td>
                                     </tr>
@@ -129,8 +127,70 @@
             </div>
         </form>
     </div>
+@endsection
+
+@section('scripts')
+    @if(Session::has('message'))
+        <script>
+            iziToast.show({
+                title: 'Success',
+                message: '{!! Session::get('message') !!}',
+                color:'#cc2900',
+                position: 'bottomCenter'
+            });
+        </script>
+    @endif
+    <script>
+
+        var table = $('#example_demo').DataTable({
+            "searching": false,
+            "orderable": false,
+            "paging": false,
+            "info": false,
 
 
 
+        });
+
+        $('#example_demo tbody').on( 'click', 'a.trash', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var tr = $(this).parents('tr');
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            new PNotify({
+                title: 'Eliminar',
+                text: '¿Desea eliminar el registro?',
+                icon: 'fa fa-question-circle',
+                hide: false,
+                type: 'error',
+                confirm: {
+                    confirm: true
+                },
+                buttons: {
+                    closer: false,
+                    sticker: false
+                },
+                history: {
+                    history: false
+                }
+            }).get().on('pnotify.confirm', function () {
+                console.log(CSRF_TOKEN);
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: { _token: CSRF_TOKEN, _method: 'delete' },
+                    dataType: 'JSON',
+                    success: function (data) {
+                        if(data.success) {
+                            table.row( tr )
+                                .remove()
+                                .draw();
+                        }
+                    }
+                });
+            });
+        } );
+
+    </script>
 @endsection
 

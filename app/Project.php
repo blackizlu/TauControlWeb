@@ -3,11 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 
 class Project extends Model
 {
-    protected $table = 'projects';
     protected $fillable = ['name', 'phase', 'estimated_date', 'user_id','client_id', 'comments'];
 
     public function user()
@@ -35,5 +35,9 @@ class Project extends Model
     {
         return $query->where('Ganado', true);
     }
+
+    use SoftDeletes;
+
+    protected $table = 'projects';
 
 }

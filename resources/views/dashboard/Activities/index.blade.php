@@ -68,9 +68,19 @@
                                 <tbody>
                                 @foreach($activities as $activity)
                                     <tr >
-                                        <td>{{$activity->client->client_name}}</td>
-                                        <td>{{$activity->contact->contact_name}}</td>
-                                        <td>{{$activity->project->name}}</td>
+                                        <td>{{$activity->client->client_name}}
+                                            @if($activity->client->deleted_at != null)
+                                                <span style="color: red; font-size: 10px;">(Eliminado)</span>
+                                            @endif</td>
+                                        <td>{{$activity->contact->contact_name}}
+                                            @if($activity->contact->deleted_at != null)
+                                                <span style="color: red; font-size: 10px;">(Eliminado)</span>
+                                            @endif
+                                        </td>
+                                        <td>{{$activity->project->name}}
+                                            @if($activity->project->deleted_at != null)
+                                                <span style="color: red; font-size: 10px;">(Eliminado)</span>
+                                            @endif</td>
                                         <td>{{\Carbon\Carbon::parse($activity->deadline)->format('d/m/Y')}}</td>
                                         <td>{{\Carbon\Carbon::parse($activity->time)->format('h:i A')}}</td>
                                         <td>{{$activity->Name_Activity}}</td>
@@ -82,7 +92,10 @@
                                                 </label>
                                             </div></td>
                                         <td>{{$activity->comments}}</td>
-                                        <td>{{$activity->user->profile->name}} </td>
+                                        <td>{{$activity->user->profile->name}}
+                                            @if($activity->user->deleted_at != null)
+                                                <span style="color: red; font-size: 10px;">(Eliminado)</span>
+                                            @endif</td>
                                         <td>
                                             &nbsp; &nbsp;
                                             <a class="edit" id="edit_button" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.activities.edit',$activity->id)}}">

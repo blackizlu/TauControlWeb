@@ -28,7 +28,7 @@
                 <div class="card-header bg-white">
                     Lista de contactos
                 </div>
-                <div class="card-block" id="user_body">
+                <div class="card-block">
                     @if(Session::has('message'))
                         <div class="row">
                             <div class="col-sm-12">
@@ -41,54 +41,49 @@
                             </div>
                         </div>
                     @endif
-                    <div class="table-toolbar">
-                        <div class="btn-group">
-                            <a href="{{route ('dashboard.contacts.add')}}" id="editable_table_new" class=" btn btn-default">
-                                Nuevo contacto  <i class="fa fa-plus"></i>
-                            </a>
-                        </div>
-                        <div class="btn-group float-right users_grid_tools">
-                            <div class="tools"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <table class="table  table-striped table-bordered table-hover dataTable no-footer" id="editable_table" role="grid">
-                                <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc wid-20" tabindex="0" rowspan="1" colspan="1">Nombre</th>
-                                    <th class="sorting_asc wid-20" tabindex="0" rowspan="1" colspan="1">Empresa</th>
-                                    <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Puesto</th>
-                                    <th class="sorting wid-15" tabindex="0" rowspan="1" colspan="1">Teléfono</th>
-                                    <th class="sorting wid-15" tabindex="0" rowspan="1" colspan="1">Correo</th>
-                                    <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Acciones</th>
+                    <div class="btn-group">
+                        <a href="{{route ('dashboard.contacts.add')}}" id="editable_table_new" class=" btn btn-default">
+                            Nuevo Contacto  <i class="fa fa-plus"></i>
+                        </a>
+                    </div><br>
+                    <div class="m-t-25">
+                        <table id="example_demo" class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr >
+                                <th>Nombre</th>
+                                <th>Empresa</th>
+                                <th>Puesto</th>
+                                <th>Teléfono</th>
+                                <th>Correo</th>
+                                <th>Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($contacts as $contact)
+                                <tr>
+                                    <td>{{ $contact->contact_name }}</td>
+                                    <td>{{ $contact->client->client_name }}
+                                        @if($contact->client->deleted_at != null)
+                                            <span style="color: red; font-size: 10px;">(Eliminado)</span>
+                                        @endif</td>
+                                    <td>{{ $contact->workstation }}</td>
+                                    <td>{{ $contact->phone_number }}</td>
+                                    <td>{{ $contact->email }}</td>
+                                    <td>
+                                        &nbsp; &nbsp;
+                                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.contacts.edit',$contact->id)}}">
+                                            <i class="fa fa-pencil-alt text-warning"></i></a>
+                                        &nbsp; &nbsp;
+                                        <a class="trash"  type="button" data-toggle="tooltip" data-placement="top" href="{{ route('dashboard.contacts.delete', $contact->id) }}" title="Eliminar">
+                                            <i class="fa fa-trash text-danger"></i></a>
+                                    </td>
                                 </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($contacts as $contact)
-                                    <tr role="row" class="even">
-                                        <td class="sorting_1">{{ $contact->contact_name }}</td>
-                                        <td>{{ $contact->client->client_name }}</td>
-                                        <td>{{ $contact->workstation }}</td>
-                                        <td>{{ $contact->phone_number }}</td>
-                                        <td>{{ $contact->email }}</td>
-                                        <td>
-                                            &nbsp; &nbsp;
-                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.contacts.edit',$contact->id)}}">
-                                                <i class="fa fa-pencil-alt text-warning"></i></a>
-                                            &nbsp; &nbsp;
-                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Eliminar" href="#" data-id="{{ $contact->id }}">
-                                                <i class="fa fa-trash text-danger"></i></a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </table>
-                        </div>
+                            @endforeach
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /.inner -->
     </div>
 @endsection
 @section('scripts')
@@ -103,16 +98,37 @@
         </script>
     @endif
     <script>
-        $('.confirm').click(function (e) {
-            console.log('click');
+
+        var table = $('#example_demo').DataTable({
+            oLanguage: {
+                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+                sInfoEmpty: "No hay registros a mostrar",
+                sInfoFiltered: "",
+                sZeroRecords: "Ningún registro para mostrar",
+                sSearch: "Buscar:",
+                oPaginate: {
+                    sFirst: "Primera Página",
+                    sLast: "Última Página",
+                    sNext: "Siguiente",
+                    sPrevious: "Anterior"
+                },
+                sEmptyTable: "No se encontraron registros",
+                sLengthMenu: "Mostrar _MENU_ Registros"
+
+            }
+        });
+
+        $('#example_demo tbody').on( 'click', 'a.trash', function (e) {
             e.preventDefault();
-            var id = $(this).data('id');
+            var url = $(this).attr('href');
+            var tr = $(this).parents('tr');
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             new PNotify({
                 title: 'Eliminar',
                 text: '¿Desea eliminar el registro?',
                 icon: 'fa fa-question-circle',
                 hide: false,
-                type: 'success',
+                type: 'error',
                 confirm: {
                     confirm: true
                 },
@@ -124,12 +140,22 @@
                     history: false
                 }
             }).get().on('pnotify.confirm', function () {
-                swal(id).done();
-            }).on('pnotify.cancel', function () {
-                swal('Oh ok. Chicken, I see.').done();
-
+                console.log(CSRF_TOKEN);
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: { _token: CSRF_TOKEN, _method: 'delete' },
+                    dataType: 'JSON',
+                    success: function (data) {
+                        if(data.success) {
+                            table.row( tr )
+                                .remove()
+                                .draw();
+                        }
+                    }
+                });
             });
-            return false;
-        });
+        } );
+
     </script>
 @endsection

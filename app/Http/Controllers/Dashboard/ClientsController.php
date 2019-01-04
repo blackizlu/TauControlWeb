@@ -87,10 +87,8 @@ class ClientsController extends Controller
         $client = Client::findOrFail($id);
         $client->delete();
 
-        $message = 'Cliente eliminado con éxito';
-        Session::flash('message', $message);
-
-        return redirect()->route('dashboard.clients.index');
-
+        return response()->json([
+            'success' => true
+        ]);
     }
 }

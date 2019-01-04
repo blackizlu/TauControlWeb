@@ -28,7 +28,7 @@
                 <div class="card-header bg-white">
                     Lista de proyectos
                 </div>
-                <div class="card-block" id="user_body">
+                <div class="card-block">
                     @if(Session::has('message'))
                         <div class="row">
                             <div class="col-sm-12">
@@ -41,77 +41,102 @@
                             </div>
                         </div>
                     @endif
-                    <div class="table-toolbar">
                         <div class="btn-group">
                             <a href="{{route ('dashboard.projects.add')}}" id="editable_table_new" class=" btn btn-default">
                                 Nuevo proyecto  <i class="fa fa-plus"></i>
                             </a>
-                        </div>
-                        <div class="btn-group float-right users_grid_tools">
-                            <div class="tools"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <table class="table  table-striped table-bordered table-hover dataTable no-footer" id="editable_table" role="grid">
+                        </div><br>
+                        <div class="m-t-25">
+                            <table id="example_demo" class="table table-hover table-striped table-bordered">
                                 <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc wid-20" tabindex="0" rowspan="1" colspan="1">Nombre</th>
-                                    <th class="sorting_asc wid-20" tabindex="0" rowspan="1" colspan="1">Cliente</th>
-                                    <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Etapa</th>
-                                    <th class="sorting wid-15" tabindex="0" rowspan="1" colspan="1">Fecha estimada de cierre</th>
-                                    <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Monto</th>
-                                    <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Moneda</th>
-                                    <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Responsable</th>
-                                    <th class="sorting wid-10" tabindex="0" rowspan="1" colspan="1">Acciones</th>
-
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Cliente</th>
+                                <th>Etapa</th>
+                                <th>Fecha estimada de cierre</th>
+                                <th>Monto</th>
+                                <th>Moneda</th>
+                                <th>Responsable</th>
+                                <th>Acciones</th>
+                            </tr>
+                                </thead>
+                            {{--</thead>EN EL MONTO DE PROYECTO SE DEBERA MOSTRAR EL MONTO DE LA ULTIMA COTIZACION GENERADA PARA DICHO PROYECTO. UN PROYECTO PUEDE TENER MULTIPLES COTIZACIONES.--}}
+                            <tbody>
+                            @foreach($projects->SortBy('estimated_date') as $project)
+                                <tr>
+                                    <td>{{ $project->name }}</td>
+                                    <td>{{ $project->client->client_name }}</td>
+                                    <td>{{ $project->phase }}</td>
+                                    <td>{{\Carbon\Carbon::parse($project->estimated_date)->format('d/m/Y')}}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>{{ $project->user->profile->full_name }}
+                                        @if($project->user->deleted_at != null)
+                                            <span style="color: red; font-size: 10px;">(Eliminado)</span>
+                                        @endif
+                                    </td>                                        <td>
+                                        <a href="{{route ('dashboard.projects.view', $project->id)}}" data-toggle="tooltip" data-placement="top" title="Ver proyecto">
+                                            <i class="fa fa-eye text-success"></i></a>
+                                        &nbsp; &nbsp;
+                                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.projects.edit',$project->id)}}">
+                                            <i class="fa fa-pencil-alt text-warning"></i></a>
+                                        &nbsp; &nbsp;
+                                        <a class="trash"  type="button" data-toggle="tooltip" data-placement="top" href="{{ route('dashboard.projects.delete', $project->id) }}" title="Eliminar">
+                                            <i class="fa fa-trash text-danger"></i></a>
+                                    </td>
                                 </tr>
-                                {{--</thead>EN EL MONTO DE PROYECTO SE DEBERA MOSTRAR EL MONTO DE LA ULTIMA COTIZACION GENERADA PARA DICHO PROYECTO. UN PROYECTO PUEDE TENER MULTIPLES COTIZACIONES.--}}
-                                <tbody>
-                                @foreach($projects->SortBy('estimated_date') as $project)
-                                    <tr role="row" class="even">
-                                        <td class="sorting_1">{{ $project->name }}</td>
-                                        <td>{{ $project->client->client_name }}</td>
-                                        <td>{{ $project->phase }}</td>
-                                        <td>{{\Carbon\Carbon::parse($project->estimated_date)->format('d/m/Y')}}</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>{{ $project->user->profile->full_name }}
-                                            @if($project->user->deleted_at != null)
-                                                <span style="color: red; font-size: 10px;">(Eliminado)</span>
-                                            @endif
-                                        </td>                                        <td>
-                                            <a href="{{route ('dashboard.projects.view', $project->id)}}" data-toggle="tooltip" data-placement="top" title="Ver proyecto">
-                                                <i class="fa fa-eye text-success"></i></a>
-                                            &nbsp; &nbsp;
-                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route ('dashboard.projects.edit',$project->id)}}">
-                                                <i class="fa fa-pencil-alt text-warning"></i></a>
-                                            &nbsp; &nbsp;
-                                            <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Eliminar" href="#" data-id="{{ $project->id }}">
-                                                <i class="fa fa-trash text-danger"></i></a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </table>
-                        </div>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /.inner -->
-    </div>
 @endsection
 
 @section('scripts')
+    @if(Session::has('message'))
+        <script>
+            iziToast.show({
+                title: 'Success',
+                message: '{!! Session::get('message') !!}',
+                color:'#cc2900',
+                position: 'bottomCenter'
+            });
+        </script>
+    @endif
     <script>
-        $(".confirm").on("click", function () {
-            var id = $(this).data('id');
+
+        var table = $('#example_demo').DataTable({
+            oLanguage: {
+                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+                sInfoEmpty: "No hay registros a mostrar",
+                sInfoFiltered: "",
+                sZeroRecords: "Ningún registro para mostrar",
+                sSearch: "Buscar:",
+                oPaginate: {
+                    sFirst: "Primera Página",
+                    sLast: "Última Página",
+                    sNext: "Siguiente",
+                    sPrevious: "Anterior"
+                },
+                sEmptyTable: "No se encontraron registros",
+                sLengthMenu: "Mostrar _MENU_ Registros"
+
+            }
+        });
+
+        $('#example_demo tbody').on( 'click', 'a.trash', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var tr = $(this).parents('tr');
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             new PNotify({
                 title: 'Eliminar',
                 text: '¿Desea eliminar el registro?',
                 icon: 'fa fa-question-circle',
                 hide: false,
-                type: 'success',
+                type: 'error',
                 confirm: {
                     confirm: true
                 },
@@ -123,12 +148,22 @@
                     history: false
                 }
             }).get().on('pnotify.confirm', function () {
-                swal(id).done();
-            }).on('pnotify.cancel', function () {
-                swal('Oh ok. Chicken, I see.').done();
-
+                console.log(CSRF_TOKEN);
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: { _token: CSRF_TOKEN, _method: 'delete' },
+                    dataType: 'JSON',
+                    success: function (data) {
+                        if(data.success) {
+                            table.row( tr )
+                                .remove()
+                                .draw();
+                        }
+                    }
+                });
             });
-            return false;
-        });
+        } );
+
     </script>
 @endsection
