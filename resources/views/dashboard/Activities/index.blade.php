@@ -11,7 +11,7 @@
                 <div class="col-sm-7 col-lg-6">
                     <ol class="breadcrumb float-right nav_breadcrumb_top_align">
                         <li class="breadcrumb-item">
-                            <a href="index1.html">
+                            <a href="{{route('dashboard.index')}}">
                                 <i class="fa fa-home" data-pack="default" data-tags=""></i>
                                 Inicio
                             </a>
@@ -28,7 +28,7 @@
                 <div class="card-header bg-white">
                     Lista de actividades
                 </div>
-                <div class="card-block" id="user_body">
+                <div class="card-block">
                     @if(Session::has('message'))
                         <div class="row">
                             <div class="col-sm-12">
@@ -41,33 +41,27 @@
                             </div>
                         </div>
                     @endif
-                    <div class="table-toolbar">
-                        <div>
-                            <a class="btn btn-primary btn-md adv_cust_mod_btn" data-toggle="modal" data-href="#responsive" href="#responsive">Nueva Actividad</a>
-                        </div>
-                        <div class="btn-group float-right users_grid_tools">
-                            <div class="tools"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <table class="table  table-striped table-bordered table-hover dataTable no-footer" id="editable_table" role="grid">
+                        <div class="btn-group">
+                                <a class="btn btn-primary btn-md adv_cust_mod_btn" data-toggle="modal" data-href="#responsive" href="#responsive">Nueva Actividad</a>
+                        </div><br>
+                        <div class="m-t-25">
+                            <table id="example_demo" class="table table-hover table-striped table-bordered">
                                 <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc_disabled sorting_desc_disabled wid-20" tabindex="0" rowspan="1" colspan="1">Cliente</th>
-                                    <th class="sorting_asc_disabled sorting_desc_disabled wid-20" tabindex="0" rowspan="1" colspan="1">Contacto</th>
-                                    <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Proyecto</th>
-                                    <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Fecha</th>
-                                    <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Hora</th>
-                                    <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Tipo de actividad</th>
-                                    <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Realizada</th>
-                                    <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Actividad</th>
-                                    <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Responsable</th>
-                                    <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Acciones</th>
+                                <tr >
+                                    <th>Cliente</th>
+                                    <th>Contacto</th>
+                                    <th>Proyecto</th>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Tipo de actividad</th>
+                                    <th>Realizada</th>
+                                    <th>Actividad</th>
+                                    <th>Responsable</th>
+                                    <th>Acciones</th>
                                 </tr>
                                 <tbody>
                                 @foreach($activities as $activity)
-                                    <tr >
+                                    <tr>
                                         <td>{{$activity->client->client_name}}
                                             @if($activity->client->deleted_at != null)
                                                 <span style="color: red; font-size: 10px;">(Eliminado)</span>
@@ -81,7 +75,7 @@
                                             @if($activity->project->deleted_at != null)
                                                 <span style="color: red; font-size: 10px;">(Eliminado)</span>
                                             @endif</td>
-                                        <td>{{\Carbon\Carbon::parse($activity->deadline)->format('d/m/Y')}}</td>
+                                        <td>{{\Carbon\Carbon::parse($activity->start)->format('d/m/Y')}}</td>
                                         <td>{{\Carbon\Carbon::parse($activity->time)->format('h:i A')}}</td>
                                         <td>{{$activity->Name_Activity}}</td>
                                         <td>
@@ -113,8 +107,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
         <!--- responsive model Nueva Actividad-->
     <form action="{{route('dashboard.activities.store')}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
@@ -487,6 +479,77 @@
 @endsection
 
 @section('scripts')
+    @if(Session::has('message'))
+        <script>
+            iziToast.show({
+                title: 'Success',
+                message: '{!! Session::get('message') !!}',
+                color:'#cc2900',
+                position: 'bottomCenter'
+            });
+        </script>
+    @endif
+    <script>
+
+        var table = $('#example_demo').DataTable({
+            oLanguage: {
+                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+                sInfoEmpty: "No hay registros a mostrar",
+                sInfoFiltered: "",
+                sZeroRecords: "Ningún registro para mostrar",
+                sSearch: "Buscar:",
+                oPaginate: {
+                    sFirst: "Primera Página",
+                    sLast: "Última Página",
+                    sNext: "Siguiente",
+                    sPrevious: "Anterior"
+                },
+                sEmptyTable: "No se encontraron registros",
+                sLengthMenu: "Mostrar _MENU_ Registros"
+
+            }
+        });
+
+        $('#example_demo tbody').on( 'click', 'a.trash', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var tr = $(this).parents('tr');
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            new PNotify({
+                title: 'Eliminar',
+                text: '¿Desea eliminar la actividad?',
+                icon: 'fa fa-question-circle',
+                hide: false,
+                type: 'error',
+                confirm: {
+                    confirm: true
+                },
+                buttons: {
+                    closer: false,
+                    sticker: false
+                },
+                history: {
+                    history: false
+                }
+            }).get().on('pnotify.confirm', function () {
+                console.log(CSRF_TOKEN);
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: { _token: CSRF_TOKEN, _method: 'delete' },
+                    dataType: 'JSON',
+                    success: function (data) {
+                        if(data.success) {
+                            table.row( tr )
+                                .remove()
+                                .draw();
+                        }
+                    }
+                });
+            });
+        } );
+
+    </script>
     <script>
         $("#client").change((function (event) {
             var id = event.target.value;
@@ -506,7 +569,7 @@
 
         }));
 
-        $('#edit').on('show.bs.modal', function (event) {
+        /*$('#edit').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget);
                 var activity_id = button.data('actid');
                 var client = button.data('mytitle');
@@ -543,6 +606,6 @@
             var activity_id = button.data('actid');
             var modal = $(this);
             modal.find('.modal-body #act_id').val(activity_id);
-        });
+        });*/
     </script>
 @endsection

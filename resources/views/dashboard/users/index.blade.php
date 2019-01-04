@@ -110,7 +110,7 @@
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             new PNotify({
                 title: 'Eliminar',
-                text: '¿Desea eliminar el registro?',
+                text: '¿Desea eliminar al usuario?',
                 icon: 'fa fa-question-circle',
                 hide: false,
                 type: 'error',

@@ -46,7 +46,8 @@
                                     <div class="col-lg-4 input_field_sections">
                                         <h5>Cliente*</h5>
                                         <select class="form-control chzn-select" tabindex="2" name="client_id" id="client_id">
-                                            @foreach($clients as $client)
+                                            <option value="{{$projects->client_id}}" selected>{{$projects->client->client_name}}</option>
+                                        @foreach($clients as $client)
                                                 <option value="{{ $client->id }}">{{ $client->client_name }}</option>
                                             @endforeach
                                         </select>
@@ -65,7 +66,8 @@
                                     <div class="col-lg-4 input_field_sections">
                                         <h5>Responsable del proyecto*</h5>
                                         <div class="form-group">
-                                            <select class="form-control hide_search" tabindex="7" name="user_id" id="user_id" value="{{$projects->user_id}}">
+                                            <select class="form-control hide_search" tabindex="7" name="user_id" id="user_id">
+                                                <option value="{{$projects->user_id}}" selected>{{$projects->user->profile->name}}</option>
                                                 @foreach($users as $user)
                                                     <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
                                                 @endforeach
@@ -78,7 +80,7 @@
                                             <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="estimated_date" id="estimated_date" value="{{$projects->estimated_date}}">
                                             <span class="input-group-addon add-on">
                                                         <i class="fa fa-calendar-alt"></i>
-                                                    </span>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 input_field_sections">
@@ -96,7 +98,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 

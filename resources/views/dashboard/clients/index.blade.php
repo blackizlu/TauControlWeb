@@ -47,7 +47,7 @@
                             </a>
                         </div><br>
                         <div class="m-t-25">
-                            <table id="example_demo " class="table table-hover table-striped table-bordered">
+                            <table id="example_demo" class="table table-hover table-striped table-bordered">
                                 <thead>
                                 <tr >
                                     <th>Nombre</th>
@@ -81,10 +81,10 @@
                                             &nbsp; &nbsp;
                                             <a class="trash"  type="button" data-toggle="tooltip" data-placement="top" href="{{ route('dashboard.clients.delete', $client->id) }}" title="Eliminar">
                                                 <i class="fa fa-trash text-danger"></i></a>
-
                                         </td>
                                     </tr>
                                 @endforeach
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             new PNotify({
                 title: 'Eliminar',
-                text: '¿Desea eliminar el registro?',
+                text: '¿Desea eliminar el cliente?',
                 icon: 'fa fa-question-circle',
                 hide: false,
                 type: 'error',

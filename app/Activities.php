@@ -4,13 +4,17 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class Activities extends Model
 {
-    protected $table = 'activities';
     protected $fillable = ['start', 'end', 'time', 'activity', 'completed', 'comments', 'client_id', 'contact_id', 'project_id', 'user_id'];
     protected $append = ['color'];
+
+    use SoftDeletes;
+
+    protected $table = 'activities';
 
     public function client()
     {
@@ -24,7 +28,7 @@ class Activities extends Model
 
     public function project()
     {
-        return $this->hasOne(Project::class, 'id', 'project_id');
+        return $this->hasOne(Project::class, 'id', 'project_id')->withTrashed();
     }
 
     public function user()
@@ -32,7 +36,7 @@ class Activities extends Model
         return $this->hasOne(User::class, 'id', 'user_id')->withTrashed();
     }
 
-    // Mutadores :E
+    //////////////////////// Mutadores >:E
 
     public function getCompletedAttribute()
     {
@@ -185,5 +189,6 @@ class Activities extends Model
         }
         return $acti;
     }
+
 }
 

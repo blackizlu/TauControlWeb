@@ -168,7 +168,7 @@
                         </div>--}}
                         <div class="col-lg-6 input_field_sections">
                             <h5>Fecha y hora:</h5>
-                            <input type="text"id="hora" value="read only" readonly class="form-control">
+                            <input type="text"id="start" value="read only" readonly class="form-control">
                         </div>
                         <div class="col-lg-12 input_field_sections">
                             <h5>Comentarios:</h5>

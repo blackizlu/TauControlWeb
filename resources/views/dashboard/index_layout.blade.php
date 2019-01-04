@@ -88,7 +88,7 @@
             // eventos en calendario
             events: [@foreach($activities as $event){
                 id: '{{$event->id}}',
-                title: '{{$event->Activity_Name}}',
+                title: '{{$event->Activity_Name}}@if($event->completed == '1'){{' Completado'}}@endif',
                 start: '{{$event->Hora}}',
                 end:'{{\Carbon\Carbon::parse($event->end)->format('m/d/Y')}}',
                 comentario: '{{$event->comments}}',
@@ -96,13 +96,14 @@
                 contacto: '{{$event->contact->contact_name}}',
                 hora: '{{\Carbon\Carbon::parse($event->time)->format('G:i')}}',
                 hora2:'{{$event->Date}}',
+                fulldate: '{{\Carbon\Carbon::parse($event->start)->format('d/m/Y')}} {{\Carbon\Carbon::parse($event->time)->format('g:i A')}}',
             backgroundColor: '@if($event->completed == '1'){{'#737373'}} @else{{$event->color}}@endif'
             },@endforeach],
 
             eventClick: function(evento, jsEvent, view) {
                 console.log(evento);
                 $("#event_title").val(evento.title);
-                $("#start").val(evento.start);
+                $("#start").val(evento.fulldate);
                 $("#comentario").val(evento.comentario);
                 $("#cliente").val(evento.cliente);
                 $("#contacto").val(evento.contacto);

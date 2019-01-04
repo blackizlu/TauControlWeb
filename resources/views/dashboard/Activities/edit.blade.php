@@ -37,10 +37,10 @@
                         </div>
                         <div class="col-xl-6 col-lg-8">
                             <div class="input-group">
-                                        <span class="input-group-addon">
+                                       {{-- <span class="input-group-addon">
                                             <i class="fa fa-user-tie text-primary"></i>
-                                        </span>
-                                <select class="form-control" tabindex="7" name="client_id" value="{{$activity->client->id}}">
+                                        </span>--}}
+                                <select class="form-control chzn-select" tabindex="2" name="client_id" value="{{$activity->client->id}}">
                                     <option selected value="{{$activity->client->id}}">{{$activity->client->client_name}}</option>
                                     @foreach($clients as $client)
                                         <option value="{{ $client->id }}">{{ $client->client_name }}</option>
@@ -55,10 +55,8 @@
                         </div>
                         <div class="col-xl-6 col-lg-8">
                             <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-user text-primary"></i>
-                                        </span>
-                                <select class="form-control" tabindex="7" name="contact_id" value="{{$activity->contact->id}}">
+
+                                <select class="form-control chzn-select" tabindex="2" name="contact_id" value="{{$activity->contact->id}}">
                                     <option selected value="{{$activity->contact->id}}">{{$activity->contact->contact_name}}</option>
                                     @foreach($contacts as $contact)
                                         <option value="{{ $contact->id }}">{{ $contact->contact_name }}</option>
@@ -73,10 +71,7 @@
                         </div>
                         <div class="col-xl-6 col-lg-8">
                             <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-folder text-primary"></i>
-                                        </span>
-                                <select class="form-control" tabindex="7" name="project_id" value="{{$activity->project->id}}">
+                                <select class="form-control chzn-select" tabindex="2" name="project_id" value="{{$activity->project->id}}">
                                     <option selected value="{{$activity->project->id}}">{{$activity->project->name}}</option>
                                     @foreach($projects as $project)
                                         <option value="{{ $project->id}}">{{ $project->name}}</option>
@@ -91,12 +86,9 @@
                         </div>
                         <div class="col-xl-6 col-lg-8">
                             <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-calendar-alt text-primary"></i>
-                                        </span>
                                 <div class="input-group input-append date" id="dp3" data-date-format="yyyy-mm-dd">
                                     <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="start" id="start" value="{{$activity->start}}">
-                                    <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
+                                    <span class="input-group-addon add-on"><i class="fa fa-calendar-alt"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -107,12 +99,9 @@
                         </div>
                         <div class="col-xl-6 col-lg-8">
                             <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-calendar-alt text-primary"></i>
-                                        </span>
                                 <div class="input-group input-append date" id="dpYears" data-date-format="yyyy-mm-dd">
                                     <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="end" id="end" value="{{$activity->end}}">
-                                    <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
+                                    <span class="input-group-addon add-on"><i class="fa fa-calendar-alt"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -123,9 +112,6 @@
                         </div>
                         <div class="col-xl-6 col-lg-8">
                             <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-clock-o text-primary"></i>
-                                    </span>
                                 <div class="input-group clockpicker2" data-align="top" data-placement="top" data-autoclose="true">
                                     <input type="text" class="form-control" value="{{$activity->time}}" name="time">
                                     <span class="input-group-addon add-on">
@@ -141,10 +127,7 @@
                         </div>
                         <div class="col-xl-6 col-lg-8">
                             <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-clipboard-check text-primary"></i>
-                                        </span>
-                                <select class="form-control" tabindex="7" name="activity" id="name1" value="{{ $activity->activity}}">
+                                <select class="form-control hide_search" tabindex="7" name="activity" id="name1" value="{{ $activity->activity}}">
                                     <option selected disabled>Selecciona una actividad</option>
                                     <option value="cita"@if($activity->activity == 'cita'){{ 'selected' }}@endif>Cita</option>
                                     <option value="envio_correo"@if($activity->activity == 'envio_correo'){{ 'selected' }}@endif>Envio de Correo</option>
@@ -172,28 +155,25 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-lg-3 text-lg-right">
-                            <label for="type" class="col-form-label">Comentarios*</label>
-                        </div>
-                        <div class="col-lg-6">
-                            <textarea id="autosize" class="form-control" cols="50" rows="4" name="comments">{{$activity->comments}}</textarea>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-lg-3 text-lg-right">
                             <label for="type" class="col-form-label">Responsable*</label>
                         </div>
                         <div class="col-xl-6 col-lg-8">
                             <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-user-friends text-primary"></i>
-                                            </span>
-                                <select class="form-control" tabindex="7" name="user_id" value="{{$activity->user->id}}">
+                                <select class="form-control hide_search" tabindex="7" name="user_id" value="{{$activity->user->id}}">
                                     <option selected value="{{$activity->user->id}}">{{$activity->user->profile->name}}</option>
                                     @foreach($users as $user)
                                         <option value="{{ $user->id}}">{{ $user->profile->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 text-lg-right">
+                            <label for="type" class="col-form-label">Comentarios*</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <textarea id="autosize" class="form-control" cols="50" rows="4" name="comments">{{$activity->comments}}</textarea>
                         </div>
                     </div>
                 </div>
@@ -207,4 +187,3 @@
         </div>
     </form>
 @endsection
-

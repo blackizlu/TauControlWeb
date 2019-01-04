@@ -71,13 +71,13 @@ class ActivitiesController extends Controller
         return redirect()->route('dashboard.activities.index');
     }
 
-    public function destroy(Request $request)
-    {
-
-        $activity = Activities::findOrFail($request->activity_id);
+    public function destroy($id){
+        $activity = Activities::findOrFail($id);
         $activity->delete();
-        return redirect()->route('dashboard.activities.index');
 
+        return response()->json([
+            'success' => true
+        ]);
     }
 
     //PRUEBA PARA DYNAMIC DROPDOWNS-DEPENDENT SELECT BOX
