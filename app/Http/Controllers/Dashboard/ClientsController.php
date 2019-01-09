@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Activities;
 use App\Client;
+use App\tipoCliente;
 use App\User;
 use App\Contact;
 use Illuminate\Http\Request;
@@ -15,7 +16,9 @@ class ClientsController extends Controller
     public function index()
     {
         $clients = Client::all(); /*Variable users muestra los usuarios en lista*/
-        return view('dashboard.clients.index', compact('clients'));
+        $tipocliente = tipoCliente::all();
+
+        return view('dashboard.clients.index', compact('clients','tipocliente'));
     }
 
     public function view($id)
@@ -28,7 +31,8 @@ class ClientsController extends Controller
     public function add()
     {
         $users = User::all();
-        return view('dashboard.clients.add', compact('users'));
+        $tipocliente = tipoCliente::all();
+        return view('dashboard.clients.add', compact('users', 'tipocliente'));
     }
 
     public function store(Request $request)
@@ -37,7 +41,7 @@ class ClientsController extends Controller
 
         $this->validate($request, [
             'client_name' => 'required',
-            'type' => 'required',
+            'tipocliente_id' => 'required',
             'contact_name' => 'required',
             'phone_number' => 'required',
             'user_id' => 'required'
@@ -66,7 +70,8 @@ class ClientsController extends Controller
 
         $client = Client::findOrFail($id);
         $users = User::all();
-        return view('dashboard.clients.edit', compact('users', 'client'));
+        $tipocliente = tipoCliente::all();
+        return view('dashboard.clients.edit', compact('users', 'client','tipocliente'));
 
 
     }

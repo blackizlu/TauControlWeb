@@ -360,9 +360,9 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
         new CountUp("ganados", 0, '{{$Ganado}}', 0, 5.0, options).start();
         new CountUp("cotizados", 0, '{{$Cotizado}}', 0, 5.0, options).start();
         new CountUp("negociados", 0, '{{$Negociacion}}', 0, 5.0, options).start();
-        new CountUp("rechazados", 0, '{{$Rechazado}}', 0, 5.0, options).start();
         new CountUp("lead", 0, '{{$Lead}}', 0, 5.0, options).start();
         new CountUp("pricing", 0, '{{$Pricing}}', 0, 5.0, options).start();
+        new CountUp("rechazados", 0, '{{$Rechazado}}', 0, 5.0, options).start();
 
         var imgHeight=$(".left_align_img").height();
         $(".left_image").css("height",imgHeight);
@@ -384,27 +384,11 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
     var barChartData = {
         labels: [@foreach($users as $user)'{{$user->profile->name}}', @endforeach],
         datasets: [{
-            label: 'Negociacion',
-            backgroundColor: window.chartColors.warning,
-            data: [
-
-                8,10,10,13,4,26,9,28//negociacion
-
-            ]
-        }, {
-            label: 'Pricing',
-            backgroundColor: window.chartColors.info,
-            data: [
-
-                12,20,20,33,7,0,12,34//pricing
-
-            ]
-        }, {
             label: 'Ganado',
             backgroundColor: window.chartColors.success,
             data: [
 
-                9,6,30,15,2,70,14,34//ganado
+                {{$Ganado}},//ganado
 
             ]
         },{
@@ -412,25 +396,45 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
             backgroundColor: window.chartColors.primary,
             data: [
 
-                9,15,40,44,4,6,22,12//cotizado
+                {{$Cotizado}},//cotizado
 
             ]
-        },{
-            label: 'Rechazado',
-            backgroundColor: window.chartColors.danger,
+        },
+            {
+            label: 'Negociacion',
+            backgroundColor: window.chartColors.warning,
             data: [
 
-                15,12,50,24,0,0,13,15//rechazado
+                {{$Negociacion}},//negociacion
 
             ]
-        },{
+        },
+        {
             label: 'Lead',
             backgroundColor: window.chartColors.muted,
             data: [
 
-                6,44,60,62,4,5,6,37//lead
+                {{$Lead}}//lead
 
             ]
+        },
+        {
+            label: 'Pricing',
+            backgroundColor: window.chartColors.info,
+            data: [
+
+                {{$Pricing}},//pricing
+
+        ]
+        },
+        {
+            label: 'Rechazado',
+            backgroundColor: window.chartColors.danger,
+            data: [
+
+                {{$Rechazado}},//rechazado
+
+        ]
         }]
 
     };//datos para la grafica
@@ -556,6 +560,26 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
 
     });
 
+</script>
+
+<script>//Obtener conteo de proyectos por usuario(?)
+    $("#client").change((function (event) {
+        var id = event.target.value;
+        var url = "{{ route('activities.getContacts', ':D') }}";
+        url = url.replace(':D', id);
+        $.get(url ,function (response) {
+            console.log(response);
+            $("#proyectos ").empty();
+            for(i=0; i<response.projects.length; i++){
+                $("#proyectos").append("<option  value='"+response.projects[i].id+"'>"+response.projects[i].name+"</option>");
+            }
+            $("#myContacts ").empty();
+            for(i=0; i<response.contacts.length; i++){
+                $("#myContacts").append("<option value='"+response.contacts[i].id+"'>"+response.contacts[i].contact_name+"</option>");
+            }
+        });
+
+    }));
 </script>
 
 </body>

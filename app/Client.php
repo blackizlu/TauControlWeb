@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Client extends Model
 {
-    protected $fillable = ['client_name', 'type', 'office_number', 'web_page', 'notes', 'user_id'];
+    protected $fillable = ['client_name', 'office_number', 'web_page', 'notes', 'user_id','tipocliente_id'];
 
     public function contacts()
     {
@@ -29,7 +29,15 @@ class Client extends Model
         return $this->hasMany(Activities::class, 'client_id', 'id');
     }
 
+    public function tipocliente()
+    {
+        return $this->hasOne(tipoCliente::class, 'id', 'tipocliente_id');
+    }
+
     use SoftDeletes;
 
     protected $table = 'clients';
+
+
+
 }

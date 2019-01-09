@@ -11,7 +11,7 @@
                 <div class="col-sm-7 col-lg-6">
                     <ol class="breadcrumb float-right nav_breadcrumb_top_align">
                         <li class="breadcrumb-item">
-                            <a href="{{route('dashboard.index')}}">
+                            <a href="index1.html">
                                 <i class="fa fa-home" data-pack="default" data-tags=""></i>
                                 Inicio
                             </a>
@@ -42,10 +42,11 @@
                         </div>
                     @endif
                         <div class="btn-group">
-                                <a class="btn btn-primary btn-md adv_cust_mod_btn" data-toggle="modal" data-href="#responsive" href="#responsive">Nueva Actividad</a>
+                            <a class="btn btn-primary btn-md adv_cust_mod_btn" data-toggle="modal" data-href="#responsive" href="#responsive">Nueva Actividad</a>
+                            </a>
                         </div><br>
                         <div class="m-t-25">
-                            <table id="example_demo" class="table table-hover table-striped table-bordered">
+                            <table id="example_demo " class="table table-hover table-striped table-bordered">
                                 <thead>
                                 <tr >
                                     <th>Cliente</th>
@@ -54,14 +55,14 @@
                                     <th>Fecha</th>
                                     <th>Hora</th>
                                     <th>Tipo de actividad</th>
-                                    <th>Realizada</th>
-                                    <th>Actividad</th>
-                                    <th>Responsable</th>
-                                    <th>Acciones</th>
+                                    <th >Realizada</th>
+                                    <th >Actividad</th>
+                                    <th >Responsable</th>
+                                    <th >Acciones</th>
                                 </tr>
                                 <tbody>
                                 @foreach($activities as $activity)
-                                    <tr>
+                                    <tr >
                                         <td>{{$activity->client->client_name}}
                                             @if($activity->client->deleted_at != null)
                                                 <span style="color: red; font-size: 10px;">(Eliminado)</span>
@@ -75,7 +76,7 @@
                                             @if($activity->project->deleted_at != null)
                                                 <span style="color: red; font-size: 10px;">(Eliminado)</span>
                                             @endif</td>
-                                        <td>{{\Carbon\Carbon::parse($activity->start)->format('d/m/Y')}}</td>
+                                        <td>{{\Carbon\Carbon::parse($activity->deadline)->format('d/m/Y')}}</td>
                                         <td>{{\Carbon\Carbon::parse($activity->time)->format('h:i A')}}</td>
                                         <td>{{$activity->Name_Activity}}</td>
                                         <td>
@@ -107,6 +108,8 @@
                 </div>
             </div>
         </div>
+    </div>
+
         <!--- responsive model Nueva Actividad-->
     <form action="{{route('dashboard.activities.store')}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
@@ -130,7 +133,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-user-tie text-primary"></i>
                                                     </span>
-                                            <select class="form-control" tabindex="7" name="client_id" id="client">
+                                            <select class="form-control " tabindex="7" name="client_id" id="client">
                                                 <option selected disabled>Selecciona al Cliente</option>
                                                 @foreach($clients as $client)
                                                     <option value="{{ $client->id }}">{{ $client->client_name }}</option>
@@ -148,7 +151,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-user text-primary"></i>
                                                     </span>
-                                            <select class="form-control" tabindex="7" name="contact_id" id="myContacts">
+                                            <select class="form-control " tabindex="7" name="contact_id" id="myContacts">
                                                 <option selected disabled>Selecciona al contacto</option>
                                             </select>
                                         </div>
@@ -163,7 +166,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-folder text-primary"></i>
                                                     </span>
-                                            <select class="form-control" tabindex="7" name="project_id" id="proyectos">
+                                            <select class="form-control " tabindex="7" name="project_id" id="proyectos">
                                                 <option selected disabled>Selecciona el proyecto</option>
 
                                             </select>
@@ -229,7 +232,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-clipboard-check text-primary"></i>
                                                     </span>
-                                            <select class="form-control" tabindex="7" name="activity" id="name1">
+                                            <select class="form-control " tabindex="7" name="activity" id="name1">
                                                 <option selected disabled>Selecciona una actividad</option>
                                                 <option value="cita">Cita</option>
                                                 <option value="envio_correo">Envio de Correo</option>
@@ -271,7 +274,7 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-user-friends text-primary"></i>
                                                         </span>
-                                                <select class="form-control" tabindex="7" name="user_id">
+                                                <select class="form-control chz" tabindex="7" name="user_id">
                                                     <option selected disabled>Selecciona al responsable</option>
                                                     @foreach($users as $user)
                                                         <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
@@ -479,77 +482,6 @@
 @endsection
 
 @section('scripts')
-    @if(Session::has('message'))
-        <script>
-            iziToast.show({
-                title: 'Success',
-                message: '{!! Session::get('message') !!}',
-                color:'#cc2900',
-                position: 'bottomCenter'
-            });
-        </script>
-    @endif
-    <script>
-
-        var table = $('#example_demo').DataTable({
-            oLanguage: {
-                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
-                sInfoEmpty: "No hay registros a mostrar",
-                sInfoFiltered: "",
-                sZeroRecords: "Ningún registro para mostrar",
-                sSearch: "Buscar:",
-                oPaginate: {
-                    sFirst: "Primera Página",
-                    sLast: "Última Página",
-                    sNext: "Siguiente",
-                    sPrevious: "Anterior"
-                },
-                sEmptyTable: "No se encontraron registros",
-                sLengthMenu: "Mostrar _MENU_ Registros"
-
-            }
-        });
-
-        $('#example_demo tbody').on( 'click', 'a.trash', function (e) {
-            e.preventDefault();
-            var url = $(this).attr('href');
-            var tr = $(this).parents('tr');
-            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-            new PNotify({
-                title: 'Eliminar',
-                text: '¿Desea eliminar la actividad?',
-                icon: 'fa fa-question-circle',
-                hide: false,
-                type: 'error',
-                confirm: {
-                    confirm: true
-                },
-                buttons: {
-                    closer: false,
-                    sticker: false
-                },
-                history: {
-                    history: false
-                }
-            }).get().on('pnotify.confirm', function () {
-                console.log(CSRF_TOKEN);
-                $.ajax({
-                    url: url,
-                    type: 'POST',
-                    data: { _token: CSRF_TOKEN, _method: 'delete' },
-                    dataType: 'JSON',
-                    success: function (data) {
-                        if(data.success) {
-                            table.row( tr )
-                                .remove()
-                                .draw();
-                        }
-                    }
-                });
-            });
-        } );
-
-    </script>
     <script>
         $("#client").change((function (event) {
             var id = event.target.value;
@@ -607,5 +539,66 @@
             var modal = $(this);
             modal.find('.modal-body #act_id').val(activity_id);
         });*/
+    </script>
+    <script>
+
+        var table = $('#example_demo').DataTable({
+            oLanguage: {
+                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+                sInfoEmpty: "No hay registros a mostrar",
+                sInfoFiltered: "",
+                sZeroRecords: "Ningún registro para mostrar",
+                sSearch: "Buscar:",
+                oPaginate: {
+                    sFirst: "Primera Página",
+                    sLast: "Última Página",
+                    sNext: "Siguiente",
+                    sPrevious: "Anterior"
+                },
+                sEmptyTable: "No se encontraron registros",
+                sLengthMenu: "Mostrar _MENU_ Registros"
+
+            }
+        });
+
+        $('#example_demo tbody').on( 'click', 'a.trash', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var tr = $(this).parents('tr');
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            new PNotify({
+                title: 'Eliminar',
+                text: '¿Desea eliminar el registro?',
+                icon: 'fa fa-question-circle',
+                hide: false,
+                type: 'error',
+                confirm: {
+                    confirm: true
+                },
+                buttons: {
+                    closer: false,
+                    sticker: false
+                },
+                history: {
+                    history: false
+                }
+            }).get().on('pnotify.confirm', function () {
+                console.log(CSRF_TOKEN);
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: { _token: CSRF_TOKEN, _method: 'delete' },
+                    dataType: 'JSON',
+                    success: function (data) {
+                        if(data.success) {
+                            table.row( tr )
+                                .remove()
+                                .draw();
+                        }
+                    }
+                });
+            });
+        } );
+
     </script>
 @endsection

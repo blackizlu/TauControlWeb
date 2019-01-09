@@ -50,6 +50,7 @@ class ContactsController extends Controller
 
 
     }
+
     public function update(Request $request, $id)
     {
         $contact = Contact::findOrFail($id);

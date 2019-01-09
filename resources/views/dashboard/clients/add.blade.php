@@ -77,13 +77,11 @@
                                         <span class="input-group-addon">
                                             <i class="fa fa-users text-primary"></i>
                                         </span>
-                                        <select class="form-control hide_search" tabindex="7" name="type">
-                                            <option selected disabled>Tipo de contacto</option>
-                                            <option value="Arquitecto">Arquitecto</option>
-                                            <option value="Constructora">Constructora</option>
-                                            <option value="Desarrolladora">Desarrolladora</option>
-                                            <option value="Cliente_final">Cliente final</option>
-                                            <option value="Gerencia_obra">Gerencia de obra</option>
+                                        <select class="form-control chzn-select" tabindex="2" name="tipocliente_id">
+                                            <option selected disabled>Selecciona el tipo de cliente</option>
+                                            @foreach($tipocliente as $tipo)
+                                                <option value="{{ $tipo->id }}">{{ $tipo->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

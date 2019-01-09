@@ -25,6 +25,16 @@ $(document).ready(function () {
         autoclose: true,
         orientation:"bottom"
     });
+    $('#dpYears1').datepicker({
+        todayHighlight: true,
+        autoclose: true,
+        orientation:"bottom"
+    });
+    $('#dpYears2').datepicker({
+        todayHighlight: true,
+        autoclose: true,
+        orientation:"bottom"
+    });
     $('#dpMonths').datepicker({
         todayHighlight: true,
         autoclose: true,

@@ -46,7 +46,7 @@
                                     <div class="col-lg-4 input_field_sections">
                                         <h5>Cliente*</h5>
                                         <select class="form-control chzn-select" tabindex="2" name="client_id" id="client_id">
-                                            <option value="{{$projects->client_id}}" selected>{{$projects->client->client_name}}</option>
+                                            <option value="{{$projects->client_id}}" selected>{{$projects->client->client_namea}}</option>
                                         @foreach($clients as $client)
                                                 <option value="{{ $client->id }}">{{ $client->client_name }}</option>
                                             @endforeach

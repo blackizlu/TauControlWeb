@@ -14,13 +14,11 @@ class ReportesController extends Controller
         $users = User::all();
         $projects = Project::all();
 
-      /*  $winCount = Project::where('columnName','Win')->count();
-        $lostCount = Project::where('columnName','Lost')->count();*/
-
+        //Contara el total de proyectos para las tarjetas en Reportes
         $Cotizado = Project::where('phase', 'Cotizado')->count();
         $Ganado = Project::where('phase', 'Ganado')->count();
-        $Lead = Project::where('phase', 'Lead')->count();
         $Negociacion = Project::where('phase', 'Negociacion')->count();
+        $Lead = Project::where('phase', 'Lead')->count();
         $Pricing = Project::where('phase', 'Pricing')->count();
         $Rechazado = Project::where('phase', 'Rechazado')->count();
 
@@ -43,7 +41,5 @@ class ReportesController extends Controller
 
         return null;
     }
-
-
 
 }

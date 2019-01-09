@@ -77,12 +77,8 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-users text-primary"></i>
                                                 </span>
-                                                <select class="form-control hide_search" tabindex="7" name="type" value="{{ $client->type }}">
-                                                    <option value="Arquitecto" @if($client->type == 'Arquitecto'){{ 'selected' }}@endif>Arquitecto</option>
-                                                    <option value="Constructora" @if($client->type == 'Constructora'){{ 'selected' }}@endif>Constructora</option>
-                                                    <option value="Desarrolladora" @if($client->type == 'Desarrolladora'){{ 'selected' }}@endif>Desarrolladora</option>
-                                                    <option value="Cliente_final" @if($client->type == 'Cliente_final'){{ 'selected' }}@endif>Cliente final</option>
-                                                    <option value="Gerencia_obra" @if($client->type == 'Gerencia_obra'){{ 'selected' }}@endif>Gerencia obra</option>
+                                                <select class="form-control hide_search" tabindex="7" name="type" value="           ">
+
                                                 </select>
                                             </div>
                                         </div>

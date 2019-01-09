@@ -150,7 +150,7 @@
                                         <div class="col-lg-9 push-lg-3">
                                             <button class="btn btn-primary" type="submit">
                                                 <i class="fa fa-user"></i>
-                                                Agregar contacto
+                                                Guardar cambios
                                             </button>
                                         </div>
                                     </div><br><br><br><br><br><br><br><br>

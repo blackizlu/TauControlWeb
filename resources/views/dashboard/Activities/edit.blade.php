@@ -31,6 +31,9 @@
         {{ csrf_field() }}
             <div class="row">
                 <div class="col-md-12">
+                    <div class="btn-group m-t-15 m-l-20">
+                        <a href="{{route ('dashboard.activities.index')}}" id="editable_table_new" class=" btn btn-default"><i class="fa fa-arrow-left"></i>&nbsp;Regresar</a>
+                    </div>
                     <div class="form-group row m-t-15">
                         <div class="col-lg-3 text-lg-right">
                             <label for="type" class="col-form-label">Cliente*</label>

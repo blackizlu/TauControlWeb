@@ -63,7 +63,9 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
     //MODULO COTIZACIONES
     Route::group(['prefix' =>'cotizaciones'], function (){
         Route::get('/', 'Dashboard\CotizacionesController@index')->name('dashboard.cotizaciones.index');
-        Route::get('/add', 'Dashboard\CotizacionesController@add')->name('dashboard.cotizaciones.generate');
+        Route::get('/add', 'Dashboard\CotizacionesController@add')->name('dashboard.cotizaciones.add');
+        Route::get('/{id}/edit', 'Dashboard\CotizacionesController@edit')->name('dashboard.cotizaciones.edit');
+        Route::get('/generate', 'Dashboard\CotizacionesController@generate')->name('dashboard.cotizaciones.generate');
         Route::post('/', 'Dashboard\CotizacionesController@store')->name('dashboard.cotizaciones.store');
         Route::get('/categories', 'Dashboard\CategoryController@view')->name('dashboard.cotizaciones.categories');
         Route::delete('/{id}/delete', 'Dashboard\CotizacionesController@destroy')->name('dashboard.cotizaciones.delete');
@@ -74,11 +76,19 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
     Route::get('/invoice/{id}/print', 'Dashboard\PricesController@pdf');
 
 
-    //MODULO CATEGORIAS
+    //MODULO CATEGORIAS COTIZACIONES
     Route::group(['prefix' =>'categories'], function (){
         Route::post('/', 'Dashboard\CategoryController@store')->name('dashboard.categories.store');
         Route::put('/{id}/update', 'Dashboard\CategoryController@update')->name('dashboard.categories.update');
         Route::delete('/{id}/delete', 'Dashboard\CategoryController@destroy')->name('dashboard.categories.delete');//Listo
+
+    });
+
+    //MODULO TIPO CLIENTES
+    Route::group(['prefix' =>'tipocliente'], function (){
+        Route::post('/', 'Dashboard\TipoClienteController@store')->name('dashboard.tipocliente.store');
+        Route::put('/{id}/update', 'Dashboard\TipoClienteController@update')->name('dashboard.tipocliente.update');
+        Route::delete('/{id}/delete', 'Dashboard\TipoClienteController@destroy')->name('dashboard.tipocliente.delete');//Listo
 
     });
 

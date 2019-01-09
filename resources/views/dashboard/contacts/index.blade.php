@@ -12,7 +12,7 @@
                 <div class="col-lg-6 col-sm-8 col-12">
                     <ol class="breadcrumb float-right  nav_breadcrumb_top_align">
                         <li class="breadcrumb-item">
-                            <a href="index1.html">
+                            <a href="{{route('dashboard.index')}}">
                                 <i class="fa fa-home" data-pack="default" data-tags=""></i> Inicio
                             </a>
                         </li>

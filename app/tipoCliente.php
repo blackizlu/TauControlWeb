@@ -5,17 +5,17 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class tipoCliente extends Model
 
 {
     protected $fillable = ['name'];
 
-    public function products()
+    public function clients()
     {
-        return $this->hasMany(Products::class, 'id', 'client_id')->withTrashed();
+        return $this->hasOne(Client::class, 'id', 'tipocliente_id')->withTrashed();
     }
 
     use SoftDeletes;
 
-    protected $table = 'categories';
+    protected $table = 'tipocliente';
 }

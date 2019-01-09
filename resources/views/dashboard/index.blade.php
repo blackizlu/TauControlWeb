@@ -13,14 +13,21 @@
                 </div>
             </div>
         </header>
-        <div class="outer">
-            <div class="inner bg-container">
-                <div class="card">
-                    <div class="card-header bg-white">
-                        Mis proyectos
+        <!--- Calendario-->
+        <div class="inner bg-light lter bg-container cal_btn_hov ">
+            <div class="row">
+                <div class="col-lg-12 media_max_991">
+                    <div class="card "><a href="{{route('dashboard.activities.index')}}" class="btn btn-success btn-block m-t-15 m-l-10 col-md-2">Crear actividad</a>
+                        <div class="card-block m-t-35">
+                            <div id="calendar"></div>
+                        </div>
                     </div>
                 </div>
-                    <div class="row sales_section m-t-5">
+            </div>
+        </div>
+        <div class="outer m-t-15">
+            <div class="inner bg-container m-t-15">
+                <div class="row sales_section m-t-5">
                         <div class="col-xl-4 col-sm-6 col-12">
                             <div class="card p-d-15">
                                 <div class="sales_icons">
@@ -66,7 +73,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row sales_section m-t-15">
+                <div class="row sales_section m-t-15">
                         <div class="col-xl-4 col-sm-6 col-12 ">
                             <div class="card p-d-15">
                                 <div class="sales_icons">
@@ -110,31 +117,8 @@
                             </div>
                         </div>
                     </div>
-
-
-            <!--- Calendario-->
-            <div class="inner bg-light lter bg-container cal_btn_hov m-t-25">
-                <div class="row">
-                    <div class="col-lg-9 media_max_991">
-                        <div class="card">
-                            <div class="card-block m-t-35">
-                                <div id="calendar"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--- Leyendas-->
-                    <div class="col-lg-3">
-                        <div class="card">
-                            <div class="card-header">
-                                <a href="{{route('dashboard.activities.index')}}" class="btn btn-success btn-block">Crear actividad</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             </div>
         </div>
-    </div>
     </div>
 
     <!--- responsive model Ver Actividad-->
@@ -168,7 +152,7 @@
                         </div>--}}
                         <div class="col-lg-6 input_field_sections">
                             <h5>Fecha y hora:</h5>
-                            <input type="text"id="start" value="read only" readonly class="form-control">
+                            <input type="text"id="hora" value="read only" readonly class="form-control">
                         </div>
                         <div class="col-lg-12 input_field_sections">
                             <h5>Comentarios:</h5>
@@ -188,57 +172,3 @@
 
 @endsection
 
-{{--<br /> <br />
-<!-- Modal Crear evento calendario -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel1">
-                    <i class="fa fa-plus"></i>
-                    Create Event
-                </h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="input-group">
-                    <input type="text" id="new-event" class="form-control" placeholder="Event">
-                    <div class="input-group-btn">
-                        <button type="button" class="color-chooser-btn btn btn-default text-white dropdown-toggle" data-toggle="dropdown">
-                            Default
-                        </button>
-                        <div class="dropdown-menu float-right cal_modal_type color-chooser">
-                            <a class="color_primary text-center text-white dropdown-item" href="#">
-                                Primary
-                            </a>
-                            <a class="color_success text-center text-white dropdown-item" href="#">
-                                Success
-                            </a>
-                            <a class="color_info text-center text-white dropdown-item" href="#">
-                                Info
-                            </a>
-                            <a class="color_warning text-center text-white dropdown-item" href="#">
-                                warning
-                            </a>
-                            <a class="color_danger text-center text-white dropdown-item" href="#">
-                                Danger
-                            </a>
-                        </div>
-                    </div>
-                    <!-- /btn-group -->
-                </div>
-                <!-- /input-group -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger float-right" data-dismiss="modal">
-                    Close
-                    <i class="fa fa-times"></i>
-                </button>
-                <button type="button" class="btn btn-success pull-left" id="add-new-event" data-dismiss="modal">
-                    <i class="fa fa-plus"></i>
-                    Add
-                </button>
-            </div>
-        </div>
-    </div>
-</div>--}}
