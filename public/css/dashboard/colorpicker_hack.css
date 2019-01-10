@@ -1,16 +1,20 @@
 .colorpicker-saturation {
-	background-image: url(../../img/saturation.png) !important;
+	background-image: url(/images/dashboard/saturation.png) !important;
+}
+
+.colorpick {
+	z-index: 2000;
 }
 
 .colorpicker-hue {
-	background-image: url(../../img/hue.png) !important;
+	background-image: url(/images/dashboard/hue.png) !important;
 }
 .colorpicker-alpha {
-	background-image: url(../../img/alpha.png) !important;
+	background-image: url(/images/dashboard/alpha.png) !important;
 }
 
 .colorpicker-color {
-	background-image: url(../../img/alpha.png) !important;
+	background-image: url(/images/dashboard/alpha.png) !important;
 }
 .display_none {display: none;}
 .dtpicker-buttonCont .dtpicker-button{

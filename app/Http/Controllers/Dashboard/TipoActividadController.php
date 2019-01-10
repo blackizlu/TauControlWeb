@@ -23,6 +23,7 @@ class TipoActividadController extends Controller
 
         $this->validate($request, [
             'name' => 'required',
+            'color' => 'required',
         ]);
         $tipoactividad = new tipoActividad($data);
         $tipoactividad->save();

@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/logo1.ico"/>
 
+
     <!--global styles-->
 <link type="text/css" rel="stylesheet" href="/css/dashboard/components.css" />
 {{--
@@ -71,9 +72,14 @@
 <link type="text/css" rel="stylesheet" href="/css/dashboard/DateTimePicker.min.css" />
 <link type="text/css" rel="stylesheet" href="/css/dashboard/jquery.timepicker.css" />
 <link type="text/css" rel="stylesheet" href="/css/dashboard/jquery-clockpicker.css" />
+{{--
 <link type="text/css" rel="stylesheet" href="/css/dashboard/colorpicker_hack.css" />
+--}}
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/colorpicker/bootstrap-colorpicker.css" />
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/colorpicker/bootstrap-colorpicker.min.css" />
 
-<!--FIN Estilos para vista cotizaciones/calendarios-->
+
+    <!--FIN Estilos para vista cotizaciones/calendarios-->
 <!-- Estilos para vista cotizaciones/tabla agregable-->
 <link type="text/css" rel="stylesheet" href="/css/dashboard/sortable.css" />
 <!--FIN Estilos para vista cotizaciones/tabla agregable-->
@@ -106,9 +112,9 @@
 <link type="text/css" rel="stylesheet" href="/css/dashboard/portlet.css"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/advanced_components.css"/>
 <!-- end of plugin styles -->
-<!-- Datatables Desplegables-->
 
-    <!-- end of plugin styles -->
+<!--ColorPicker -->
+
 
 </head>
 
@@ -188,7 +194,6 @@
 <script type="text/javascript" src="/js/dashboard/jquery.uniform.js"></script>
 <script type="text/javascript" src="/js/dashboard/jquery.inputlimiter.js"></script>
 <script type="text/javascript" src="/js/dashboard/chosen.jquery.js"></script>
-<script type="text/javascript" src="/js/dashboard/bootstrap-colorpicker.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/jquery.tagsinput.js"></script>
 <script type="text/javascript" src="/js/dashboard/jquery.validVal.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/daterangepicker.js"></script>
@@ -261,6 +266,10 @@
 <script type="text/javascript" src="/js/dashboard/calendar.js"></script>
 <script type="text/javascript" src="/js/dashboard/calendarcustom.js" ></script>
 <script type="text/javascript" src="/js/dashboard/es.js"></script>
+
+<!-- ColorPicker -->
+<script type="text/javascript" src="/js/dashboard/colorpicker/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="/js/dashboard/colorpicker/bootstrap-colorpicker.min.js"></script>
 
 
 

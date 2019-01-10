@@ -107,6 +107,11 @@ $(document).ready(function () {
     $('#cp1').colorpicker({
         format: 'hex'
     });
+    // Color picker
+    $('#cp11').colorpicker({
+        format: 'hex'
+    });
+
     $('#cp-2').colorpicker({
         format:'rgba',
         align:'top'

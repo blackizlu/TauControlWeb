@@ -63,7 +63,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 ">
                     <div class="card">
                         <div class="card-header bg-white">
                             Tipo de clientes
@@ -98,20 +98,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="m-t-35 col-lg-6">
                     <div class="card">
                         <div class="card-header bg-white">
                             Tipo de actividades
                         </div>
                         <div class="card-block">
                             <div class="table-responsive ">
-                                <div>
-                                    <a class="btn btn-primary btn-md adv_cust_mod_btn" data-toggle="modal" data-href="#responsive3" href="#responsive3">Nuevo  <i class="fa fa-plus"></i></a>
-                                </div>
-                                <table class="table m-t-15 table-striped" id="example_demo2">
+                                <table class="table m-t-15 table-striped" id="example_demo3">
                                     <thead>
                                     <tr>
                                         <th>Nombre</th>
+                                        <th>Color</th>
+                                        <th>Código de color</th>
                                         <th>Acciones</th>
 
                                     </tr>
@@ -120,6 +119,8 @@
                                     @foreach($tipoactividad as $tipoact)
                                         <tr>
                                             <td>{{$tipoact->name}}</td>
+                                            <td><span class="input-group-addon" style="background-color: {{$tipoact->color}}"></span></td>
+                                            <td>{{$tipoact->color}}</td>
                                             <td><a class="edit" data-toggle="modal" data-href="#edit" data-placement="top" title="Editar" href="#edit3">
                                                     <i class="fa fa-pencil-alt text-warning"></i></a>
                                                 &nbsp; &nbsp;     <a class="trash"  type="button" data-toggle="tooltip" data-placement="top" href="{{ route('dashboard.tipocliente.delete', $tipo->id) }}" title="Eliminar">
@@ -133,191 +134,189 @@
                         </div>
                     </div>
                 </div>
+                <form class="form-horizontal login_validator col-lg-6" id="tryitForm" action="{{ route('dashboard.tipoactividad.store') }}" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <div class="m-t-35">
+                        <div class="card">
+                            <div class="card-header bg-white">
+                                Agregar nueva actividad
+                            </div>
+                            <div class="card-block">
+                                <div class="col-md-12">
+                                    <h5>Nombre de la actividad</h5>
+                                    <p>
+                                        <input id="name" name="name" type="text" placeholder="Actividad" class="form-control"  value="">
+                                    </p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h5>Color de la actividad</h5>
+                                    <p>
+                                        <input type="text" class="form-control" placeholder="#8fff00" id="cp1" name="color">
+                                    </p>
+                                </div>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <div>
-        <!--- responsive model AGREGAR COTIZACIONES-->
-        <form action="{{ route('dashboard.categories.store') }}" method="post" enctype="multipart/form-data">
-            {{ csrf_field() }}
-            <div class="modal fade in display_none" id="responsive" tabindex="-1" role="dialog" aria-hidden="false">
-                <div class="modal-dialog modal-md">
-                    <div class="modal-content">
-                        <div class="modal-header bg-primary">
-                            <h4 class="modal-title text-white">Agregar Categoría</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p>
-                                        <input id="name" name="name" type="text" placeholder="Categoría" class="form-control"  value="{{ old('category') }}">
-                                    </p>
 
-                                </div>
+<!--- responsive model AGREGAR COTIZACIONES-->
+<form action="{{ route('dashboard.categories.store') }}" method="post" enctype="multipart/form-data">
+    {{ csrf_field() }}
+    <div class="modal fade in display_none" id="responsive" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h4 class="modal-title text-white">Agregar Categoría</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>
+                                <input id="name" name="name" type="text" placeholder="Categoría" class="form-control"  value="{{ old('category') }}">
+                            </p>
 
-                            </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
+
                     </div>
                 </div>
-            </div>
-        </form>
-
-        <!--- responsive model AGREGAR TIPO DE CLIENTES-->
-        <form action="{{ route('dashboard.tipocliente.store') }}" method="post" enctype="multipart/form-data">
-            {{ csrf_field() }}
-            <div class="modal fade in display_none" id="responsive2" tabindex="-1" role="dialog" aria-hidden="false">
-                <div class="modal-dialog modal-md">
-                    <div class="modal-content">
-                        <div class="modal-header bg-primary">
-                            <h4 class="modal-title text-white">Agregar Tipo de cliente</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p>
-                                        <input id="name" name="name" type="text" placeholder="Tipo de cliente" class="form-control"  value="">
-                                    </p>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
             </div>
-        </form>
-
-        <!--- responsive model AGREGAR TIPO DE ACTIVIDAD-->
-        <form action="{{ route('dashboard.tipoactividad.store') }}" method="post" enctype="multipart/form-data">
-            {{ csrf_field() }}
-            <div class="modal fade in display_none" id="responsive3" tabindex="-1" role="dialog" aria-hidden="false">
-                <div class="modal-dialog modal-md">
-                    <div class="modal-content">
-                        <div class="modal-header bg-primary">
-                            <h4 class="modal-title text-white">Agregar Tipo de actividad</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p>
-                                        <input id="name" name="name" type="text" placeholder="Tipo de actividad" class="form-control"  value="">
-                                    </p>
-                                </div>
-                                <div class="col-md-12">
-                                    <p>
-                                        <input id="name" name="name" type="text" placeholder="Color de la actividad" class="form-control"  value="">
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-
-        <!--- responsive model EDITAR -->
-        <form action="{{ route('dashboard.categories.update', $category->id) }}" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="_method" value="PUT">
-            {{ csrf_field() }}
-            <div class="modal fade in display_none" id="edit" tabindex="-1" role="dialog" aria-hidden="false">
-                <div class="modal-dialog modal-md">
-                    <div class="modal-content">
-                        <div class="modal-header bg-primary">
-                            <h4 class="modal-title text-white">Editar Categoría</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-12">
-
-                                        <p>
-                                            <input id="name" name="name" type="text" placeholder="Categoría" class="form-control"  value="{{$category->name}}">
-                                        </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <!--- responsive model EDITAR TIPO DE CLIENTES -->
-        <form action="{{route('dashboard.tipocliente.update', $tipo->id)}}" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="_method" value="PUT">
-            {{ csrf_field() }}
-            <div class="modal fade in display_none" id="edit2" tabindex="-1" role="dialog" aria-hidden="false">
-                <div class="modal-dialog modal-md">
-                    <div class="modal-content">
-                        <div class="modal-header bg-primary">
-                            <h4 class="modal-title text-white">Editar Tipo de cliente</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-12">
-
-                                    <p>
-                                        <input id="name" name="name" type="text" placeholder="Tipo de cliente" class="form-control"  value="{{$tipo->name}}">
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-        {{--<!--- responsive model EDITAR TIPO DE ACTIVIDAD -->
-        <form action="{{route('dashboard.tipoactividad.update', $tipoact->id)}}" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="_method" value="PUT">
-            {{ csrf_field() }}
-            <div class="modal fade in display_none" id="edit3" tabindex="-1" role="dialog" aria-hidden="false">
-                <div class="modal-dialog modal-md">
-                    <div class="modal-content">
-                        <div class="modal-header bg-primary">
-                            <h4 class="modal-title text-white">Editar Tipo de actividad</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-12">
-
-                                    <p>
-                                        <input id="name" name="name" type="text" placeholder="Tipo de cliente" class="form-control"  value="{{$tipoact->name}}">
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>--}}
+        </div>
     </div>
+</form>
+
+<!--- responsive model AGREGAR TIPO DE CLIENTES-->
+<form action="{{ route('dashboard.tipocliente.store') }}" method="post" enctype="multipart/form-data">
+    {{ csrf_field() }}
+    <div class="modal fade in display_none" id="responsive2" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h4 class="modal-title text-white">Agregar Tipo de cliente</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>
+                                <input id="name" name="name" type="text" placeholder="Tipo de cliente" class="form-control"  value="">
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<!--- responsive model EDITAR -->
+<form action="{{ route('dashboard.categories.update', $category->id) }}" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="_method" value="PUT">
+    {{ csrf_field() }}
+    <div class="modal fade in display_none" id="edit" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h4 class="modal-title text-white">Editar Categoría</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                                <p>
+                                    <input id="name" name="name" type="text" placeholder="Categoría" class="form-control"  value="{{$category->name}}">
+                                </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!--- responsive model EDITAR TIPO DE CLIENTES -->
+<form action="{{route('dashboard.tipocliente.update', $tipo->id)}}" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="_method" value="PUT">
+    {{ csrf_field() }}
+    <div class="modal fade in display_none" id="edit2" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h4 class="modal-title text-white">Editar Tipo de cliente</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <p>
+                                <input id="name" name="name" type="text" placeholder="Tipo de cliente" class="form-control"  value="{{$tipo->name}}">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!--- responsive model EDITAR TIPO DE ACTIVIDAD -->
+<form action="{{route('dashboard.tipoactividad.update', $tipoact->id)}}" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="_method" value="PUT">
+    {{ csrf_field() }}
+    <div class="modal fade in display_none" id="edit3" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h4 class="modal-title text-white">Editar Tipo de actividad</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <p>
+                                <input id="name" name="name" type="text" placeholder="Tipo de cliente" class="form-control input-lg"  value="{{$tipoact->name}}">
+                            </p>
+                        </div>
+                        <div class="col-md-12" >
+                            <h5>Color de la actividad</h5>
+                            <p>
+                                <input type="text" class="form-control input-lg" placeholder="#8fff00" id="cp11" name="color" >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 @endsection
 
 @section('scripts')
@@ -336,7 +335,10 @@
             "searching": false,
             "orderable": false,
             "paging": false,
-            "info": false
+            "info": false,
+            "scrollY": "300px",
+            "scrollCollapse": true,
+
         });
 
         $('#example_demo tbody').on( 'click', 'a.trash', function (e) {
@@ -384,7 +386,9 @@
             "searching": false,
             "orderable": false,
             "paging": false,
-            "info": false
+            "info": false,
+            "scrollY": "300px",
+            "scrollCollapse": true
         });
 
         $('#example_demo2 tbody').on( 'click', 'a.trash', function (e) {
@@ -431,7 +435,9 @@
             "searching": false,
             "orderable": false,
             "paging": false,
-            "info": false
+            "info": false,
+            "scrollY": "300px",
+            "scrollCollapse": true
         });
 
         $('#example_demo3 tbody').on( 'click', 'a.trash', function (e) {
@@ -441,7 +447,7 @@
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             new PNotify({
                 title: 'Eliminar',
-                text: '¿Desea eliminar el tipo de contacto?',
+                text: '¿Desea eliminar el tipo de actividad?',
                 icon: 'fa fa-question-circle',
                 hide: false,
                 type: 'error',
