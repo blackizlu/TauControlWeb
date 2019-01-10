@@ -31,7 +31,7 @@ class Client extends Model
 
     public function tipocliente()
     {
-        return $this->hasOne(tipoCliente::class, 'id', 'tipo_id');
+        return $this->hasOne(tipoCliente::class, 'id', 'tipo_id')->withTrashed();
     }
 
     use SoftDeletes;

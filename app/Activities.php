@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Activities extends Model
 {
-    protected $fillable = ['start', 'end', 'time', 'activity', 'completed', 'comments', 'client_id', 'contact_id', 'project_id', 'user_id'];
+    protected $fillable = ['start', 'end', 'time', 'activity', 'completed', 'comments', 'client_id', 'contact_id', 'project_id', 'user_id','tipoact_id'];
     protected $append = ['color'];
 
     use SoftDeletes;
@@ -36,6 +36,11 @@ class Activities extends Model
         return $this->hasOne(User::class, 'id', 'user_id')->withTrashed();
     }
 
+    public function tipoactividad()
+    {
+        return $this->hasOne(tipoActividad::class, 'id', 'tipoact_id')->withTrashed();
+    }
+
     //////////////////////// Mutadores >:E
 
     public function getCompletedAttribute()
@@ -43,73 +48,8 @@ class Activities extends Model
         return $this->attributes['completed'] == '1' ? true : false;
     }
 
-    public function getColorAttribute()
-    {
-        $color = "";
-        switch ($this->attributes['activity']) {
 
-            case('cita'):
-                $color = '#ff6666';
-                break;
-
-            case('envio_correo'):
-                $color = '#4fb7fe';
-                break;
-
-            case('instalacion_obra'):
-                $color = '#ff9933';
-                break;
-
-            case('llamada'):
-                $color = '#00cc99';
-                break;
-
-            case('visita_obra'):
-                $color = '#347dff';
-                break;
-
-            default:
-                $color = '#737373';
-                break;
-
-        }
-        return $color;
-    }
-
-    public function getActivityNameAttribute()
-    {
-        $actividad = "";
-        switch($this->attributes['activity']){
-
-            case('cita'):
-                $actividad = 'Cita';
-                break;
-
-            case('envio_correo'):
-                $actividad = 'Enviar correo';
-                break;
-
-            case('instalacion_obra'):
-                $actividad = 'Instalación de obra';
-                break;
-
-            case('llamada'):
-                $actividad = 'Llamada';
-                break;
-
-            case('visita_obra'):
-                $actividad = 'Visita a obra';
-                break;
-
-            default:
-                $actividad = ' ';
-                break;
-
-        }
-        return $actividad;
-    }
-
-    public function getImageAttribute()
+/*    public function getImageAttribute()
     {
         $image = "";
         switch($this->attributes['activity']){
@@ -140,7 +80,7 @@ class Activities extends Model
 
         }
         return $image;
-    }
+    }*/
 
     public function getFullNameAttribute()
     {
@@ -157,38 +97,6 @@ class Activities extends Model
         return Carbon::parse($start)->format('d/m/Y'). ' '. $this->attributes['time'];
     }
 
-    public function getNameActivityAttribute()
-    {
-        $acti = "";
-        switch($this->attributes['activity']){
-
-            case('cita'):
-                $acti = 'Cita';
-                break;
-
-            case('envio_correo'):
-                $acti = 'Envío de correo';
-                break;
-
-            case('instalacion_obra'):
-                $acti = 'Instalación de obra';
-                break;
-
-            case('llamada'):
-                $acti = 'Llamada';
-                break;
-
-            case('visita_obra'):
-                $acti = 'Visita a obra';
-                break;
-
-            default:
-                $acti = ' ';
-                break;
-
-        }
-        return $acti;
-    }
 
 }
 

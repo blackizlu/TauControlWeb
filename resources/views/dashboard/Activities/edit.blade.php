@@ -130,13 +130,10 @@
                         </div>
                         <div class="col-xl-6 col-lg-8">
                             <div class="input-group">
-                                <select class="form-control hide_search" tabindex="7" name="activity" id="name1" value="{{ $activity->activity}}">
-                                    <option selected disabled>Selecciona una actividad</option>
-                                    <option value="cita"@if($activity->activity == 'cita'){{ 'selected' }}@endif>Cita</option>
-                                    <option value="envio_correo"@if($activity->activity == 'envio_correo'){{ 'selected' }}@endif>Envio de Correo</option>
-                                    <option value="instalacion_obra"@if($activity->activity == 'instalacion_obra'){{ 'selected' }}@endif>Instalación de obra</option>
-                                    <option value="llamada"@if($activity->activity == 'llamada'){{ 'selected' }}@endif>Llamada</option>
-                                    <option value="visita_obra"@if($activity->activity == 'visita_obra'){{ 'selected' }}@endif>Visita a obra</option>
+                                <select class="form-control hide_search" tabindex="7" name="tipoact_id" id="name1" value="{{ $activity->tipoactividad->name}}">
+                                    @foreach($tipoactividad as $tipo)
+                                        <option value="{{ $tipo->id }}">{{ $tipo->name }}</option>
+                                    @endforeach
 
                                 </select>
                             </div>

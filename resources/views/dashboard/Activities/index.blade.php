@@ -46,7 +46,7 @@
                             </a>
                         </div><br>
                         <div class="m-t-25">
-                            <table id="example_demo " class="table table-hover table-striped table-bordered">
+                            <table id="example_demo" class="table table-hover table-striped table-bordered">
                                 <thead>
                                 <tr >
                                     <th>Cliente</th>
@@ -78,7 +78,7 @@
                                             @endif</td>
                                         <td>{{\Carbon\Carbon::parse($activity->deadline)->format('d/m/Y')}}</td>
                                         <td>{{\Carbon\Carbon::parse($activity->time)->format('h:i A')}}</td>
-                                        <td>{{$activity->Name_Activity}}</td>
+                                        <td>{{$activity->tipoactividad->name}}</td>
                                         <td>
                                             <div class="checkbox" align="center">
                                                 <label class="text-success">
@@ -232,13 +232,11 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-clipboard-check text-primary"></i>
                                                     </span>
-                                            <select class="form-control " tabindex="7" name="activity" id="name1">
-                                                <option selected disabled>Selecciona una actividad</option>
-                                                <option value="cita">Cita</option>
-                                                <option value="envio_correo">Envio de Correo</option>
-                                                <option value="instalacion_obra">Instalación de obra</option>
-                                                <option value="llamada">Llamada</option>
-                                                <option value="visita_obra">Visita a obra</option>
+                                            <select class="form-control " tabindex="7" name="tipoact_id" id="name1">
+                                                <option selected disabled>Selecciona el tipo de actividad</option>
+                                                @foreach($tipoactividad as $tipo)
+                                                    <option value="{{ $tipo->id }}">{{ $tipo->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>

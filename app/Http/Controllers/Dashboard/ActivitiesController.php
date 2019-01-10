@@ -6,6 +6,7 @@ use App\Activities;
 use App\Client;
 use App\contact;
 use App\Project;
+use App\tipoActividad;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,8 +21,9 @@ class ActivitiesController extends Controller
         $contacts = contact::all();
         $projects = Project::all();
         $users = User::all();
+        $tipoactividad = tipoActividad::all();
 
-        return view('dashboard.activities.index', compact('clients', 'contacts', 'projects', 'users', 'activities'));
+        return view('dashboard.activities.index', compact('clients', 'contacts', 'projects', 'users', 'activities','tipoactividad'));
     }
 
     public function store(Request $request)
@@ -37,7 +39,7 @@ class ActivitiesController extends Controller
             'start' => 'required',
             'end' => 'required',
             'time' => 'required',
-            'activity' => 'required'
+            'tipoact_id' => 'required',
         ]);
 
         $activity = new Activities($data);
@@ -56,7 +58,9 @@ class ActivitiesController extends Controller
         $clients = Client::all();
         $contacts = contact::all();
         $projects = Project::all();
-        return view('dashboard.activities.edit', compact('clients', 'contacts', 'projects', 'users', 'activity'));
+        $tipoactividad = tipoActividad::all();
+
+        return view('dashboard.activities.edit', compact('clients', 'contacts', 'projects', 'users', 'activity','tipoactividad'));
 
     }
 
