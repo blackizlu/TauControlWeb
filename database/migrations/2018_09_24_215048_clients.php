@@ -19,7 +19,7 @@ class Clients extends Migration /* Crea clientes :)*/
             $table->boolean('is_business');
             $table->string('office_number')->nullable();
             $table->string('client_name');
-            $table->enum('type', ['Arquitecto','Constructora','Desarrolladora','Cliente_Final','Gerencia_obra']);
+/*            $table->enum('type', ['Arquitecto','Constructora','Desarrolladora','Cliente_Final','Gerencia_obra']);*/
             $table->string('web_page')->nullable();
             $table->string('notes')->nullable();
             $table->timestamps();

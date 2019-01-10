@@ -297,6 +297,7 @@
     </form>
 
     <!--- responsive model Editar Actividad-->
+{{--
         <div class="modal fade in display_none" id="edit" tabindex="-1" role="dialog" aria-hidden="false">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -479,6 +480,7 @@
                 </div>
             </div>
         </div>
+--}}
 @endsection
 
 @section('scripts')

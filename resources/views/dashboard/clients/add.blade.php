@@ -77,7 +77,7 @@
                                         <span class="input-group-addon">
                                             <i class="fa fa-users text-primary"></i>
                                         </span>
-                                        <select class="form-control chzn-select" tabindex="2" name="tipocliente_id">
+                                        <select class="form-control chzn-select" tabindex="2" name="tipo_id">
                                             <option selected disabled>Selecciona el tipo de cliente</option>
                                             @foreach($tipocliente as $tipo)
                                                 <option value="{{ $tipo->id }}">{{ $tipo->name }}</option>

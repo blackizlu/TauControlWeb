@@ -22,7 +22,7 @@ class CreateActivitiesTable extends Migration
             $table->date('start');
             $table->date('end');  //fecha para realizar y completar la actividad
             $table->time('time');           //fecha para final para completar la actividad
-            $table->enum('activity',['cita','envio_correo','instalacion_obra','llamada', 'visita_obra']);
+/*            $table->enum('activity',['cita','envio_correo','instalacion_obra','llamada', 'visita_obra']);*/
             $table->boolean('completed');   //Boolean completado si o no
             $table->string('comments')->nullable();     //comentarios de la actividad
             $table->foreign('client_id')->references('id')->on('clients');      //conecta tabla foranea

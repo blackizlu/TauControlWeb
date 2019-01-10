@@ -41,7 +41,7 @@ class ClientsController extends Controller
 
         $this->validate($request, [
             'client_name' => 'required',
-            'tipocliente_id' => 'required',
+            'tipo_id' => 'required',
             'contact_name' => 'required',
             'phone_number' => 'required',
             'user_id' => 'required'

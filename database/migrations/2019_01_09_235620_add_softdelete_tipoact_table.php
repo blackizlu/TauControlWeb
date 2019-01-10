@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTipoClienteClientsTable extends Migration
+class AddSoftdeleteTipoactTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddTipoClienteClientsTable extends Migration
      */
     public function up()
     {
-        Schema::table('clients', function (Blueprint $table) {
-            $table->integer('tipo_id')->unsigned();
-
+        Schema::table('tipoactivity', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
 
@@ -26,9 +25,8 @@ class AddTipoClienteClientsTable extends Migration
      */
     public function down()
     {
-        Schema::table('clients', function (Blueprint $table) {
-            $table->dropForeign('tipocliente_id');
-            $table->dropColumn('tipo_id');
+        Schema::table('tipoactivity', function (Blueprint $table) {
+            $table->dropSoftDeletes();
         });
     }
 }

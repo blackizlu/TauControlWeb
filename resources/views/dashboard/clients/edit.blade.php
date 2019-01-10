@@ -77,8 +77,11 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-users text-primary"></i>
                                                 </span>
-                                                <select class="form-control hide_search" tabindex="7" name="type" value="           ">
-
+                                                <select class="form-control chzn-select" tabindex="7" name="tipo_id" id="tipo_id">
+                                                    <option value="{{$client->tipo_id}}" selected>{{$client->tipocliente->name}}</option>
+                                                @foreach($tipocliente as $tipo)
+                                                        <option value="{{ $tipo->id }}">{{ $tipo->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -120,7 +123,7 @@
                                                 </span>
                                                 <select class="form-control chzn-select" tabindex="2" name="user_id" id="user_id" value="{{$client->user_id}}">
                                                     <option value="{{$client->user_id}}" selected>{{$client->user->profile->name}}</option>
-                                                    @foreach($users as $user)
+                                                @foreach($users as $user)
                                                         <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
                                                     @endforeach
                                                 </select>

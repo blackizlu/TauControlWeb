@@ -8,17 +8,15 @@ use App\tipoCliente;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CategoryController extends Controller
+class TipoActividadController extends Controller
 {
     public function view(){
         $categories = Category::all(); /*Variable users muestra los usuarios en lista*/
         $tipocliente = tipoCliente::all(); /*Variable users muestra los usuarios en lista*/
         $tipoactividad = tipoActividad::all();
 
-
         return view('dashboard.cotizaciones.categories', compact('categories','tipocliente','tipoactividad'));
     }
-
     public function store(Request $request)
     {
         $data = $request->all();
@@ -26,24 +24,24 @@ class CategoryController extends Controller
         $this->validate($request, [
             'name' => 'required',
         ]);
-        $category = new Category($data);
-        $category->save();
+        $tipoactividad = new tipoActividad($data);
+        $tipoactividad->save();
 
         return redirect()->route('dashboard.cotizaciones.categories');
     }
 
     public function update(Request $request, $id)
     {
-        $categories = Category::findOrFail($id);
-        $categories->fill($request->all());
-        $categories->update();
+        $tipoactividad = tipoActividad::findOrFail($id);
+        $tipoactividad->fill($request->all());
+        $tipoactividad->update();
 
         return redirect()->back();
     }
 
     public function destroy($id){
-        $categories = Category::findOrFail($id);
-        $categories->delete();
+        $tipoactividad = tipoActividad::findOrFail($id);
+        $tipoactividad->delete();
 
         return response()->json([
             'success' => true

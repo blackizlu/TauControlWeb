@@ -84,11 +84,19 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
 
     });
 
-    //MODULO TIPO CLIENTES
+    //MODULO  CATEGORIAS TIPO CLIENTES
     Route::group(['prefix' =>'tipocliente'], function (){
         Route::post('/', 'Dashboard\TipoClienteController@store')->name('dashboard.tipocliente.store');
         Route::put('/{id}/update', 'Dashboard\TipoClienteController@update')->name('dashboard.tipocliente.update');
         Route::delete('/{id}/delete', 'Dashboard\TipoClienteController@destroy')->name('dashboard.tipocliente.delete');//Listo
+
+    });
+
+    //MODULO  CATEGORIAS TIPO ACTIVIDADES
+    Route::group(['prefix' =>'tipoactividad'], function (){
+        Route::post('/', 'Dashboard\TipoActividadController@store')->name('dashboard.tipoactividad.store');
+        Route::put('/{id}/update', 'Dashboard\TipoActividadController@update')->name('dashboard.tipoactividad.update');
+        Route::delete('/{id}/delete', 'Dashboard\TipoActividadController@destroy')->name('dashboard.tipoactividad.delete');//Listo
 
     });
 

@@ -86,7 +86,7 @@
                                         <tr>
                                             <td>Tipo</td>
                                             <td>
-                                                <span class="" data-title="Edit E-mail">            </span>
+                                                <span class="" data-title="Edit E-mail">{{$client->tipocliente->name}}</span>
                                             </td>
                                         </tr>
                                         <tr>
