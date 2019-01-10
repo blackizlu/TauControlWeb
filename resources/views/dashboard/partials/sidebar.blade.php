@@ -24,7 +24,19 @@
                     <li class="">
                         <a href="{{route('dashboard.cotizaciones.categories')}}">
                             <i class="fa fa-angle-right"></i>
-                            &nbsp;Lista de categorias
+                            &nbsp;Categorías para cotizaciones
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{route('dashboard.tipocliente.index')}}">
+                            <i class="fa fa-angle-right"></i>
+                            &nbsp;Tipo de clientes
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{route('dashboard.tipoactividad.index')}}">
+                            <i class="fa fa-angle-right"></i>
+                            &nbsp;Tipo de actividades
                         </a>
                     </li>
                 </ul>

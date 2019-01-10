@@ -10,12 +10,11 @@ use App\Http\Controllers\Controller;
 
 class TipoActividadController extends Controller
 {
-    public function view(){
-        $categories = Category::all(); /*Variable users muestra los usuarios en lista*/
-        $tipocliente = tipoCliente::all(); /*Variable users muestra los usuarios en lista*/
+    public function index(){
+
         $tipoactividad = tipoActividad::all();
 
-        return view('dashboard.cotizaciones.categories', compact('categories','tipocliente','tipoactividad'));
+        return view('dashboard.categories.typeactivity', compact('tipoactividad'));
     }
     public function store(Request $request)
     {
@@ -28,7 +27,7 @@ class TipoActividadController extends Controller
         $tipoactividad = new tipoActividad($data);
         $tipoactividad->save();
 
-        return redirect()->route('dashboard.cotizaciones.categories');
+        return redirect()->route('dashboard.tipoactividad.index');
     }
 
     public function update(Request $request, $id)

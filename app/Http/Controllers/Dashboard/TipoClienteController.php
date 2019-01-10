@@ -9,11 +9,11 @@ use App\Http\Controllers\Controller;
 
 class TipoClienteController extends Controller
 {
-    public function view(){
-        $categories = Category::all(); /*Variable users muestra los usuarios en lista*/
-        $tipocliente = tipoCliente::all(); /*Variable users muestra los usuarios en lista*/
+    public function index()
+    {
+        $tipocliente = tipoCliente::all();
 
-        return view('dashboard.cotizaciones.categories', compact('categories','tipocliente'));
+        return view('dashboard.Categories.typeclient', compact('tipocliente'));
     }
     public function store(Request $request)
     {
@@ -25,7 +25,7 @@ class TipoClienteController extends Controller
         $tipocliente = new tipoCliente($data);
         $tipocliente->save();
 
-        return redirect()->route('dashboard.cotizaciones.categories');
+        return redirect()->route('dashboard.tipocliente.index');
     }
 
     public function update(Request $request, $id)
