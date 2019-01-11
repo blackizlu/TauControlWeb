@@ -73,7 +73,7 @@
                                     <div class="col-lg-2 input_field_sections">     </div>
                                     <div class="col-lg-4 input_field_sections">
                                         <h6>Fecha de creación del proyecto</h6>
-                                        <h5>{{ $project->created_at }}</h5>
+                                        <h5>{{\Carbon\Carbon::parse($project->created_at)->format('d/m/Y')}}</h5>
                                     </div>
                                 </div>
                             </form>
