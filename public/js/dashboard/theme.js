@@ -30,9 +30,9 @@
         previewZoomButtonIcons: {
             prev: '<i class="fa fa-caret-left fa-lg"></i>',
             next: '<i class="fa fa-caret-right fa-lg"></i>',
-            toggleheader: '<i class="fa fa-arrows-v"></i>',
+            toggleheader: '<i class="fa fa-arrows-alt-v"></i>',
             fullscreen: '<i class="fa fa-arrows-alt"></i>',
-            borderless: '<i class="fa fa-external-link"></i>',
+            borderless: '<i class="fa fa-arrows-alt"></i>',
             close: '<i class="fa fa-remove"></i>'
         },
         previewFileIcon: '<i class="fa fa-file"></i>',

@@ -40,61 +40,61 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
-                    <div class="btn-group">
-                        <a href="{{route ('dashboard.cotizaciones.add')}}" id="editable_table_new" class=" btn btn-default">
-                            Nueva cotización  <i class="fa fa-plus"></i>
-                        </a>
-                    </div><br>
-                    <div class="m-t-25">
-                        <table id="example_demo" class="table table-hover table-striped table-bordered">
-                            <thead>
-                            <tr>
-                                <th >Proyecto</th>
-                                <th >Cliente</th>
-                                <th >Monto</th>
-                                <th >Moneda </th>
-                                <th >Fecha de solicitud</th>
-                                <th >Fecha de realización</th>
-                                <th >Vendida</th>
-                                <th >Fecha de venta</th>
-                                <th>Acciones</th>
-                            </tr>
-                            </thead>
-                            {{--</thead>EN EL MONTO DE PROYECTO SE DEBERA MOSTRAR EL MONTO DE LA ULTIMA COTIZACION GENERADA PARA DICHO PROYECTO. UN PROYECTO PUEDE TENER MULTIPLES COTIZACIONES.--}}
-                            <tbody>
-                            {{--@foreach($projects->SortBy('estimated_date') as $project)--}}
+                        @endif
+                        <div class="btn-group">
+                            <a href="{{route ('dashboard.cotizaciones.add')}}" id="editable_table_new" class=" btn btn-default">
+                                Nueva cotizacion  <i class="fa fa-plus"></i>
+                            </a>
+                        </div><br>
+                        <div class="m-t-25">
+                            <table id="example_demo" class="table table-hover table-striped table-bordered">
+                                <thead>
                                 <tr>
-                                    <td>Casas Xion</td>
-                                    <td>Construc Xion SA de CV</td>
-                                    <td >$322,036,700.00</td>
-                                    <td>USD</td>
-                                    <td>2018/11/07</td>
-                                    <td>2018/11/09</td>
-                                    <td>
-                                        <div class="checkbox" align="center">
-                                            <label class="text-success">
-                                                <input type="checkbox" title="yes" {{--@if($activity->completed == true) checked @endif disabled--}}>
-                                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td></td>
-                                    <td>
-                                        <a class="view" data-toggle="tooltip" data-placement="top" title="Ver cotización" href="">
-                                            <i class="fa fa-eye text-success"></i></a>
-                                        &nbsp; &nbsp;
-                                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="">
-                                            <i class="fa fa-pencil-alt text-warning"></i></a>
-                                        &nbsp; &nbsp;
-                                        <a class="trash"  type="button" data-toggle="tooltip" data-placement="top" href="" title="Eliminar">
-                                            <i class="fa fa-trash text-danger"></i></a>
-                                    </td>
+                                    <th >Proyecto</th>
+                                    <th >Cliente</th>
+                                    <th >Monto</th>
+                                    <th >Moneda </th>
+                                    <th >Fecha de solicitud</th>
+                                    <th >Fecha de realización</th>
+                                    <th >Vendida</th>
+                                    <th >Fecha de venta</th>
+                                    <th>Acciones</th>
                                 </tr>
-                            {{--@endforeach--}}
-                            </tbody>
-                        </table>
-                    </div>
+                                </thead>
+                                {{--</thead>EN EL MONTO DE PROYECTO SE DEBERA MOSTRAR EL MONTO DE LA ULTIMA COTIZACION GENERADA PARA DICHO PROYECTO. UN PROYECTO PUEDE TENER MULTIPLES COTIZACIONES.--}}
+                                <tbody>
+                                @foreach($cotizaciones as $cotizacion)
+                                    <tr>
+                                        <td>{{$cotizacion->project->name}}</td>
+                                        <td>{{$cotizacion->project->client->client_name}}</td>
+                                        <td>${{number_format($cotizacion->amount, 2)}}</td>
+                                        <td>{{$cotizacion->currency}}</td>
+                                        <td>{{$cotizacion->Date1}}</td>
+                                        <td>{{$cotizacion->realization}}</td>
+                                        <td>
+                                            <div class="checkbox" align="center">
+                                                <label class="text-success">
+                                                    <input type="checkbox" title="yes" @if($cotizacion->sold == true) checked @endif disabled>
+                                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>{{$cotizacion->sold_date}}</td>
+                                        <td>
+                                            <a href="{{route('dashboard.cotizaciones.view', $cotizacion->id)}}" data-toggle="tooltip" data-placement="top" title="Ver proyecto">
+                                                <i class="fa fa-eye text-success"></i></a>
+                                            &nbsp; &nbsp;
+                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href=" ">
+                                                <i class="fa fa-pencil-alt text-warning"></i></a>
+                                            &nbsp; &nbsp;
+                                            <a class="trash"  type="button" data-toggle="tooltip" data-placement="top" href="  " title="Eliminar">
+                                                <i class="fa fa-trash text-danger"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                 </div>
             </div>
         </div>
@@ -139,7 +139,7 @@
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             new PNotify({
                 title: 'Eliminar',
-                text: '¿Desea eliminar el proyecto?',
+                text: '¿Desea eliminar la cotización?',
                 icon: 'fa fa-question-circle',
                 hide: false,
                 type: 'error',

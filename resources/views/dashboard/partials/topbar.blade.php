@@ -16,7 +16,7 @@
                 </div>
                 <div class="btn-group">
                     <div class="notifications messages no-bg">
-                        <a class="btn btn-default btn-sm" data-toggle="dropdown" id="notifications_section"> <i
+                        <a class="btn btn-sm" data-toggle="dropdown" id="notifications_section"> <i
                                     class="fa fa-bell"></i>
                             <span class="badge badge-pill badge-danger notifications_badge_top">9</span>
                         </a>

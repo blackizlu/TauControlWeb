@@ -4,18 +4,20 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Category;
 use App\Client;
+use App\cotizaciones;
 use App\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+
 
 class CotizacionesController extends Controller
 {
     public function index(){
 
-        $clients =Client::all();
-        $categories =Category::all();
-        $projects =Project::all();
-        return view('dashboard.cotizaciones.index', compact('clients', 'categories', 'projects'));
+        $cotizaciones = cotizaciones::all();
+
+        return view('dashboard.cotizaciones.index', compact('cotizaciones'));
     }
     public function generate(){
 
@@ -31,9 +33,31 @@ class CotizacionesController extends Controller
         return view('dashboard.cotizaciones.add', compact('projects'));
     }
 
+    public function store(Request $request)//Cotizaciones externas
+    {
+        $data = request()->all();
+
+        $this->validate($request, [
+            'project_id' => 'required',
+            'currency' => 'required',
+            'amount' => 'required',
+            'request' => 'required',
+
+        ]);
+
+        $cotizacion = new cotizaciones ($data);
+        $cotizacion->sold = $request->has('sold') ? 1 : 0;
+        $cotizacion->save();
+
+        $message = 'Cotización creada con éxito';
+        Session::flash('message', $message);
+
+        return redirect()->route('dashboard.cotizaciones.index');
+    }
+
     public function edit($id){
 
-        $cotizacion = CotizacionesController::findOrFail($id);
+        $cotizacion = cotizaciones::findOrFail($id);
         return view('dashboard.contacts.edit', compact('cotizacion'));
 
 
@@ -41,7 +65,7 @@ class CotizacionesController extends Controller
 
     public function update(Request $request, $id)
     {
-        $cotizacion = CotizacionesController::findOrFail($id);
+        $cotizacion = cotizaciones::findOrFail($id);
         $cotizacion->fill($request->all());
         $cotizacion->update();
 
@@ -52,7 +76,12 @@ class CotizacionesController extends Controller
         return redirect()->route('dashboard.cotizaciones.index');
     }
 
-    public function store(Request $request) {
-        dd($request->all());
+    public function view($id)
+    {
+        $cotizacion = cotizaciones::findOrFail($id);
+        $project = Project::all();
+
+        return view('dashboard.cotizaciones.view', compact('cotizacion','project'));
     }
+
 }

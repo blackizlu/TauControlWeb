@@ -31,6 +31,11 @@ class Project extends Model
         return $this->hasMany(Activities::class, 'project_id', 'id');
     }
 
+    public function cotizacion()
+    {
+        return $this->hasMany(cotizaciones::class, 'project_id', 'id');
+    }
+
     public function scopeGanado($query)
     {
         return $query->where('Ganado', true);
