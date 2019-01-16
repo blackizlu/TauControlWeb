@@ -18,7 +18,7 @@
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="">Cotizaciones</a>
+                            <a href="{{route('dashboard.cotizaciones.index')}}">Cotizaciones</a>
                         </li>
                         <li class="active breadcrumb-item">Ver cotización</li>
                     </ol>
@@ -58,7 +58,7 @@
                                 <div class="col-lg-4 input_field_sections">
                                     <h5>Fecha de solicitud de pricing*</h5>
                                     <div class="input-group input-append date">
-                                        <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="request" value="{{$cotizacion->Date1}}" disabled>
+                                        <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="request" value="{{\Carbon\Carbon::parse($cotizacion->request)->format('d/m/Y')}}" disabled>
                                         <span class="input-group-addon add-on">
                                             <i class="fa fa-calendar-alt"></i>
                                         </span>
@@ -67,18 +67,18 @@
                                 <div class="col-lg-4 input_field_sections">
                                     <h5>Fecha de realización del pricing</h5>
                                     <div class="input-group input-append date">
-                                        <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="realization" value="{{$cotizacion->Date2}}" disabled="">
+                                        <input class="form-control" type="text"  @if(empty($cotizacion->realization)){{ ' ' }} @else value="{{\Carbon\Carbon::parse($cotizacion->realization)->format('d/m/Y')}}"@endif disabled>
                                         <span class="input-group-addon add-on">
                                             <i class="fa fa-calendar-alt"></i>
                                         </span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row m-t-15">
                                 <div class="col-lg-4 input_field_sections ">
                                     <h5>Fecha de venta</h5>
                                     <div class="input-group input-append date" >
-                                        <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="sold_date" value="{{$cotizacion->Date3}}" disabled>
+                                        <input class="form-control" type="text"  name="sold_date" @if(empty($cotizacion->sold_date)){{ ' ' }} @else value="{{\Carbon\Carbon::parse($cotizacion->sold_date)->format('d/m/Y')}}"@endif disabled>
                                         <span class="input-group-addon add-on">
                                             <i class="fa fa-calendar-alt"></i>
                                         </span>
@@ -86,14 +86,19 @@
                                 </div>
                                 <div class="col-lg-4 input_field_sections">
                                     <h5>Vendida</h5>
-                                    <div class="checkbox">
+                                    <div class="checkbox m-t-5">
                                         <label class="text-success">
                                             <input type="checkbox" @if($cotizacion->sold == true) checked @endif disabled>
                                             <span class="cr"><i class="cr-icon fa fa-check"></i></span>
                                         </label>
                                     </div>
                                 </div>
-
+                                <div class="col-lg-4 input_field_sections">
+                                    <h5>Cotización</h5>
+                                    <a href="{{ asset('storage/' .$cotizacion->file)}}" tarjet="_blank">
+                                        <button type="button" class=" btn btn-primary ">Descargar Archivo&nbsp;<i class="fa fa-download"></i></button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -101,9 +106,9 @@
             </div>
         </div>
     </div>
+
 @endsection
 @section('scripts')
-
 
 @endsection
 

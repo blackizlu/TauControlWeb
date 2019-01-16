@@ -6,6 +6,7 @@ use App\Project;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ReportesController extends Controller
 {
@@ -22,9 +23,17 @@ class ReportesController extends Controller
         $Pricing = Project::where('phase', 'Pricing')->count();
         $Rechazado = Project::where('phase', 'Rechazado')->count();
 
+        $totalmx = DB::table('cotizacion')
+            ->where('currency','MXN')
+            ->sum('amount');
+
+        $totalUS = DB::table('cotizacion')
+            ->where('currency','USD')
+            ->sum('amount');
 
 
-        return view('dashboard.reportes.index', compact('users','projects','Cotizado','Ganado','Lead','Negociacion','Pricing','Rechazado'));
+
+        return view('dashboard.reportes.index', compact('users','projects','Cotizado','Ganado','Lead','Negociacion','Pricing','Rechazado','totalmx','totalUS'));
     }
 
     public function getProjects(Request $request, $id)

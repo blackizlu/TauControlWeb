@@ -68,8 +68,8 @@
                                     <td>{{ $project->client->client_name }}</td>
                                     <td>{{ $project->phase }}</td>
                                     <td>{{\Carbon\Carbon::parse($project->estimated_date)->format('d/m/Y')}}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{--{{$project->cotizacion->currency}}--}}</td>
+                                    <td>{{--{{number_format($project->cotizacion->amount,2)}}--}}</td>
                                     <td>{{ $project->user->profile->full_name }}
                                         @if($project->user->deleted_at != null)
                                             <span style="color: red; font-size: 10px;">(Eliminado)</span>

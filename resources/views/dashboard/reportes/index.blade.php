@@ -76,9 +76,9 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                     <div>
                                         <h5 class="sales_orders text-right m-t-5">Ganados</h5>  {{--Widget3.js para modificar los valores a mostrar--}}
                                         <h1 class="sales_number m-t-15 text-right" id="ganados"></h1>
-                                        <p class="sales_text">Monto en MXN: $593,381.20
+                                        <p class="sales_text">Monto en MXN: {{number_format($totalmx,2)}}
                                             {{--<span class="pull-right"><i class="fa fa-dollar text-mint font_18 m-r-5"></i>25.25%</span>--}}</p>
-                                        <p class="sales_text">Monto en USD: $361,413.65
+                                        <p class="sales_text">Monto en USD: {{number_format($totalUS,2)}}
                                         </p>
                                     </div>
                                 </div>
@@ -92,8 +92,8 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                     <div>
                                         <h5 class="sales_orders text-right m-t-5">Cotizados</h5>
                                         <h1 class="sales_number m-t-15 text-right" id="cotizados"></h1>
-                                        <p class="sales_text">Monto en MXN: $989,900.38</p>
-                                        <p class="sales_text">Monto en USD: $380,043.34</p>
+                                        <p class="sales_text">Monto en MXN: $0.00</p>
+                                        <p class="sales_text">Monto en USD: $0.00</p>
                                     </div>
                                 </div>
                             </div>
@@ -107,7 +107,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                         <h5 class="sales_orders text-right m-t-5">Negociación</h5>
                                         <h1 class="sales_number m-t-15 text-right" id="negociados"></h1>
                                         <p class="sales_text">Monto en MXN: $0.00</p>
-                                        <p class="sales_text">Monto en USD: $274,976.03</p>
+                                        <p class="sales_text">Monto en USD: $0.00</p>
                                     </div>
                                 </div>
                             </div>
@@ -140,7 +140,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                         <h5 class="sales_orders text-right m-t-5">Pricing</h5>
                                         <h1 class="sales_number m-t-15 text-right" id="pricing"></h1>
                                         <p class="sales_text">Monto en MXN: $0.00</p>
-                                        <p class="sales_text">Monto en USD: $$912,680.26</p>
+                                        <p class="sales_text">Monto en USD: $0.00</p>
                                     </div>
                                 </div>
                             </div>
@@ -153,8 +153,8 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                     <div>
                                         <h5 class="sales_orders text-right m-t-5">Rechazados</h5>
                                         <h1 class="sales_number m-t-15 text-right"><span id="rechazados"></span></h1>
-                                        <p class="sales_text">Monto en MXN: $14,163,496.63</p>
-                                        <p class="sales_text">Monto en USD: $3,078,177.80</p>
+                                        <p class="sales_text">Monto en MXN: $0.00</p>
+                                        <p class="sales_text">Monto en USD: $0.00</p>
                                     </div>
                                 </div>
                             </div>
@@ -191,14 +191,14 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                                     <tr role="row" class="even">
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-file-invoice-dollar text-primary"></i></a>&nbsp;Cotizado</td>
                                                         <td>{{$Cotizado}}</td>
-                                                        <td>$1,094,872.10</td>
-                                                        <td>$2,337,960.92</td>
+                                                        <td>$0.00</td>
+                                                        <td>$0.00</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-dollar text-success"></i></a>&nbsp;Ganado</td>
                                                         <td>{{$Ganado}}</td>
-                                                        <td>$ 5,712,602.03</td>
-                                                        <td>$524,840.31</td>
+                                                        <td>$79,880.00</td>
+                                                        <td>$0.00</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-bullseye"></i></a>&nbsp;Lead</td>
@@ -209,20 +209,20 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-handshake-o text-warning"></i></a>&nbsp;Negociación</td>
                                                         <td>{{$Negociacion}}</td>
-                                                        <td>$ 999,000.00</td>
-                                                        <td>$497,702.53</td>
+                                                        <td>$ 0.00</td>
+                                                        <td>$0.00</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-calculator text-muted"></i></a>&nbsp;Pricing</td>
                                                         <td>{{$Pricing}}</td>
                                                         <td>$ 0.00</td>
-                                                        <td>$912,680.26</td>
+                                                        <td>$0.00</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-times-circle text-danger"></i></a>&nbsp;Rechazado</td>
                                                         <td>{{$Rechazado}}</td>
-                                                        <td>$ 35,421,585.63</td>
-                                                        <td>$7,328,810.88</td>
+                                                        <td>$0.00</td>
+                                                        <td>$0.00</td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -264,27 +264,27 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                                     <tbody>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-file-invoice-dollar text-primary"></i></a>&nbsp;Cotizado</td>
-                                                        <td>15</td>
+                                                        <td>0</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-dollar text-success"></i></a>&nbsp;Ganado</td>
-                                                        <td>6</td>
+                                                        <td>2</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-bullseye"></i></a>&nbsp;Lead</td>
-                                                        <td>44</td>
+                                                        <td>0</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-handshake-o text-warning"></i></a>&nbsp;Negociación</td>
-                                                        <td>10</td>
+                                                        <td>0</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-calculator text-muted"></i></a>&nbsp;Princing</td>
-                                                        <td>20</td>
+                                                        <td>0</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-times-circle text-danger"></i></a>&nbsp;Rechazado</td>
-                                                        <td>12</td>
+                                                        <td>0</td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -396,7 +396,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
             backgroundColor: window.chartColors.primary,
             data: [
 
-                {{$Cotizado}},//cotizado
+                0,{{$Cotizado}},//cotizado
 
             ]
         },
@@ -414,7 +414,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
             backgroundColor: window.chartColors.muted,
             data: [
 
-                {{$Lead}}//lead
+                0,{{$Lead}}//lead
 
             ]
         },
@@ -559,6 +559,23 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
         $("#editable_table_wrapper .dt-buttons .btn").addClass('btn-secondary').removeClass('btn-default');
 
     });
+</script>
+<script>
+    function sum(input){
+
+        if (toString.call(input) !== "[object Array]")
+            return false;
+
+        var total =  0;
+        for(var i=0;i<input.length;i++)
+        {
+            if(isNaN(input[i])){
+                continue;
+            }
+            total += Number(input[i]);
+        }
+        return $total;
+    }
 
 </script>
 

@@ -1,6 +1,5 @@
 <!doctype html>
 <html class="no-js" lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Tau Control</title>
@@ -8,9 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/logo1.ico"/>
-
-
-    <!--global styles-->
+<!--global styles-->
 <link type="text/css" rel="stylesheet" href="/css/dashboard/components.css" />
 {{--
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -30,20 +27,16 @@
 <link type="text/css" rel="stylesheet" href="/css/dashboard/pnotify.mobile.css"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/sweet_alert.css"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/sweetalert2.min.css"/>
-<!--End of plugin styles-->
 <!--Estilos Radio Button chekbox-->
 <link type="text/css" rel="stylesheet" href="/css/dashboard/bootstrap-switch.min.css"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/radiobox.min.css"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/checkbox.min.css"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/switchery.min.css"/>
-    <!--End of plugin styles-->
 <!--Page level styles-->
 <link type="text/css" rel="stylesheet" href="/css/dashboard/tables.css" />
 <link type="text/css" rel="stylesheet" href="/css/dashboard/p_notify.css"/>
 <link type="text/css" rel="stylesheet" href="#" id="skin_change"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/radio_checkbox.css" />
-
-<!-- end of global styles-->
 <link type="text/css" rel="stylesheet" href="/css/dashboard/chartist.min.css" />
 <link type="text/css" rel="stylesheet" href="/css/dashboard/jquery.circliful.css">
 <link type="text/css" rel="stylesheet" href="/css/dashboard/index.css">
@@ -53,8 +46,6 @@
 <link type="text/css" rel="stylesheet" href="/css/dashboard/calendar_custom.css"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/profile.css"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/gallery.css"/>
-<!--FIN DE ESTILOS PARA VER CLIENTES-->
-
 <!--Estilos para vista cotizaciones-->
 <link type="text/css" rel="stylesheet" href="/css/dashboard/jquery.inputlimiter.css"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/chosen.css"/>
@@ -66,8 +57,6 @@
 <link type="text/css" rel="stylesheet" href="/css/dashboard/fileinput.min.css"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/multi-select.css"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/form_elements.css"/>
-<!--FIN Estilos para vista cotizaciones-->
-
 <!-- Estilos para vista cotizaciones/calendarios-->
 <link type="text/css" rel="stylesheet" href="/css/dashboard/DateTimePicker.min.css" />
 <link type="text/css" rel="stylesheet" href="/css/dashboard/jquery.timepicker.css" />
@@ -75,11 +64,9 @@
 {{--
 <link type="text/css" rel="stylesheet" href="/css/dashboard/colorpicker_hack.css" />
 --}}
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/colorpicker/bootstrap-colorpicker.css" />
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/colorpicker/bootstrap-colorpicker.min.css" />
-
-
-    <!--FIN Estilos para vista cotizaciones/calendarios-->
+<link type="text/css" rel="stylesheet" href="/css/dashboard/colorpicker/bootstrap-colorpicker.css" />
+<link type="text/css" rel="stylesheet" href="/css/dashboard/colorpicker/bootstrap-colorpicker.min.css" />
+<!--FIN Estilos para vista cotizaciones/calendarios-->
 <!-- Estilos para vista cotizaciones/tabla agregable-->
 <link type="text/css" rel="stylesheet" href="/css/dashboard/sortable.css" />
 <!--FIN Estilos para vista cotizaciones/tabla agregable-->
@@ -89,7 +76,6 @@
 <!-- Estilos para vista cotizaciones/buttons/tooltips mensajitos-->
 <link type="text/css" rel="stylesheet" href="/css/dashboard/tooltipster.bundle.min.css">
 <link type="text/css" rel="stylesheet" href="/css/dashboard/tipso.min.css">
-
 <link type="text/css" rel="stylesheet" href="/css/dashboard/component.css"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/bootstrap-tagsinput.css"/>
 <!-- end of plugin styles -->
@@ -112,12 +98,7 @@
 <link type="text/css" rel="stylesheet" href="/css/dashboard/portlet.css"/>
 <link type="text/css" rel="stylesheet" href="/css/dashboard/advanced_components.css"/>
 <!-- end of plugin styles -->
-
-<!--ColorPicker -->
-
-
 </head>
-
 <body class="body">
     <div id="wrap">
         @include('dashboard.partials.topbar')
@@ -128,7 +109,6 @@
             </div>
         </div>
     </div>
-
 <script type="text/javascript" src="/js/dashboard/jquery.min.js" ></script>
 <!-- global scripts-->
 <script type="text/javascript" src="/js/dashboard/components.js"></script>
@@ -136,9 +116,7 @@
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>--}}
 {{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>--}}
 <script type="text/javascript" src="/js/dashboard/custom.js"></script>
-
-
-    <!--end of global scripts-->
+<!--end of global scripts-->
 {{--<script type="text/javascript" src="/js/dashboard/countUp.min.js"></script>--}}
 <script type="text/javascript" src="/js/dashboard/jquery.flip.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/jquery.sparkline.js"></script>
@@ -189,7 +167,6 @@
 <script type="text/javascript" src="/js/dashboard/moment.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/fullcalendar.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/mini_calendar.js"></script>
-
 <!--INICIO de Scripts para COTIZACION-->
 <script type="text/javascript" src="/js/dashboard/jquery.uniform.js"></script>
 <script type="text/javascript" src="/js/dashboard/jquery.inputlimiter.js"></script>
@@ -211,9 +188,7 @@
 <script type="text/javascript" src="/js/dashboard/form.js"></script>
 <script type="text/javascript" src="/js/dashboard/form_elements.js"></script>
 <script type="text/javascript" src="/js/dashboard/jquery.inputmask.bundle.js"></script>
-
-    <!--FIN de Scripts para COTIZACION-->
-
+<!--FIN de Scripts para COTIZACION-->
 <!--Scripts para COTIZACION/calendario-->
 <script type="text/javascript" src="/js/dashboard/DateTimePicker.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/jquery.timepicker.min.js"></script>
@@ -221,12 +196,9 @@
 <!--end of plugin scripts-->
 <script type="text/javascript" src="/js/dashboard/form.js"></script>
 <script type="text/javascript" src="/js/dashboard/datetime_piker.js"></script>
-
 {{--
 <script type="text/javascript" src="/js/dashboard/index.js"></script>           Comentado para evitar errores en consola--}}
-
 {{--Scripts para hacer agregable la tabla de articulos--}}
-
 <script type="text/javascript" src="/js/dashboard/Sortable.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/sortable.js"></script>
 <!-- plugin scripts botones -->
@@ -240,7 +212,6 @@
 <script type="text/javascript" src="/js/dashboard/modals.js"></script>
 <!-- plugin scripts botones -->
 <script type="text/javascript" src="/js/dashboard/raphael-min.js"></script>
-
 <!-- plugin scripts Proyectos/Cotizaciones -->
 <script type="text/javascript" src="/js/dashboard/d3.min.js"></script>
 <script type="text/javascript" src="/js/dashboard/c3.min.js"></script>
@@ -260,19 +231,13 @@
 <script type="text/javascript" src="/js/dashboard/datatable.js"></script>
 <script type="text/javascript" src="/js/dashboard/advanced_tables.js"></script>
 <script type="text/javascript" src="/js/dashboard/simple_datatables.js"></script>
-
 <!-- plugin scripts Calendario de actividades Dashboard -->
-
 <script type="text/javascript" src="/js/dashboard/calendar.js"></script>
 <script type="text/javascript" src="/js/dashboard/calendarcustom.js" ></script>
 <script type="text/javascript" src="/js/dashboard/es.js"></script>
-
 <!-- ColorPicker -->
 <script type="text/javascript" src="/js/dashboard/colorpicker/bootstrap-colorpicker.js"></script>
 <script type="text/javascript" src="/js/dashboard/colorpicker/bootstrap-colorpicker.min.js"></script>
-
-
-
-    @yield('scripts')
+@yield('scripts')
 </body>
 </html>

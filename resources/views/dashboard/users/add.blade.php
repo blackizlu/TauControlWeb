@@ -30,7 +30,7 @@
         <div class="outer">
             <div class="inner bg-container">
                 <div class="card">
-                    <div class="card-block ">
+                    <div class="card-block m-t-15">
                         <div class="btn-group">
                             <a href="{{route ('dashboard.users.index')}}" id="editable_table_new" class=" btn btn-default"><i class="fa fa-arrow-left"></i>&nbsp;Regresar</a>
                         </div>

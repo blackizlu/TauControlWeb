@@ -39,22 +39,11 @@ class cotizaciones extends Model
 
     //Mutadores :E
 
-
-
-    public function getDate1Attribute($request)
+    public function getPriceAttribute($amount)
     {
-        return Carbon::parse($request)->format('d/m/Y');
+        return $this->attributes['amount'] = sprintf('$ %s', number_format($amount, 2));
     }
 
-    public function getDate2Attribute($realization)
-    {
-        return Carbon::parse($realization)->format('d/m/Y');
-    }
-
-    public function getDate3Attribute($sold_date)
-    {
-        return Carbon::parse($sold_date)->format('d/m/Y');
-    }
 
     use SoftDeletes;
 

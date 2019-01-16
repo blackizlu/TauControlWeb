@@ -69,8 +69,8 @@
                                         <td>{{$cotizacion->project->client->client_name}}</td>
                                         <td>${{number_format($cotizacion->amount, 2)}}</td>
                                         <td>{{$cotizacion->currency}}</td>
-                                        <td>{{$cotizacion->Date1}}</td>
-                                        <td>{{$cotizacion->realization}}</td>
+                                        <td>@if(empty($cotizacion->request)){{ ' ' }} @else {{\Carbon\Carbon::parse($cotizacion->request)->format('d/m/Y')}}@endif</td>
+                                        <td>@if(empty($cotizacion->realization)){{ ' ' }} @else {{\Carbon\Carbon::parse($cotizacion->realization)->format('d/m/Y')}}@endif</td>
                                         <td>
                                             <div class="checkbox" align="center">
                                                 <label class="text-success">
@@ -79,7 +79,7 @@
                                                 </label>
                                             </div>
                                         </td>
-                                        <td>{{$cotizacion->sold_date}}</td>
+                                        <td>@if(empty($cotizacion->sold_date)){{ ' ' }} @else {{\Carbon\Carbon::parse($cotizacion->sold_date)->format('d/m/Y')}}@endif</td>
                                         <td>
                                             <a href="{{route('dashboard.cotizaciones.view', $cotizacion->id)}}" data-toggle="tooltip" data-placement="top" title="Ver proyecto">
                                                 <i class="fa fa-eye text-success"></i></a>

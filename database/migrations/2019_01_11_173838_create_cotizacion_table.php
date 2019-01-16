@@ -17,7 +17,7 @@ class CreateCotizacionTable extends Migration
             $table->increments('id');
             $table->integer('project_id')->unsigned();
             $table->enum('currency',['USD','MXN']);
-            $table->decimal('amount', 8, 2);
+            $table->decimal('amount', 10, 2);
             $table->date('request');
             $table->date('realization')->nullable();
             $table->date('sold_date')->nullable();

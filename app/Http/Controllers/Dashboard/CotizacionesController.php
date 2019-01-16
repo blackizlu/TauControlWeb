@@ -8,7 +8,9 @@ use App\cotizaciones;
 use App\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 
 class CotizacionesController extends Controller
@@ -81,7 +83,13 @@ class CotizacionesController extends Controller
         $cotizacion = cotizaciones::findOrFail($id);
         $project = Project::all();
 
+
         return view('dashboard.cotizaciones.view', compact('cotizacion','project'));
+    }
+
+    public function download() {
+        $downloads=DB::table('cotizacion')->get();
+        return view('dashboard.cotizaciones.view', compact('downloads'));
     }
 
 }

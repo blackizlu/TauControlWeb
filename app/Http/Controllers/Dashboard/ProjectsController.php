@@ -4,6 +4,7 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Activities;
 use App\Client;
+use App\cotizaciones;
 use App\Project;
 use App\User;
 use Carbon\Carbon;
@@ -18,10 +19,10 @@ class ProjectsController extends Controller
     public function index()
     {
         $projects = Project::all(); /*Variable users muestra los usuarios en lista*/
-
+        $cotizacion = cotizaciones::all();
         $clients = Client::all();
 
-        return view('dashboard.projects.index', compact('projects','clients'));
+        return view('dashboard.projects.index', compact('projects','clients','cotizacion'));
     }
     public function add()
     {
