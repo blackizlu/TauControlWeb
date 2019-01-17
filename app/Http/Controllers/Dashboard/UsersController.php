@@ -21,7 +21,7 @@ class UsersController extends Controller
         return view('dashboard.users.add');
     }
 
-    public function store(Request $request )
+    public function store(Request $request)
     {
         $data = $request->all();
 

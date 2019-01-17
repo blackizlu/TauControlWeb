@@ -11,13 +11,13 @@
                 <div class="col-sm-7 col-lg-6">
                     <ol class="breadcrumb float-right nav_breadcrumb_top_align">
                         <li class="breadcrumb-item">
-                            <a href="index1.html">
+                            <a href="{{route('dashboard.index')}}">
                                 <i class="fa fa-home" data-pack="default" data-tags=""></i>
                                 Inicio
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="#">Proyectos</a>
+                            <a href="{{route('dashboard.projects.index')}}">Proyectos</a>
                         </li>
                         <li class="active breadcrumb-item">{{ $project->name }}</li>
                     </ol>
@@ -101,28 +101,31 @@
                                     <li class="nav-item card_nav_hover">
                                         <a class="nav-link" href="#tab3"  id="followers" data-toggle="tab">Bitacora</a>
                                     </li>
+                                    <li class="nav-item card_nav_hover">
+                                        <a class="nav-link" href="#tab4"  data-toggle="tab">Documentos</a>
+                                    </li>
+                                    <li class="nav-item card_nav_hover">
+                                        <a class="nav-link" href="#tab5"  data-toggle="tab">Documentos aprobados</a>
+                                    </li>
                                 </ul>
                                 <div id="clothing-nav-content" class="tab-content m-t-10">
                                     <div role="tabpanel" class="tab-pane fade show active" id="user">
-                                        <table class="table  table-striped table-bordered table-hover dataTable no-footer" id="editable_table" role="grid">
+                                        <table class="table  table-striped table-bordered dataTable no-footer" id="editable_table" role="grid">
                                             <thead>
                                             <tr role="row">
-                                                <th class="sorting_asc_disabled sorting_desc_disabled wid-20" tabindex="0" rowspan="1" colspan="1">Actividad</th>
-                                                <th class="sorting_asc_disabled sorting_desc_disabled wid-20" tabindex="0" rowspan="1" colspan="1">Tipo de actividad</th>
-                                                <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Contacto</th>
-                                                <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Fecha</th>
-                                                <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Hora</th>
-                                                <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Realizada</th>
-                                                <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Responsable</th>
-{{--
-                                                <th class="sorting_asc_disabled sorting_desc_disabled wid-10" tabindex="0" rowspan="1" colspan="1">Acciones</th>
---}}
+                                                <th>Actividad</th>
+                                                <th>Tipo de actividad</th>
+                                                <th>Contacto</th>
+                                                <th>Fecha</th>
+                                                <th>Hora</th>
+                                                <th>Realizada</th>
+                                                <th>Responsable</th>
                                             </tr>
                                             <tbody>
                                             @foreach($project->activities as $activity)
                                                 <tr >
                                                     <td>{{$activity->comments}}</td>
-                                                    <td>{{$activity->Activity_Name}}</td>
+                                                    <td>{{$activity->tipoactividad->name}}</td>
                                                     <td>{{$activity->contact->contact_name}}</td>
                                                     <td>{{\Carbon\Carbon::parse($activity->deadline)->format('d/m/Y')}}</td>
                                                     <td>{{\Carbon\Carbon::parse($activity->time)->format('h:i A')}}</td>
@@ -152,7 +155,7 @@
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade " id="tab2">
                                         <div>
-                                            <table class="table table-striped table-bordered table-hover" id="sample_6">
+                                            <table class="table m-t-15 table-striped table-bordered" id="example_demo3">
                                                 <thead>
                                                 <tr>
                                                     <th>Proyecto</th>
@@ -166,90 +169,80 @@
                                                     <th>Acciones</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody>@foreach($project->cotizacion as $cotizaciones)
                                                 <tr>
-                                                    <td>Casas Geo Nativa</td>
-                                                    <td>Wolves Programming</td>
-                                                    <td>$3,858,099.00</td>
-                                                    <td>MXN</td>
-                                                    <td>11/11/2019</td>
-                                                    <td>30/12/2019</td>
-                                                    <td>Si</td>
-                                                    <td>15/12/2019</td>
-                                                    <td>                                            &nbsp; &nbsp;
-
-                                                        <a href="" data-toggle="tooltip" data-placement="top" title="Generar cotizacion">
-                                                            <i class="fa fa-plus text-success"></i></a>
-                                                        &nbsp; &nbsp;
-
-                                                        &nbsp; &nbsp;
-                                                        <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Eliminar" href="#" data-id="">
-                                                            <i class="fa fa-trash text-danger"></i></a>
+                                                    <td>{{$cotizaciones->project->name}}</td>
+                                                    <td>{{$cotizaciones->project->client->client_name}}</td>
+                                                    <td>${{number_format($cotizaciones->amount,2)}}</td>
+                                                    <td>{{$cotizaciones->currency}}</td>
+                                                    <td>@if(empty($cotizaciones->request)){{ ' ' }} @else {{\Carbon\Carbon::parse($cotizaciones->request)->format('d/m/Y')}}@endif</td>
+                                                    <td>@if(empty($cotizaciones->realization)){{ ' ' }} @else {{\Carbon\Carbon::parse($cotizaciones->realization)->format('d/m/Y')}}@endif</td>
+                                                    <td>
+                                                        <div class="checkbox" align="center">
+                                                            <label class="text-success">
+                                                                <input type="checkbox" title="yes" @if($cotizaciones->sold == true) checked @endif disabled>
+                                                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                                            </label>
+                                                        </div>
                                                     </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Casas Geo Nativa</td>
-                                                    <td>Wolves Programming</td>
-                                                    <td>$3,858,099.00</td>
-                                                    <td>MXN</td>
-                                                    <td>11/11/2019</td>
-                                                    <td>30/12/2019</td>
-                                                    <td>No</td>
-                                                    <td></td>
-                                                    <td>                                            &nbsp; &nbsp;
-
-                                                        <a href="" data-toggle="tooltip" data-placement="top" title="Generar cotizacion">
-                                                            <i class="fa fa-plus text-success"></i></a>
-                                                        &nbsp; &nbsp;
-
-                                                        &nbsp; &nbsp;
-                                                        <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Eliminar" href="#" data-id="">
-                                                            <i class="fa fa-trash text-danger"></i></a>
+                                                    <td>@if(empty($cotizaciones->sold_date)){{ ' ' }} @else {{\Carbon\Carbon::parse($cotizaciones->sold_date)->format('d/m/Y')}}@endif</td>
+                                                    <td>@if(!empty($cotizaciones->file))
+                                                            <a href="{{ asset('storage/' .$cotizaciones->file)}}" target="blank" data-toggle="tooltip" data-placement="top" title="Ver cotizacion">
+                                                            <i class="fa fa-eye text-success"></i>
+                                                        </a> @endif
                                                     </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Casas Geo Nativa</td>
-                                                    <td>Wolves Programming</td>
-                                                    <td>$3,858,099.00</td>
-                                                    <td>MXN</td>
-                                                    <td>11/11/2019</td>
-                                                    <td>30/12/2019</td>
-                                                    <td>Si</td>
-                                                    <td>15/12/2019</td>
-                                                    <td>                                            &nbsp; &nbsp;
-
-                                                        <a href="" data-toggle="tooltip" data-placement="top" title="Generar cotizacion">
-                                                            <i class="fa fa-plus text-success"></i></a>
-                                                        &nbsp; &nbsp;
-
-                                                        &nbsp; &nbsp;
-                                                        <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Eliminar" href="#" data-id="">
-                                                            <i class="fa fa-trash text-danger"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Casas Geo Nativa</td>
-                                                    <td>Wolves Programming</td>
-                                                    <td>$3,858,099.00</td>
-                                                    <td>MXN</td>
-                                                    <td>11/11/2019</td>
-                                                    <td>30/12/2019</td>
-                                                    <td>Si</td>
-                                                    <td>15/12/2019</td>
-                                                    <td>                                            &nbsp; &nbsp;
-
-                                                        <a href="" data-toggle="tooltip" data-placement="top" title="Generar cotizacion">
-                                                            <i class="fa fa-plus text-success"></i></a>
-                                                        &nbsp; &nbsp;
-
-                                                        &nbsp; &nbsp;
-                                                        <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Eliminar" href="#" data-id="">
-                                                            <i class="fa fa-trash text-danger"></i></a>
-                                                    </td>
-                                                </tr>
+                                                </tr>@endforeach
                                                 </tbody>
                                             </table>
                                         </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="tab4">
+                                        <table id="example_demo" class="table table-hover table-striped table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th>Nombre del archivo</th>
+                                                <th>Acciones</th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>
+                                                        <a href="   " data-toggle="tooltip" data-placement="top" title="Ver documento">
+                                                            <i class="fa fa-eye text-success"></i></a>
+                                                        &nbsp; &nbsp;
+
+                                                        <a class="trash"  type="button" data-toggle="tooltip" data-placement="top" href="  " title="Eliminar">
+                                                            <i class="fa fa-trash text-danger"></i></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="tab5">
+                                        <table id="example_demo" class="table table-hover table-striped table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th>Nombre del archivo</th>
+                                                <th>Acciones</th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <a href="   " data-toggle="tooltip" data-placement="top" title="Ver documento">
+                                                        <i class="fa fa-eye text-success"></i></a>
+                                                    &nbsp; &nbsp;
+
+                                                    <a class="trash"  type="button" data-toggle="tooltip" data-placement="top" href="  " title="Eliminar">
+                                                        <i class="fa fa-trash text-danger"></i></a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade" id="tab3">
 
@@ -264,4 +257,129 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    @if(Session::has('message'))
+        <script>
+            iziToast.show({
+                title: 'Success',
+                message: '{!! Session::get('message') !!}',
+                color:'#cc2900',
+                position: 'bottomCenter'
+            });
+        </script>
+    @endif
+
+    <script>
+        var table = $('#example_demo3').DataTable({
+            "searching": false,
+            "orderable": false,
+            "paging": false,
+            "info": false,
+            "scrollY": "300px",
+            "scrollCollapse": true
+        });
+
+        $('#example_demo3 tbody').on( 'click', 'a.trash', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var tr = $(this).parents('tr');
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            new PNotify({
+                title: 'Eliminar',
+                text: '¿Desea eliminar el tipo de actividad?',
+                icon: 'fa fa-question-circle',
+                hide: false,
+                type: 'error',
+                confirm: {
+                    confirm: true
+                },
+                buttons: {
+                    closer: false,
+                    sticker: false
+                },
+                history: {
+                    history: false
+                }
+            }).get().on('pnotify.confirm', function () {
+                console.log(CSRF_TOKEN);
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: { _token: CSRF_TOKEN, _method: 'delete' },
+                    dataType: 'JSON',
+                    success: function (data) {
+                        if(data.success) {
+                            table.row( tr )
+                                .remove()
+                                .draw();
+                        }
+                    }
+                });
+            });
+        } );
+    </script>
+    <script>
+
+        var table = $('#example_demo').DataTable({
+            oLanguage: {
+                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+                sInfoEmpty: "No hay registros a mostrar",
+                sInfoFiltered: "",
+                sZeroRecords: "Ningún registro para mostrar",
+                sSearch: "Buscar:",
+                oPaginate: {
+                    sFirst: "Primera Página",
+                    sLast: "Última Página",
+                    sNext: "Siguiente",
+                    sPrevious: "Anterior"
+                },
+                sEmptyTable: "No se encontraron registros",
+                sLengthMenu: "Mostrar _MENU_ Registros"
+
+            }
+        });
+
+        $('#example_demo tbody').on( 'click', 'a.trash', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var tr = $(this).parents('tr');
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            new PNotify({
+                title: 'Eliminar',
+                text: '¿Desea eliminar la cotización?',
+                icon: 'fa fa-question-circle',
+                hide: false,
+                type: 'error',
+                confirm: {
+                    confirm: true
+                },
+                buttons: {
+                    closer: false,
+                    sticker: false
+                },
+                history: {
+                    history: false
+                }
+            }).get().on('pnotify.confirm', function () {
+                console.log(CSRF_TOKEN);
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: { _token: CSRF_TOKEN, _method: 'delete' },
+                    dataType: 'JSON',
+                    success: function (data) {
+                        if(data.success) {
+                            table.row( tr )
+                                .remove()
+                                .draw();
+                        }
+                    }
+                });
+            });
+        } );
+
+    </script>
+
 @endsection

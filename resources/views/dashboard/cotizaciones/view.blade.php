@@ -95,7 +95,7 @@
                                 </div>
                                 <div class="col-lg-4 input_field_sections">
                                     <h5>Cotización</h5>
-                                    <a href="{{ asset('storage/' .$cotizacion->file)}}" tarjet="_blank">
+                                    <a href="{{ asset('storage/' .$cotizacion->file)}}" target="_blank">
                                         <button type="button" class=" btn btn-primary ">Descargar Archivo&nbsp;<i class="fa fa-download"></i></button>
                                     </a>
                                 </div>

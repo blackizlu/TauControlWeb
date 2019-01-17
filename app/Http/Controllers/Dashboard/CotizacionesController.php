@@ -51,6 +51,8 @@ class CotizacionesController extends Controller
         $cotizacion->sold = $request->has('sold') ? 1 : 0;
         $cotizacion->save();
 
+
+
         $message = 'Cotización creada con éxito';
         Session::flash('message', $message);
 

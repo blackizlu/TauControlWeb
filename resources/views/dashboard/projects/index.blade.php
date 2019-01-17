@@ -12,7 +12,7 @@
                 <div class="col-lg-6 col-sm-8 col-12">
                     <ol class="breadcrumb float-right  nav_breadcrumb_top_align">
                         <li class="breadcrumb-item">
-                            <a href="index1.html">
+                            <a href="{{route('dashboard.index')}}">
                                 <i class="fa fa-home" data-pack="default" data-tags=""></i> Inicio
                             </a>
                         </li>
@@ -68,8 +68,8 @@
                                     <td>{{ $project->client->client_name }}</td>
                                     <td>{{ $project->phase }}</td>
                                     <td>{{\Carbon\Carbon::parse($project->estimated_date)->format('d/m/Y')}}</td>
-                                    <td>{{--{{$project->cotizacion->currency}}--}}</td>
-                                    <td>{{--{{number_format($project->cotizacion->amount,2)}}--}}</td>
+                                    <td>${{ number_format($project->last_invoice != '' ? $project->last_invoice->amount : '',2 )}}</td>
+                                    <td>{{ $project->last_invoice != '' ? $project->last_invoice->currency : '' }}</td>
                                     <td>{{ $project->user->profile->full_name }}
                                         @if($project->user->deleted_at != null)
                                             <span style="color: red; font-size: 10px;">(Eliminado)</span>

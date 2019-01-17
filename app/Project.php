@@ -41,6 +41,11 @@ class Project extends Model
         return $query->where('Ganado', true);
     }
 
+    public function getLastInvoiceAttribute()
+    {
+        return $this->cotizacion()->orderBy('id', 'desc')->first();
+    }
+
     use SoftDeletes;
 
     protected $table = 'projects';
