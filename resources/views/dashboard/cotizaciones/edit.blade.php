@@ -6,21 +6,21 @@
                 <div class="col-sm-5 col-lg-6 skin_txt">
                     <h4 class="nav_top_align">
                         <i class="fa fa-file-invoice-dollar "></i>
-                        Editar proyecto
+                        Editar cotización
                     </h4>
                 </div>
                 <div class="col-sm-7 col-lg-6">
                     <ol class="breadcrumb float-right nav_breadcrumb_top_align">
                         <li class="breadcrumb-item">
-                            <a href="index1.html">
+                            <a href="{{route('dashboard.index')}}">
                                 <i class="fa fa-home" data-pack="default" data-tags=""></i>
                                 Inicio
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="">Proyectos</a>
+                            <a href="{{route('dashboard.cotizaciones.index')}}">Cotizaciones</a>
                         </li>
-                        <li class="active breadcrumb-item">Editar proyecto</li>
+                        <li class="active breadcrumb-item">Editar cotización</li>
                     </ol>
                 </div>
             </div>
@@ -32,64 +32,84 @@
                 <div class="col-lg-12">
                     <div class="card m-t-35">
                         <div class="card-header bg-white"><i class="fa fa-file-alt"></i>
-                            {{$projects->name}}
+                            {{$cotizacion->project->name}}
                         </div>
                         <div class="card-block seclect_form">
-                            <form  action="{{ route('dashboard.projects.update', $projects->id) }}" method="post" enctype="multipart/form-data">
-                                <input type="hidden" name="_method" value="PUT">
+                            <form  action="{{ route('dashboard.cotizaciones.update', $cotizacion->id) }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-lg-4 input_field_sections">
-                                        <h5>Nombre del proyecto*</h5>
-                                        <input type="text" class="form-control focused_input" placeholder="Nombre del proyecto" name="name" id="name" value="{{$projects->name}}"/>
-                                    </div>
-                                    <div class="col-lg-4 input_field_sections">
-                                        <h5>Cliente*</h5>
-                                        <select class="form-control chzn-select" tabindex="2" name="client_id" id="client_id">
-                                            <option value="{{$projects->client_id}}" selected>{{$projects->client->client_namea}}</option>
-                                            @foreach($clients as $client)
-                                                <option value="{{ $client->id }}">{{ $client->client_name }}</option>
+                                        <h5>Proyecto*</h5>
+                                        <select class="form-control chzn-select" tabindex="7" name="project_id" id="project_id">
+                                            <option value="{{$cotizacion->project_id}}" selected>{{$cotizacion->project->name}}</option>
+                                            @foreach($projects as $project)
+                                                <option value="{{ $project->id }}">{{ $project->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="col-lg-4 input_field_sections">
-                                        <h5>Etapa*</h5>
-                                        <select class="form-control hide_search" tabindex="2" name="phase" id="phase" value="{{$projects->phase}}">
-                                            <option value="Cotizado"@if($projects->phase == 'Cotizado'){{ 'selected' }}@endif>Cotizado</option>
-                                            <option value="Ganado"@if($projects->phase == 'Ganado'){{ 'selected' }}@endif>Ganado</option>
-                                            <option value="Lead"@if($projects->phase == 'Lead'){{ 'selected' }}@endif>Lead</option>
-                                            <option value="Negociacion"@if($projects->phase == 'Negociacion'){{ 'selected' }}@endif>Negociación</option>
-                                            <option value="Pricing"@if($projects->phase == 'Pricing'){{ 'selected' }}@endif>Pricing</option>
-                                            <option value="Rechazado"@if($projects->phase == 'Rechazado'){{ 'selected' }}@endif>Rechazado</option>
-                                        </select>
+                                        <h5>Monto*</h5>
+                                        <div class="input-group ">
+                                            <span class="input-group-addon">$</span>
+                                            <input type="text" class="form-control" name="amount" value="{{$cotizacion->amount}}">
+                                        </div>
                                     </div>
                                     <div class="col-lg-4 input_field_sections">
-                                        <h5>Responsable del proyecto*</h5>
+                                        <h5>Moneda*</h5>
                                         <div class="form-group">
-                                            <select class="form-control hide_search" tabindex="7" name="user_id" id="user_id">
-                                                <option value="{{$projects->user_id}}" selected>{{$projects->user->profile->name}}</option>
-                                                @foreach($users as $user)
-                                                    <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
-                                                @endforeach
+                                            <select class="form-control hide_search" name="currency">
+                                                <option value="USD"@if($cotizacion->currency == 'USD'){{ 'selected' }}@endif>USD</option>
+                                                <option value="MXN"@if($cotizacion->currency == 'MXN'){{ 'selected' }}@endif>MXN</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 input_field_sections">
-                                        <h5>Fecha estimada de cierre*</h5>
+                                        <h5>Fecha de solicitud de pricing*</h5>
                                         <div class="input-group input-append date" id="dpYears" data-date-format="yyyy-mm-dd">
-                                            <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="estimated_date" id="estimated_date" value="{{$projects->estimated_date}}">
+                                            <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="request" value="{{$cotizacion->request}}">
                                             <span class="input-group-addon add-on">
-                                                        <i class="fa fa-calendar-alt"></i>
+                                                <i class="fa fa-calendar-alt"></i>
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 input_field_sections">
-                                        <h5>Comentarios</h5>
-                                        <textarea id="autosize" class="form-control" cols="50" rows="6" name="comments">{{$projects->comments}}</textarea>
+                                    <div class="col-lg-4 input_field_sections">
+                                        <h5>Fecha de realización del pricing</h5>
+                                        <div class="input-group input-append date" id="dpYears1" data-date-format="yyyy-mm-dd">
+                                            <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="realization" value="{{$cotizacion->realization}}" >
+                                            <span class="input-group-addon add-on">
+                                                <i class="fa fa-calendar-alt"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 input_field_sections ">
+                                        <h5>Fecha de venta</h5>
+                                        <div class="input-group input-append date" id="dpYears2" data-date-format="yyyy-mm-dd">
+                                            <input class="form-control" type="text" placeholder="dd-mm-aaaa" name="sold_date" value="{{$cotizacion->sold_date}}" >
+                                            <span class="input-group-addon add-on">
+                                                <i class="fa fa-calendar-alt"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 input_field_sections">
+                                        <h5>Vendida</h5>
+                                        <div class="checkbox">
+                                            <label class="text-success">
+                                                <input type="checkbox" data-on-text="SI" data-off-text="NO" value="NO" name="sold">
+                                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 input_field_sections">
+                                        <h5>Seleccionar archivo</h5>
+                                        <div class="col-sm-12 button_file m-t-5">
+                                            <input id="input-4" name="file" type="file" multiple class="file-loading d-block">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 input_field_sections">
-                                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
                                 </div>
                             </form>
                         </div>
@@ -99,3 +119,8 @@
         </div>
     </div>
 @endsection
+@section('scripts')
+
+
+@endsection
+
