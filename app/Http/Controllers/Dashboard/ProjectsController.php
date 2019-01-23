@@ -6,6 +6,7 @@ use App\Activities;
 use App\Client;
 use App\cotizaciones;
 use App\Project;
+use App\tipoCliente;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -13,6 +14,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ProjectsController extends Controller
 {
@@ -29,8 +32,10 @@ class ProjectsController extends Controller
         $projects = Project::orderBy('estimated_date')->get();
         $users =    User::all();
         $clients =  Client::all();
+        $tipocliente = tipoCliente::all();
 
-        return view('dashboard.projects.add', compact('projects', 'users','clients'));
+
+        return view('dashboard.projects.add', compact('projects', 'users','clients','tipocliente'));
     }
 
     public function store(Request $request)
@@ -55,6 +60,21 @@ class ProjectsController extends Controller
         return redirect()->route('dashboard.projects.index');
     }
 
+//    public function savedocs(Request $request){
+//
+//        $docs = $request->file('docs');
+//
+//        foreach ($docs as $doc){
+//
+//            $fileName = $file->getClientOriginalName();
+//            Storage::disk('public')->put('docs/'. time() . $fileName, File::get($doc));
+//            $this->attributes['file'] = 'cotizacion/' . $fileName;
+//
+//        }
+//
+//
+//    }
+
     public function view($id)
     {
         $project = Project::findOrFail($id);
@@ -67,8 +87,9 @@ class ProjectsController extends Controller
         $projects = Project::findOrFail($id);
         $clients = Client::all();
         $users =    User::all();
+        $tipocliente = tipoCliente::all();
 
-        return view('dashboard.projects.edit', compact('projects','clients','users'));
+        return view('dashboard.projects.edit', compact('projects','clients','users','tipocliente'));
 
 
     }

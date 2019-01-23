@@ -6,14 +6,11 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
 class Activities extends Model
 {
     protected $fillable = ['start', 'end', 'time', 'activity', 'completed', 'comments', 'client_id', 'contact_id', 'project_id', 'user_id','tipoact_id'];
     protected $append = ['color'];
-
     use SoftDeletes;
-
     protected $table = 'activities';
 
     public function client()

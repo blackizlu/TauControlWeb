@@ -68,7 +68,7 @@
                                     <td>{{ $project->client->client_name }}</td>
                                     <td>{{ $project->phase }}</td>
                                     <td>{{\Carbon\Carbon::parse($project->estimated_date)->format('d/m/Y')}}</td>
-                                    <td>${{ number_format($project->last_invoice != '' ? $project->last_invoice->amount : '',2 )}}</td>
+                                    <td>${{ $project->last_invoice != '' ? $project->last_invoice->amount : ''}}</td>
                                     <td>{{ $project->last_invoice != '' ? $project->last_invoice->currency : '' }}</td>
                                     <td>{{ $project->user->profile->full_name }}
                                         @if($project->user->deleted_at != null)

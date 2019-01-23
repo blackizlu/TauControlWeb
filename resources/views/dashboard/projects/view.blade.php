@@ -99,13 +99,13 @@
                                         <a class="nav-link" href="#tab2" id="hats-tab" data-toggle="tab">Cotizaciones</a>
                                     </li>
                                     <li class="nav-item card_nav_hover">
-                                        <a class="nav-link" href="#tab3"  id="followers" data-toggle="tab">Bitacora</a>
-                                    </li>
-                                    <li class="nav-item card_nav_hover">
                                         <a class="nav-link" href="#tab4"  data-toggle="tab">Documentos</a>
                                     </li>
                                     <li class="nav-item card_nav_hover">
                                         <a class="nav-link" href="#tab5"  data-toggle="tab">Documentos aprobados</a>
+                                    </li>
+                                    <li class="nav-item card_nav_hover">
+                                        <a class="nav-link" href="#tab3"  id="followers" data-toggle="tab">Bitacora</a>
                                     </li>
                                 </ul>
                                 <div id="clothing-nav-content" class="tab-content m-t-10">
@@ -173,7 +173,7 @@
                                                 <tr>
                                                     <td>{{$cotizaciones->project->name}}</td>
                                                     <td>{{$cotizaciones->project->client->client_name}}</td>
-                                                    <td>${{number_format($cotizaciones->amount,2)}}</td>
+                                                    <td>${{ $project->last_invoice != '' ? $project->last_invoice->amount : ''}}</td>
                                                     <td>{{$cotizaciones->currency}}</td>
                                                     <td>@if(empty($cotizaciones->request)){{ ' ' }} @else {{\Carbon\Carbon::parse($cotizaciones->request)->format('d/m/Y')}}@endif</td>
                                                     <td>@if(empty($cotizaciones->realization)){{ ' ' }} @else {{\Carbon\Carbon::parse($cotizaciones->realization)->format('d/m/Y')}}@endif</td>
@@ -197,7 +197,11 @@
                                         </div>
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade" id="tab4">
-                                        <table id="example_demo" class="table table-hover table-striped table-bordered">
+                                        <div class="btn-group">
+                                            <a class="btn btn-success adv_cust_mod_btn button-rounded" data-toggle="modal" data-href="#docs" href="#docs">Añadir documentos</a>
+
+                                        </div>
+                                        <table id="example_demo" class="table table-hover table-striped table-bordered m-t-10">
                                             <thead>
                                             <tr>
                                                 <th>Nombre del archivo</th>
@@ -221,7 +225,11 @@
                                         </table>
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade" id="tab5">
-                                        <table id="example_demo" class="table table-hover table-striped table-bordered">
+                                        <div class="btn-group">
+                                            <a class="btn btn-success adv_cust_mod_btn button-rounded" data-toggle="modal" data-href="#approved" href="#approved">Añadir documentos</a>
+
+                                        </div>
+                                        <table id="example_demo" class="table table-hover table-striped table-bordered m-t-10">
                                             <thead>
                                             <tr>
                                                 <th>Nombre del archivo</th>
@@ -245,9 +253,7 @@
                                         </table>
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade" id="tab3">
-
-                                        Bitacora
-
+                                        :D
                                     </div>
                                 </div>
                             </div>
@@ -257,6 +263,58 @@
             </div>
         </div>
     </div>
+
+    {{--//Modal guardar archivos--}}
+    <form method="post" id="save_docs" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <div class="modal fade in display_none" id="docs" tabindex="-1" role="dialog" aria-hidden="false">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h4 class="modal-title text-white">Añadir documentos</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input id="input-fa" name="docs[]" type="file" multiple class="file-loading">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer m-t-15">
+                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    {{--//Modal guardar archivos aprobados--}}
+    <form action="  " method="post" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <div class="modal fade in display_none" id="approved" tabindex="-1" role="dialog" aria-hidden="false">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h4 class="modal-title text-white">Añadir documentos aprobados</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input id="input-fe" name="approved_docs[]" type="file" multiple class="file-loading">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer m-t-15">
+                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
 @endsection
 
 @section('scripts')
@@ -321,7 +379,6 @@
         } );
     </script>
     <script>
-
         var table = $('#example_demo').DataTable({
             oLanguage: {
                 sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
@@ -381,5 +438,26 @@
         } );
 
     </script>
+
+  {{--  <script>
+        $(document).ready(function(){
+            $('save_docs').on('submit', function(event){
+                event.preventDefault();
+                $.ajax({
+                    url:"{{route('dashboard.project.savedocs')}}",
+                    method: "POST",
+                    data:new FormData(this),
+                    dataType: 'JSON',
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function(data){
+2
+                    }
+                })
+            });
+
+        });
+    </script>--}}
 
 @endsection

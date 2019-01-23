@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
-
 class CotizacionesController extends Controller
 {
     public function index(){
@@ -92,6 +91,18 @@ class CotizacionesController extends Controller
     public function download() {
         $downloads=DB::table('cotizacion')->get();
         return view('dashboard.cotizaciones.view', compact('downloads'));
+    }
+
+    public function destroy( $id){
+        $cotizacion = cotizaciones::findOrFail($id);
+
+/*        Storage::delete('cotizacion/'. $fileName);*/
+
+        $cotizacion->delete();
+
+        return response()->json([
+            'success' => true
+        ]);
     }
 
 }

@@ -100,151 +100,6 @@
                 </div>
             </div>
         </div>
-         {{--Codigo para NAV bar --}}
-        {{--<div class="col-lg-6 m-t-25">
-            <div>
-                <ul class="nav nav-inline view_user_nav_padding">
-                    <li class="nav-item card_nav_hover">
-                        <a class="nav-link active" href="#user" id="home-tab" data-toggle="tab" aria-expanded="true">Categoría 1</a>
-                    </li>
-                    <li class="nav-item card_nav_hover">
-                        <a class="nav-link" href="#tab2" id="hats-tab" data-toggle="tab">Categoria 2</a>
-                    </li>
-                    <li class="nav-item card_nav_hover">
-                        <a class="nav-link" href="#tab3"  id="followers" data-toggle="tab">Categoría 3</a>
-                    </li>
-                    <li class="nav-item card_nav_hover">
-                        <a class="nav-link" href="#tab4"  id="cat4" data-toggle="tab">Categorría 4</a>
-                    </li>
-                </ul>
-                <div id="clothing-nav-content" class="tab-content m-t-10">
-                    <div role="tabpanel" class="tab-pane fade show active" id="user">
-                        <table class="table" id="users">
-                            <tr>
-                                <td>Soy la subcategoria1</td>
-                                <td class="inline_edit">
-                                    <span class="editable" data-title="Edit User Name"><a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="">
-                                <i class="fa fa-pencil-alt text-warning"></i></a>
-                                  &nbsp; &nbsp;
-                                 <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Desactivar" href="#" data-id="">
-                                <i class="fa fa-ban text-danger"></i></a></span>
-                                </td>
-
-                            </tr>
-                            </tr>
-                        </table>
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade" id="tab2">
-                        <table class="table" id="users">
-                            <tr>
-                                <td>Soy la subcategoria1</td>
-                                <td class="inline_edit">
-                                    <span class="editable" data-title="Edit User Name"><a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="">
-                                <i class="fa fa-pencil-alt text-warning"></i></a>
-                                  &nbsp; &nbsp;
-                                 <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Desactivar" href="#" data-id="">
-                                <i class="fa fa-ban text-danger"></i></a></span>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>Soy la subcategoria 2</td>
-                                <td class="inline_edit">
-                                    <span class="editable" data-title="Edit User Name"><a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="">
-                                <i class="fa fa-pencil-alt text-warning"></i></a>
-                                  &nbsp; &nbsp;
-                                 <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Desactivar" href="#" data-id="">
-                                <i class="fa fa-ban text-danger"></i></a></span>
-                                </td>
-
-                            </tr>
-                        </table>
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade" id="tab3">
-                        <table class="table" id="users">
-                            <tr>
-                                <td>Soy la subcategoria1</td>
-                                <td class="inline_edit">
-                                    <span class="editable" data-title="Edit User Name"><a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="">
-                                <i class="fa fa-pencil-alt text-warning"></i></a>
-                                  &nbsp; &nbsp;
-                                 <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Desactivar" href="#" data-id="">
-                                <i class="fa fa-ban text-danger"></i></a></span>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>Soy la subcategoria 2</td>
-                                <td class="inline_edit">
-                                    <span class="editable" data-title="Edit User Name"><a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="">
-                                <i class="fa fa-pencil-alt text-warning"></i></a>
-                                  &nbsp; &nbsp;
-                                 <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Desactivar" href="#" data-id="">
-                                <i class="fa fa-ban text-danger"></i></a></span>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>Soy la subcategoria 3</td>
-                                <td class="inline_edit">
-                                    <span class="editable" data-title="Edit User Name"><a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="">
-                                <i class="fa fa-pencil-alt text-warning"></i></a>
-                                  &nbsp; &nbsp;
-                                 <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Desactivar" href="#" data-id="">
-                                <i class="fa fa-ban text-danger"></i></a></span>
-                                </td>
-
-                            </tr>
-                        </table>
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade" id="tab4">
-                        <table class="table" id="users">
-                            <tr>
-                                <td>Soy la subcategoria1</td>
-                                <td class="inline_edit">
-                                    <span class="editable" data-title="Edit User Name"><a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="">
-                                <i class="fa fa-pencil-alt text-warning"></i></a>
-                                  &nbsp; &nbsp;
-                                 <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Desactivar" href="#" data-id="">
-                                <i class="fa fa-ban text-danger"></i></a></span>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>Soy la subcategoria 2</td>
-                                <td class="inline_edit">
-                                    <span class="editable" data-title="Edit User Name"><a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="">
-                                <i class="fa fa-pencil-alt text-warning"></i></a>
-                                  &nbsp; &nbsp;
-                                 <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Desactivar" href="#" data-id="">
-                                <i class="fa fa-ban text-danger"></i></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Soy la subcategoria 3</td>
-                                <td class="inline_edit">
-                                    <span class="editable" data-title="Edit User Name"><a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="">
-                                <i class="fa fa-pencil-alt text-warning"></i></a>
-                                  &nbsp; &nbsp;
-                                 <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Desactivar" href="#" data-id="">
-                                <i class="fa fa-ban text-danger"></i></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Soy la subcategoria 4</td>
-                                <td class="inline_edit">
-                                    <span class="editable" data-title="Edit User Name"><a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="">
-                                <i class="fa fa-pencil-alt text-warning"></i></a>
-                                  &nbsp; &nbsp;
-                                 <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Desactivar" href="#" data-id="">
-                                <i class="fa fa-ban text-danger"></i></a></span>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>--}}
     </div>
 
     <!--- responsive model AGREGAR CLIENTE-->
@@ -283,13 +138,10 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-users text-primary"></i>
                                                     </span>
-                                            <select class="form-control hide_search" tabindex="7" name="type" id="name1">
-                                                <option selected disabled>Tipo de contacto</option>
-                                                <option value="Arquitecto">Arquitecto</option>
-                                                <option value="Constructora">Constructora</option>
-                                                <option value="Desarrolladora">Desarrolladora</option>
-                                                <option value="Cliente_final">Cliente final</option>
-                                                <option value="Gerencia_obra">Gerencia de obra</option>
+                                            <select class="form-control chzn-select" tabindex="7" name="tipo_id">
+                                                @foreach($tipocliente as $tipo)
+                                                    <option value="{{ $tipo->id }}">{{ $tipo->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>

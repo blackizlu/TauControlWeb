@@ -272,7 +272,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-bullseye"></i></a>&nbsp;Lead</td>
-                                                        <td>0</td>
+                                                        <td>1</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-handshake-o text-warning"></i></a>&nbsp;Negociación</td>
@@ -280,11 +280,11 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-calculator text-muted"></i></a>&nbsp;Princing</td>
-                                                        <td>0</td>
+                                                        <td>20</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-times-circle text-danger"></i></a>&nbsp;Rechazado</td>
-                                                        <td>0</td>
+                                                        <td>12</td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -396,7 +396,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
             backgroundColor: window.chartColors.primary,
             data: [
 
-                0,{{$Cotizado}},//cotizado
+                {{$Cotizado}},//cotizado
 
             ]
         },
@@ -414,7 +414,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
             backgroundColor: window.chartColors.muted,
             data: [
 
-                0,{{$Lead}}//lead
+                {{$Lead}}//lead
 
             ]
         },
@@ -560,25 +560,6 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
 
     });
 </script>
-<script>
-    function sum(input){
-
-        if (toString.call(input) !== "[object Array]")
-            return false;
-
-        var total =  0;
-        for(var i=0;i<input.length;i++)
-        {
-            if(isNaN(input[i])){
-                continue;
-            }
-            total += Number(input[i]);
-        }
-        return $total;
-    }
-
-</script>
-
 <script>//Obtener conteo de proyectos por usuario(?)
     $("#client").change((function (event) {
         var id = event.target.value;
@@ -598,7 +579,5 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
 
     }));
 </script>
-
 </body>
-
 </html>

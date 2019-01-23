@@ -119,8 +119,8 @@
                                         <tr>
                                             <td>{{$project->name}}</td>
                                             <td>{{$project->phase}}</td>
-                                            <td>$164,579.00</td>
-                                            <td>USD</td>
+                                            <td>${{$project->last_invoice != '' ? $project->last_invoice->amount : ''}}</td>
+                                            <td>{{$project->last_invoice != '' ? $project->last_invoice->currency : '' }}</td>
                                         </tr>@endforeach
                                     </table>
                                 </div>

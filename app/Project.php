@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class Project extends Model
 {
-    protected $fillable = ['name', 'phase', 'estimated_date', 'user_id','client_id', 'comments'];
+    protected $fillable = ['name', 'phase', 'estimated_date', 'user_id','client_id', 'comments', 'docs', 'approved_docs'];
 
     public function user()
     {
@@ -22,7 +22,7 @@ class Project extends Model
 
     protected function DateTime(){
         $timezone = new DateTimeZone('America/Mexico_City');
-        $date     = DateTime::createFromFormat('d/m/Y',$timezone);
+        $date = DateTime::createFromFormat('d/m/Y',$timezone);
         Carbon::parse($date)->format('Y-m-d');
     }
 
@@ -36,10 +36,6 @@ class Project extends Model
         return $this->hasMany(cotizaciones::class, 'project_id', 'id');
     }
 
-    public function scopeGanado($query)
-    {
-        return $query->where('Ganado', true);
-    }
 
     public function getLastInvoiceAttribute()
     {

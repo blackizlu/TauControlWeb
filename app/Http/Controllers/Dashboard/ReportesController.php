@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\dashboard;
 
+use App\cotizaciones;
 use App\Project;
 use App\User;
 use Illuminate\Http\Request;
@@ -31,9 +32,14 @@ class ReportesController extends Controller
             ->where('currency','USD')
             ->sum('amount');
 
+//        $totalGanMXN = DB::table('cotizacion')
+//            ->join('projects', 'projects.phase', '=', 'Ganado')
+//            ->where('currency','MXN')
+//            ->sum('amount');
+//
+//        dd($totalGanMXN);
 
-
-        return view('dashboard.reportes.index', compact('users','projects','Cotizado','Ganado','Lead','Negociacion','Pricing','Rechazado','totalmx','totalUS'));
+        return view('dashboard.reportes.index', compact('users','projects','Cotizado','Ganado','Lead','Negociacion','Pricing','Rechazado','totalmx','totalUS','totalGanMXN' ));
     }
 
     public function getProjects(Request $request, $id)
