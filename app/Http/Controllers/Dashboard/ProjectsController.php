@@ -5,6 +5,7 @@ namespace App\Http\Controllers\dashboard;
 use App\Activities;
 use App\Client;
 use App\cotizaciones;
+use App\Docs;
 use App\Project;
 use App\tipoCliente;
 use App\User;
@@ -37,7 +38,6 @@ class ProjectsController extends Controller
 
         return view('dashboard.projects.add', compact('projects', 'users','clients','tipocliente'));
     }
-
     public function store(Request $request)
     {
         $data = request()->all();
@@ -59,22 +59,6 @@ class ProjectsController extends Controller
 
         return redirect()->route('dashboard.projects.index');
     }
-
-//    public function savedocs(Request $request){
-//
-//        $docs = $request->file('docs');
-//
-//        foreach ($docs as $doc){
-//
-//            $fileName = $file->getClientOriginalName();
-//            Storage::disk('public')->put('docs/'. time() . $fileName, File::get($doc));
-//            $this->attributes['file'] = 'cotizacion/' . $fileName;
-//
-//        }
-//
-//
-//    }
-
     public function view($id)
     {
         $project = Project::findOrFail($id);
@@ -93,7 +77,6 @@ class ProjectsController extends Controller
 
 
     }
-
     public function update(Request $request, $id)
     {
         $projects = Project::findOrFail($id);
@@ -106,7 +89,6 @@ class ProjectsController extends Controller
 
         return redirect()->route('dashboard.projects.index');
     }
-
     public function destroy($id){
         $projects = Project::findOrFail($id);
         $projects->delete();
@@ -117,4 +99,53 @@ class ProjectsController extends Controller
     }
 
 
+    public function documentsUpload(Request $request, $id)
+    {
+
+        $files = $request->file('file');
+        /*$initialConfig = [];
+        $initialPreview = [];*/
+
+        if($request->hasFile('file'))
+        {
+            foreach ($files as $file)
+            {
+                $temp = explode(".", $file->getClientOriginalName());
+                $extension = end($temp);
+                $name = $file->getClientOriginalName();
+                list($first) = explode(".", $name);
+                $FileName =  $first . '-' . time(). '.' . $extension;
+                Storage::disk('public')->put('docs/' . $FileName,  File::get($file));
+                $document = new Docs();
+                /*                $document->name = $file->getClientOriginalName();*/
+                $document->project_id = $id;
+                $document->file = 'docs/' . $FileName;
+                /*array_push($initialConfig, ["caption" => $file->getClientOriginalName(), "size" => $file->getClientSize(), "width" => "120px", "url" => "/delete", "key" => 1]);
+                array_push($initialPreview, asset('storage/docs/' . $FileName));*/
+                $document->save();
+            }
+        }
+
+
+        /*$responseFiles = [
+            'initialPreview' => $initialPreview,
+            'initialPreviewConfig' => $initialConfig
+        ];
+
+        return response()->json(
+            $responseFiles
+        );*/
+        return response()->json([
+            'success' => true
+        ]);
+    }
+
+    public function documentsRemove($id)
+    {
+        $document = Docs::findOrFail($id);
+        Storage::disk('public')->delete($document->file);
+        $document->delete();
+
+        return response()->json([]);
+    }
 }

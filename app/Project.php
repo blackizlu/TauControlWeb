@@ -36,11 +36,16 @@ class Project extends Model
         return $this->hasMany(cotizaciones::class, 'project_id', 'id');
     }
 
+    public function documents()
+    {
+        return $this->hasMany(Docs::class, 'project_id', 'id');
+    }
 
     public function getLastInvoiceAttribute()
     {
         return $this->cotizacion()->orderBy('id', 'desc')->first();
     }
+
 
     use SoftDeletes;
 

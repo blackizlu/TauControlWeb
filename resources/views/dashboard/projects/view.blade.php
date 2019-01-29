@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="col-lg-2 input_field_sections">
                                         <h6>Monto</h6>
-                                        <h5 class="m-t-5">$185,965.00</h5>
+                                        <h5 class="m-t-5">${{ $project->last_invoice != '' ? $project->last_invoice->amount : ''}}</h5>
                                     </div>
                                     <div class="col-lg-2 input_field_sections">
                                         <h6>Moneda</h6>
@@ -209,9 +209,9 @@
 
                                             </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody>@foreach($project->documents as $file)
                                                 <tr>
-                                                    <td></td>
+                                                    <td>{{$file->Doc_Name}}</td>
                                                     <td>
                                                         <a href="   " data-toggle="tooltip" data-placement="top" title="Ver documento">
                                                             <i class="fa fa-eye text-success"></i></a>
@@ -220,7 +220,7 @@
                                                         <a class="trash"  type="button" data-toggle="tooltip" data-placement="top" href="  " title="Eliminar">
                                                             <i class="fa fa-trash text-danger"></i></a>
                                                     </td>
-                                                </tr>
+                                                </tr>@endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -265,7 +265,7 @@
     </div>
 
     {{--//Modal guardar archivos--}}
-    <form method="post" id="save_docs" enctype="multipart/form-data">
+    <form action="{{route('dashboard.projects.documents.upload', $project->id)}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="modal fade in display_none" id="docs" tabindex="-1" role="dialog" aria-hidden="false">
             <div class="modal-dialog modal-lg">
@@ -277,7 +277,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <input id="input-fa" name="docs[]" type="file" multiple class="file-loading">
+                                <input id="project_files" name="file[]" type="file" multiple class="file-loading">
                             </div>
                         </div>
                     </div>
@@ -289,8 +289,9 @@
             </div>
         </div>
     </form>
+
     {{--//Modal guardar archivos aprobados--}}
-    <form action="  " method="post" enctype="multipart/form-data">
+    <form action="upload2" id="upload2" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="modal fade in display_none" id="approved" tabindex="-1" role="dialog" aria-hidden="false">
             <div class="modal-dialog modal-lg">
@@ -302,6 +303,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-lg-12">
+                                <input type="text" name="project_id" value="{{ $project->id }}" class="form-control" hidden>
                                 <input id="input-fe" name="approved_docs[]" type="file" multiple class="file-loading">
                             </div>
                         </div>
@@ -328,7 +330,6 @@
             });
         </script>
     @endif
-
     <script>
         var table = $('#example_demo3').DataTable({
             "searching": false,
@@ -379,85 +380,68 @@
         } );
     </script>
     <script>
-        var table = $('#example_demo').DataTable({
-            oLanguage: {
-                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
-                sInfoEmpty: "No hay registros a mostrar",
-                sInfoFiltered: "",
-                sZeroRecords: "Ningún registro para mostrar",
-                sSearch: "Buscar:",
-                oPaginate: {
-                    sFirst: "Primera Página",
-                    sLast: "Última Página",
-                    sNext: "Siguiente",
-                    sPrevious: "Anterior"
-                },
-                sEmptyTable: "No se encontraron registros",
-                sLengthMenu: "Mostrar _MENU_ Registros"
+    var table = $('#example_demo').DataTable({
+        oLanguage: {
+            sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+            sInfoEmpty: "No hay registros a mostrar",
+            sInfoFiltered: "",
+            sZeroRecords: "Ningún registro para mostrar",
+            sSearch: "Buscar:",
+            oPaginate: {
+                sFirst: "Primera Página",
+                sLast: "Última Página",
+                sNext: "Siguiente",
+                sPrevious: "Anterior"
+            },
+            sEmptyTable: "No se encontraron registros",
+            sLengthMenu: "Mostrar _MENU_ Registros"
 
+        }
+    });
+
+    $('#example_demo tbody').on( 'click', 'a.trash', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        var tr = $(this).parents('tr');
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        new PNotify({
+            title: 'Eliminar',
+            text: '¿Desea eliminar la cotización?',
+            icon: 'fa fa-question-circle',
+            hide: false,
+            type: 'error',
+            confirm: {
+                confirm: true
+            },
+            buttons: {
+                closer: false,
+                sticker: false
+            },
+            history: {
+                history: false
             }
-        });
-
-        $('#example_demo tbody').on( 'click', 'a.trash', function (e) {
-            e.preventDefault();
-            var url = $(this).attr('href');
-            var tr = $(this).parents('tr');
-            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-            new PNotify({
-                title: 'Eliminar',
-                text: '¿Desea eliminar la cotización?',
-                icon: 'fa fa-question-circle',
-                hide: false,
-                type: 'error',
-                confirm: {
-                    confirm: true
-                },
-                buttons: {
-                    closer: false,
-                    sticker: false
-                },
-                history: {
-                    history: false
+        }).get().on('pnotify.confirm', function () {
+            console.log(CSRF_TOKEN);
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: { _token: CSRF_TOKEN, _method: 'delete' },
+                dataType: 'JSON',
+                success: function (data) {
+                    if(data.success) {
+                        table.row( tr )
+                            .remove()
+                            .draw();
+                    }
                 }
-            }).get().on('pnotify.confirm', function () {
-                console.log(CSRF_TOKEN);
-                $.ajax({
-                    url: url,
-                    type: 'POST',
-                    data: { _token: CSRF_TOKEN, _method: 'delete' },
-                    dataType: 'JSON',
-                    success: function (data) {
-                        if(data.success) {
-                            table.row( tr )
-                                .remove()
-                                .draw();
-                        }
-                    }
-                });
             });
-        } );
-
-    </script>
-
-  {{--  <script>
-        $(document).ready(function(){
-            $('save_docs').on('submit', function(event){
-                event.preventDefault();
-                $.ajax({
-                    url:"{{route('dashboard.project.savedocs')}}",
-                    method: "POST",
-                    data:new FormData(this),
-                    dataType: 'JSON',
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    success: function(data){
-2
-                    }
-                })
-            });
-
         });
-    </script>--}}
+    } );
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
 @endsection

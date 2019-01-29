@@ -56,8 +56,13 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::get('/{id}/view', 'Dashboard\ProjectsController@view')->name('dashboard.projects.view');
         Route::get('/{id}/edit', 'Dashboard\ProjectsController@edit')->name('dashboard.projects.edit');
         Route::post('/', 'Dashboard\ProjectsController@store')->name('dashboard.projects.store');
+        Route::post('/documents/{id}/upload', 'Dashboard\ProjectsController@documentsUpload')->name('dashboard.projects.documents.upload');
+        Route::post('/documents/{id}/remove', 'Dashboard\ProjectsController@documentsRemove')->name('dashboard.projects.documents.remove');
+        Route::post('/', 'Dashboard\ProjectsController@store')->name('dashboard.projects.store');
         Route::put('/{id}/update', 'Dashboard\ProjectsController@update')->name('dashboard.projects.update');
         Route::delete('/{id}/delete', 'Dashboard\ProjectsController@destroy')->name('dashboard.projects.delete');//Listo
+
+
     });
 
     //MODULO COTIZACIONES
