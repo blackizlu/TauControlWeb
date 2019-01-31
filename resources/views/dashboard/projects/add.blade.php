@@ -1,5 +1,26 @@
 @extends('dashboard.layout')
 @section('content')
+    <style>
+        .ui-select{
+            width: 100%;
+            border:1px solid #aaa;
+            border-radius: 5px;
+            background: linear-gradient(#ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+            font-size: 13px;
+        font-family: "Source Sans Pro", sans-serif;
+            font-weight: 400;
+            color: #282828;}
+
+        /* This is to remove the arrow of select element in IE */
+        select::-ms-expand {	display: none; }
+        select{
+            -webkit-appearance: none;
+        }
+        @-moz-document url-prefix(){
+            .ui-select{border: 1px solid #CCC; border-radius: 4px; box-sizing: border-box; position: relative; overflow: hidden;}
+            .ui-select select { width: 110%; background-position: right 30px center !important; border: none !important;}
+        }
+    </style>
     <header class="head">
         <div class="main-bar">
             <div class="row no-gutters">
@@ -44,7 +65,7 @@
                                     </div>
                                     <div class="col-lg-4 input_field_sections">
                                         <h5>Cliente*</h5>
-                                        <select class="form-control chzn-select" tabindex="7" name="client_id" id="client_id">
+                                        <select class="form-control chzn-select" tabindex="7" name="client_id" id="client">
                                             <option disabled selected>Buscar cliente</option>
                                             @foreach($clients as $client)
                                                 <option value="{{ $client->id }}">{{ $client->client_name }}</option>
@@ -52,7 +73,10 @@
                                         </select>
                                     </div>
                                     <div class="col-lg-4 input_field_sections">
-                                        <a class="btn btn-primary btn-md adv_cust_mod_btn m-t-15" data-toggle="modal" data-href="#responsive" href="#responsive ">Nuevo cliente </a>
+                                        <h5>Contacto*</h5>
+                                        <select class="form-control ui-select" tabindex="2" name="contact_id" id="myContacts">
+                                            <option selected disabled>Selecciona un cliente</option>
+                                        </select>
                                     </div>
                                     <div class="col-lg-4 input_field_sections">
                                         <h5>Etapa*</h5>
@@ -280,4 +304,24 @@
         </div>
     </form>
 @endsection
+@section('scripts')
+    <script>
+        $("#client").change((function (event) {
+            var id = event.target.value;
+            var url = "{{ route('projects.getContacts', ':D') }}";
+            url = url.replace(':D', id);
+            $.get(url ,function (response) {
+                console.log(response);
+                $("#myContacts ").empty();
+                for(i=0; i<response.contacts.length; i++){
+                    $("#myContacts").append("<option value='"+response.contacts[i].id+"'>"+response.contacts[i].contact_name+"</option>");
+                }
+            });
+
+        }));
+    </script>
+
+@endsection
+
+
 

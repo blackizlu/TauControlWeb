@@ -76,7 +76,7 @@
                                             @if($activity->project->deleted_at != null)
                                                 <span style="color: red; font-size: 10px;">(Eliminado)</span>
                                             @endif</td>
-                                        <td>{{\Carbon\Carbon::parse($activity->deadline)->format('d/m/Y')}}</td>
+                                        <td>{{\Carbon\Carbon::parse($activity->start)->format('d/m/Y')}}</td>
                                         <td>{{\Carbon\Carbon::parse($activity->time)->format('h:i A')}}</td>
                                         <td>{{$activity->tipoactividad->name}}</td>
                                         <td>

@@ -15,6 +15,11 @@ class contact extends Model
         return $this->hasOne(Client::class, 'id', 'client_id')->withTrashed();
     }
 
+    public function project()
+    {
+        return $this->hasOne(Project::class, 'contact_id', 'id')->withTrashed();
+    }
+
     use SoftDeletes;
 
     protected $table = 'contacts';

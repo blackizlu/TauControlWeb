@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Activities;
 use App\Client;
+use App\tipoActividad;
 use App\tipoCliente;
 use App\User;
 use App\Contact;
@@ -24,9 +25,10 @@ class ClientsController extends Controller
     public function view($id)
     {
         $client = Client::findOrFail($id);
-        $activities = Activities::all();
+        $activities = Activities::where('client_id', '=', $id )->get();
+        $contact = contact::all();
 
-        return view('dashboard.clients.view', compact('client','activities'));
+        return view('dashboard.clients.view', compact('client', 'activities','contact'));
     }
     public function add()
     {

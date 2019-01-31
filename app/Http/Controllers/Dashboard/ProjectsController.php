@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Activities;
+use App\ApprovedDocs;
 use App\Client;
+use App\contact;
 use App\cotizaciones;
 use App\Docs;
 use App\Project;
@@ -38,6 +40,22 @@ class ProjectsController extends Controller
 
         return view('dashboard.projects.add', compact('projects', 'users','clients','tipocliente'));
     }
+
+    public function getContacts(Request $request, $id)
+    {
+
+        if ($request->ajax()) {
+            $client = Client::findOrFail($id);
+
+            return response()->json([
+                "contacts" => $client->contacts
+
+            ]);
+        }
+
+        return null;
+    }
+
     public function store(Request $request)
     {
         $data = request()->all();
@@ -47,7 +65,8 @@ class ProjectsController extends Controller
             'phase' => 'required',
             'estimated_date' => 'required',
             'user_id' => 'required',
-            'client_id' => 'required'
+            'client_id' => 'required',
+            'contact_id' => 'required'
 
         ]);
 
@@ -63,8 +82,9 @@ class ProjectsController extends Controller
     {
         $project = Project::findOrFail($id);
         $activities = Activities::all();
+        $contacts = contact::all();
 
-        return view('dashboard.projects.view', compact('project','activities'));
+        return view('dashboard.projects.view', compact('project','activities','contacts'));
     }
     public function edit($id){
 
@@ -148,4 +168,56 @@ class ProjectsController extends Controller
 
         return response()->json([]);
     }
+
+    public function approvedDocUpload(Request $request, $id)
+    {
+
+        $files = $request->file('file');
+        /*$initialConfig = [];
+        $initialPreview = [];*/
+
+        if($request->hasFile('file'))
+        {
+            foreach ($files as $file)
+            {
+                $temp = explode(".", $file->getClientOriginalName());
+                $extension = end($temp);
+                $name = $file->getClientOriginalName();
+                list($first) = explode(".", $name);
+                $FileName =  $first . '-' . time(). '.' . $extension;
+                Storage::disk('public')->put('approved_docs/' . $FileName,  File::get($file));
+                $document = new ApprovedDocs();
+                /*                $document->name = $file->getClientOriginalName();*/
+                $document->project_id = $id;
+                $document->file = 'approved_docs/' . $FileName;
+                /*array_push($initialConfig, ["caption" => $file->getClientOriginalName(), "size" => $file->getClientSize(), "width" => "120px", "url" => "/delete", "key" => 1]);
+                array_push($initialPreview, asset('storage/docs/' . $FileName));*/
+                $document->save();
+            }
+        }
+
+
+        /*$responseFiles = [
+            'initialPreview' => $initialPreview,
+            'initialPreviewConfig' => $initialConfig
+        ];
+
+        return response()->json(
+            $responseFiles
+        );*/
+        return response()->json([
+            'success' => true
+        ]);
+    }
+
+    public function approvedDocsRemove($id)
+    {
+        $document = ApprovedDocs::findOrFail($id);
+        Storage::disk('public')->delete($document->file);
+        $document->delete();
+
+        return response()->json([]);
+    }
+
+
 }

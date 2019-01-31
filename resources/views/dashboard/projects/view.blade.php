@@ -66,11 +66,14 @@
                                         <h6>Moneda</h6>
                                         <h5 class="m-t-5">MXN</h5>
                                     </div>
-                                    <div class="col-lg-6 input_field_sections">
+                                    <div class="col-lg-4 input_field_sections">
                                         <h6>Comentarios</h6>
                                         <h5>{{ $project->comments }}</h5>
                                     </div>
-                                    <div class="col-lg-2 input_field_sections">     </div>
+                                    <div class="col-lg-4 input_field_sections">
+                                        <h6>Contacto</h6>
+                                        <h5>{{$project->contact->contact_name}}</h5>
+                                    </div>
                                     <div class="col-lg-4 input_field_sections">
                                         <h6>Fecha de creación del proyecto</h6>
                                         <h5>{{\Carbon\Carbon::parse($project->created_at)->format('d/m/Y')}}</h5>
@@ -211,9 +214,9 @@
                                             </thead>
                                             <tbody>@foreach($project->documents as $file)
                                                 <tr>
-                                                    <td>{{$file->Doc_Name}}</td>
+                                                    <td>{{$file->file}}</td>
                                                     <td>
-                                                        <a href="   " data-toggle="tooltip" data-placement="top" title="Ver documento">
+                                                        <a href="{{ asset('storage/' . $file->file)}}" target="_blank" data-toggle="tooltip" data-placement="top" title="Ver">
                                                             <i class="fa fa-eye text-success"></i></a>
                                                         &nbsp; &nbsp;
 
@@ -237,18 +240,18 @@
 
                                             </tr>
                                             </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td>
-                                                    <a href="   " data-toggle="tooltip" data-placement="top" title="Ver documento">
-                                                        <i class="fa fa-eye text-success"></i></a>
-                                                    &nbsp; &nbsp;
+                                            <tbody>@foreach($project->approveddocs as $file)
+                                                <tr>
+                                                    <td>{{$file->file}}</td>
+                                                    <td>
+                                                        <a href="{{ asset('storage/' . $file->file)}}" target="_blank" data-toggle="tooltip" data-placement="top" title="Ver">
+                                                            <i class="fa fa-eye text-success"></i></a>
+                                                        &nbsp; &nbsp;
 
-                                                    <a class="trash"  type="button" data-toggle="tooltip" data-placement="top" href="  " title="Eliminar">
-                                                        <i class="fa fa-trash text-danger"></i></a>
-                                                </td>
-                                            </tr>
+                                                        <a class="trash"  type="button" data-toggle="tooltip" data-placement="top" href="  " title="Eliminar">
+                                                            <i class="fa fa-trash text-danger"></i></a>
+                                                    </td>
+                                                </tr>@endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -289,9 +292,9 @@
             </div>
         </div>
     </form>
-
+    dashboard.projects.approved.upload
     {{--//Modal guardar archivos aprobados--}}
-    <form action="upload2" id="upload2" method="post" enctype="multipart/form-data">
+    <form action="{{route('dashboard.projects.approved.upload', $project->id)}}"  method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="modal fade in display_none" id="approved" tabindex="-1" role="dialog" aria-hidden="false">
             <div class="modal-dialog modal-lg">
@@ -303,8 +306,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <input type="text" name="project_id" value="{{ $project->id }}" class="form-control" hidden>
-                                <input id="input-fe" name="approved_docs[]" type="file" multiple class="file-loading">
+                                <input id="project_files2" name="file[]" type="file" multiple class="file-loading">
                             </div>
                         </div>
                     </div>

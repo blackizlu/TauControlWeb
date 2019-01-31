@@ -58,9 +58,14 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::post('/', 'Dashboard\ProjectsController@store')->name('dashboard.projects.store');
         Route::post('/documents/{id}/upload', 'Dashboard\ProjectsController@documentsUpload')->name('dashboard.projects.documents.upload');
         Route::post('/documents/{id}/remove', 'Dashboard\ProjectsController@documentsRemove')->name('dashboard.projects.documents.remove');
+        Route::post('/approveddoc/{id}/upload', 'Dashboard\ProjectsController@approvedDocUpload')->name('dashboard.projects.approved.upload');
+        Route::post('/approveddoc/{id}/remove', 'Dashboard\ProjectsController@approvedDocsRemove')->name('dashboard.projects.approved.remove');
         Route::post('/', 'Dashboard\ProjectsController@store')->name('dashboard.projects.store');
         Route::put('/{id}/update', 'Dashboard\ProjectsController@update')->name('dashboard.projects.update');
         Route::delete('/{id}/delete', 'Dashboard\ProjectsController@destroy')->name('dashboard.projects.delete');//Listo
+
+        Route::get('/get/{id}', 'Dashboard\ProjectsController@getContacts')->name('projects.getContacts');
+
 
 
     });

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class Project extends Model
 {
-    protected $fillable = ['name', 'phase', 'estimated_date', 'user_id','client_id', 'comments', 'docs', 'approved_docs'];
+    protected $fillable = ['name', 'phase', 'estimated_date', 'user_id','client_id', 'comments', 'docs', 'approved_docs','contact_id'];
 
     public function user()
     {
@@ -18,6 +18,11 @@ class Project extends Model
     public function client()
     {
         return $this->hasOne(Client::class, 'id','client_id');
+    }
+
+    public function contact()
+    {
+        return $this->hasOne(contact::class, 'id', 'contact_id')->withTrashed();
     }
 
     protected function DateTime(){
@@ -39,6 +44,11 @@ class Project extends Model
     public function documents()
     {
         return $this->hasMany(Docs::class, 'project_id', 'id');
+    }
+
+    public function approvedDocs()
+    {
+        return $this->hasMany(ApprovedDocs::class, 'project_id', 'id');
     }
 
     public function getLastInvoiceAttribute()

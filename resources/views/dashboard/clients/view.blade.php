@@ -114,13 +114,17 @@
                                             <th>Etapa</th>
                                             <th>Monto</th>
                                             <th>Moneda</th>
+                                            <th>Contacto</th>
+
                                         </tr>
                                         @foreach($client->projects as $project)
                                         <tr>
-                                            <td>{{$project->name}}</td>
+                                            <td><a href="{{route ('dashboard.projects.view', $project->id)}}"><i class="text-success">{{$project->name}}</i></a></td>
                                             <td>{{$project->phase}}</td>
                                             <td>${{$project->last_invoice != '' ? $project->last_invoice->amount : ''}}</td>
                                             <td>{{$project->last_invoice != '' ? $project->last_invoice->currency : '' }}</td>
+                                            <td>{{$project->contact->contact_name}}</td>
+
                                         </tr>@endforeach
                                     </table>
                                 </div>
@@ -161,20 +165,20 @@
                             Proximos eventos
                         </div>
                     </div>
-                    <div class="card-block padding-body view_user_cal">
-                        <div class="bg-primary"></div>
-                        <div class="list-group" style="overflow-y: scroll; height: 400px;">
-                            @foreach($client->activities as $event)
-                            <a href="#" class="list-group-item calendar-list">
+                    <div class="card-block">
+                        <div class="list-group" style="overflow-y: scroll; height: 415px;!important;">
+                            @foreach($client->activities as $event)@if($event->completed == '0')
+                            <div class="list-group-item calendar-list" >
                                 <li>
                                     <strong>Proyecto: </strong>&nbsp;{{$event->project->name}}
                                 </li>
                                 <li>
-                                    {{$event->Name_Activity}}&nbsp;con&nbsp;{{$event->contact->contact_name}}
+                                    {{$event->tipoactividad->name}}&nbsp;con&nbsp;{{$event->contact->contact_name}}
                                 </li>
-                                <div class="badge badge-pill badge-primary float-right">{{\Carbon\Carbon::parse($event->start)->format('d/m/Y')}}&nbsp;{{\Carbon\Carbon::parse($event->time)->format('h:i')}}</div>
+                                <div class="badge badge-pill float-right" style="background-color:{{$event->tipoactividad->color}}">{{\Carbon\Carbon::parse($event->start)->format('d/m/Y')}}&nbsp;{{\Carbon\Carbon::parse($event->time)->format('h:i')}}</div>
                                 {{$event->comments}}
-                            </a>@endforeach
+                            </div>
+                            @endif @endforeach
                         </div>
                     </div>
                 </div>
@@ -184,156 +188,150 @@
                     <div class="card-header bg-white">
                         <div>
                             <i class="fa fa-tasks"></i>
-                            Ultimas actividades
+                            Últimas actividades completadas
                         </div>
                     </div>
-                    <div class="card-block m-t-35 padding">
-                        <div class="feed">
-                            <ul>@foreach($client->activities as $activity)
-                                <li>
-
-                                    <span>
-                                        <img src="/images/dashboard/{{$activity->image}}" alt="text_image"
-                                             class="rounded-circle img-fluid recent_feeds_img"/>
-                                    </span>
-                                    <h5>
-                                        {{$activity->Name_Activity}}
-                                    </h5>
-                                    <p>
-                                        <strong>{{$activity->comments}}</strong>
-                                    </p>
-                                    <i><strong>Fecha: </strong>{{\Carbon\Carbon::parse($activity->start)->format('d/m/Y')}}&nbsp;
-                                        <strong>Hora: </strong>{{\Carbon\Carbon::parse($activity->time)->format('h:i')}}
-                                    </i>
-                                </li>@endforeach
-                            </ul>
+                    <div class="card-block">
+                        <div class="list-group" style="overflow-y: scroll; height: 415px;!important;">
+                            @foreach($client->activities as $event)@if($event->completed == '1')
+                                <div class="list-group-item calendar-list" >
+                                    <li>
+                                        <strong>Proyecto: </strong>&nbsp;{{$event->project->name}}
+                                    </li>
+                                    <li>
+                                        {{$event->tipoactividad->name}}&nbsp;con&nbsp;{{$event->contact->contact_name}}
+                                    </li>
+                                    <div class="badge badge-pill float-right" style="background-color:{{$event->tipoactividad->color}}">{{\Carbon\Carbon::parse($event->start)->format('d/m/Y')}}&nbsp;{{\Carbon\Carbon::parse($event->time)->format('h:i')}}</div>
+                                    {{$event->comments}}
+                                </div>
+                            @endif @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Linea del tiempo-->
-        <div class="card m-t-35">
-            <div class="card-header bg-white">
-                <i class="fa fa-fw fa-clock-o"></i> Linea del tiempo.
-            </div>
-            <div class="card-block m-t-35">
-                <!--timeline-->
-                <div>
-                    <ul class="timeline">
-                        <li>
-                            <div class="timeline-badge primary">
-                                <i class="fa fa-tag"></i>
-                            </div>
-                            <div class="timeline-panel bg-primary">
-                                <div class="timeline-heading text-white">
-                                    <h5 class="timeline-title">Timeline Event One</h5>
-                                    <p>
-                                        <small>13 hours ago</small>
-                                    </p>
-                                </div>
-                                <div class="timeline-body text-white">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.  gravida tempor justo, at  justo fringilla at.
-                                        .
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-badge danger">
-                                <i class="fa fa-fw fa-check-square-o"></i>
-                            </div>
-                            <div class="timeline-panel bg-danger">
-                                <div class="timeline-heading text-white">
-                                    <h5 class="timeline-title">Timeline Event Two</h5>
-                                    <p>
-                                        <small>June 20,2016</small>
-                                    </p>
-                                </div>
-                                <div class="timeline-body text-white">
-                                    <p> gravida tempor justo, at  justo fringilla at. gravida tempor justo, at justo fringilla at.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-badge info">
-                                <i class="fa fa-thumbs-o-up"></i>
-                            </div>
-                            <div class="timeline-panel bg-info">
-                                <div class="timeline-heading text-white">
-                                    <h5 class="timeline-title">Timeline Event Three</h5>
-                                    <p>
-                                        <small>June 10 , 2016</small>
-                                    </p>
-                                </div>
-                                <div class="timeline-body text-white">
-                                    <p>
-                                        Lorem ipsum dolor sit amet.  gravida tempor justo, at bibendum justo fringilla  justo fringilla at.
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-badge warning">
-                                <i class="fa fa-fw fa-indent"></i>
-                            </div>
-                            <div class="timeline-panel bg-warning">
-                                <div class="timeline-heading text-white">
-                                    <h5 class="timeline-title">Timeline Event Four</h5>
-                                    <p>
-                                        <small>Apr 20,2016</small>
-                                    </p>
-                                </div>
-                                <div class="timeline-body text-white">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.  gravida tempor justo,  justo fringilla at.
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-badge success">
-                                <i class="fa fa-pencil-square-o"></i>
-                            </div>
-                            <div class="timeline-panel bg-success">
-                                <div class="timeline-heading text-white">
-                                    <h5 class="timeline-title">Timeline Event Five</h5>
-                                    <p>
-                                        <small>Mar 15,2016</small>
-                                    </p>
-                                </div>
-                                <div class="timeline-body text-white">
-                                    <p>
-                                        Lorem Ipsum is simply dummy, vidis litro abertis.consectetur adipiscing elit.  gravida tempor justo, at  justo fringilla at.
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-badge mint">
-                                <i class="fa fa-paperclip"></i>
-                            </div>
-                            <div class="timeline-panel bg-mint">
-                                <div class="timeline-heading text-white">
-                                    <h5 class="timeline-title">Timeline Event Six</h5>
-                                    <p>
-                                        <small>Jan 1,2016</small>
-                                    </p>
-                                </div>
-                                <div class="timeline-body text-white">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.  gravida tempor justo, at  justo fringilla at.
-                                        fringilla at.
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <!--timeline ends-->
-            </div>
-        </div>
+        {{--<div class="card m-t-35">--}}
+            {{--<div class="card-header bg-white">--}}
+                {{--<i class="fa fa-fw fa-clock-o"></i> Linea del tiempo.--}}
+            {{--</div>--}}
+            {{--<div class="card-block m-t-35">--}}
+                {{--<!--timeline-->--}}
+                {{--<div>--}}
+                    {{--<ul class="timeline">--}}
+                        {{--<li>--}}
+                            {{--<div class="timeline-badge primary">--}}
+                                {{--<i class="fa fa-tag"></i>--}}
+                            {{--</div>--}}
+                            {{--<div class="timeline-panel bg-primary">--}}
+                                {{--<div class="timeline-heading text-white">--}}
+                                    {{--<h5 class="timeline-title">Timeline Event One</h5>--}}
+                                    {{--<p>--}}
+                                        {{--<small>13 hours ago</small>--}}
+                                    {{--</p>--}}
+                                {{--</div>--}}
+                                {{--<div class="timeline-body text-white">--}}
+                                    {{--<p>--}}
+                                        {{--Lorem ipsum dolor sit amet, consectetur adipiscing elit.  gravida tempor justo, at  justo fringilla at.--}}
+                                        {{--.--}}
+                                    {{--</p>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
+                        {{--<li class="timeline-inverted">--}}
+                            {{--<div class="timeline-badge danger">--}}
+                                {{--<i class="fa fa-fw fa-check-square-o"></i>--}}
+                            {{--</div>--}}
+                            {{--<div class="timeline-panel bg-danger">--}}
+                                {{--<div class="timeline-heading text-white">--}}
+                                    {{--<h5 class="timeline-title">Timeline Event Two</h5>--}}
+                                    {{--<p>--}}
+                                        {{--<small>June 20,2016</small>--}}
+                                    {{--</p>--}}
+                                {{--</div>--}}
+                                {{--<div class="timeline-body text-white">--}}
+                                    {{--<p> gravida tempor justo, at  justo fringilla at. gravida tempor justo, at justo fringilla at.</p>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<div class="timeline-badge info">--}}
+                                {{--<i class="fa fa-thumbs-o-up"></i>--}}
+                            {{--</div>--}}
+                            {{--<div class="timeline-panel bg-info">--}}
+                                {{--<div class="timeline-heading text-white">--}}
+                                    {{--<h5 class="timeline-title">Timeline Event Three</h5>--}}
+                                    {{--<p>--}}
+                                        {{--<small>June 10 , 2016</small>--}}
+                                    {{--</p>--}}
+                                {{--</div>--}}
+                                {{--<div class="timeline-body text-white">--}}
+                                    {{--<p>--}}
+                                        {{--Lorem ipsum dolor sit amet.  gravida tempor justo, at bibendum justo fringilla  justo fringilla at.--}}
+                                    {{--</p>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
+                        {{--<li class="timeline-inverted">--}}
+                            {{--<div class="timeline-badge warning">--}}
+                                {{--<i class="fa fa-fw fa-indent"></i>--}}
+                            {{--</div>--}}
+                            {{--<div class="timeline-panel bg-warning">--}}
+                                {{--<div class="timeline-heading text-white">--}}
+                                    {{--<h5 class="timeline-title">Timeline Event Four</h5>--}}
+                                    {{--<p>--}}
+                                        {{--<small>Apr 20,2016</small>--}}
+                                    {{--</p>--}}
+                                {{--</div>--}}
+                                {{--<div class="timeline-body text-white">--}}
+                                    {{--<p>--}}
+                                        {{--Lorem ipsum dolor sit amet, consectetur adipiscing elit.  gravida tempor justo,  justo fringilla at.--}}
+                                    {{--</p>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<div class="timeline-badge success">--}}
+                                {{--<i class="fa fa-pencil-square-o"></i>--}}
+                            {{--</div>--}}
+                            {{--<div class="timeline-panel bg-success">--}}
+                                {{--<div class="timeline-heading text-white">--}}
+                                    {{--<h5 class="timeline-title">Timeline Event Five</h5>--}}
+                                    {{--<p>--}}
+                                        {{--<small>Mar 15,2016</small>--}}
+                                    {{--</p>--}}
+                                {{--</div>--}}
+                                {{--<div class="timeline-body text-white">--}}
+                                    {{--<p>--}}
+                                        {{--Lorem Ipsum is simply dummy, vidis litro abertis.consectetur adipiscing elit.  gravida tempor justo, at  justo fringilla at.--}}
+                                    {{--</p>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
+                        {{--<li class="timeline-inverted">--}}
+                            {{--<div class="timeline-badge mint">--}}
+                                {{--<i class="fa fa-paperclip"></i>--}}
+                            {{--</div>--}}
+                            {{--<div class="timeline-panel bg-mint">--}}
+                                {{--<div class="timeline-heading text-white">--}}
+                                    {{--<h5 class="timeline-title">Timeline Event Six</h5>--}}
+                                    {{--<p>--}}
+                                        {{--<small>Jan 1,2016</small>--}}
+                                    {{--</p>--}}
+                                {{--</div>--}}
+                                {{--<div class="timeline-body text-white">--}}
+                                    {{--<p>--}}
+                                        {{--Lorem ipsum dolor sit amet, consectetur adipiscing elit.  gravida tempor justo, at  justo fringilla at.--}}
+                                        {{--fringilla at.--}}
+                                    {{--</p>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
+                {{--</div>--}}
+                {{--<!--timeline ends-->--}}
+            {{--</div>--}}
+        {{--</div>--}}
     </div>
 </div>
 @endsection
