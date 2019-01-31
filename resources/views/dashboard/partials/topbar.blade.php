@@ -159,9 +159,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="popover-footer">
-                                <a href="#" class="text-white">View All</a>
-                            </div>
                         </div>
                     </div>
                 </div>

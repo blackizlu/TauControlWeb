@@ -119,7 +119,7 @@
                                         </tr>
                                         @foreach($client->projects as $project)
                                         <tr>
-                                            <td><a href="{{route ('dashboard.projects.view', $project->id)}}"><i class="text-success">{{$project->name}}</i></a></td>
+                                            <td><a href="{{route ('dashboard.projects.view', $project->id)}}"><b><i>{{$project->name}}</i></b></a></td>
                                             <td>{{$project->phase}}</td>
                                             <td>${{$project->last_invoice != '' ? $project->last_invoice->amount : ''}}</td>
                                             <td>{{$project->last_invoice != '' ? $project->last_invoice->currency : '' }}</td>

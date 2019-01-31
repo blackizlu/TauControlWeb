@@ -57,6 +57,7 @@ class Project extends Model
     }
 
 
+
     use SoftDeletes;
 
     protected $table = 'projects';

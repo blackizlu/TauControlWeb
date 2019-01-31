@@ -14,13 +14,11 @@ class ApprovedDocs extends Model
         return $this->hasOne(Project::class, 'id', 'project_id')->withTrashed();
     }
 
-    public function getDocNameAttributes()
+    public function getDocNameAttribute()
     {
-        return $Doc_Name= str_replace("approved_docs/", "", $this->attributes['file']);
-
+        return str_replace("approved_docs/", "", $this->attributes['file']);
     }
 
     use SoftDeletes;
-
     protected $table = 'approveddocs';
 }

@@ -214,7 +214,7 @@
                                             </thead>
                                             <tbody>@foreach($project->documents as $file)
                                                 <tr>
-                                                    <td>{{$file->file}}</td>
+                                                    <td>{{$file->Doc_Name}}</td>
                                                     <td>
                                                         <a href="{{ asset('storage/' . $file->file)}}" target="_blank" data-toggle="tooltip" data-placement="top" title="Ver">
                                                             <i class="fa fa-eye text-success"></i></a>
@@ -242,7 +242,7 @@
                                             </thead>
                                             <tbody>@foreach($project->approveddocs as $file)
                                                 <tr>
-                                                    <td>{{$file->file}}</td>
+                                                    <td>{{$file->Doc_Name}}</td>
                                                     <td>
                                                         <a href="{{ asset('storage/' . $file->file)}}" target="_blank" data-toggle="tooltip" data-placement="top" title="Ver">
                                                             <i class="fa fa-eye text-success"></i></a>
@@ -292,7 +292,6 @@
             </div>
         </div>
     </form>
-    dashboard.projects.approved.upload
     {{--//Modal guardar archivos aprobados--}}
     <form action="{{route('dashboard.projects.approved.upload', $project->id)}}"  method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
