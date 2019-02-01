@@ -165,13 +165,12 @@
                 <div class="btn-group">
                     <div class="user-settings no-bg">
                         <button type="button" class="btn btn-default no-bg micheal_btn" data-toggle="dropdown">
-                            <img src="/images/dashboard/admin.jpg" class="admin_img2 img-thumbnail rounded-circle avatar-img"
+                            <img src="{{ asset(Auth::user()->profile->image) }}" class="admin_img2 rounded-circle avatar-img"
                                  alt="avatar"> <strong>{{ Auth::user()->profile->full_name }}</strong>
                             <span class="fa fa-sort-down white_bg"></span>
                         </button>
                         <div class="dropdown-menu admire_admin">
-                            <a class="dropdown-item title" href="#">
-                                Ajustes</a>
+                            <a class="dropdown-item title"></a>
                             <a class="dropdown-item" href="{{ route ('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out-alt "></i>
                                 Cerrar Sesión</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>

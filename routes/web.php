@@ -75,6 +75,7 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
         Route::get('/', 'Dashboard\CotizacionesController@index')->name('dashboard.cotizaciones.index');
         Route::get('/add', 'Dashboard\CotizacionesController@add')->name('dashboard.cotizaciones.add');
         Route::get('/{id}/edit', 'Dashboard\CotizacionesController@edit')->name('dashboard.cotizaciones.edit');
+        Route::put('/{id}/update', 'Dashboard\CotizacionesController@update')->name('dashboard.cotizaciones.update');
         Route::get('/{id}/view', 'Dashboard\CotizacionesController@view')->name('dashboard.cotizaciones.view');
         Route::get('/generate', 'Dashboard\CotizacionesController@generate')->name('dashboard.cotizaciones.generate');
         Route::post('/', 'Dashboard\CotizacionesController@store')->name('dashboard.cotizaciones.store');

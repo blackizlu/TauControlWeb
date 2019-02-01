@@ -216,7 +216,7 @@ button, .btn {
   font-size: 16px; }
 
 .notifications .popover-title {
-  background-color: #ffb366;
+  background-color: #4fb7fe;
   color: #fff;
   font-size: 14px;
   margin-top: -8px;
@@ -257,7 +257,7 @@ button, .btn {
   margin-top: -8px;
   font-weight: bold;
   padding: 7px 0;
-  background-color: #ffb366;
+  background-color: #4fb7fe;
   color: #fff;
   text-align: center;
   font-size: 15px; }
@@ -309,7 +309,7 @@ button, .btn {
   content: '';
   border-right: 10px solid transparent;
   border-bottom: 10px solid #ccc;
-  border-bottom-color: #ffb366;
+  border-bottom-color: #4fb7fe;
   border-left: 10px solid transparent; }
 
 #notifications .data:hover, #messages .data:hover {
@@ -323,7 +323,7 @@ button, .btn {
   content: '';
   border-right: 10px solid transparent;
   border-bottom: 10px solid #ccc;
-  border-bottom-color: #ffb366;
+  border-bottom-color: #4fb7fe;
   border-left: 10px solid transparent; }
 
 .user-settings .dropdown-menu:before {
@@ -334,7 +334,7 @@ button, .btn {
   content: '';
   border-right: 10px solid transparent;
   border-bottom: 10px solid #ccc;
-  border-bottom-color: #ffb366;
+  border-bottom-color: #4fb7fe;
   border-left: 10px solid transparent; }
 
 .popover-footer {
@@ -342,7 +342,7 @@ button, .btn {
   margin: 0;
   font-size: 13px;
   line-height: 18px;
-  background-color: #ffb366;
+  background-color: #4fb7fe;
   border-top: 1px solid #ebebeb;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0 0 3px 3px;

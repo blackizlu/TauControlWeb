@@ -61,7 +61,8 @@ class CotizacionesController extends Controller
     public function edit($id){
 
         $cotizacion = cotizaciones::findOrFail($id);
-        return view('dashboard.contacts.edit', compact('cotizacion'));
+        $projects = Project::all();
+        return view('dashboard.cotizaciones.edit', compact('cotizacion','projects'));
 
 
     }

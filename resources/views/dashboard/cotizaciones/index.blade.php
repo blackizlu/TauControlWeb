@@ -84,7 +84,7 @@
                                             <a href="{{route('dashboard.cotizaciones.view', $cotizacion->id)}}" data-toggle="tooltip" data-placement="top" title="Ver proyecto">
                                                 <i class="fa fa-eye text-success"></i></a>
                                             &nbsp; &nbsp;
-                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href=" ">
+                                            <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar" href="{{route('dashboard.cotizaciones.edit', $cotizacion->id)}}">
                                                 <i class="fa fa-pencil-alt text-warning"></i></a>
                                             &nbsp; &nbsp;
                                             <a class="trash"  type="button" data-toggle="tooltip" data-placement="top" href="  " title="Eliminar">
