@@ -42,7 +42,6 @@
                                         <th>Color</th>
                                         <th>Código de color</th>
                                         <th>Acciones</th>
-
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -148,7 +147,7 @@
             "orderable": false,
             "paging": false,
             "info": false,
-            "scrollY": "300px",
+            "scrollY": "400px",
             "scrollCollapse": true
         });
 

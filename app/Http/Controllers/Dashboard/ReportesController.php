@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\dashboard;
 
-use App\cotizaciones;
-use App\Project;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,47 +12,130 @@ class ReportesController extends Controller
     public function index(){
 
         $users = User::all();
-        $projects = Project::all();
 
-        //Contara el total de proyectos para las tarjetas en Reportes
-        $Cotizado = Project::where('phase', 'Cotizado')->count();
-        $Ganado = Project::where('phase', 'Ganado')->count();
-        $Negociacion = Project::where('phase', 'Negociacion')->count();
-        $Lead = Project::where('phase', 'Lead')->count();
-        $Pricing = Project::where('phase', 'Pricing')->count();
-        $Rechazado = Project::where('phase', 'Rechazado')->count();
-
-        $totalmx = DB::table('cotizacion')
-            ->where('currency','MXN')
-            ->sum('amount');
-
-        $totalUS = DB::table('cotizacion')
-            ->where('currency','USD')
-            ->sum('amount');
-
-//        $totalGanMXN = DB::table('cotizacion')
-//            ->join('projects', 'projects.phase', '=', 'Ganado')
-//            ->where('currency','MXN')
-//            ->sum('amount');
-//
-//        dd($totalGanMXN);
-
-        return view('dashboard.reportes.index', compact('users','projects','Cotizado','Ganado','Lead','Negociacion','Pricing','Rechazado','totalmx','totalUS','totalGanMXN' ));
+        return view('dashboard.reportes.index', compact('users'));
     }
 
     public function getProjects(Request $request, $id)
     {
-
         if ($request->ajax()) {
-            $client = Client::findOrFail($id);
+            $user = User::findOrFail($id);
+
+            $cotizado = 0;
+            $ganado = 0;
+            $lead = 0;
+            $negociacion = 0;
+            $pricing = 0;
+            $Rechazado = 0;
+
+            foreach ($user->projects as $project) {
+                switch ($project->phase){
+                    case 'Ganado':
+                        $ganado++;
+                        break;
+                    case 'Lead':
+                        $lead++;
+                        break;
+                    case 'Cotizado':
+                        $cotizado++;
+                        break;
+                    case 'Negociacion':
+                        $negociacion++;
+                        break;
+                    case 'Pricing':
+                        $pricing++;
+                        break;
+                    case 'Rechazado':
+                        $Rechazado++;
+                        break;
+                }
+            }
 
             return response()->json([
-                "projects" => $client->projects
-
+                'projects' => [
+                    'ganado' => $ganado,
+                    'lead' => $lead,
+                    'cotizado' => $cotizado,
+                    'negociacion' => $negociacion,
+                    'pricing' => $pricing,
+                    'rechazado' => $Rechazado
+                ]
             ]);
         }
 
         return null;
+    }
+
+    public function getBarchar(Request $request)
+    {
+
+        if ($request->ajax()) {
+
+            $names = [];
+            $cotizado = [];
+            $ganado = [];
+            $lead = [];
+            $negociacion = [];
+            $pricing = [];
+            $Rechazado = [];
+
+            foreach (User::all() as $user) {
+                $ucotizado = 0;
+                $uganado = 0;
+                $ulead = 0;
+                $unegociacion = 0;
+                $upricing = 0;
+                $uRechazado = 0;
+                array_push($names, $user->name);
+
+                foreach ($user->projects as $projects) {
+                    switch ($projects->phase) {
+                        case 'Ganado':
+                            $uganado++;
+                            break;
+                        case 'Lead':
+                            $ulead++;
+                            break;
+                        case 'Cotizado':
+                            $ucotizado++;
+                            break;
+                        case 'Negociacion':
+                            $unegociacion++;
+                            break;
+                        case 'Pricing':
+                            $upricing++;
+                            break;
+                        case 'Rechazado':
+                            $uRechazado++;
+                            break;
+                    }
+                }
+
+                array_push($cotizado, $ucotizado);
+                array_push($ganado, $uganado);
+                array_push($lead, $ulead);
+                array_push($negociacion, $unegociacion);
+                array_push($pricing, $upricing);
+                array_push($Rechazado, $uRechazado);
+            }
+
+
+
+            return response()->json([
+                'grafica' => [
+                    'labels' => $names,
+                    'ganado' => $ganado,
+                    'lead' => $lead,
+                    'cotizado' => $cotizado,
+                    'negociacion' => $negociacion,
+                    'pricing' => $pricing,
+                    'rechazado' => $Rechazado
+                ]
+            ]);
+        }
+
+        return null;
+
     }
 
 }

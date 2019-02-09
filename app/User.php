@@ -10,6 +10,8 @@ class User extends Authenticatable
 {
     use Notifiable, SoftDeletes;
 
+    protected $table = 'users';
+
     protected $fillable = [
         'email', 'password', 'type',
     ];
@@ -23,13 +25,14 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class, 'user_id', 'id');
     }
 
-    public function setPasswordAttribute($password)
+    public function projects()
     {
-        if(!empty($password))
-            $this->attributes['password'] = bcrypt($password);
+        return $this->hasMany(Project::class, 'user_id', 'id');
     }
 
-    use SoftDeletes;
-
-    protected $table = 'users';
+    public function setPasswordAttribute($password)
+    {
+        if (!empty($password))
+            $this->attributes['password'] = bcrypt($password);
+    }
 }

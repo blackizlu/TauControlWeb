@@ -1,3 +1,4 @@
+@if(Auth::user()->type == 'admin')
 <div id="left">
     <div class="menu_scroll m-t-40">
         <ul id="menu">
@@ -107,10 +108,79 @@
                     <span class="link-title menu_hide">&nbsp;Reportes</span>
                 </a>
             </li>
+        </ul>
+    </div>
+</div>
+@else
+    <div id="left">
+        <div class="menu_scroll m-t-40">
+            <ul id="menu">
+                <!-- /#Directo -->
+                <li class="@if(Request::is('/')) {{ 'active' }} @endif">
+                    <a href="{{route('dashboard.index')}}">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title menu_hide">&nbsp;Inicio</span>
+                    </a>
+                </li>
+                <li class="dropdown_menu @if(Request::is('clients') || Request::is('clients/*') || Request::is('contacts') || Request::is('contacts/*')) {{ 'active' }} @endif">
+                    <a href="javascript:;">
+                        <i class="fa fa-user-tie"></i>
+                        <span class="link-title menu_hide">&nbsp; Clientes</span>
+                        <span class="fa arrow menu_hide"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="{{route('dashboard.clients.index')}}">
+                                <i class="fa fa-angle-right"></i>
+                                &nbsp;Clientes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('dashboard.contacts.index')}}">
+                                <i class="fa fa-angle-right"></i>
+                                &nbsp;Contactos
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown_menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-folder"></i>
+                        <span class="link-title menu_hide">&nbsp; Proyectos</span>
+                        <span class="fa arrow menu_hide"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="">
+                            <a href="{{route('dashboard.projects.index')}}">
+                                <i class="fa fa-angle-right"></i>
+                                &nbsp;Proyectos
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="{{route('dashboard.cotizaciones.index')}}">
+                                <i class="fa fa-angle-right"></i>
+                                &nbsp;Cotizaciones
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="{{route('dashboard.cotizaciones.generate')}}">
+                                <i class="fa fa-angle-right"></i>
+                                &nbsp;Generar Cotización
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{route('dashboard.activities.index')}}">
+                        <i class="fa fa-tasks"></i>
+                        <span class="link-title menu_hide">&nbsp;Actividades</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>@endif
 
-
-
-            <!-- /#Con Submenu y sub submenu -->
+<!-- /#Con Submenu y sub submenu -->
 {{--
             <li class="dropdown_menu">
                 <a href="javascript:;">
@@ -257,8 +327,3 @@
                 </ul>
             </li>
 --}}
-        </ul>
-        <!-- /#menu -->
-    </div>
-</div>
-<!-- /#left -->

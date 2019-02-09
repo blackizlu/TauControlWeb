@@ -129,12 +129,17 @@ Route::domain('dashboard.' . env('APP_DOMAIN'))->middleware('auth')->group(funct
 
     });
 
+    //MODULO BITACORA
     Route::group(['prefix' =>'bitacora'], function (){
         Route::get('/', 'Dashboard\BitacoraController@index')->name('dashboard.bitacora.index');
     });
+
+    //MODULO REPORTES
     Route::group(['prefix' =>'reportes'], function (){
         Route::get('/', 'Dashboard\ReportesController@index')->name('dashboard.reportes.index');
         Route::get('/get/{id}', 'Dashboard\ReportesController@getProjects')->name('reportes.getProjects');
+        Route::get('/get', 'Dashboard\ReportesController@getBarchar')->name('reportes.getBarchar');
+
 
     });
 

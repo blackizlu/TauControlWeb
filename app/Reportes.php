@@ -25,5 +25,4 @@ class Reportes extends Model
         return $this->hasOne(contact::class, 'id', 'contact_id')->withTrashed();
     }
 
-
 }

@@ -1,5 +1,26 @@
 @extends('dashboard.layout')
 @section('content')
+    <style>
+        .ui-select{
+            width: 100%;
+            border:1px solid #aaa;
+            border-radius: 5px;
+            background: linear-gradient(#ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+            font-size: 13px;
+            font-family: "Source Sans Pro", sans-serif;
+            font-weight: 400;
+            color: #282828;}
+
+        /* This is to remove the arrow of select element in IE */
+        select::-ms-expand {	display: none; }
+        select{
+            -webkit-appearance: none;
+        }
+        @-moz-document url-prefix(){
+            .ui-select{border: 1px solid #CCC; border-radius: 4px; box-sizing: border-box; position: relative; overflow: hidden;}
+            .ui-select select { width: 110%; background-position: right 30px center !important; border: none !important;}
+        }
+    </style>
     <header class="head">
         <div class="main-bar">
             <div class="row no-gutters">
@@ -133,7 +154,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-user-tie text-primary"></i>
                                                     </span>
-                                            <select class="form-control " tabindex="7" name="client_id" id="client">
+                                            <select class="form-control ui-select" tabindex="7" name="client_id" id="client">
                                                 <option selected disabled>Selecciona al Cliente</option>
                                                 @foreach($clients as $client)
                                                     <option value="{{ $client->id }}">{{ $client->client_name }}</option>
@@ -151,7 +172,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-user text-primary"></i>
                                                     </span>
-                                            <select class="form-control " tabindex="7" name="contact_id" id="myContacts">
+                                            <select class="form-control ui-select" tabindex="7" name="contact_id" id="myContacts">
                                                 <option selected disabled>Selecciona al contacto</option>
                                             </select>
                                         </div>
@@ -166,7 +187,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-folder text-primary"></i>
                                                     </span>
-                                            <select class="form-control " tabindex="7" name="project_id" id="proyectos">
+                                            <select class="form-control ui-select" tabindex="7" name="project_id" id="proyectos">
                                                 <option selected disabled>Selecciona el proyecto</option>
 
                                             </select>
@@ -232,7 +253,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-clipboard-check text-primary"></i>
                                                     </span>
-                                            <select class="form-control " tabindex="7" name="tipoact_id" id="name1">
+                                            <select class="form-control ui-select" tabindex="7" name="tipoact_id" id="name1">
                                                 <option selected disabled>Selecciona el tipo de actividad</option>
                                                 @foreach($tipoactividad as $tipo)
                                                     <option value="{{ $tipo->id }}">{{ $tipo->name }}</option>
@@ -272,7 +293,7 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-user-friends text-primary"></i>
                                                         </span>
-                                                <select class="form-control chz" tabindex="7" name="user_id">
+                                                <select class="form-control ui-select" tabindex="7" name="user_id">
                                                     <option selected disabled>Selecciona al responsable</option>
                                                     @foreach($users as $user)
                                                         <option value="{{ $user->id }}">{{ $user->profile->name }}</option>

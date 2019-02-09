@@ -30,8 +30,27 @@
 <style>
 canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: none;  }
 </style>
+<style>
+        .ui-select{
+            width: 100%;
+            border:1px solid #aaa;
+            border-radius: 5px;
+            background: linear-gradient(#ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+            font-size: 13px;
+            font-family: "Source Sans Pro", sans-serif;
+            font-weight: 400;
+            color: #282828;}
 
-
+        /* This is to remove the arrow of select element in IE */
+        select::-ms-expand {	display: none; }
+        select{
+            -webkit-appearance: none;
+        }
+        @-moz-document url-prefix(){
+            .ui-select{border: 1px solid #CCC; border-radius: 4px; box-sizing: border-box; position: relative; overflow: hidden;}
+            .ui-select select { width: 110%; background-position: right 30px center !important; border: none !important;}
+        }
+    </style>
 </head>
 
 <body class="body">
@@ -74,11 +93,11 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                         <i class="fa fa-dollar"></i>
                                     </div>
                                     <div>
-                                        <h5 class="sales_orders text-right m-t-5">Ganados</h5>  {{--Widget3.js para modificar los valores a mostrar--}}
+                                        <h5 class="sales_orders text-right m-t-5">Ganados</h5>
                                         <h1 class="sales_number m-t-15 text-right" id="ganados"></h1>
-                                        <p class="sales_text">Monto en MXN: {{number_format($totalmx,2)}}
+                                        <p class="sales_text">Monto en MXN: ${{number_format(\App\Project::sumTipo('Ganado'),2)}}
                                             {{--<span class="pull-right"><i class="fa fa-dollar text-mint font_18 m-r-5"></i>25.25%</span>--}}</p>
-                                        <p class="sales_text">Monto en USD: {{number_format($totalUS,2)}}
+                                        <p class="sales_text">Monto en USD: ${{number_format(\App\Project::sumTipo('Ganado', true),2)}}
                                         </p>
                                     </div>
                                 </div>
@@ -92,8 +111,8 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                     <div>
                                         <h5 class="sales_orders text-right m-t-5">Cotizados</h5>
                                         <h1 class="sales_number m-t-15 text-right" id="cotizados"></h1>
-                                        <p class="sales_text">Monto en MXN: $0.00</p>
-                                        <p class="sales_text">Monto en USD: $0.00</p>
+                                        <p class="sales_text">Monto en MXN: ${{ number_format(\App\Project::sumTipo('cotizado'),2) }}</p>
+                                        <p class="sales_text">Monto en USD: ${{ number_format(\App\Project::sumTipo('cotizado', true),2) }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -106,12 +125,11 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                     <div>
                                         <h5 class="sales_orders text-right m-t-5">Negociación</h5>
                                         <h1 class="sales_number m-t-15 text-right" id="negociados"></h1>
-                                        <p class="sales_text">Monto en MXN: $0.00</p>
-                                        <p class="sales_text">Monto en USD: $0.00</p>
+                                        <p class="sales_text">Monto en MXN: ${{ number_format(\App\Project::sumTipo('negociación'),2) }}</p>
+                                        <p class="sales_text">Monto en USD: ${{ number_format(\App\Project::sumTipo('negociación', true),2)}}</p>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="inner bg-container m-t-15">
@@ -125,8 +143,8 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                     <div>
                                         <h5 class="sales_orders text-right m-t-5">Lead</h5>
                                         <h1 class="sales_number m-t-15 text-right" id="lead"></h1>
-                                        <p class="sales_text">Monto en MXN: $0.00</p>
-                                        <p class="sales_text">Monto en USD: $0.00</p>
+                                        <p class="sales_text">Monto en MXN: ${{ number_format(\App\Project::sumTipo('lead'),2) }}</p>
+                                        <p class="sales_text">Monto en USD: ${{ number_format(\App\Project::sumTipo('lead', true),2) }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -139,8 +157,8 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                     <div>
                                         <h5 class="sales_orders text-right m-t-5">Pricing</h5>
                                         <h1 class="sales_number m-t-15 text-right" id="pricing"></h1>
-                                        <p class="sales_text">Monto en MXN: $0.00</p>
-                                        <p class="sales_text">Monto en USD: $0.00</p>
+                                        <p class="sales_text">Monto en MXN: ${{ number_format(\App\Project::sumTipo('pricing'),2) }}</p>
+                                        <p class="sales_text">Monto en USD: ${{ number_format(\App\Project::sumTipo('pricing', true),2)  }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -153,8 +171,8 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                     <div>
                                         <h5 class="sales_orders text-right m-t-5">Rechazados</h5>
                                         <h1 class="sales_number m-t-15 text-right"><span id="rechazados"></span></h1>
-                                        <p class="sales_text">Monto en MXN: $0.00</p>
-                                        <p class="sales_text">Monto en USD: $0.00</p>
+                                        <p class="sales_text">Monto en MXN: ${{ number_format(\App\Project::sumTipo('rechazados'),2)  }}</p>
+                                        <p class="sales_text">Monto en USD: ${{ number_format(\App\Project::sumTipo('rechazados', true),2)  }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -190,39 +208,39 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                                     <tbody>
                                                     <tr role="row" class="even">
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-file-invoice-dollar text-primary"></i></a>&nbsp;Cotizado</td>
-                                                        <td>{{$Cotizado}}</td>
-                                                        <td>$0.00</td>
-                                                        <td>$0.00</td>
+                                                        <td>{{ App\Project::tipo('cotizado')->count() }}</td>
+                                                        <td>${{number_format(\App\Project::sumTipo('cotizado'),2)}}</td>
+                                                        <td>${{number_format(\App\Project::sumTipo('cotizado', true),2)}}</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-dollar text-success"></i></a>&nbsp;Ganado</td>
-                                                        <td>{{$Ganado}}</td>
-                                                        <td>$79,880.00</td>
-                                                        <td>$0.00</td>
+                                                        <td>{{ App\Project::tipo('ganado')->count() }}</td>
+                                                        <td>${{number_format(\App\Project::sumTipo('Ganado'),2)}}</td>
+                                                        <td>${{number_format(\App\Project::sumTipo('Ganado', true),2)}}</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-bullseye"></i></a>&nbsp;Lead</td>
-                                                        <td>{{$Lead}}</td>
-                                                        <td>$ 0.00</td>
-                                                        <td>$ 0.00</td>
+                                                        <td>{{App\Project::tipo('lead')->count()}}</td>
+                                                        <td>${{number_format(\App\Project::sumTipo('lead'),2)}}</td>
+                                                        <td>${{number_format(\App\Project::sumTipo('lead', true),2)}}</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-handshake-o text-warning"></i></a>&nbsp;Negociación</td>
-                                                        <td>{{$Negociacion}}</td>
-                                                        <td>$ 0.00</td>
-                                                        <td>$0.00</td>
+                                                        <td>{{App\Project::tipo('negociacion')->count()}}</td>
+                                                        <td>${{number_format(\App\Project::sumTipo('negociación'),2)}}</td>
+                                                        <td>${{number_format(\App\Project::sumTipo('negociación', true),2)}}</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-calculator text-muted"></i></a>&nbsp;Pricing</td>
-                                                        <td>{{$Pricing}}</td>
-                                                        <td>$ 0.00</td>
-                                                        <td>$0.00</td>
+                                                        <td>{{App\Project::tipo('pricing')->count()}}</td>
+                                                        <td>${{number_format(\App\Project::sumTipo('pricing'),2)}}</td>
+                                                        <td>${{number_format(\App\Project::sumTipo('pricing', true),2)}}</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-times-circle text-danger"></i></a>&nbsp;Rechazado</td>
-                                                        <td>{{$Rechazado}}</td>
-                                                        <td>$0.00</td>
-                                                        <td>$0.00</td>
+                                                        <td>{{App\Project::tipo('rechazado')->count()}}</td>
+                                                        <td>${{number_format(\App\Project::sumTipo('rechazado'),2)}}</td>
+                                                        <td>${{number_format(\App\Project::sumTipo('rechazado', true),2)}}</td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -244,7 +262,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-search text-primary"></i>
                                                         </span>
-                                                <select class="form-control" tabindex="7" name="user_id" id="user_id">
+                                                <select class="form-control ui-select" tabindex="7" name="user_id" id="user_id">
                                                     <option selected disabled>Buscar por usuario</option>
                                                     @foreach($users as $user)
                                                         <option value="{{ $user->id }}">{{ $user->profile->name }}</option>
@@ -254,37 +272,37 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                                         </div>
                                         <div>
                                             <div>
-                                                <table class="table table-striped table-bordered table-hover dataTable no-footer" id="editabletable2" role="grid">
+                                                <table class="table table-striped table-bordered table-hover dataTable no-footer" role="grid">
                                                     <thead>
                                                     <tr>
                                                         <th >Etapa</th>
                                                         <th>Proyectos</th>
                                                     </tr>
                                                     </thead>
-                                                    <tbody>
+                                                    <tbody id="proyectos">
                                                     <tr>
-                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-file-invoice-dollar text-primary"></i></a>&nbsp;Cotizado</td>
-                                                        <td>0</td>
+                                                        <td><i class="fa fa-file-invoice-dollar text-primary"></i>&nbsp;Cotizado</td>
+                                                        <td id="cotizado"></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-dollar text-success"></i></a>&nbsp;Ganado</td>
-                                                        <td>2</td>
+                                                        <td><i class="fa fa-dollar text-success"></i>&nbsp;Ganado</td>
+                                                        <td id="ganado"></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-bullseye"></i></a>&nbsp;Lead</td>
-                                                        <td>1</td>
+                                                        <td><i class="fa fa-bullseye"></i>&nbsp;Lead</td>
+                                                        <td id="leadd"></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-handshake-o text-warning"></i></a>&nbsp;Negociación</td>
-                                                        <td>0</td>
+                                                        <td><i class="fa fa-handshake-o text-warning"></i>&nbsp;Negociación</td>
+                                                        <td id="negociacion"></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-calculator text-muted"></i></a>&nbsp;Princing</td>
-                                                        <td>20</td>
+                                                        <td><i class="fa fa-calculator text-muted"></i>&nbsp;Princing</td>
+                                                        <td id="pricingg"></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><a class="delete hidden-xs hidden-sm confirm"><i class="fa fa-times-circle text-danger"></i></a>&nbsp;Rechazado</td>
-                                                        <td>12</td>
+                                                        <td><i class="fa fa-times-circle text-danger"></i>&nbsp;Rechazado</td>
+                                                        <td id="rechazado"></td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -357,112 +375,103 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
             prefix: '',
             suffix: ''
         };
-        new CountUp("ganados", 0, '{{$Ganado}}', 0, 5.0, options).start();
-        new CountUp("cotizados", 0, '{{$Cotizado}}', 0, 5.0, options).start();
-        new CountUp("negociados", 0, '{{$Negociacion}}', 0, 5.0, options).start();
-        new CountUp("lead", 0, '{{$Lead}}', 0, 5.0, options).start();
-        new CountUp("pricing", 0, '{{$Pricing}}', 0, 5.0, options).start();
-        new CountUp("rechazados", 0, '{{$Rechazado}}', 0, 5.0, options).start();
+        new CountUp("ganados", 0, '{{App\Project::tipo('ganado')->count()}}', 0, 5.0, options).start();
+        new CountUp("cotizados", 0, '{{App\Project::tipo('cotizado')->count()}}', 0, 5.0, options).start();
+        new CountUp("negociados", 0, '{{App\Project::tipo('negociacion')->count()}}', 0, 5.0, options).start();
+        new CountUp("lead", 0, '{{App\Project::tipo('lead')->count()}}', 0, 5.0, options).start();
+        new CountUp("pricing", 0, '{{App\Project::tipo('pricing')->count()}}', 0, 5.0, options).start();
+        new CountUp("rechazados", 0, '{{App\Project::tipo('rechazado')->count()}}', 0, 5.0, options).start();
 
         var imgHeight=$(".left_align_img").height();
         $(".left_image").css("height",imgHeight);
     });
 </script>
 
-<script>//Script comparativa responsables.
+<script>//Ajax, llena la grafica
+    $(document).ready(function(){
+        {{--var id = [@foreach($users as $user)"{{$user->id}}",@endforeach];--}}
+        {{--var i;--}}
+        {{--var idd = "";--}}
+        {{--for (i = 0; i<id.length; i++){--}}
 
-    // draw background
-    var backgroundColor = 'white';
-    Chart.plugins.register({
-        beforeDraw: function(c) {
-            var ctx = c.chart.ctx;
-            ctx.fillStyle = backgroundColor;
-            ctx.fillRect(0, 0, c.chart.width, c.chart.height);
-        }
-    });
+            {{--idd.replace(idd,idd += id[i]);--}}
+            {{--console.log(idd);--}}
+        {{--}--}}
+       var url = "{{route('reportes.getBarchar')}}";
+        $.get(url ,function (response) {
+            console.log(response);
 
-    var barChartData = {
-        labels: [@foreach($users as $user)'{{$user->profile->name}}', @endforeach],
-        datasets: [{
-            label: 'Ganado',
-            backgroundColor: window.chartColors.success,
-            data: [
-
-                {{$Ganado}},//ganado
-
-            ]
-        },{
-            label: 'Cotizado',
-            backgroundColor: window.chartColors.primary,
-            data: [
-
-                {{$Cotizado}},//cotizado
-
-            ]
-        },
-            {
-            label: 'Negociacion',
-            backgroundColor: window.chartColors.warning,
-            data: [
-
-                {{$Negociacion}},//negociacion
-
-            ]
-        },
-        {
-            label: 'Lead',
-            backgroundColor: window.chartColors.muted,
-            data: [
-
-                {{$Lead}}//lead
-
-            ]
-        },
-        {
-            label: 'Pricing',
-            backgroundColor: window.chartColors.info,
-            data: [
-
-                {{$Pricing}},//pricing
-
-        ]
-        },
-        {
-            label: 'Rechazado',
-            backgroundColor: window.chartColors.danger,
-            data: [
-
-                {{$Rechazado}},//rechazado
-
-        ]
-        }]
-
-    };//datos para la grafica
-    window.onload = function() {
-        var ctx = document.getElementById('canvas').getContext('2d');
-        window.myBar = new Chart(ctx, {
-            type: 'bar',
-            data: barChartData,
-            options: {
-                tooltips: {
-                    mode: 'index',
-                    intersect: false
-                },
-                responsive: true,
-                scales: {
-                    xAxes: [{
-                        stacked: false
-                    }],
-                    yAxes: [{
-                        stacked: false,
-                        ticks: {
-                            beginAtZero: true//para comenzar la numeracion en Y desde 0 y subira hasta el multiplo de 10 proximo al valor mas alto
-                        }
-                    }]
+            // dibujar fondo
+            var backgroundColor = 'white';
+            Chart.plugins.register({
+                beforeDraw: function(c) {
+                    var ctx = c.chart.ctx;
+                    ctx.fillStyle = backgroundColor;
+                    ctx.fillRect(0, 0, c.chart.width, c.chart.height);
                 }
-            }
+            });
+
+            var barChartData = {
+                labels: [@foreach($users as $user)'{{$user->profile->name}}', @endforeach],
+                datasets: [{
+                    label: 'Ganado',
+                    backgroundColor: window.chartColors.success,
+                    data: response.grafica.ganado
+                },{
+                    label: 'Cotizado',
+                    backgroundColor: window.chartColors.primary,
+                    data: response.grafica.cotizado
+                },
+                    {
+                        label: 'Negociacion',
+                        backgroundColor: window.chartColors.warning,
+                        data: response.grafica.negociacion
+                    },
+                    {
+                        label: 'Lead',
+                        backgroundColor: window.chartColors.muted,
+                        data: response.grafica.lead
+                    },
+                    {
+                        label: 'Pricing',
+                        backgroundColor: window.chartColors.info,
+                        data: response.grafica.pricing
+                    },
+                    {
+                        label: 'Rechazado',
+                        backgroundColor: window.chartColors.danger,
+                        data: response.grafica.rechazado
+                    }]
+
+            };//datos para la grafica
+            window.onload = function() {
+                var ctx = document.getElementById('canvas').getContext('2d');
+                window.myBar = new Chart(ctx, {
+                    type: 'bar',
+                    data: barChartData,
+                    options: {
+                        tooltips: {
+                            mode: 'index',
+                            intersect: false
+                        },
+                        responsive: true,
+                        scales: {
+                            xAxes: [{
+                                stacked: false
+                            }],
+                            yAxes: [{
+                                stacked: false,
+                                ticks: {
+                                    beginAtZero: true//para comenzar la numeracion en Y desde 0 y subira hasta el multiplo de 10 proximo al valor mas alto
+                                }
+                            }]
+                        }
+                    }
+                });
+            };
         });
-    };
+
+    });
 
     $("#downloadgrafica").click(function() {
         var canvas = document.getElementById("canvas");
@@ -472,7 +481,7 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
         });
     });
 
-    'use strict';
+    'use strict';//Todos los proyectos y proyectos por usuarios.
     $(document).ready(function() {
         var table = $('#editable_table');
         table.DataTable({
@@ -498,60 +507,10 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
                     sPrevious: "Anterior"
                 },
                 sEmptyTable: "No se encontraron registros",
-                sLengthMenu: "Mostrar _MENU_ Registros",
+                sLengthMenu: "Mostrar _MENU_ Registros"
 
             }
         });
-        var tableWrapper = $("#editable_table_wrapper");
-        tableWrapper.find(".dataTables_length select").select2({
-            showSearchInput: false//hide search box with special css class
-        }); // initialize select2 dropdown
-        $("#editable_table_wrapper .dt-buttons .btn").addClass('btn-secondary').removeClass('btn-default');
-    });
-    'use strict';
-    $(document).ready(function() {
-        var table = $('#editabletable2');
-        table.DataTable({
-            dom:"<'text-left'B><f>lr<'table-responsive't><'row'<'col-md-5 col-12'i><'col-md-7 col-12'p>>",
-            buttons: false,
-            ordering: false,
-            bPaginate: false,
-            bInfo: false,
-            searching: false,
-            oLanguage: {
-                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
-                sInfoEmpty: "No hay registros a mostrar",
-                sInfoFiltered: "",
-                sZeroRecords: "Ningún registro para mostrar",
-                sSearch: "Buscar:",
-                oPaginate: {
-                    sFirst: "Primera Página",
-                    sLast: "Última Página",
-                    sNext: "Siguiente",
-                    sPrevious: "Anterior"
-                },
-                sEmptyTable: "No se encontraron registros",
-                sLengthMenu: "Mostrar _MENU_ Registros",
-
-            }
-        });
-        $("#user_id").change((function (event) {
-            var id = event.target.value;
-            var url = "{{ route('reportes.getProjects', ':D') }}";
-            url = url.replace(':D', id);
-            $.get(url ,function (response) {
-                console.log(response);
-                $("#proyectos ").empty();
-                for(i=0; i<response.projects.length; i++){
-                    $("#proyectos").append("<option  value='"+response.projects[i].id+"'>"+response.projects[i].name+"</option>");
-                }
-                $("#myContacts ").empty();
-                for(i=0; i<response.contacts.length; i++){
-                    $("#myContacts").append("<option value='"+response.contacts[i].id+"'>"+response.contacts[i].contact_name+"</option>");
-                }
-            });
-
-        }));
         var tableWrapper = $("#editable_table_wrapper");
         tableWrapper.find(".dataTables_length select").select2({
             showSearchInput: false//hide search box with special css class
@@ -560,21 +519,20 @@ canvas {  -moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: 
 
     });
 </script>
-<script>//Obtener conteo de proyectos por usuario(?)
-    $("#client").change((function (event) {
+<script>
+    $("#user_id").change((function (event) {
         var id = event.target.value;
-        var url = "{{ route('activities.getContacts', ':D') }}";
+        var url = "{{ route('reportes.getProjects', ':D') }}";
         url = url.replace(':D', id);
         $.get(url ,function (response) {
             console.log(response);
-            $("#proyectos ").empty();
-            for(i=0; i<response.projects.length; i++){
-                $("#proyectos").append("<option  value='"+response.projects[i].id+"'>"+response.projects[i].name+"</option>");
-            }
-            $("#myContacts ").empty();
-            for(i=0; i<response.contacts.length; i++){
-                $("#myContacts").append("<option value='"+response.contacts[i].id+"'>"+response.contacts[i].contact_name+"</option>");
-            }
+            $('#cotizado').html(response.projects.cotizado);
+            $('#ganado').html(response.projects.ganado);
+            $('#leadd').html(response.projects.lead);
+            $('#negociacion').html(response.projects.negociacion);
+            $('#pricingg').html(response.projects.pricing);
+            $('#rechazado').html(response.projects.rechazado);
+
         });
 
     }));

@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class Project extends Model
 {
+    use SoftDeletes;
+
+    protected $table = 'projects';
     protected $fillable = ['name', 'phase', 'estimated_date', 'user_id','client_id', 'comments', 'docs', 'approved_docs','contact_id'];
 
     public function user()
@@ -56,10 +59,19 @@ class Project extends Model
         return $this->cotizacion()->orderBy('id', 'desc')->first();
     }
 
+    //scopes se definen antemponiendo la pablaara scope y despues el nombre del scope
+    //este scope recibe un parametro para que sea dinamico en el tipo ah tambien recibe como parametro principal el query
+    public function scopeTipo($query, $type)
+    {
+        return $query->where('phase', $type);
+    }
 
+    public function scopeSumTipo($query, $type, $usd = false)
+    {
+        return $query->tipo($type)->with('cotizacion' )->get()->sum(function ($projects) use($usd) {
+            return $usd ? $projects->cotizacion->where('currency', 'USD')->sum('amount') : $projects->cotizacion->where('currency', 'MXN')->sum('amount');
+        });
+    }
 
-    use SoftDeletes;
-
-    protected $table = 'projects';
 
 }
