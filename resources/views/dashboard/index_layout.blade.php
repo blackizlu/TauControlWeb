@@ -97,9 +97,15 @@
                 hora: '{{\Carbon\Carbon::parse($event->time)->format('G:i')}}',
                 hora2:'{{$event->Date}}',
                 fulldate: '{{\Carbon\Carbon::parse($event->start)->format('d/m/Y')}} {{\Carbon\Carbon::parse($event->time)->format('g:i A')}}',
-            backgroundColor: '@if($event->completed == '1'){{'#737373'}} @else{{$event->tipoactividad->color}}@endif'
-            },@endforeach],
+            backgroundColor: '@if($event->completed == '1'){{'#737373'}}@else{{$event->tipoactividad->color}}@endif'
+            },@endforeach], {{--@elseif($event->completed == '0' && $event->Fechaend  $event->Fechahoy){{'#000'}}--}}
 
+//Si el evento ya paso y no fue marcado como completado habrá que cambiarle a otro color para hacerlo notar
+
+            eventRender: function (evento, elmt) {
+                //Se supone que esto cambiara el color pero no funciona hasta ahora.
+            },
+            
             eventClick: function(evento, jsEvent, view) {
                 console.log(evento);
                 $("#event_title").val(evento.title);

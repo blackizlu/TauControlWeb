@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Activities;
+use App\Bitacora;
 use App\Client;
 use App\contact;
 use App\Project;
@@ -10,6 +11,7 @@ use App\tipoActividad;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 
 class ActivitiesController extends Controller
 {
@@ -45,6 +47,9 @@ class ActivitiesController extends Controller
         $activity = new Activities($data);
         $activity->completed = $request->has('completed') ? 1 : 0;
         $activity->save();
+
+        $registro = new Bitacora($data)
+
 
         return redirect()->route('dashboard.activities.index');
 

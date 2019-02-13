@@ -74,7 +74,7 @@
                                     </div>
                                     <div class="col-lg-4 input_field_sections">
                                         <h5>Contacto*</h5>
-                                        <select class="form-control selectui-" tabindex="2" name="contact_id" id="myContacts">
+                                        <select class="form-control ui-select" tabindex="2" name="contact_id" id="myContacts">
                                             <option selected disabled>Selecciona un cliente</option>
                                         </select>
                                     </div>

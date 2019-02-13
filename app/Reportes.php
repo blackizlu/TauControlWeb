@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Reportes extends Model
@@ -24,5 +25,7 @@ class Reportes extends Model
     {
         return $this->hasOne(contact::class, 'id', 'contact_id')->withTrashed();
     }
+
+
 
 }

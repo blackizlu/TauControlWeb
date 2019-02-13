@@ -1,161 +1,99 @@
-<!doctype html>
-<html class="no-js" lang="en">
+@extends('dashboard.layout')
+@section('content')
+    <style>
+        .ui-select{
+            width: 100%;
+            border:1px solid #aaa;
+            border-radius: 5px;
+            background: linear-gradient(#ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+            font-size: 13px;
+            font-family: "Source Sans Pro", sans-serif;
+            font-weight: 400;
+            color: #282828;}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Tau Control</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="img/logo1.ico"/>
-
-    <!-- global styles-->
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/components.css" />
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/custom.css" />
-    <link type="text/css" rel="stylesheet" href="#" id="skin_change"/>
-    <!-- end of global styles-->
-
-    <!--plugin styles Datatables-->
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/select2.min.css" />
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/scroller.bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/colReorder.bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/dataTables.bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/dataTables.bootstrap.css" />
-    <!-- end of plugin styles -->
-    <!--Page level styles-->
-    <link type="text/css" rel="stylesheet" href="/css/dashboard/tables.css" />
-
-    <!-- end of plugin styles -->
-
-</head>
-
-<body class="body">
-<div id="wrap">
-    @include('dashboard.partials.topbar')
-    <div class="wrapper">
-        @include('dashboard.partials.sidebar')
-        <div id="content" class="bg-container">
-            <div id="content" class="bg-container">
-                <header class="head">
-                    <div class="main-bar">
-                        <div class="row no-gutters">
-                            <div class="col-lg-6 col-md-4 col-sm-4">
-                                <h4 class="nav_top_align">
-                                    <i class="fa fa-clipboard"></i>
-                                    Bitacora
-                                </h4>
-                            </div>
-                            <div class="col-lg-6 col-md-8 col-sm-8">
-                                <ol class="breadcrumb float-right nav_breadcrumb_top_align">
-                                    <li class="breadcrumb-item">
-                                        <a href="index1.html">
-                                            <i class="fa fa-home" data-pack="default" data-tags=""></i> Inicio
-                                        </a>
-                                    </li>
-
-                                    <li class="breadcrumb-item active">Bitacora</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </header>
-                <div class="outer">
-                    <div class="inner bg-light lter bg-container">
-                        <div class="row">
-                            <div class="col-12 data_tables">
-                                <div class="card
-">
-                                    <div class="card-header bg-white">
-                                        <i class="fa fa-table"></i> Registro de acciones
-                                    </div>
-                                    <div class="card-block m-t-35">
-                                        <table id="example3" class="display table table-stripped table-bordered">
-                                            <thead>
-                                            <tr>
-                                                <th>Proyecto</th>
-                                                <th>Etapa</th>
-                                                <th>Responsable</th>
-                                                <th>Fecha de actualización</th>
-                                                <th>Actualizado por</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                            </thead>
-                                            <tfoot>
-                                            <tr>
-                                                <th>Proyecto</th>
-                                                <th>Etapa</th>
-                                                <th>Responsable</th>
-                                                <th>Fecha de actualización</th>
-                                                <th>Actualizado por</th>
-                                                <th hidden></th>
-                                            </tr>
-                                            </tfoot>
-                                            <tbody>
-                                            <tr>
-                                                <td>Casas Geo</td>
-                                                <td>Lead</td>
-                                                <td>Luis Castellanos</td>
-                                                <td>5/12/2018 20:14:43</td>
-                                                <td>Christian Marcos</td>
-                                                <td><a href="" data-toggle="tooltip" data-placement="top" title="View User">
-                                                        <i class="fa fa-eye text-success"></i></a>
-                                                    &nbsp; &nbsp;
-                                                    <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="">
-                                                        <i class="fa fa-pencil-alt text-warning"></i></a>
-                                                    &nbsp; &nbsp;
-                                                    <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="">
-                                                        <i class="fa fa-trash text-danger"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Antigua Barilla</td>
-                                                <td>Ganado</td>
-                                                <td>Giovanny Niño</td>
-                                                <td>8/12/2018 11:32:07</td>
-                                                <td>Christian Marcos</td>
-                                                <td><a href="" data-toggle="tooltip" data-placement="top" title="View User">
-                                                        <i class="fa fa-eye text-success"></i></a>
-                                                    &nbsp; &nbsp;
-                                                    <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="">
-                                                        <i class="fa fa-pencil-alt text-warning"></i></a>
-                                                    &nbsp; &nbsp;
-                                                    <a class="delete hidden-xs hidden-sm confirm" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="">
-                                                        <i class="fa fa-trash text-danger"></i></a></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        /* This is to remove the arrow of select element in IE */
+        select::-ms-expand {	display: none; }
+        select{
+            -webkit-appearance: none;
+        }
+        @-moz-document url-prefix(){
+            .ui-select{border: 1px solid #CCC; border-radius: 4px; box-sizing: border-box; position: relative; overflow: hidden;}
+            .ui-select select { width: 110%; background-position: right 30px center !important; border: none !important;}
+        }
+    </style>
+    <header class="head">
+        <div class="main-bar">
+            <div class="row no-gutters">
+                <div class="col-sm-5 col-lg-6 skin_txt">
+                    <h4 class="nav_top_align"><i class="fa fa-clipboard"></i>
+                        Bitacora
+                    </h4>
+                </div>
+                <div class="col-sm-7 col-lg-6">
+                    <ol class="breadcrumb float-right nav_breadcrumb_top_align">
+                        <li class="breadcrumb-item">
+                            <a href="{{route('dashboard.index')}}">
+                                <i class="fa fa-home" data-pack="default" data-tags=""></i>
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="active breadcrumb-item">Bitacora</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="outer">
+        <div class="inner bg-container">
+            <div class="card">
+                <div class="card-header bg-white">
+                    Lista de actividades
+                </div>
+                <div class="card-block">
+                    <div>
+                        <table id="example_demo" class="table display nowrap">
+                            <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Accion</th>
+                                <th>Fecha y hora</th>
+                                <th>Tipo de actividad</th>
+                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td>Luis Martinez</td>
+                                    <td>Creó un nuevo proyecto "Antigua Barilla"</td>
+                                    <td>el 12/02/2019 17:07 PM</td>
+                                    <td>Algo</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- global scripts-->
-<script type="text/javascript" src="/js/dashboard/components.js"></script>
-<script type="text/javascript" src="/js/dashboard/custom.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-<!-- end of global scripts-->
+@endsection
 
-<script type="text/javascript" src="/js/dashboard/select2.js"></script>
-<script type="text/javascript" src="/js/dashboard/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/dataTables.tableTools.js"></script>
-<script type="text/javascript" src="/js/dashboard/dataTables.colReorder.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/dataTables.bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/dataTables.buttons.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/dataTables.responsive.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/dataTables.rowReorder.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/buttons.colVis.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/buttons.html5.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/buttons.bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/buttons.print.min.js"></script>
-<script type="text/javascript" src="/js/dashboard/dataTables.scroller.min.js"></script>
-<!-- end of plugin scripts -->
-<!--Page level scripts-->
-<script type="text/javascript" src="/js/dashboard/simple_datatables.js"></script>
+@section('scripts')
+    <script>
+        $('#example_demo').DataTable({
+            oLanguage: {
+                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+                sInfoEmpty: "No hay registros a mostrar",
+                sInfoFiltered: "",
+                sZeroRecords: "Ningún registro para mostrar",
+                sSearch: "Buscar:",
+                oPaginate: {
+                    sFirst: "Primera Página",
+                    sLast: "Última Página",
+                    sNext: "Siguiente",
+                    sPrevious: "Anterior"
+                },
+                sEmptyTable: "No se encontraron registros",
+                sLengthMenu: "Mostrar _MENU_ Registros"
 
-</body>
-
-</html>
+            }
+        });
+    </script>
+@endsection

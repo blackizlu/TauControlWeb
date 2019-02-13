@@ -12,7 +12,6 @@ class ReportesController extends Controller
     public function index(){
 
         $users = User::all();
-
         return view('dashboard.reportes.index', compact('users'));
     }
 
@@ -86,7 +85,7 @@ class ReportesController extends Controller
                 $unegociacion = 0;
                 $upricing = 0;
                 $uRechazado = 0;
-                array_push($names, $user->name);
+                array_push($names, $user->profile->name);
 
                 foreach ($user->projects as $projects) {
                     switch ($projects->phase) {
