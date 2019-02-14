@@ -25,6 +25,62 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!--- responsive model Ver Actividad-->
+    <div class="modal fade" id="evt_modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">
+                        <i class="fa fa-calendar"></i>
+                        Actividad
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 input_field_sections">
+                            <h5>Evento:</h5>
+                            <input type="text"id="event_title" value="read only" readonly class="form-control">
+                        </div>
+                        <div class="col-lg-6 input_field_sections">
+                            <h5>Cliente:</h5>
+                            <input type="text"id="cliente" value="read only" readonly class="form-control">
+                        </div>
+                        <div class="col-lg-6 input_field_sections">
+                            <h5>Contacto:</h5>
+                            <input type="text"id="contacto" value="read only" readonly class="form-control">
+                        </div>
+                        {{--<div class="col-lg-6 input_field_sections">
+                            <h5>Fecha:</h5>
+                            <input type="text"id="start" value="read only" readonly class="form-control">
+                        </div>--}}
+                        <div class="col-lg-6 input_field_sections">
+                            <h5>Fecha y hora:</h5>
+                            <input type="text"id="hora" value="read only" readonly class="form-control">
+                        </div>
+                        <div class="col-lg-12 input_field_sections">
+                            <h5>Comentarios:</h5>
+                            <textarea type="text"id="comentario" value="read only"  rows="3" readonly class="form-control"></textarea>
+                        </div>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary float-right" data-dismiss="modal">
+                        Cerrar
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+@endsection
+
+<!--- Tarjetas para cada usuario  -->
+
+{{--
         <div class="outer m-t-15">
             <div class="inner bg-container m-t-15">
                 <div class="row sales_section m-t-5">
@@ -35,10 +91,14 @@
                                     <i class="fa fa-dollar"></i>
                                 </div>
                                 <div>
-                                    <h5 class="sales_orders text-right m-t-5">Ganados</h5>  {{--Widget.js para modificar los valores a mostrar--}}
+                                    <h5 class="sales_orders text-right m-t-5">Ganados</h5>  --}}
+{{--Widget.js para modificar los valores a mostrar--}}{{--
+
                                     <h1 class="sales_number m-t-15 text-right" id="ganados"></h1>
                                     <p class="sales_text">Monto en MXN: $593,381.20
-                                        {{--<span class="pull-right"><i class="fa fa-dollar text-mint font_18 m-r-5"></i>25.25%</span>--}}</p>
+                                        --}}
+{{--<span class="pull-right"><i class="fa fa-dollar text-mint font_18 m-r-5"></i>25.25%</span>--}}{{--
+</p>
                                     <p class="sales_text">Monto en USD: $361,413.65
                                     </p>
                                 </div>
@@ -98,7 +158,7 @@
                                     <h5 class="sales_orders text-right m-t-5">Pricing</h5>
                                     <h1 class="sales_number m-t-15 text-right" id="pricing"></h1>
                                     <p class="sales_text">Monto en MXN: $0.00</p>
-                                    <p class="sales_text">Monto en USD: $$912,680.26</p>
+                                    <p class="sales_text">Monto en USD: $912,680.26</p>
                                 </div>
                             </div>
                         </div>
@@ -119,56 +179,5 @@
                     </div>
             </div>
         </div>
-    </div>
-
-    <!--- responsive model Ver Actividad-->
-    <div class="modal fade" id="evt_modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">
-                        <i class="fa fa-calendar"></i>
-                        Actividad
-                    </h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-6 input_field_sections">
-                            <h5>Evento:</h5>
-                            <input type="text"id="event_title" value="read only" readonly class="form-control">
-                        </div>
-                        <div class="col-lg-6 input_field_sections">
-                            <h5>Cliente:</h5>
-                            <input type="text"id="cliente" value="read only" readonly class="form-control">
-                        </div>
-                        <div class="col-lg-6 input_field_sections">
-                            <h5>Contacto:</h5>
-                            <input type="text"id="contacto" value="read only" readonly class="form-control">
-                        </div>
-                        {{--<div class="col-lg-6 input_field_sections">
-                            <h5>Fecha:</h5>
-                            <input type="text"id="start" value="read only" readonly class="form-control">
-                        </div>--}}
-                        <div class="col-lg-6 input_field_sections">
-                            <h5>Fecha y hora:</h5>
-                            <input type="text"id="hora" value="read only" readonly class="form-control">
-                        </div>
-                        <div class="col-lg-12 input_field_sections">
-                            <h5>Comentarios:</h5>
-                            <textarea type="text"id="comentario" value="read only"  rows="3" readonly class="form-control"></textarea>
-                        </div>
-                    </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary float-right" data-dismiss="modal">
-                        Cerrar
-                        <i class="fa fa-times"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-@endsection
+--}}
 

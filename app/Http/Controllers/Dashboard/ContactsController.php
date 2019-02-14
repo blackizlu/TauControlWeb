@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\dashboard;
 
+use App\Bitacora;
 use App\Client;
 use App\contact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class ContactsController extends Controller
@@ -37,6 +40,14 @@ class ContactsController extends Controller
         $contact = new Contact($data);
         $contact->save();
 
+        $registro = new Bitacora();
+        $registro->user_id = Auth::user()->id;
+        $registro->contact_id = $contact->id;
+        $registro->modulo = 'Contactos';
+        $registro->message = 'añadió el contacto ';
+        $registro->type = 'create';
+        $registro->save();
+
         $message = 'Contacto creado con éxito';
         Session::flash('message', $message);
         return redirect()->route('dashboard.contacts.index');
@@ -57,6 +68,14 @@ class ContactsController extends Controller
         $contact->fill($request->all());
         $contact->update();
 
+        $registro = new Bitacora();
+        $registro->user_id = Auth::user()->id;
+        $registro->contact_id = $contact->id;
+        $registro->modulo = 'Contactos';
+        $registro->message = 'editó el contacto ';
+        $registro->type = 'update';
+        $registro->save();
+
 
         $message = 'Contacto actualizado con éxito';
         Session::flash('message', $message);
@@ -67,6 +86,14 @@ class ContactsController extends Controller
     public function destroy($id){
         $contact = Contact::findOrFail($id);
         $contact->delete();
+
+        $registro = new Bitacora();
+        $registro->user_id = Auth::user()->id;
+        $registro->contact_id = $contact->id;
+        $registro->modulo = 'Contactos';
+        $registro->message = 'eliminó el contacto ';
+        $registro->type = 'delete';
+        $registro->save();
 
         return response()->json([
             'success' => true

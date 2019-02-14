@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Activities;
+use App\Bitacora;
 use App\Client;
 use App\tipoActividad;
 use App\tipoCliente;
@@ -10,6 +11,7 @@ use App\User;
 use App\Contact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class ClientsController extends Controller
@@ -62,6 +64,15 @@ class ClientsController extends Controller
         $contact->client_id = $client->id;
         $contact->save();
 
+        $registro = new Bitacora();
+        $registro->user_id = Auth::user()->id;
+        $registro->client_id = $client->id;
+        $registro->modulo = 'Clientes';
+        $registro->message = 'creó el cliente';
+        $registro->type = 'create';
+        $registro->save();
+
+
         $message = 'Cliente creado con éxito';
         Session::flash('message', $message);
 
@@ -83,6 +94,14 @@ class ClientsController extends Controller
         $client->fill($request->all());
         $client->update();
 
+        $registro = new Bitacora();
+        $registro->user_id = Auth::user()->id;
+        $registro->client_id = $client->id;
+        $registro->modulo = 'Clientes';
+        $registro->message = 'editó el cliente';
+        $registro->type = 'update';
+        $registro->save();
+
 
         $message = 'Cliente actualizado con éxito';
         Session::flash('message', $message);
@@ -93,6 +112,14 @@ class ClientsController extends Controller
     public function destroy($id){
         $client = Client::findOrFail($id);
         $client->delete();
+
+        $registro = new Bitacora();
+        $registro->user_id = Auth::user()->id;
+        $registro->client_id = $client->id;
+        $registro->modulo = 'Clientes';
+        $registro->message = 'eliminó el cliente';
+        $registro->type = 'create';
+        $registro->save();
 
         return response()->json([
             'success' => true

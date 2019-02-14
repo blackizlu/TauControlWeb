@@ -30,6 +30,11 @@ class User extends Authenticatable
         return $this->hasMany(Project::class, 'user_id', 'id');
     }
 
+    public function bitacora()
+    {
+        return $this->hasMany(Bitacora::class, 'user_id', 'id');
+    }
+
     public function setPasswordAttribute($password)
     {
         if (!empty($password))

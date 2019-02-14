@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\dashboard;
 
+use App\Bitacora;
 use App\Category;
 use App\Client;
 use App\cotizaciones;
@@ -11,6 +12,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 class CotizacionesController extends Controller
 {
@@ -50,6 +53,14 @@ class CotizacionesController extends Controller
         $cotizacion->sold = $request->has('sold') ? 1 : 0;
         $cotizacion->save();
 
+        $registro = new Bitacora();
+        $registro->user_id = Auth::user()->id;
+        $registro->invoice_id = $cotizacion->id;
+        $registro->modulo = 'Cotizaciones';
+        $registro->message = 'añadió una cotización al proyecto ';
+        $registro->type = 'create';
+        $registro->save();
+
 
 
         $message = 'Cotización creada con éxito';
@@ -72,6 +83,14 @@ class CotizacionesController extends Controller
         $cotizacion = cotizaciones::findOrFail($id);
         $cotizacion->fill($request->all());
         $cotizacion->update();
+
+        $registro = new Bitacora();
+        $registro->user_id = Auth::user()->id;
+        $registro->invoice_id = $cotizacion->id;
+        $registro->modulo = 'Cotizaciones';
+        $registro->message = 'editó la cotización del proyecto ';
+        $registro->type = 'update';
+        $registro->save();
 
 
         $message = 'Cotizacion actualizada con éxito';
@@ -100,6 +119,14 @@ class CotizacionesController extends Controller
 /*        Storage::delete('cotizacion/'. $fileName);*/
 
         $cotizacion->delete();
+
+        $registro = new Bitacora();
+        $registro->user_id = Auth::user()->id;
+        $registro->invoice_id = $cotizacion->id;
+        $registro->modulo = 'Cotizaciones';
+        $registro->message = 'eliminó la cotización del proyecto ';
+        $registro->type = 'delete';
+        $registro->save();
 
         return response()->json([
             'success' => true

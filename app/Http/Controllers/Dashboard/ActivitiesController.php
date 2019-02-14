@@ -11,7 +11,7 @@ use App\tipoActividad;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class ActivitiesController extends Controller
 {
@@ -48,7 +48,15 @@ class ActivitiesController extends Controller
         $activity->completed = $request->has('completed') ? 1 : 0;
         $activity->save();
 
-        $registro = new Bitacora($data)
+        $registro = new Bitacora();
+        $registro->user_id = Auth::user()->id;
+        $registro->activity_id = $activity->id;
+        $registro->modulo = 'Actividades';
+        $registro->message = 'creó la actividad ';
+        $registro->type = 'create';
+        $registro->save();
+
+
 
 
         return redirect()->route('dashboard.activities.index');
@@ -76,6 +84,14 @@ class ActivitiesController extends Controller
         $activity->completed = $request->has('completed') ? 1 : 0;
         $activity->update();
 
+        $registro = new Bitacora();
+        $registro->user_id = Auth::user()->id;
+        $registro->activity_id = $activity->id;
+        $registro->modulo = 'Actividades';
+        $registro->message = 'editó una actividad ';
+        $registro->type = 'update';
+        $registro->save();
+
 
         return redirect()->route('dashboard.activities.index');
     }
@@ -83,6 +99,14 @@ class ActivitiesController extends Controller
     public function destroy($id){
         $activity = Activities::findOrFail($id);
         $activity->delete();
+
+        $registro = new Bitacora();
+        $registro->user_id = Auth::user()->id;
+        $registro->activity_id = $activity->id;
+        $registro->modulo = 'Actividades';
+        $registro->message = 'eliminó ls actividad ';
+        $registro->type = 'delete';
+        $registro->save();
 
         return response()->json([
             'success' => true

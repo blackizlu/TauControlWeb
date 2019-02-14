@@ -51,21 +51,29 @@
                 </div>
                 <div class="card-block">
                     <div>
-                        <table id="example_demo" class="table display nowrap">
+                        <table id="example_demo" class="table display nowrap table-striped">
                             <thead>
                             <tr>
                                 <th>Usuario</th>
                                 <th>Accion</th>
-                                <th>Fecha y hora</th>
-                                <th>Tipo de actividad</th>
+                                <th>Fecha y hora del evento</th>
                             </tr>
-                            <tbody>
+                            <tbody>@foreach($registros as $registro)
                                 <tr>
-                                    <td>Luis Martinez</td>
-                                    <td>Creó un nuevo proyecto "Antigua Barilla"</td>
-                                    <td>el 12/02/2019 17:07 PM</td>
-                                    <td>Algo</td>
-                                </tr>
+                                    <td>{{$registro->user->profile->full_name}}</td>
+                                    <td>@if($registro->client_id != ''){{$registro->message}} <strong>{{$registro->client->client_name}}</strong>
+                                        @elseif($registro->contact_id != ''){{$registro->message}} <strong>{{$registro->contact->contact_name}}</strong>{{' del cliente '}}<strong>{{$registro->contact->client->client_name}}</strong>
+                                        @elseif($registro->project_id != '' and $registro->type == 'create'){{$registro->message}}{{' '}}<strong>{{$registro->project->name}}</strong>{{' '}}<strong>{{$registro->project->phase}}</strong>{{' del cliente '}}<strong>{{ $registro->project->client->client_name}}</strong>
+                                        @elseif($registro->project_id != '' and $registro->type == 'update'){{$registro->message}}{{' '}}<strong>{{$registro->project->name}}</strong>{{' del cliente '}}<strong>{{ $registro->project->client->client_name}}</strong>{{' a la fase '}}<strong>{{$registro->project->phase}}</strong>
+                                        @elseif($registro->project_id != '' and $registro->type == 'delete'){{$registro->message}}{{' '}}<strong>{{$registro->project->name}}</strong>{{' del cliente '}}<strong>{{ $registro->project->client->client_name}}</strong>
+                                        @elseif($registro->invoice_id != ''){{$registro->message}}{{' '}}<strong>{{$registro->invoice->project->name}}</strong>{{' del cliente '}}<strong>{{$registro->invoice->project->client->client_name}}</strong>
+                                        @elseif($registro->activity_id != ''and $registro->type == 'create'){{$registro->message}}{{' '}}<strong>{{$registro->activity->tipoactividad->name}}</strong>{{' para el proyecto '}}<strong>{{ $registro->activity->project->name}}</strong>{{' del cliente '}}<strong>{{ $registro->activity->client->client_name}}</strong>
+                                        @elseif($registro->activity_id != ''and $registro->type == 'update'){{$registro->message}}{{' '}}{{' del proyecto '}}<strong>{{ $registro->activity->project->name}}</strong>{{' a ' }}<strong>{{$registro->activity->tipoactividad->name}}</strong>
+                                        @elseif($registro->activity_id != ''and $registro->type == 'delete'){{$registro->message}}{{' '}}<strong>{{$registro->activity->tipoactividad->name}}</strong>{{' del proyecto '}}<strong>{{ $registro->activity->project->name}}</strong>
+
+                                        @endif</td>
+                                    <td>el {{\Carbon\Carbon::parse($registro->created_at)->format('d/m/Y h:i A')}}</td>
+                                </tr>@endforeach
                             </tbody>
                         </table>
                     </div>

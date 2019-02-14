@@ -4,6 +4,7 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Activities;
 use App\ApprovedDocs;
+use App\Bitacora;
 use App\Client;
 use App\contact;
 use App\cotizaciones;
@@ -11,14 +12,13 @@ use App\Docs;
 use App\Project;
 use App\tipoCliente;
 use App\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProjectsController extends Controller
 {
@@ -73,6 +73,14 @@ class ProjectsController extends Controller
         $project = new Project ($data);
         $project->save();
 
+        $registro = new Bitacora();
+        $registro->user_id = Auth::user()->id;
+        $registro->project_id = $project->id;
+        $registro->modulo = 'Proyectos';
+        $registro->message = 'creó el proyecto ';
+        $registro->type = 'create';
+        $registro->save();
+
         $message = 'Proyecto creado con éxito';
         Session::flash('message', $message);
 
@@ -103,6 +111,14 @@ class ProjectsController extends Controller
         $projects->fill($request->all());
         $projects->update();
 
+        $registro = new Bitacora();
+        $registro->user_id = Auth::user()->id;
+        $registro->project_id = $projects->id;
+        $registro->modulo = 'Proyectos';
+        $registro->message = 'actualizó el proyecto ';
+        $registro->type = 'update';
+        $registro->save();
+
 
         $message = 'Contacto actualizado con éxito';
         Session::flash('message', $message);
@@ -112,6 +128,14 @@ class ProjectsController extends Controller
     public function destroy($id){
         $projects = Project::findOrFail($id);
         $projects->delete();
+
+        $registro = new Bitacora();
+        $registro->user_id = Auth::user()->id;
+        $registro->project_id = $projects->id;
+        $registro->modulo = 'Proyectos';
+        $registro->message = 'elimió el proyecto ';
+        $registro->type = 'delete';
+        $registro->save();
 
         return response()->json([
             'success' => true

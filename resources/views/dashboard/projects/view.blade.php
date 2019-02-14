@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="col-lg-2 input_field_sections">
                                         <h6>Monto</h6>
-                                        <h5 class="m-t-5">${{ $project->last_invoice != '' ? $project->last_invoice->amount : ''}}</h5>
+                                        <h5 class="m-t-5">${{ number_format($project->last_invoice != '' ? $project->last_invoice->amount : '', 2)}}</h5>
                                     </div>
                                     <div class="col-lg-2 input_field_sections">
                                         <h6>Moneda</h6>
